@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :moderators
   root to: 'home#index'
   devise_for :users
 
