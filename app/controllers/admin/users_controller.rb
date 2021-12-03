@@ -2,7 +2,7 @@ class Admin::UsersController < AdminController
   before_action :load_models, only: %i[edit update destroy]
 
   def index
-    @users = User.order(:id)
+    @users = User.order(:id).paginate(page: params[:page], per_page: PER_PAGE)
   end
 
   def new
