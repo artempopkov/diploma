@@ -4,10 +4,10 @@
     <div class="d-flex">
       <% if user_signed_in? %>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-success m-1' %>
-        <%= link_to 'Profile', edit_user_registration_path, class: 'btn btn-outline-success m-1'%>
+        <%= link_to 'Profile', edit_user_registration_path, class: 'btn btn-outline-success m-1' %>
       <% else %>
-        <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-outline-success m-1'%>
-        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-success m-1'%>
+        <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-outline-success m-1' %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-success m-1' %>
       <% end %>
     </div>
   </div>
