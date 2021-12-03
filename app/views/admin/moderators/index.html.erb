@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+  <div class="row" >
+    <div class="col">
+      <div class="d-flex justify-content-start"><h1>Moderators</h1></div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+
+<table class="table table-ligth table-striped table-hover w-100">
+  <thead>
+  <tr class="d-flex">
+    <th class="col-1"></th>
+    <th class="col-3">Email</th>
+    <th class="col-6">Name</th>
+    <th class="col-1"></th>
+  </tr>
+  </thead>
+
+  <tbody class="w-100">
+  <% @moderators.each_with_index do |moderator, inx| %>
+    <tr class="d-flex">
+      <th scope="row"><%= inx + 1 %></th>
+      <td class="col-3"><%= moderator.email %></td>
+      <td class="col-6"><%= moderator.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
