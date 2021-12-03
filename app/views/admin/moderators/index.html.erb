@@ -24,7 +24,7 @@
   <tbody class="w-100">
   <% @moderators.each_with_index do |moderator, inx| %>
     <tr class="d-flex">
-      <td class="col-1"><%= link_to 'Edit', edit_admin_moderator_path(moderator), class: 'text-decoration-none'%></td>
+      <td class="col-1"><%= link_to 'Edit', edit_admin_moderator_path(moderator), class: 'text-decoration-none' %></td>
       <th scope="row"><%= inx + 1 %></th>
       <td class="col-3"><%= moderator.email %></td>
       <td class="col-6"><%= moderator.name %></td>
