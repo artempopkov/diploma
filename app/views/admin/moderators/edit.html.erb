@@ -1,5 +1,30 @@
 <h1>Editing Moderator</h1>
+<div class="form-container">
+  <%= form_with(model: [:admin, @moderator], html: {class: 'w-50'}) do |form| %>
+    <% if @moderator.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@moderator.errors.count, "error") %> prohibited this @user from being saved:</h2>
 
-<%= render 'form', moderator: @moderator %>
+        <ul>
+          <% @moderator.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form.label :name %>
+    <div class="input-group">
+      <%= form.text_field :name, class: "form-control mb-3" %>
+    </div>
 
-<%= link_to 'Back', admin_moderators_path %>
+    <%= form.label :email %>
+    <div class="input-group">
+      <%= form.text_field :email, class: "form-control mb-3" %>
+    </div>
+
+    <div>
+      <%= form.submit 'OK', class: 'btn btn-primary w-25 mr-3' %>
+      <%= link_to 'Cancel', admin_moderators_path, class: 'btn btn-secondary w-25' %>
+    </div>
+  <% end %>
+</div>
