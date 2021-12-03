@@ -3,10 +3,10 @@
 <div>
   <div class="row" >
     <div class="col">
-      <div class="d-flex justify-content-start"><h1>Users</h1></div>
+      <div class="d-flex justify-content-start"><h1>Users (<%= @users.count %>)</h1></div>
     </div>
     <div class="col">
-      <div class="d-flex justify-content-end pt-3"><%= link_to 'New user', new_admin_user_path, method: :get, class: "btn btn-primary" %></div>
+      <div class="d-flex justify-content-end pt-2"><%= link_to 'New', new_admin_user_path, method: :get, class: "btn btn-primary" %></div>
     </div>
   </div>
 </div>
@@ -15,19 +15,20 @@
   <thead>
   <tr class="d-flex">
     <th class="col-1"></th>
-    <th class="col-3">Email</th>
-    <th class="col-7">Name</th>
+    <th class="col-1">ID</th>
+    <th class="col-5">Email</th>
+    <th class="col-4">Name</th>
     <th class="col"></th>
   </tr>
   </thead>
 
   <tbody class="w-100">
-  <% @users.each_with_index do |user, inx| %>
+  <% @users.each do |user| %>
     <tr class="d-flex">
-      <th scope="row"><%= inx + 1 %></th>
       <td class="col-1"><%= link_to 'Edit', edit_admin_user_path(user), class: 'text-decoration-none'%></td>
-      <td class="col-3"><%= user.email %></td>
-      <td class="col-6"><%= user.name %></td>
+      <th class="col-1"><%= user.id %></th>
+      <td class="col-5"><%= user.email %></td>
+      <td class="col-4"><%= user.name %></td>
       <td class="col"><%= link_to 'Destroy', [:admin, user], method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-decoration-none' %></td>
     </tr>
   <% end %>
