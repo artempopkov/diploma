@@ -14,8 +14,8 @@ class Admin::ModeratorsController < AdminController
 
   def create
     @moderator = Moderator.new moderator_params
-    if @moderator.save(validate: false)
-      redirect_to admin_moderators_url, notice: 'Creation finish successfully'
+    if @moderator.save
+      redirect_to admin_moderators_url, notice: "Creation finish successfully"
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,6 +36,6 @@ class Admin::ModeratorsController < AdminController
   end
 
   def moderator_params
-    params.require(:moderator).permit(:email, :name)
+    params.require(:moderator).permit(:email, :name, :password, :password_confirmation)
   end
 end
