@@ -1,5 +1,5 @@
 class Admin::ModeratorsController < AdminController
-  before_action :load_models, only: %i[edit update]
+  before_action :load_models, only: %i[edit update destroy]
 
   def index
     @moderators = Moderator.order(:id)
@@ -27,6 +27,11 @@ class Admin::ModeratorsController < AdminController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @moderator.destroy
+    redirect_to admin_moderators_url, notice: "Destruction finish successfully"
   end
 
   private
