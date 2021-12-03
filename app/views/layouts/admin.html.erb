@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ngnews</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">NGNAdmin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'Moderators', admin_moderators_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Users', admin_users_path, class: 'nav-link' %>
+        </li>
+      </ul>
+    </div>
+    <div class="d-flex">
+      <%= link_to 'Logout', destroy_moderator_session_path, method: :delete, class: 'btn btn-outline-success m-1' %>
+    </div>
+  </nav>
+  <%= yield %>
+</body>
+</html>
