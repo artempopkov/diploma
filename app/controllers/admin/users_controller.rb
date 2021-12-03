@@ -1,5 +1,5 @@
 class Admin::UsersController < AdminController
-  before_action :load_models, only: %i[edit update]
+  before_action :load_models, only: %i[edit update destroy]
 
   def index
     @users = User.order(:id)
@@ -27,6 +27,11 @@ class Admin::UsersController < AdminController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to admin_users_url, notice: "Destruction finish successfully"
   end
 
   private
