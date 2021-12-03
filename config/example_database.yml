@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: ngnews_development
+  username: YOUR_NAME
+  password: YOUR_PASSWD
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: ngnews_test
+  username: YOUR_NAME
+  password: YOUR_PASSWD
