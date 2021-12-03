@@ -11,7 +11,7 @@
 /public/assets
 .byebug_history
 /config/master.key
-/config/example_database.yml
+/config/database.yml
 /public/packs
 /public/packs-test
 /node_modules
