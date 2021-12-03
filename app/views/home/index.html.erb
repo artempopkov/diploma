@@ -1,3 +1,17 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">NGNews</a>
+    <div class="d-flex">
+      <% if user_signed_in? %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-success m-1' %>
+        <%= link_to 'Profile', edit_user_registration_path, class: 'btn btn-outline-success m-1'%>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-outline-success m-1'%>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-success m-1'%>
+      <% end %>
+    </div>
+  </div>
+</nav>
 <div class="jumbotron jumbotron-fluid mt-4">
   <div class="container">
     <h1 class="display-4">Привет от NGNews сайта топовых игровых новостей</h1>
