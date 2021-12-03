@@ -1,4 +1,5 @@
 class Admin::ModeratorsController < AdminController
+  before_action :load_models, only: %i[edit update]
 
   def index
     @moderators = Moderator.order(:id)
@@ -6,6 +7,9 @@ class Admin::ModeratorsController < AdminController
 
   def new
     @moderator = Moderator.new
+  end
+
+  def edit
   end
 
   def create
@@ -17,7 +21,19 @@ class Admin::ModeratorsController < AdminController
     end
   end
 
+  def update
+    if @moderator.update moderator_params
+      redirect_to admin_moderators_url, notice: 'Updating finish successfully'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
+
+  def load_models
+    @moderator = Moderator.find params[:id]
+  end
 
   def moderator_params
     params.require(:moderator).permit(:email, :name, :password, :password_confirmation)
