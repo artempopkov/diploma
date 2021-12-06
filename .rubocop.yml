@@ -12,23 +12,11 @@ Metrics/BlockLength:
     - draw
     - configure
     - group
-Style/StringLiterals:
-  Enabled: false
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+Layout/LineLength:
+  Max: 200
 Style/FrozenStringLiteralComment:
   Enabled: false
-Style/GlobalStdStream:
-  Enabled: false
-Layout/EmptyLines:
-  Enabled: false
-Layout/EmptyLinesAroundBlockBody:
-  Enabled: false
-Style/NumericLiterals:
-  Enabled: false
 Style/Documentation:
-  Enabled: false
-Style/StringConcatenation:
-  Enabled: false
-Style/EmptyMethod:
-  Enabled: false
-Style/SymbolArray:
   Enabled: false
