@@ -1,0 +1,22 @@
+require: rubocop-rails
+
+Metrics/BlockLength:
+  CountComments: false
+  IgnoredMethods:
+    - context
+    - describe
+    - it
+    - shared_examples
+    - shared_examples_for
+    - namespace
+    - draw
+    - configure
+    - group
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+Layout/LineLength:
+  Max: 200
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
