@@ -1,6 +1,2 @@
 --require spec_helper
-<<<<<<< HEAD
---format d
-=======
 --format documentation
->>>>>>> feature-add-spring-commands-rspec
