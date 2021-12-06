@@ -1,0 +1,34 @@
+require: rubocop-rails
+
+Metrics/BlockLength:
+  CountComments: false
+  IgnoredMethods:
+    - context
+    - describe
+    - it
+    - shared_examples
+    - shared_examples_for
+    - namespace
+    - draw
+    - configure
+    - group
+Style/StringLiterals:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/GlobalStdStream:
+  Enabled: false
+Layout/EmptyLines:
+  Enabled: false
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+Style/NumericLiterals:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/StringConcatenation:
+  Enabled: false
+Style/EmptyMethod:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
