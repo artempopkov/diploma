@@ -2,7 +2,7 @@ class Admin::ModeratorsController < AdminController
   before_action :load_models, only: %i[edit update destroy]
 
   def index
-    @moderators = Moderator.order(:id)
+    @moderators = Moderator.page(current_page).order(:id)
   end
 
   def new
