@@ -3,7 +3,7 @@ module Admin
     before_action :load_models, only: %i[edit update destroy]
 
     def index
-      @users = User.order(:id).paginate(page: params[:page], per_page: params[:per_page])
+      @users = User.page(current_page).order(:id)
     end
 
     def new
