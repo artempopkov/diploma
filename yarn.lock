@@ -1221,6 +1221,11 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.npmjs.org/alphanum-sort/-/alphanum-sort-1.0.2.tgz"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+animate.css@latest:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-4.1.1.tgz#614ec5a81131d7e4dc362a58143f7406abd68075"
+  integrity sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==
+
 ansi-colors@^3.0.0:
   version "3.2.4"
   resolved "https://registry.npmjs.org/ansi-colors/-/ansi-colors-3.2.4.tgz"
@@ -2094,6 +2099,14 @@ cosmiconfig@^6.0.0:
     path-type "^4.0.0"
     yaml "^1.7.2"
 
+counterup@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/counterup/-/counterup-1.0.2.tgz#07dbe1e5d318c1702dbff8abe25e9a4b8269dc78"
+  integrity sha1-B9vh5dMYwXAtv/ir4l6aS4Jp3Hg=
+  dependencies:
+    jquery ">=1.5"
+    waypoints ">=2.0"
+
 create-ecdh@^4.0.0:
   version "4.0.4"
   resolved "https://registry.npmjs.org/create-ecdh/-/create-ecdh-4.0.4.tgz"
@@ -2757,6 +2770,13 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
+exports-loader@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/exports-loader/-/exports-loader-3.1.0.tgz#a68040b902da8ef24f9f6db716be904ac2455284"
+  integrity sha512-zkMR5OHDn8qHq2w5BLv6SnLmUK5QAtPkjTA7CNIYBB9kIxBFIeA+TA1GcMw3p/vn5Avnmq80L7MviA4tZclRmQ==
+  dependencies:
+    source-map "^0.6.1"
+
 express@^4.17.1:
   version "4.17.1"
   resolved "https://registry.npmjs.org/express/-/express-4.17.1.tgz"
@@ -2856,6 +2876,11 @@ file-uri-to-path@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
   integrity sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==
+
+filed@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/filed/-/filed-0.0.7.tgz#3087ec531fb9a78600a6ec8e0b106e2c574d9773"
+  integrity sha1-MIfsUx+5p4YApuyOCxBuLFdNl3M=
 
 fill-range@^4.0.0:
   version "4.0.0"
@@ -3817,7 +3842,12 @@ jest-worker@^26.5.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jquery@^3.6.0:
+jquery.scrollup@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/jquery.scrollup/-/jquery.scrollup-2.4.1.tgz#48b2841b9a997961d8ae722473e135153247857f"
+  integrity sha512-SwiSXW8tF7/L1T/6itD58aG6U5CdK6AfR66/v1kqndcsY+2aBN7n0/S5vmtAQUirkeuFAoYlwJ1fVGIQ8zisUw==
+
+jquery@>=1.5, jquery@>=1.7, jquery@>=1.7.0, jquery@^3.6.0:
   version "3.6.0"
   resolved "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
   integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
@@ -4013,6 +4043,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+magnific-popup@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/magnific-popup/-/magnific-popup-1.1.0.tgz#3e7362c5bd18f6785fe99e59d013e20af33d3049"
+  integrity sha1-PnNixb0Y9nhf6Z5Z0BPiCvM9MEk=
+
 make-dir@^2.0.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/make-dir/-/make-dir-2.1.0.tgz"
@@ -4133,6 +4168,11 @@ mime-types@~2.1.17, mime-types@~2.1.24:
   integrity sha512-6cP692WwGIs9XXdOO4++N+7qjqv0rqxxVvJ3VHPh/Sc9mVZcQP+ZGhkKiTvWMQRr2tbHkJP/Yn7Y0npb3ZBs4A==
   dependencies:
     mime-db "1.51.0"
+
+mime@1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-1.2.7.tgz#c7a13f33a7073d9900f288436b06b3a16200865b"
+  integrity sha1-x6E/M6cHPZkA8ohDawazoWIAhls=
 
 mime@1.6.0:
   version "1.6.0"
@@ -4732,6 +4772,11 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+perfect-scrollbar@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.5.3.tgz#dbdd84071f8460db9ff893214ed501596ad9dc5a"
+  integrity sha512-+Lo6t61lSuCY9ghpqh1NFMXOu8fNwlYGqPoUMOZ3HTFIL4g7+L7zD7hQCLW5yjkOZ6LGTw1m9+MfEew7cngtAQ==
 
 picocolors@^0.2.1:
   version "0.2.1"
@@ -6057,6 +6102,18 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
+slick@^1.12.2:
+  version "1.12.2"
+  resolved "https://registry.yarnpkg.com/slick/-/slick-1.12.2.tgz#bd048ddb74de7d1ca6915faa4a57570b3550c2d7"
+  integrity sha1-vQSN23TefRymkV+qSldXCzVQwtc=
+
+slicknav@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/slicknav/-/slicknav-1.0.8.tgz#1a363a77e9c882748246ae6f51d188d1cfc731d0"
+  integrity sha1-GjY6d+nIgnSCRq5vUdGI0c/HMdA=
+  dependencies:
+    jquery ">=1.7"
+
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/snapdragon-node/-/snapdragon-node-2.1.1.tgz"
@@ -6448,6 +6505,13 @@ terser@^5.3.4:
     source-map "~0.7.2"
     source-map-support "~0.5.20"
 
+theia-sticky-sidebar@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/theia-sticky-sidebar/-/theia-sticky-sidebar-1.7.0.tgz#0fbb924e84eaff987368fd284d00caea7a7ec35a"
+  integrity sha1-D7uSToTq/5hzaP0oTQDK6np+w1o=
+  dependencies:
+    jquery ">=1.7.0"
+
 through2@^2.0.0:
   version "2.0.5"
   resolved "https://registry.npmjs.org/through2/-/through2-2.0.5.tgz"
@@ -6748,6 +6812,11 @@ watchpack@^1.7.4:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
 
+waypoints@>=2.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/waypoints/-/waypoints-4.0.1.tgz#09979a0573810b29627cba4366a284a062ec69c8"
+  integrity sha1-CZeaBXOBCylifLpDZqKEoGLsacg=
+
 wbuf@^1.1.0, wbuf@^1.7.3:
   version "1.7.3"
   resolved "https://registry.npmjs.org/wbuf/-/wbuf-1.7.3.tgz"
@@ -6923,6 +6992,26 @@ worker-farm@^1.7.0:
   integrity sha512-rvw3QTZc8lAxyVrqcSGVm5yP/IJ2UcB3U0graE3LCFoZ0Yn2x4EoVSqJKdB/T5M+FLcRPjz4TDacRf3OCfNUzw==
   dependencies:
     errno "~0.1.7"
+
+wow.js@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/wow.js/-/wow.js-1.2.2.tgz#247519b0a342319b1a63e22aea9acec1a9ea57f5"
+  integrity sha1-JHUZsKNCMZsaY+Iq6prOwanqV/U=
+
+wow@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/wow/-/wow-0.0.6.tgz#50a366f641400408896c774c0763ee5def36af0d"
+  integrity sha1-UKNm9kFABAiJbHdMB2PuXe82rw0=
+  dependencies:
+    filed "0.0.7"
+    mime "1.2.7"
+
+wowjs@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/wowjs/-/wowjs-1.1.3.tgz#440fc1bb4c7e896840ee47972296a2b59075acbd"
+  integrity sha1-RA/Bu0x+iWhA7keXIpaitZB1rL0=
+  dependencies:
+    animate.css latest
 
 wrap-ansi@^5.1.0:
   version "5.1.0"
