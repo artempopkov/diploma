@@ -12,7 +12,17 @@
 
   <body>
    <div class="scroll-progress primary-bg"></div>
-
+       <!-- Preloader Start -->
+      <div id="preloader-active">
+         <div class="preloader d-flex align-items-center justify-content-center">
+             <div class="preloader-inner position-relative">
+                 <div class="text-center">
+                     <div data-loader="spinner"></div>
+                     <p>Loading...</p>
+                 </div>
+             </div>
+         </div>
+      </div>
       <div class="main-wrap">
           <!--Offcanvas sidebar-->
           <aside id="sidebar-wrapper" class="custom-scrollbar offcanvas-sidebar">
@@ -146,12 +156,36 @@
                                       <span>Account</span>
                                   </a>
                                   <div id="userMenuDropdow" class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
-                                      <a class="dropdown-item" href="#"><i class="ti-pencil-alt"></i>Edit Profile</a>
-                                      <a class="dropdown-item" href="#"><i class="ti-settings"></i>Account Settings</a>
-                                      <a class="dropdown-item" href="#"><i class="ti-stats-up"></i>Your Dashboard</a>
-                                      <a class="dropdown-item" href="#"><i class="ti-heart"></i>Your Favorites</a>
-                                      <div class="dropdown-divider"></div>
-                                      <a class="dropdown-item" href="login.html"><i class="ti-share"></i>Logout</a>
+                                      <% if user_signed_in? %>
+                                          <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+                                              <i class="ti-pencil-alt"></i>
+                                              Edit Profile
+                                          <% end %>
+                                          <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+                                               <i class="ti-stats-up"></i>
+                                               Your Dashboard
+                                          <% end %>
+                                          <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+                                               <i class="ti-heart"></i>
+                                               Your Favorites
+                                          <% end %>
+                                          <div class="dropdown-divider"></div>
+                                          <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+                                               <i class="ti-share"></i>
+                                               Logout
+                                          <% end %>
+
+                                      <% else %>
+                                          <%= link_to new_user_session_path, class: 'dropdown-item' do %>
+                                               <i class="ti-shift-right-alt"></i>
+                                               Sign in
+                                          <% end %>
+                                          <div class="dropdown-divider"></div>
+                                          <%= link_to new_user_registration_path, class: 'dropdown-item' do %>
+                                               <i class="ti-shift-right"></i>
+                                               Sign up
+                                          <% end %>
+                                      <% end %>
                                   </div>
                               </div>
                           </div>
@@ -164,7 +198,7 @@
                       <div class="row">
                           <div class="col-12">
                               <a href="index.html">
-                                  <img class="logo-img d-inline" src="assets/imgs/logo.png" alt="">
+                                  <%= image_tag 'logos/logo.png', class: 'logo-img d-inline' %>
                               </a>
                           </div>
                       </div>
@@ -184,12 +218,12 @@
                               </div>
                               <div class="logo-tablet d-md-inline d-lg-none d-none">
                                   <a href="index.html">
-                                      <img class="logo-img d-inline" src="assets/imgs/logo-tablet.png" alt="">
+                                      <%= image_tag 'logos/logo-tablet.png', class: 'logo-img d-inline' %>
                                   </a>
                               </div>
                               <div class="logo-mobile d-inline d-md-none">
                                   <a href="index.html">
-                                      <img class="logo-img d-inline" src="assets/imgs/logo-mobile.png" alt="">
+                                      <%= image_tag 'logos/logo-mobile.png', class: 'logo-img d-inline' %>
                                   </a>
                               </div>
                               <!-- Main-menu -->
@@ -327,9 +361,8 @@
                       </div>
                   </div>
               </div>
-
           </main>
-
+          <%= yield %>
           <footer>
               <div class="footer-bottom-area background11">
                   <div class="container">
@@ -337,7 +370,7 @@
                           <div class="row d-flex align-items-center justify-content-between">
                               <div class="col-lg-6">
                                   <div class="footer-copy-right">
-                                      <p class="font-medium">© 2020, UltraNews | All rights reserved | Design by <a href="https://alithemes.com" target="_blank">AliThemes</a></p>
+                                      <p class="font-medium">© 2021,  NGNews | All rights reserved | Design by Artem Popkov</p>
                                   </div>
                               </div>
                               <div class="col-lg-6">
@@ -358,6 +391,5 @@
       </div>
       <!-- Main Wrap End-->
       <div class="dark-mark"></div>
-
   </body>
 </html>

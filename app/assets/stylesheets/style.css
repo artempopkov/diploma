@@ -518,7 +518,7 @@ ol li{list-style:decimal inside;width:100%;line-height:2;}
 pre{border:1px solid #eee;font-size:1em;line-height:1.8;margin:15px 0;max-width:100%;overflow:auto;padding:1.75em;white-space:pre;white-space:pre-wrap;word-wrap:break-word;background:#fff;border-radius:15px;}
 
 /*custom amine*/
-[data-loader='spinner']{width:35px;height:35px;display:inline-block;-webkit-animation:spinner 1.2s infinite ease-in-out;-o-animation:spinner 1.2s infinite ease-in-out;animation:spinner 1.2s infinite ease-in-out;background:url(../imgs/favicon.png);box-shadow:0 0 10px #fff;}
+[data-loader='spinner']{width:35px;height:35px;display:inline-block;-webkit-animation:spinner 1.2s infinite ease-in-out;-o-animation:spinner 1.2s infinite ease-in-out;animation:spinner 1.2s infinite ease-in-out;background:url(favicon.png);box-shadow:0 0 10px #fff;}
 @-webkit-keyframes spinner{
     0%{-webkit-transform:perspective(120px) rotateX(0) rotateY(0);-ms-transform:perspective(120px) rotateX(0) rotateY(0);-o-transform:perspective(120px) rotateX(0) rotateY(0);transform:perspective(120px) rotateX(0) rotateY(0);}
     50%{-webkit-transform:perspective(120px) rotateX(-180deg) rotateY(0);-ms-transform:perspective(120px) rotateX(-180deg) rotateY(0);-o-transform:perspective(120px) rotateX(-180deg) rotateY(0);transform:perspective(120px) rotateX(-180deg) rotateY(0);}

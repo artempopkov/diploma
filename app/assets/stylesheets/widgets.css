@@ -111,7 +111,7 @@ nav.tab-nav .nav-tabs{border:none;}
 .about-author-img{border-radius:50%;width:52px;height:52px;}
 
 /*Videos*/
-.video-area{background-image:url(../imgs/theme/bg-20.png);background-repeat:no-repeat;background-color:#021228;background-position:left center;color:#8b8cb3;}
+.video-area{background-image:url(../images/theme/bg-20.png);background-repeat:no-repeat;background-color:#021228;background-position:left center;color:#8b8cb3;}
 .video-area .letter-background,
 .footer-area .letter-background{color:rgba(255,255,255,0.2);}
 .play_btn a{color:#fff;border:2px solid #fff;width:70px;height:70px;display:inline-block;border-radius:50%;text-align:center;line-height:70px;font-size:29px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9;background:rgba(0,0,0,0.5);}

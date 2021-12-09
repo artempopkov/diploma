@@ -8,12 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
-import "perfect-scrollbar"
+import "./main"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-require("wow.min")
-
-require(main)

@@ -15,6 +15,11 @@
  */
 
 @import "bootstrap/scss/bootstrap";
+@import "style";
+@import "color";
+@import "responsive";
+@import "widgets";
+@import "themify-icons";
 
 .form-container {
   padding: 1.5rem;
