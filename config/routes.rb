@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :moderators
   devise_for :users
+  resources :articles
 
   namespace :admin do
     get '/', to: 'home#index'
