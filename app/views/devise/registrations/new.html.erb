@@ -1,30 +1,50 @@
-<h1><%= t('.sign_up') %></h1>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= bootstrap_devise_error_messages! %>
+    <div class="main_content shop pb-20">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-md-10">
+                    <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
+                        <div class="padding_eight_all bg-white">
+                            <div class="heading_s1">
+                                <h3 class="mb-30">Create an Account</h3>
+                            </div>
+                            <%= render "devise/shared/error_messages", resource: resource %>
+                            <form method="post">
+                                <div class="form-group">
+                                  <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Name' %>
+                                </div>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
-  </div>
+                                <div class="form-group">
+                                  <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'Email' %>
+                                </div>
 
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+                                <div class="form-group">
+                                    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', placeholder: 'Password' %>
 
-    <% if @minimum_password_length %>
-      <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
-    <% end %>
-  </div>
+                                    <% if @minimum_password_length %>
+                                      <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
+                                    <% end %>
+                                </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
-  </div>
+                                <div class="form-group">
+                                  <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control', placeholder: 'Confirm password' %>
+                                </div>
+                               <div class="form-group">
+                                 <%= f.submit 'Login', class: 'btn btn-fill-out btn-block' %>
+                               </div>
+                            </form>
+                            <div class="divider-text-center mt-15 mb-25">
+                                <span> or</span>
+                            </div>
+                            <%- if controller_name != 'sessions' %>
+                              <div class="text-muted text-center">Already have an account?
+                                <%= link_to 'Sign in now', new_session_path(resource_name) %>
+                              </div>
+                            <% end -%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <% end %>
-
-<%= render 'devise/shared/links' %>

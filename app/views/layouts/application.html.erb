@@ -170,7 +170,7 @@
                                                Your Favorites
                                           <% end %>
                                           <div class="dropdown-divider"></div>
-                                          <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+                                          <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
                                                <i class="ti-share"></i>
                                                Logout
                                           <% end %>
@@ -197,9 +197,9 @@
                   <div class="container">
                       <div class="row">
                           <div class="col-12">
-                              <a href="index.html">
+                              <%= link_to root_path do %>
                                   <%= image_tag 'logos/logo.png', class: 'logo-img d-inline' %>
-                              </a>
+                              <% end %>
                           </div>
                       </div>
                   </div>
@@ -361,8 +361,8 @@
                       </div>
                   </div>
               </div>
+              <%= yield %>
           </main>
-          <%= yield %>
           <footer>
               <div class="footer-bottom-area background11">
                   <div class="container">
