@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_models, only: %i[show]
 
   def index
-    @articles = Article.all
+    @articles = Article.order(:id)
   end
 
   def show
