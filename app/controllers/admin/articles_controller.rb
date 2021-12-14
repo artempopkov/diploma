@@ -19,7 +19,7 @@ module Admin
     def create
       @article = Article.new(article_params)
       if @article.save
-        redirect_to [:admin, @article], notice: "Article was successfully created."
+        redirect_to [:admin, @article], notice: 'Creation finish successfully'
       else
         render :new, status: :unprocessable_entity
       end
@@ -27,7 +27,7 @@ module Admin
 
     def update
       if @article.update(article_params)
-        redirect_to [:admin, @article], notice: "Article was successfully updated."
+        redirect_to [:admin, @article], notice: 'Updating finish successfully'
       else
         render :edit, status: :unprocessable_entity
       end
@@ -35,7 +35,7 @@ module Admin
 
     def destroy
       @article.destroy
-      redirect_to admin_articles_url, notice: "Article was successfully destroyed."
+      redirect_to admin_articles_url, notice: 'Destruction finish successfully'
     end
 
     private
