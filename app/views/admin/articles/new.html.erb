@@ -11,16 +11,17 @@
         </ul>
       </div>
     <% end %>
-    <div class="field">
-      <%= form.label :title %>
-      <%= form.text_field :title %>
+    <div class="input-group">
+      <span class="input-group-text">Title</span>
+      <%= form.text_area :title, maxlength: "80", class: "title" %>
     </div>
-    <div class="field">
-      <%= form.label :description %>
-      <%= form.text_field :description %>
+
+    <div class="input-group">
+      <span class="input-group-text">Description</span>
+      <%= form.text_area :description, maxlength: "115", class: "description" %>
     </div>
+
     <div class="field">
-      <%= form.label :content %>
       <%= form.rich_text_area :content %>
     </div>
     <div class="mt-10">

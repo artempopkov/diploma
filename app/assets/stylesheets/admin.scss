@@ -14,6 +14,7 @@
  *= 
  */
 
+@import "./actiontext.scss";
 @import "bootstrap/scss/bootstrap";
 @import "style";
 @import "widgets";
@@ -89,3 +90,20 @@
   border-color: #dc3545;
 }
 
+.input-group{
+  margin-bottom: 20px;
+}
+
+.title{
+  height: 95px;
+  resize: none;
+}
+
+.description {
+  height: 135px;
+  resize: none;
+}
+
+.input-group-text{
+  width: 120px;
+}
