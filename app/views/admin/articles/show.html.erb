@@ -19,7 +19,7 @@
             <span class="post-on has-dot"><%= article_creation_time(@article) %></span>
           </div>
         </div>
-        <% if @article.avatar.present? %>
+        <% if @article.avatar.present? && !@article.avatar_disable %>
           <%= image_tag @article.avatar.url, class: 'mb-3' %>
           <div class="divider mb-3"></div>
         <% end %>
