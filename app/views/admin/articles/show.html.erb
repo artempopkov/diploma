@@ -10,7 +10,8 @@
     <div class="row">
       <div class="col-lg-8 col-md-12 col-sm-12">
         <div class="entry-header entry-header-1 mb-30">
-          <div class="entry-meta meta-0 font-small mb-15"><a href="category.html"><span class="post-cat background2 color-white">Technology</span></a></div>
+          <div class="entry-meta meta-0 font-small mb-15">
+            <a href="category.html"><span class="post-cat background2 color-white">Technology</span></a></div>
           <h1 class="post-title">
             <%= @article.title %>
           </h1>
@@ -18,8 +19,11 @@
             <span class="post-on has-dot"><%= article_creation_time(@article) %></span>
           </div>
         </div>
-        <%= image_tag @article.avatar.url, class: 'mb-3' %>
-        <div class="divider mb-3"></div>
+        <% if @article.avatar.present? %>
+          <%= image_tag @article.avatar.url, class: 'mb-3' %>
+          <div class="divider mb-3"></div>
+        <% end %>
+
         <%= @article.content %>
         <div class="entry-bottom mt-50 mb-30">
           <div class="tags">
