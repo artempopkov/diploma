@@ -20,6 +20,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot', '~> 6.2.0'
   gem 'faker', '~> 2.19.0'
+  gem 'spring-commands-rspec', '~> 1.0.4'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop', '~> 1.23.0', require: false
   gem 'rubocop-rails', '~> 2.12.4', require: false
