@@ -71,45 +71,55 @@ describe Admin::UsersController, type: :controller do
     context '#create' do
       let(:user) { FactoryBot.attributes_for(:user) }
 
+      subject(:perform) do
+        post :create, params: {
+          user:user
+        }
+      end
+
       it 'does not add a user' do
         expect do
-          post :create, params: { user: user }
+          perform
         end.to change(User, :count).by(0)
       end
 
-      it 'redirects to sign in' do
-        post :create, params: { user: user }
-        expect(response).to redirect_to(new_moderator_session_path)
-      end
+      include_examples 'redirects to', 'sign in', :new_moderator_session
     end
 
     context '#update' do
       let(:user) { FactoryBot.create(:user) }
 
+      subject(:perform) do
+        patch :update, params: {
+          id: user.id,
+          user: { name: 'New Name' }
+        }
+      end
+
       it 'does not update a user' do
-        patch :update, params: { id: user.id, user: { name: 'New Name' } }
+        perform
         expect(user.reload.name).to_not eq('New Name')
       end
 
-      it 'redirects to sign in' do
-        patch :update, params: { id: user.id, user: { name: 'New Name' } }
-        expect(response).to redirect_to(new_moderator_session_path)
-      end
+      include_examples 'redirects to', 'sign in', :new_moderator_session
     end
 
     context '#destroy' do
       let!(:user) { FactoryBot.create(:user) }
 
+      subject(:perform) do
+        delete :destroy, params: {
+          id: user.id
+        }
+      end
+
       it 'does not delete a user' do
         expect do
-          delete :destroy, params: { id: user.id }
+          perform
         end.to_not change(User, :count)
       end
 
-      it 'redirects to sign in' do
-        delete :destroy, params: { id: user.id }
-        expect(response).to redirect_to(new_moderator_session_path)
-      end
+      include_examples 'redirects to', 'sign in', :new_moderator_session
     end
   end
 end
