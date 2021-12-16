@@ -12,7 +12,12 @@
       <% @articles.each do |article| %>
         <div class="col mb-4">
           <div class="card h-100">
-            <img class="card-img-top" src="http://via.placeholder.com/900x630" alt="Card image cap">
+            <% if article.avatar.present? %>
+              <img src="<%= article.avatar.index_admin.url %>" class="card-img-top" alt="...">
+            <% else %>
+              <img src="<%= asset_path('no-image.png') %>" class="card-img-top" alt="...">
+            <% end %>
+
             <%= link_to '', [:admin, article], class: 'img-link' %>
             <div class="card-body">
               <!--<div class="entry-meta meta-0 font-small mb-15">
