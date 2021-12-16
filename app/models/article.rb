@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   has_rich_text :content
   has_paper_trail on: [:update]
+  mount_uploader :avatar, AvatarUploader
   validates :title, :description, :content, presence: true
 
   def updated?

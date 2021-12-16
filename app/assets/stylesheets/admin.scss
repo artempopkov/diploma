@@ -90,12 +90,14 @@
 }
 
 .input-group{
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.title{
-  height: 95px;
+.title {
+  height: 70px;
   resize: none;
+  width: 250px;
 }
 
 .description {
@@ -107,3 +109,8 @@
 .input-group-text{
   width: 120px;
 }
+
+//.avatar-uploader{
+//  margin: 0 0 10px 0;
+//  width: 40%;
+//}
