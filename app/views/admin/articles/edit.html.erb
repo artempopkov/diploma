@@ -28,6 +28,10 @@
 
     <%= form.file_field :avatar, class: 'mb-2' %>
 
+    <div class="field">
+      <%= form.select :category_id, Category.all.pluck(:name, :id), class: 'mr-2' %>
+    </div>
+
     <div class="mb-2">
       <%= form.check_box :avatar_disable, class: 'mr-2' %>
       Disable Avatar

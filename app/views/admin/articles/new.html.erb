@@ -33,7 +33,7 @@
       Disable Avatar
     </div>
     <div class="field">
-      <%= form.select :category, Category.all.pluck(:name), class: 'mr-2' %>
+      <%= form.select :category_id, Category.all.pluck(:name, :id), class: 'mr-2' %>
     </div>
 
     <div class="field">

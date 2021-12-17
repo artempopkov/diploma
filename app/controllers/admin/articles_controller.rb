@@ -3,7 +3,12 @@ module Admin
     before_action :set_models, only: %i[show edit update destroy]
 
     def index
-      @articles = Article.includes(:category).order(:id)
+      if params.key?(:cat)
+        @category = Category.find(params[:cat])
+        @articles = @category.articles.order(:id)
+      else
+        @articles = Article.includes(:category).order(:id)
+      end
     end
 
     def show
@@ -47,7 +52,7 @@ module Admin
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category)
+      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id)
     end
   end
 end

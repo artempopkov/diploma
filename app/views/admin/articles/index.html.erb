@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div class="archive-header text-center">
   <div class="container">
-    <h2><span class="color2">Articles</span></h2>
+    <h2><%= link_to 'Articles', admin_articles_url, class: 'color2' %></h2>
+    <% Category.order(:id).each do |cat|%>
+    <%= link_to cat.name, admin_articles_url(cat: cat) %> |
+    <% end %>
     <div class="bt-1 border-color-1 mt-30 mb-50"></div>
   </div>
 </div>
