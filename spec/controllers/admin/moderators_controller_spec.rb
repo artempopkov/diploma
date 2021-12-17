@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe Admin::ModeratorsController, type: :controller do
-  describe '#index' do
-    context 'as an authenticated moderator' do
+  describe 'as an authenticated moderator' do
+    context '#index' do
       let(:moderator) { FactoryBot.create(:moderator) }
 
       before do
@@ -15,16 +15,7 @@ describe Admin::ModeratorsController, type: :controller do
       end
     end
 
-    context 'as an unauthenticated moderator' do
-      it 'redirects to sign in' do
-        get :index
-        expect(response).to redirect_to(new_moderator_session_path)
-      end
-    end
-  end
-
-  describe '#create' do
-    context 'as an authenticated moderator' do
+    context '#create' do
       let(:moderator) { FactoryBot.create(:moderator) }
       let(:new_moderator) { FactoryBot.attributes_for(:moderator) }
 
@@ -39,24 +30,7 @@ describe Admin::ModeratorsController, type: :controller do
       end
     end
 
-    context 'as unauthenticated moderator' do
-      let(:moderator) { FactoryBot.attributes_for(:moderator) }
-
-      it 'does not add a moderator' do
-        expect do
-          post :create, params: { moderator: moderator }
-        end.to change(Moderator, :count).by(0)
-      end
-
-      it 'redirects to sign in' do
-        post :create, params: { moderator: moderator }
-        expect(response).to redirect_to(new_moderator_session_path)
-      end
-    end
-  end
-
-  describe '#update' do
-    context 'as an authenticated moderator' do
+    context '#update' do
       let(:moderator) { FactoryBot.create(:moderator) }
       let(:new_moderator) { FactoryBot.create(:moderator) }
 
@@ -70,23 +44,7 @@ describe Admin::ModeratorsController, type: :controller do
       end
     end
 
-    context 'as an unauthenticated moderator' do
-      let(:moderator) { FactoryBot.create(:moderator) }
-
-      it 'does not update a moderator' do
-        patch :update, params: { id: moderator.id, moderator: { name: 'New Name' } }
-        expect(moderator.reload.name).to_not eq('New Name')
-      end
-
-      it 'redirects to sign in' do
-        patch :update, params: { id: moderator.id, moderator: { name: 'New Name' } }
-        expect(response).to redirect_to(new_moderator_session_path)
-      end
-    end
-  end
-
-  describe '#destroy' do
-    context 'as an authenticated moderator' do
+    context 'delete' do
       let(:moderator) { FactoryBot.create(:moderator) }
       let!(:new_moderator) { FactoryBot.create(:moderator) }
 
@@ -100,20 +58,70 @@ describe Admin::ModeratorsController, type: :controller do
         end.to change(Moderator, :count).by(-1)
       end
     end
+  end
 
-    context 'as an unauthenticated moderator' do
+  describe 'as an unauthenticated moderator' do
+    context '#index' do
+      subject(:perform) do
+        get :index
+      end
+
+      include_examples 'redirects to', 'sign in', :new_moderator_session
+    end
+
+    context '#create' do
+
+      let(:moderator) { FactoryBot.attributes_for(:moderator) }
+
+      subject(:perform) do
+        post :create, params: {
+          moderator: moderator
+        }
+      end
+
+      it 'does not add a moderator' do
+        expect do
+          perform
+        end.to change(Moderator, :count).by(0)
+      end
+
+      include_examples 'redirects to', 'sign in', :new_moderator_session
+    end
+
+    context '#update' do
+      let(:moderator) { FactoryBot.create(:moderator) }
+
+      subject(:perform) do
+        patch :update, params: {
+          id: moderator.id,
+          moderator: { name: 'New Name' }
+        }
+      end
+
+      it 'does not update a user' do
+        perform
+        expect(moderator.reload.name).to_not eq('New Name')
+      end
+
+      include_examples 'redirects to', 'sign in', :new_moderator_session
+    end
+
+    context '#destroy' do
       let!(:moderator) { FactoryBot.create(:moderator) }
 
-      it 'does not delete a moderator' do
+      subject(:perform) do
+        delete :destroy, params: {
+          id: moderator.id
+        }
+      end
+
+      it 'does not delete a user' do
         expect do
-          delete :destroy, params: { id: moderator.id }
+          perform
         end.to_not change(Moderator, :count)
       end
 
-      it 'redirects to sign in' do
-        delete :destroy, params: { id: moderator.id }
-        expect(response).to redirect_to(new_moderator_session_path)
-      end
+      include_examples 'redirects to', 'sign in', :new_moderator_session
     end
   end
 end
