@@ -7,7 +7,7 @@
     <% end %>
     <div class="bt-1 border-color-1 mt-30 mb-50"></div>
     <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-      <%= link_to tag.name, admin_articles_url(tag: tag.name), :class => css_class %>
+      <%= link_to tag.name, admin_articles_url(tag: tag.name), :class => css_class %> |
     <% end %>
     <div class="bt-1 border-color-1 mt-30 mb-50"></div>
   </div>
