@@ -72,7 +72,7 @@ describe Admin::UsersController, type: :controller do
 
       subject(:perform) do
         post :create, params: {
-          user:user
+          user: user
         }
       end
 
