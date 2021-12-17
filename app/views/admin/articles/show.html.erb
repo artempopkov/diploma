@@ -24,13 +24,11 @@
           <%= image_tag @article.avatar.url, class: 'mb-3' %>
           <div class="divider mb-3"></div>
         <% end %>
-
+        <%= raw @article.tag_list.map { |t| link_to t, admin_articles_url(tag: tag) }.join(', ') %>
         <%= @article.content %>
         <div class="entry-bottom mt-50 mb-30">
           <div class="tags">
-            <a href="category.html" rel="tag">couple</a>
-            <a href="category.html" rel="tag">in love</a>
-            <a href="category.html" rel="tag">romantice</a>
+            <%= raw @article.tag_list.map { |tag| link_to tag, admin_articles_url(tag: tag) }.join(', ') %>
           </div>
         </div>
       </div>

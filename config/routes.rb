@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :moderators
     resources :categories
     resources :articles
+    get 'tags/:tag', to: 'articles#tag', as: :tag
   end
 end

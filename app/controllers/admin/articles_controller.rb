@@ -1,13 +1,16 @@
 module Admin
   class ArticlesController < AdminController
     before_action :set_models, only: %i[show edit update destroy]
+    before_action :tag_cloud
 
     def index
       if params.key?(:cat)
         @category = Category.find(params[:cat])
         @articles = @category.articles.order(:id)
+      elsif params.key?(:tag)
+        @articles = Article.tagged_with(params[:tag])
       else
-        @articles = Article.includes(:category).order(:id)
+        @articles = Article.order(:id)
       end
     end
 
@@ -45,6 +48,14 @@ module Admin
       redirect_to admin_articles_url, notice: 'Destruction finish successfully'
     end
 
+    def tag_cloud
+      @tags = Article.tag_counts_on(:tags)
+    end
+
+    def tag
+      @articles = Article.tagged_with(:tag)
+    end
+
     private
 
     def set_models
@@ -52,7 +63,7 @@ module Admin
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id)
+      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, :tag_list)
     end
   end
 end
