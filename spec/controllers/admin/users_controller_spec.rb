@@ -62,10 +62,9 @@ describe Admin::UsersController, type: :controller do
 
   describe 'as an unauthenticated moderator' do
     context '#index' do
-      it 'redirects to sign in' do
-        get :index
-        expect(response).to redirect_to(new_moderator_session_path)
-      end
+      subject(:perform) { get :index }
+
+      include_examples 'redirects to', 'sign in', :new_moderator_session
     end
 
     context '#create' do
