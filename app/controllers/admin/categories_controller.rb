@@ -3,7 +3,7 @@ module Admin
     before_action :set_models, only: %i[show edit update destroy]
 
     def index
-      @categories = Category.order(:id)
+      @categories = Category.page(current_page).order(:id)
     end
 
     def show
