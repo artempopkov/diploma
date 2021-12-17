@@ -20,9 +20,9 @@
 
             <%= link_to '', [:admin, article], class: 'img-link' %>
             <div class="card-body">
-              <!--<div class="entry-meta meta-0 font-small mb-15">
-                <a href="category.html"><span class="post-cat background2 ">Travel</span></a>
-              </div>-->
+              <div class="entry-meta meta-0 font-small mb-15">
+                <a href="#"><span class="post-cat background2 color-white"><%= article.category.name %></span></a>
+              </div>
               <h5 class="card-title"><%= link_to article.title, [:admin, article] %></h5>
               <p class="card-text"><%= article.description %></p>
               <p class="card-text"><small class="text-muted"><%= article_creation_time(article) %></small></p>
