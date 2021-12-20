@@ -1,6 +1,6 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :set_models, only: %i[show edit update destroy]
+    before_action :set_models, only: %i[show edit update destroy send_for_review]
     before_action :tag_cloud
 
     def index
@@ -52,18 +52,20 @@ module Admin
       @tags = Article.tag_counts_on(:tags)
     end
 
-    def tag
-      @articles = Article.tagged_with(:tag)
+    def send_for_review
+      @article.status = 'active'
+      @article.save!
+      redirect_to [:admin, @article], notice: 'Article sent for review'
     end
 
     private
 
     def set_models
-      @article = Article.find(params[:id])
+      @article ||= Article.find(params[:id])
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, :tag_list)
+      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, :tag_list, :status)
     end
   end
 end
