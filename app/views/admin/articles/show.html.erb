@@ -28,7 +28,7 @@
         <div class="entry-bottom mt-50 mb-30">
           <div class="tags">
             <% @article.tags.each do |tag| %>
-              <%= link_to tag, admin_articles_url(tag: tag) %>
+              <%= link_to tag, admin_articles_url(tag: tag.name) %>
             <% end %>
           </div>
         </div>
