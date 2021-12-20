@@ -3,7 +3,7 @@
   <div class="container">
     <h2><%= link_to 'Articles', admin_articles_url, class: 'color2' %></h2>
     <% Category.order(:id).each do |cat|%>
-    <%= link_to cat.name, admin_articles_url(cat: cat) %> |
+      <%= link_to cat.name, admin_articles_url(cat: cat) %> |
     <% end %>
     <div class="bt-1 border-color-1 mt-30 mb-50"></div>
     <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>

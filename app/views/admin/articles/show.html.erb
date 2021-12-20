@@ -11,7 +11,9 @@
       <div class="col-lg-8 col-md-12 col-sm-12">
         <div class="entry-header entry-header-1 mb-30">
           <div class="entry-meta meta-0 font-small mb-15">
-            <a href="#"><span class="post-cat background2 color-white"><%= @article.category.name %></span></a>
+            <span class="post-cat background2 color-white">
+              <%= link_to @article.category.name, admin_articles_url(cat: @article.category),class: 'color-white' %>
+            </span>
           </div>
           <h1 class="post-title">
             <%= @article.title %>
