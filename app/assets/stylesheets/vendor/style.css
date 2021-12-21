@@ -34,21 +34,6 @@ TABLE CONTENT
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap');
 
 /* Import third party CSS library */
-@import url(vendor/bootstrap.min.css);
-@import url(vendor/owl.carousel.min.css);
-@import url(vendor/ticker-style.css);
-@import url(vendor/material-icons.min.css);
-@import url(vendor/weather-icons.min.css);
-@import url(vendor/flaticon.css);
-@import url(vendor/slicknav.css);
-@import url(vendor/animate.min.css);
-@import url(vendor/magnific-popup.css);
-@import url(vendor/fontawesome-all.min.css);
-@import url(vendor/themify-icons.css);
-@import url(vendor/slick.css);
-@import url(vendor/nice-select.css);
-@import url(vendor/perfect-scrollbar.css);
-@import url(vendor/jquery-ui.css);
 
 /* GENERAL */
 body{font-family:'Arimo',sans-serif;font-weight:normal;font-style:normal;}

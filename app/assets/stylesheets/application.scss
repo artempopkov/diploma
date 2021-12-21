@@ -15,12 +15,12 @@
  */
 
 @import "bootstrap/scss/bootstrap";
-@import "style";
-@import "color";
-@import "responsive";
-@import "widgets";
-@import "themify-icons";
-@import "shop";
+@import "vendor/style";
+@import "vendor/color";
+@import "vendor/responsive";
+@import "vendor/widgets";
+@import "vendor/themify-icons";
+@import "vendor/shop";
 
 .custom-mb-1 {
   margin-bottom: 0.1em;
