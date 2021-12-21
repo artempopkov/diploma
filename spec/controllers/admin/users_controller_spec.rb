@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Admin::UsersController, type: :controller do
   describe 'as an authenticated moderator' do
-    include_context 'sign in as moderator'
+    include_context 'sign in as', :moderator
 
     context '#index' do
       it 'renders template :index' do
