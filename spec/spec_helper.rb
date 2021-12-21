@@ -44,6 +44,7 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
+  Dir['./spec/support/**/*.rb'].each { |f| require f }
   Dir['./spec/shared_contexts/**/*.rb'].each { |f| require f }
   Dir['./spec/shared_examples/**/*.rb'].each { |f| require f }
 

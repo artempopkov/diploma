@@ -18,7 +18,7 @@ describe Admin::UsersController, type: :controller do
     end
 
     context '#create' do
-      let(:user) { FactoryBot.attributes_for(:user) }
+      let(:user) { attributes_for(:user) }
 
       it 'adds a user' do
         expect do
@@ -28,7 +28,7 @@ describe Admin::UsersController, type: :controller do
     end
 
     context '#edit' do
-      let(:user) { FactoryBot.create(:user) }
+      let(:user) { create(:user) }
 
       it 'renders template :edit' do
         get :edit, params: { id: user.id }
@@ -36,7 +36,7 @@ describe Admin::UsersController, type: :controller do
     end
 
     context '#update' do
-      let(:user) { FactoryBot.create(:user) }
+      let(:user) { create(:user) }
       let(:updated_user_name) { 'New Name' }
 
       it 'updates a user' do
@@ -46,7 +46,7 @@ describe Admin::UsersController, type: :controller do
     end
 
     context '#delete' do
-      let!(:user) { FactoryBot.create(:user) }
+      let!(:user) { create(:user) }
 
       it 'deletes a user' do
         expect do
@@ -70,7 +70,7 @@ describe Admin::UsersController, type: :controller do
     end
 
     context '#create' do
-      let(:user) { FactoryBot.attributes_for(:user) }
+      let(:user) { attributes_for(:user) }
       let(:perform_action) { post :create, params: { user: user } }
 
       include_examples 'redirects to', 'sign in', :new_moderator_session
@@ -81,14 +81,14 @@ describe Admin::UsersController, type: :controller do
     end
 
     context '#edit' do
-      let(:user) { FactoryBot.create(:user) }
+      let(:user) { create(:user) }
       let(:perform_action) { get :edit, params: { id: user.id } }
 
       include_examples 'redirects to', 'sign in', :new_moderator_session
     end
 
     context '#update' do
-      let(:user) { FactoryBot.create(:user) }
+      let(:user) { create(:user) }
       let(:updated_user_name) { 'New Name' }
       let(:user_params) { { id: user.id, user: { name: updated_user_name } } }
       let(:perform_action) { patch :update, params: user_params }
@@ -102,7 +102,7 @@ describe Admin::UsersController, type: :controller do
     end
 
     context '#destroy' do
-      let!(:user) { FactoryBot.create(:user) }
+      let!(:user) { create(:user) }
       let(:perform_action) do
         delete :destroy, params: { id: user.id }
       end
