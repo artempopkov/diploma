@@ -1,11 +1,13 @@
-@import "bootstrap/scss/bootstrap";
 /*
- *= require 'vendor/style'
- *= require 'vendor/widgets'
- *= require 'vendor/color'
- *= require 'vendor/responsive
+ *= require 'themify-icons'
  *= require_self
  */
+
+@import "bootstrap/scss/bootstrap";
+@import 'style';
+@import 'widgets';
+@import 'color';
+@import 'responsive';
 
 
 .form-container {
