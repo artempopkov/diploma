@@ -2,26 +2,23 @@ require 'rails_helper'
 
 describe Admin::UsersController, type: :controller do
   describe 'as an authenticated moderator' do
+    include_context 'sign in as', :moderator
+
     context '#index' do
-      let(:moderator) { FactoryBot.create(:moderator) }
-
-      before do
-        sign_in moderator
-      end
-
-      it 'renders index template' do
+      it 'renders template :index' do
         get :index
         expect(response).to render_template(:index)
       end
     end
 
-    context '#create' do
-      let(:moderator) { FactoryBot.create(:moderator) }
-      let(:user) { FactoryBot.attributes_for(:user) }
-
-      before do
-        sign_in moderator
+    context '#new' do
+      it 'renders template :new' do
+        get :new
       end
+    end
+
+    context '#create' do
+      let(:user) { attributes_for(:user) }
 
       it 'adds a user' do
         expect do
@@ -30,27 +27,26 @@ describe Admin::UsersController, type: :controller do
       end
     end
 
-    context '#update' do
-      let(:moderator) { FactoryBot.create(:moderator) }
-      let(:user) { FactoryBot.create(:user) }
+    context '#edit' do
+      let(:user) { create(:user) }
 
-      before do
-        sign_in moderator
-      end
-
-      it 'updates a user' do
-        patch :update, params: { id: user.id, user: { name: 'New Name' } }
-        expect(user.reload.name).to eq('New Name')
+      it 'renders template :edit' do
+        get :edit, params: { id: user.id }
       end
     end
 
-    context 'delete' do
-      let(:moderator) { FactoryBot.create(:moderator) }
-      let!(:user) { FactoryBot.create(:user) }
+    context '#update' do
+      let(:user) { create(:user) }
+      let(:updated_user_name) { 'New Name' }
 
-      before do
-        sign_in moderator
+      it 'updates a user' do
+        patch :update, params: { id: user.id, user: { name: updated_user_name } }
+        expect(user.reload.name).to eq(updated_user_name)
       end
+    end
+
+    context '#delete' do
+      let!(:user) { create(:user) }
 
       it 'deletes a user' do
         expect do
@@ -62,64 +58,60 @@ describe Admin::UsersController, type: :controller do
 
   describe 'as an unauthenticated moderator' do
     context '#index' do
-      it 'redirects to sign in' do
-        get :index
-        expect(response).to redirect_to(new_moderator_session_path)
-      end
+      let(:perform_action) { get :index }
+
+      include_examples 'redirects to', 'sign in', :new_moderator_session
+    end
+
+    context '#new' do
+      let(:perform_action) { get :new }
+
+      include_examples 'redirects to', 'sign in', :new_moderator_session
     end
 
     context '#create' do
-      let(:user) { FactoryBot.attributes_for(:user) }
+      let(:user) { attributes_for(:user) }
+      let(:perform_action) { post :create, params: { user: user } }
 
-      subject(:perform) do
-        post :create, params: {
-          user:user
-        }
-      end
+      include_examples 'redirects to', 'sign in', :new_moderator_session
 
       it 'does not add a user' do
-        expect do
-          perform
-        end.to change(User, :count).by(0)
+        expect { perform_action }.to_not change(User, :count)
       end
+    end
+
+    context '#edit' do
+      let(:user) { create(:user) }
+      let(:perform_action) { get :edit, params: { id: user.id } }
 
       include_examples 'redirects to', 'sign in', :new_moderator_session
     end
 
     context '#update' do
-      let(:user) { FactoryBot.create(:user) }
-
-      subject(:perform) do
-        patch :update, params: {
-          id: user.id,
-          user: { name: 'New Name' }
-        }
-      end
-
-      it 'does not update a user' do
-        perform
-        expect(user.reload.name).to_not eq('New Name')
-      end
+      let(:user) { create(:user) }
+      let(:updated_user_name) { 'New Name' }
+      let(:user_params) { { id: user.id, user: { name: updated_user_name } } }
+      let(:perform_action) { patch :update, params: user_params }
 
       include_examples 'redirects to', 'sign in', :new_moderator_session
+
+      it 'does not update a user' do
+        perform_action
+        expect(user.reload.name).to_not eq(updated_user_name)
+      end
     end
 
     context '#destroy' do
-      let!(:user) { FactoryBot.create(:user) }
-
-      subject(:perform) do
-        delete :destroy, params: {
-          id: user.id
-        }
-      end
-
-      it 'does not delete a user' do
-        expect do
-          perform
-        end.to_not change(User, :count)
+      let!(:user) { create(:user) }
+      let(:perform_action) do
+        delete :destroy, params: { id: user.id }
       end
 
       include_examples 'redirects to', 'sign in', :new_moderator_session
+
+      it 'does not delete a user' do
+        expect { perform_action }.to_not change(User, :count)
+      end
     end
   end
 end
