@@ -2,26 +2,24 @@ require 'rails_helper'
 
 describe Admin::ModeratorsController, type: :controller do
   describe 'as an authenticated moderator' do
+    include_context 'sign in as', :moderator
+
     context '#index' do
-      let(:moderator) { FactoryBot.create(:moderator) }
-
-      before do
-        sign_in moderator
-      end
-
       it 'renders index template' do
         get :index
         expect(response).to render_template(:index)
       end
     end
 
-    context '#create' do
-      let(:moderator) { FactoryBot.create(:moderator) }
-      let(:new_moderator) { FactoryBot.attributes_for(:moderator) }
-
-      before do
-        sign_in moderator
+    context '#new' do
+      it 'renders template :new' do
+        get :new
+        expect(response).to render_template(:new)
       end
+    end
+
+    context '#create' do
+      let(:new_moderator) { FactoryBot.attributes_for(:moderator) }
 
       it 'adds a moderator' do
         expect do
@@ -30,27 +28,26 @@ describe Admin::ModeratorsController, type: :controller do
       end
     end
 
-    context '#update' do
-      let(:moderator) { FactoryBot.create(:moderator) }
-      let(:new_moderator) { FactoryBot.create(:moderator) }
+    context '#edit' do
+      let(:moderator) { create(:moderator) }
 
-      before do
-        sign_in moderator
+      it 'renders template :edit' do
+        get :edit, params: { id: moderator.id }
       end
+    end
+
+    context '#update' do
+      let(:new_moderator) { FactoryBot.create(:moderator) }
+      let(:updated_moderator_name) { 'New Name' }
 
       it 'updates a moderator' do
-        patch :update, params: { id: new_moderator.id, moderator: { name: 'New Name' } }
-        expect(new_moderator.reload.name).to eq('New Name')
+        patch :update, params: { id: new_moderator.id, moderator: { name: updated_moderator_name } }
+        expect(new_moderator.reload.name).to eq(updated_moderator_name)
       end
     end
 
     context 'delete' do
-      let(:moderator) { FactoryBot.create(:moderator) }
       let!(:new_moderator) { FactoryBot.create(:moderator) }
-
-      before do
-        sign_in moderator
-      end
 
       it 'deletes a moderator' do
         expect do
@@ -62,66 +59,77 @@ describe Admin::ModeratorsController, type: :controller do
 
   describe 'as an unauthenticated moderator' do
     context '#index' do
-      subject(:perform) do
-        get :index
-      end
+      let(:perform_action) { get :index }
+
+      include_examples 'redirects to', 'sign in', :new_moderator_session
+    end
+
+    context '#new' do
+      let(:perform_action) { get :new }
 
       include_examples 'redirects to', 'sign in', :new_moderator_session
     end
 
     context '#create' do
-
       let(:moderator) { FactoryBot.attributes_for(:moderator) }
 
-      subject(:perform) do
+      let(:perform_action) do
         post :create, params: {
           moderator: moderator
         }
       end
 
+      include_examples 'redirects to', 'sign in', :new_moderator_session
+
       it 'does not add a moderator' do
         expect do
-          perform
+          perform_action
         end.to change(Moderator, :count).by(0)
       end
+    end
+
+    context '#edit' do
+      let(:moderator) { create(:moderator) }
+      let(:perform_action) { get :edit, params: { id: moderator.id } }
 
       include_examples 'redirects to', 'sign in', :new_moderator_session
     end
 
     context '#update' do
       let(:moderator) { FactoryBot.create(:moderator) }
+      let(:updated_moderator_name) { 'New Name' }
 
-      subject(:perform) do
+      let(:perform_action) do
         patch :update, params: {
           id: moderator.id,
-          moderator: { name: 'New Name' }
+          moderator: { name: :updated_moderator_name }
         }
       end
 
-      it 'does not update a user' do
-        perform
-        expect(moderator.reload.name).to_not eq('New Name')
-      end
-
       include_examples 'redirects to', 'sign in', :new_moderator_session
+
+      it 'does not update a user' do
+        perform_action
+        expect(moderator.reload.name).to_not eq(updated_moderator_name)
+      end
     end
 
     context '#destroy' do
       let!(:moderator) { FactoryBot.create(:moderator) }
 
-      subject(:perform) do
+      let(:perform_action) do
         delete :destroy, params: {
           id: moderator.id
         }
       end
 
+      include_examples 'redirects to', 'sign in', :new_moderator_session
+
       it 'does not delete a user' do
         expect do
-          perform
+          perform_action
         end.to_not change(Moderator, :count)
       end
-
-      include_examples 'redirects to', 'sign in', :new_moderator_session
     end
   end
 end
