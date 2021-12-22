@@ -5,7 +5,7 @@ describe Admin::ModeratorsController, type: :controller do
     include_context 'sign in as', :moderator
 
     context '#index' do
-      it 'renders index template' do
+      it 'renders template :index' do
         get :index
         expect(response).to render_template(:index)
       end
@@ -19,11 +19,11 @@ describe Admin::ModeratorsController, type: :controller do
     end
 
     context '#create' do
-      let(:new_moderator) { FactoryBot.attributes_for(:moderator) }
+      let(:new_moderator_params) { attributes_for(:moderator) }
 
       it 'adds a moderator' do
         expect do
-          post :create, params: { moderator: new_moderator }
+          post :create, params: { moderator: new_moderator_params }
         end.to change(Moderator, :count).by(1)
       end
     end
@@ -37,7 +37,7 @@ describe Admin::ModeratorsController, type: :controller do
     end
 
     context '#update' do
-      let(:new_moderator) { FactoryBot.create(:moderator) }
+      let(:new_moderator) { create(:moderator) }
       let(:updated_moderator_name) { 'New Name' }
 
       it 'updates a moderator' do
@@ -46,8 +46,8 @@ describe Admin::ModeratorsController, type: :controller do
       end
     end
 
-    context 'delete' do
-      let!(:new_moderator) { FactoryBot.create(:moderator) }
+    context '#delete' do
+      let!(:new_moderator) { create(:moderator) }
 
       it 'deletes a moderator' do
         expect do
@@ -71,12 +71,9 @@ describe Admin::ModeratorsController, type: :controller do
     end
 
     context '#create' do
-      let(:moderator) { FactoryBot.attributes_for(:moderator) }
-
+      let(:new_moderator_params) { attributes_for(:moderator) }
       let(:perform_action) do
-        post :create, params: {
-          moderator: moderator
-        }
+        post :create, params: { moderator: new_moderator_params }
       end
 
       include_examples 'redirects to', 'sign in', :new_moderator_session
@@ -96,9 +93,8 @@ describe Admin::ModeratorsController, type: :controller do
     end
 
     context '#update' do
-      let(:moderator) { FactoryBot.create(:moderator) }
+      let(:moderator) { create(:moderator) }
       let(:updated_moderator_name) { 'New Name' }
-
       let(:perform_action) do
         patch :update, params: {
           id: moderator.id,
@@ -115,12 +111,9 @@ describe Admin::ModeratorsController, type: :controller do
     end
 
     context '#destroy' do
-      let!(:moderator) { FactoryBot.create(:moderator) }
-
+      let!(:moderator) { create(:moderator) }
       let(:perform_action) do
-        delete :destroy, params: {
-          id: moderator.id
-        }
+        delete :destroy, params: { id: moderator.id }
       end
 
       include_examples 'redirects to', 'sign in', :new_moderator_session
