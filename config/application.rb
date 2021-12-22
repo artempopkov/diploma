@@ -31,12 +31,18 @@ module Ngnews
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.assets.paths << Rails.root.join('vendor', 'assets')
 
     config.generators do |g|
+      g.system_tests = nil
       g.assets false
+      g.test_framework(
+        :rspec,
+        fixtures: false,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false
+      )
     end
   end
 end

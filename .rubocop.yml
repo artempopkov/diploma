@@ -1,5 +1,13 @@
 require: rubocop-rails
 
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+
 Metrics/BlockLength:
   CountComments: false
   IgnoredMethods:
