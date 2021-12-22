@@ -12,6 +12,7 @@
 .byebug_history
 /config/master.key
 /config/database.yml
+/public/uploads
 /public/packs
 /public/uploads
 /public/packs-test
@@ -23,9 +24,3 @@ yarn-debug.log*
 .ruby-gemset
 .idea/
 **/.DS_Store
-/public/packs
-/public/packs-test
-/node_modules
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
