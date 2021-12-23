@@ -32,6 +32,7 @@ module Ngnews
     # Configuration for the application, engines, and railties goes here.
     #
     # config.eager_load_paths << Rails.root.join("extras")
+    config.assets.paths << Rails.root.join('vendor', 'assets')
 
     config.generators do |g|
       g.system_tests = nil

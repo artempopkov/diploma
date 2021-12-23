@@ -1,9 +1,10 @@
 /*
+ *= require 'css/themify-icons'
  *= require_self
  */
 
 @import 'bootstrap/scss/bootstrap';
-@import 'themify-icons/themify-icons';
+
 @import 'scss/style';
 @import 'scss/widgets';
 @import 'scss/color';
