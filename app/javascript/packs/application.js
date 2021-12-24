@@ -13,7 +13,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(window).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
     $('#preloader-active').delay(450).fadeOut('slow');
     $('body').delay(450).css({
         'overflow': 'visible'
