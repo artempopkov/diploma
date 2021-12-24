@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_models, only: %i[show edit update]
+  before_action :load_models, only: %i[show edit update]
 
   def index
     @articles = Article.order(:id)
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
 
   private
 
-  def set_models
+  def load_models
     @article = Article.find(params[:id])
   end
 

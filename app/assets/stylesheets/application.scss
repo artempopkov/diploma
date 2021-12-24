@@ -1,13 +1,17 @@
 /*
- *= require 'themify-icons'
  *= require_self
  */
 
-@import "bootstrap/scss/bootstrap";
-@import 'style';
-@import 'widgets';
-@import 'color';
-@import 'responsive';
+@import 'bootstrap/scss/bootstrap';
+
+$ti-font-path: 'themify-icons-sass/themify-icons/fonts';
+@import 'themify-icons-sass/themify-icons/themify-icons';
+
+@import 'scss/style';
+@import 'scss/widgets';
+@import 'scss/color';
+@import 'scss/responsive';
+
 
 
 .custom-mb-1 {
