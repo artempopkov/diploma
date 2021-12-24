@@ -15,7 +15,7 @@
             <%= @article.title %>
           </h1>
           <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
-            <span class="post-on has-dot"><%= @article.created_at.to_date.strftime('%d %B, %Y') %></span>
+
           </div>
         </div>
         <%= @article.content %>
@@ -32,3 +32,4 @@
     </div>
     <%= link_to 'Destroy', [:admin, @article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' %>
   </div>
+</div>
