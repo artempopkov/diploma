@@ -25,7 +25,7 @@
 <div class="main-wrap">
   <!--Offcanvas sidebar-->
   <aside id="sidebar-wrapper" class="custom-scrollbar offcanvas-sidebar">
-    <button class="off-canvas-close"><i class="ti-close"></i></button>
+    <button class="off-canvas-close"><i class="icon-close"></i></button>
     <div class="sidebar-inner">
       <!--Categories-->
       <div class="sidebar-widget widget_categories mb-50">
@@ -156,37 +156,37 @@
             <div class="vline-space d-inline-block"></div>
             <div class="user-account d-inline-block font-small">
               <a class="dropdown-toggle" href="#" role="button" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="ti-user"></i>
+                <i class="icon-user"></i>
                 <span>Account</span>
               </a>
               <div id="userMenuDropdow" class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
                 <% if user_signed_in? %>
                   <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                    <i class="ti-pencil-alt"></i>
+                    <i class="icon-pencil-alt"></i>
                     Edit Profile
                   <% end %>
                   <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                    <i class="ti-stats-up"></i>
+                    <i class="icon-stats-up"></i>
                     Your Dashboard
                   <% end %>
                   <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                    <i class="ti-heart"></i>
+                    <i class="icon-heart"></i>
                     Your Favorites
                   <% end %>
                   <div class="dropdown-divider"></div>
                   <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                    <i class="ti-share"></i>
+                    <i class="icon-share"></i>
                     Logout
                   <% end %>
 
                 <% else %>
                   <%= link_to new_user_session_path, class: 'dropdown-item' do %>
-                    <i class="ti-shift-right-alt"></i>
+                    <i class="icon-shift-right-alt"></i>
                     Sign in
                   <% end %>
                   <div class="dropdown-divider"></div>
                   <%= link_to new_user_registration_path, class: 'dropdown-item' do %>
-                    <i class="ti-shift-right"></i>
+                    <i class="icon-shift-right"></i>
                     Sign up
                   <% end %>
                 <% end %>
@@ -214,12 +214,6 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <div class="off-canvas-toggle-cover">
-              <div class="off-canvas-toggle hidden d-inline-block ml-15" id="off-canvas-toggle">
-                <span></span>
-                <p class="font-small d-none d-md-inline">All Sections</p>
-              </div>
-            </div>
             <div class="logo-tablet d-md-inline d-lg-none d-none">
               <a href="index.html">
                 <%= image_tag 'logos/logo-tablet.png', class: 'logo-img d-inline' %>
@@ -234,84 +228,6 @@
             <div class="main-nav text-center d-none d-lg-block">
               <nav>
                 <ul id="navigation" class="main-menu">
-                  <li class="mega-menu-item">
-                    <a href="category.html">Mega menu</a>
-                    <div class="sub-mega-menu">
-                      <div class="nav flex-column nav-pills" role="tablist">
-                        <a class="nav-link active" data-toggle="pill" href="#news-0" role="tab">All</a>
-                        <a class="nav-link" data-toggle="pill" href="#news-1" role="tab">Entertaiment</a>
-                        <a class="nav-link" data-toggle="pill" href="#news-2" role="tab">Fashion</a>
-                        <a class="nav-link" data-toggle="pill" href="#news-3" role="tab">Life Style</a>
-                        <a class="nav-link" data-toggle="pill" href="#news-4" role="tab">Technology</a>
-                        <a class="nav-link" data-toggle="pill" href="#news-5" role="tab">Travel</a>
-                      </div>
-                      <div class="tab-content">
-                        <div class="tab-pane show active" id="news-0" role="tabpanel">
-                          <div class="row">
-                            <div class="col-3 post-module-1">
-                              <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
-                                <a href="single.html">
-                                  <img src="http://via.placeholder.com/900x630" alt="">
-                                </a>
-                                <span class="top-right-icon background2">
-                                                                           <i class="mdi mdi-audiotrack"></i>
-                                                                       </span>
-                              </div>
-                              <div class="post-content media-body">
-                                <h6 class="post-title mb-10 text-limit-2-row">The litigants on the screen are not
-                                  actors </h6>
-                                <div class="entry-meta meta-1 font-x-small color-grey">
-                                  <span class="post-on">25 April</span>
-                                  <span class="hit-count has-dot">126k Views</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="tab-pane" id="news-1" role="tabpanel">
-                          <div class="row">
-                            <div class="col-3 post-module-1">
-                              <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
-                                <a href="single.html">
-                                  <img src="http://via.placeholder.com/900x630" alt="">
-                                </a>
-                              </div>
-                              <div class="post-content media-body">
-                                <h6 class="post-title mb-10 text-limit-2-row">The litigants on the screen are not
-                                  actors </h6>
-                                <div class="entry-meta meta-1 font-x-small color-grey">
-                                  <span class="post-on">25 April</span>
-                                  <span class="hit-count has-dot">126k Views</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="tab-pane" id="news-2" role="tabpanel">
-                          <div class="row">
-                            <div class="col-3 post-module-1">
-                              <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
-                                <a href="single.html">
-                                  <img src="http://via.placeholder.com/900x630" alt="">
-                                </a>
-                                <span class="top-right-icon background2">
-                                                                           <i class="mdi mdi-audiotrack"></i>
-                                                                       </span>
-                              </div>
-                              <div class="post-content media-body">
-                                <h6 class="post-title mb-10 text-limit-2-row">The litigants on the screen are not
-                                  actors </h6>
-                                <div class="entry-meta meta-1 font-x-small color-grey">
-                                  <span class="post-on">25 April</span>
-                                  <span class="hit-count has-dot">126k Views</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
                   <li><a href="about.html">About</a></li>
                   <li class="menu-item-has-children">
                     <a href="category.html">Category</a>
@@ -328,8 +244,8 @@
             </div>
             <!-- Search -->
             <div class="search-button">
-              <button class="search-icon"><i class="ti-search"></i></button>
-              <span class="search-close float-right font-small"><i class="ti-close mr-5"></i>CLOSE</span>
+              <button class="search-icon"><i class="icon-search"></i></button>
+              <span class="search-close float-right font-small"><i class="icon-close mr-5"></i>CLOSE</span>
             </div>
           </div>
         </div>
@@ -344,7 +260,7 @@
           <div class="row mb-20">
             <div class="col-12">
               <form action="#" method="get" class="search-form position-relative">
-                <div class="search-form-icon"><i class="ti-search"></i></div>
+                <div class="search-form-icon"><i class="icon-search"></i></div>
                 <label>
                   <input type="text" class="search_field" placeholder="Enter keywords for search..." value="" name="s">
                 </label>
