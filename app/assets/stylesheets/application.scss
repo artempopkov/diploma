@@ -1,14 +1,14 @@
 /*
- *= require 'css/themify-icons'
  *= require_self
  */
 
 @import 'bootstrap/scss/bootstrap';
-
+@import 'scss/my-themify-icons';
 @import 'scss/style';
 @import 'scss/widgets';
 @import 'scss/color';
 @import 'scss/responsive';
+
 
 
 .form-container {

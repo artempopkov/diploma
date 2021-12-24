@@ -26,7 +26,7 @@
 <div class="main-wrap">
   <!--Offcanvas sidebar-->
   <aside id="sidebar-wrapper" class="custom-scrollbar offcanvas-sidebar">
-    <button class="off-canvas-close"><i class="ti-close"></i></button>
+    <button class="off-canvas-close"><i class="icon-close"></i></button>
     <div class="sidebar-inner">
       <!--Categories-->
       <div class="sidebar-widget widget_categories mb-50">
@@ -152,37 +152,37 @@
             <div class="vline-space d-inline-block"></div>
             <div class="user-account d-inline-block font-small">
               <a class="dropdown-toggle" href="#" role="button" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="ti-user"></i>
+                <i class="icon-user"></i>
                 <span>Account</span>
               </a>
               <div id="userMenuDropdow" class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
                 <% if user_signed_in? %>
                   <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                    <i class="ti-pencil-alt"></i>
+                    <i class="icon-pencil-alt"></i>
                     Edit Profile
                   <% end %>
                   <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                    <i class="ti-stats-up"></i>
+                    <i class="icon-stats-up"></i>
                     Your Dashboard
                   <% end %>
                   <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                    <i class="ti-heart"></i>
+                    <i class="icon-heart"></i>
                     Your Favorites
                   <% end %>
                   <div class="dropdown-divider"></div>
                   <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                    <i class="ti-share"></i>
+                    <i class="icon-share"></i>
                     Logout
                   <% end %>
 
                 <% else %>
                   <%= link_to new_user_session_path, class: 'dropdown-item' do %>
-                    <i class="ti-shift-right-alt"></i>
+                    <i class="icon-shift-right-alt"></i>
                     Sign in
                   <% end %>
                   <div class="dropdown-divider"></div>
                   <%= link_to new_user_registration_path, class: 'dropdown-item' do %>
-                    <i class="ti-shift-right"></i>
+                    <i class="icon-shift-right"></i>
                     Sign up
                   <% end %>
                 <% end %>
@@ -240,8 +240,8 @@
             </div>
             <!-- Search -->
             <div class="search-button">
-              <button class="search-icon"><i class="ti-search"></i></button>
-              <span class="search-close float-right font-small"><i class="ti-close mr-5"></i>CLOSE</span>
+              <button class="search-icon"><i class="icon-search"></i></button>
+              <span class="search-close float-right font-small"><i class="icon-close mr-5"></i>CLOSE</span>
             </div>
           </div>
         </div>
@@ -256,7 +256,7 @@
           <div class="row mb-20">
             <div class="col-12">
               <form action="#" method="get" class="search-form position-relative">
-                <div class="search-form-icon"><i class="ti-search"></i></div>
+                <div class="search-form-icon"><i class="icon-search"></i></div>
                 <label>
                   <input type="text" class="search_field" placeholder="Enter keywords for search..." value="" name="s">
                 </label>
