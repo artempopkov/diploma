@@ -14,6 +14,7 @@ describe Admin::UsersController, type: :controller do
     context '#new' do
       it 'renders template :new' do
         get :new
+        expect(response).to render_template(:new)
       end
     end
 
