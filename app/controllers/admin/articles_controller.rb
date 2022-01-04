@@ -26,8 +26,6 @@ module Admin
     end
 
     def update
-      @article.remove_avatar! if @article.avatar.present?
-
       if @article.update(article_params)
         redirect_to [:admin, @article], notice: 'Updating finish successfully'
       else
@@ -47,7 +45,7 @@ module Admin
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, :content, :avatar, :remove_image)
+      params.require(:article).permit(:title, :description, :content, :avatar, :remove_avatar)
     end
   end
 end
