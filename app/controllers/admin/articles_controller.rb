@@ -45,11 +45,7 @@ module Admin
     end
 
     def article_params
-<<<<<<< HEAD
-      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable)
-=======
-      params.require(:article).permit(:title, :description, :content, :avatar, :remove_avatar)
->>>>>>> feature-article-avatar
+      params.require(:article).permit(:title, :description, :content, :avatar, :remove_avatar, :avatar_disable)
     end
   end
 end
