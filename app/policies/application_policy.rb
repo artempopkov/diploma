@@ -1,8 +1,8 @@
 class ApplicationPolicy
-  attr_reader :user, :record
+  attr_reader :moderator, :record
 
-  def initialize(user, record)
-    @user = user
+  def initialize(moderator, record)
+    @moderator = moderator
     @record = record
   end
 
@@ -35,8 +35,8 @@ class ApplicationPolicy
   end
 
   class Scope
-    def initialize(user, scope)
-      @user = user
+    def initialize(moderator, scope)
+      @moderator = moderator
       @scope = scope
     end
 
@@ -46,6 +46,6 @@ class ApplicationPolicy
 
     private
 
-    attr_reader :user, :scope
+    attr_reader :moderator, :scope
   end
 end
