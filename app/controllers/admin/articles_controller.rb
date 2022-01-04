@@ -26,8 +26,6 @@ module Admin
     end
 
     def update
-      @article.remove_avatar! if @article.avatar.present? && article_params[:avatar].present?
-
       if @article.update(article_params)
         redirect_to [:admin, @article], notice: 'Updating finish successfully'
       else
@@ -47,7 +45,11 @@ module Admin
     end
 
     def article_params
+<<<<<<< HEAD
       params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable)
+=======
+      params.require(:article).permit(:title, :description, :content, :avatar, :remove_avatar)
+>>>>>>> feature-article-avatar
     end
   end
 end
