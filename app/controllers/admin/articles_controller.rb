@@ -27,7 +27,10 @@ module Admin
 
     def update
       if @article.update(article_params)
-        redirect_to [:admin, @article], notice: 'Updating finish successfully'
+        respond_to do |format|
+          format.html { redirect_to [:admin, @article], notice: 'Update finish successfully' }
+          format.js
+        end
       else
         render :edit, status: :unprocessable_entity
       end
