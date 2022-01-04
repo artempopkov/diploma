@@ -34,10 +34,8 @@ module Admin
     end
 
     def update
-      @article.remove_avatar! if @article.avatar.present? && article_params[:avatar].present?
-
       if @article.update(article_params)
-        redirect_to [:admin, @article], notice: 'Updating finish successfully'
+        redirect_to [:admin, @article], notice: 'Update finish successfully'
       else
         render :edit, status: :unprocessable_entity
       end
@@ -63,7 +61,7 @@ module Admin
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, :tag_list)
+      params.require(:article).permit(:title, :description, :content, :avatar, :remove_avatar, :avatar_disable, :category_id, :tag_list)
     end
   end
 end
