@@ -59,9 +59,7 @@ ActiveRecord::Schema.define(version: 2022_01_04_092353) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at"
     t.string "avatar"
-<<<<<<< HEAD
-    t.boolean "avatar_disable"
-=======
+
     t.boolean "avatar_disable", default: false
     t.bigint "category_id"
     t.integer "status", default: 0, null: false
@@ -73,7 +71,6 @@ ActiveRecord::Schema.define(version: 2022_01_04_092353) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
->>>>>>> feature-article-avatar
   end
 
   create_table "moderators", force: :cascade do |t|
