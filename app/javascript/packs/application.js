@@ -8,11 +8,31 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
-import "./main"
+require("trix")
+require("@rails/actiontext")
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-require("trix")
-require("@rails/actiontext")
+$(document).on('turbolinks:load', function() {
+    $('#preloader-active').delay(450).fadeOut('slow');
+    $('body').delay(450).css({
+        'overflow': 'visible'
+    });
+});
+
+$(document).on('turbolinks:load', function () {
+    $('.search-close').hide();
+    $('button.search-icon').on('click', function () {
+        $(this).hide();
+        $('body').toggleClass("open-search-form");
+        $('.search-close').show();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+    });
+    $('.search-close').on('click', function () {
+        $(this).hide();
+        $('body').removeClass("open-search-form");
+        $('button.search-icon').show();
+    });
+});
