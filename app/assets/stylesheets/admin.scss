@@ -9,17 +9,14 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *= require 'css/themify-icons'
- *= require actiontext
- *= require_tree .
+ *
+ *= require 'scss/actiontext'
  */
 
-@import "./actiontext.scss";
 @import "bootstrap/scss/bootstrap";
-@import 'scss/style';
-@import 'scss/widgets';
-@import 'scss/color';
-@import 'scss/responsive';
+@import "scss/style";
+@import "scss/widgets";
+
 
 .form-container {
   padding: 1.5rem;

@@ -14,7 +14,6 @@
 /config/database.yml
 /public/uploads
 /public/packs
-/public/uploads
 /public/packs-test
 /node_modules
 /yarn-error.log

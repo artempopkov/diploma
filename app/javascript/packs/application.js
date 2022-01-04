@@ -8,15 +8,14 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
+require("trix")
+require("@rails/actiontext")
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-require("trix")
-require("@rails/actiontext")
-
-$(window).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
     $('#preloader-active').delay(450).fadeOut('slow');
     $('body').delay(450).css({
         'overflow': 'visible'
