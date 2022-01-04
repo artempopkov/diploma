@@ -14,6 +14,10 @@
 
     <% if @article.avatar.url.present? %>
       <%= image_tag @article.avatar.url %>
+      <div>
+        Remove avatar
+        <%= form.check_box :remove_avatar %>
+      </div>
     <% end %>
 
     <div class="input-group">
