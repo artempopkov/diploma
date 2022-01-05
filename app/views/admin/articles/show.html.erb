@@ -8,7 +8,7 @@
         <%= send_for_review %>
       <% else %>
         <button id="open-comment-field" class=" btn-warning">Comment</button>
-        <%= link_to 'Comm', new_admin_review_path(aid: @article.id), class: 'btn-primary btn-primary'%>
+
       <% end %>
     </div>
     <div class="divider-text-center mt-10 mb-30">
@@ -17,7 +17,7 @@
       <div class="col-lg-8 col-md-12 col-sm-12">
         <div id="review-comment" class="hiden-div">
           ss
-          <%= render "admin/reviews/form", review: @review, article: @article %>
+          <%= render "admin/reviews/form", review: @review %>
         </div>
         <div class="entry-header entry-header-1 mb-30">
           <a href="#"><span>Category: <%= @article.category.name %></span></a>
