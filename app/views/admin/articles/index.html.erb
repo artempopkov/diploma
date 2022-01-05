@@ -2,7 +2,7 @@
 <div class="archive-header text-center">
   <div class="container">
     <h2><%= link_to 'Articles', admin_articles_url, class: 'color2' %></h2>
-    <% Category.order(:id).each do |cat|%>
+    <% Category.order(:id).each do |cat| %>
       <%= link_to cat.name, admin_articles_url(cat: cat) %> |
     <% end %>
     <div class="bt-1 border-color-1 mt-30 mb-50"></div>
@@ -28,6 +28,8 @@
             <%= link_to '', [:admin, article], class: 'img-link' %>
             <div class="card-body">
               <a href="#"><span>Category: <%= article.category.name %></span></a>
+              <p class="post-on has-dot">Status: <%= article.status %></p>
+
               <div class="bt-1 border-color-1 mb-1"></div>
               <h5 class="card-title"><%= link_to article.title, [:admin, article] %></h5>
               <p class="card-text"><%= article.description %></p>
