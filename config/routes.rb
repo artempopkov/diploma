@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :moderators
     resources :categories
     resources :articles
+    resources :reviews
     patch 'send_for_review/:id', to: 'articles#send_for_review', as: 'send_for_review'
     get 'tags/:tag', to: 'articles#tag', as: :tag
   end

@@ -36,3 +36,9 @@ $(document).on('turbolinks:load', function () {
         $('button.search-icon').show();
     });
 });
+
+$(document).on('turbolinks:load', function () {
+    $('#open-comment-field').on('click', function () {
+        $('#review-comment').toggle("slow");
+    });
+});

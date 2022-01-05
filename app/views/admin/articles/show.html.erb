@@ -4,14 +4,21 @@
     <div class="mb-10">
       <%= link_to 'Back', admin_articles_path, class: 'btn-secondary btn-back' %>
       <% if @article.inactive? %>
-        <%= link_to 'Edit', edit_admin_article_path(@article), class: 'btn btn-edit' %>
-        <%= link_to 'Send for review', admin_send_for_review_path(@article), method: :patch, class: 'btn btn-confirm' %>
+        <%= edit_article %>
+        <%= send_for_review %>
+      <% else %>
+        <button id="open-comment-field" class=" btn-warning">Comment</button>
+        <%= link_to 'Comm', new_admin_review_path(aid: @article.id), class: 'btn-primary btn-primary'%>
       <% end %>
     </div>
     <div class="divider-text-center mt-10 mb-30">
     </div>
     <div class="row">
       <div class="col-lg-8 col-md-12 col-sm-12">
+        <div id="review-comment" class="hiden-div">
+          ss
+          <%= render "admin/reviews/form", review: @review, article: @article %>
+        </div>
         <div class="entry-header entry-header-1 mb-30">
           <a href="#"><span>Category: <%= @article.category.name %></span></a>
           <h1 class="post-title">
@@ -38,6 +45,6 @@
     </div>
     <div class="divider-text-center mt-15 mb-30">
     </div>
-    <%= link_to 'Destroy', [:admin, @article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' %>
+    <%= destroy_article %>
   </div>
 </div>
