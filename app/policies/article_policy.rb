@@ -41,8 +41,10 @@ module Admin
           scope.all
         elsif moderator.editor?
           scope.where(status: :active)
-        else
+        elsif moderator.correspondent?
           scope.where(status: %i[inactive published], moderator_id: moderator.id)
+        else
+          scope.none
         end
       end
     end

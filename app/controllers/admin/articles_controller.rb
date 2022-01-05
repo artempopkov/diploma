@@ -74,7 +74,7 @@ module Admin
     def permission_denied
       flash[:error] = "You don't have the proper permissions to view this page. If you think you are supposed to then please contact us at permissions@inrtracker.com"
       self.response_body = nil # This should resolve the redirect root.
-      redirect_to(request.referrer || root_path)
+      redirect_to(request.referer || root_path)
     end
 
     def set_models
