@@ -28,11 +28,15 @@ module Admin
     end
 
     def update?
-      article.inactive?
+      article.inactive? and moderator.correspondent?
     end
 
     def destroy?
-      article.inactive?
+      article.inactive? and moderator.correspondent?
+    end
+
+    def send_for_review?
+      article.inactive? and moderator.correspondent?
     end
 
     class Scope < Scope

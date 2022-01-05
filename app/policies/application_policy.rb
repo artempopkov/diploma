@@ -7,15 +7,15 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    moderator.admin?
   end
 
   def show?
-    false
+    moderator.admin?
   end
 
   def create?
-    false
+    moderator.admin?
   end
 
   def new?
@@ -23,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    moderator.admin?
   end
 
   def edit?
@@ -31,7 +31,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    moderator.admin?
   end
 
   class Scope

@@ -4,10 +4,12 @@ module Admin
 
     def index
       @moderators = Moderator.page(current_page).order(:id)
+      authorize [:admin, @moderators]
     end
 
     def new
       @moderator = Moderator.new
+      authorize [:admin, @moderator]
     end
 
     def edit
@@ -15,6 +17,7 @@ module Admin
 
     def create
       @moderator = Moderator.new moderator_params
+      authorize [:admin, @moderator]
       if @moderator.save
         redirect_to admin_moderators_url, notice: 'Creation finish successfully'
       else
@@ -23,6 +26,7 @@ module Admin
     end
 
     def update
+      authorize [:admin, @moderator]
       if @moderator.update moderator_params
         redirect_to admin_moderators_url, notice: 'Updating finish successfully'
       else
@@ -31,6 +35,7 @@ module Admin
     end
 
     def destroy
+      authorize [:admin, @moderator]
       @moderator.destroy
       redirect_to admin_moderators_url, notice: 'Destruction finish successfully'
     end

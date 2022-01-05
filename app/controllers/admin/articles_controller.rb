@@ -60,13 +60,10 @@ module Admin
     end
 
     def send_for_review
+      authorize [:admin, @article]
       @article.status = 'active'
       @article.save!
       redirect_to [:admin, @article], notice: 'Article sent for review'
-    end
-
-    def pundit_user
-      current_moderator
     end
 
     private
