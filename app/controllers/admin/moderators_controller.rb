@@ -3,7 +3,7 @@ module Admin
     before_action :load_models, only: %i[edit update destroy]
 
     def index
-      @moderators = Moderator.page(current_page).order(:id)
+      @moderators = policy_scope([:admin, Moderator]).page(current_page).order(:id)
       authorize [:admin, @moderators]
     end
 

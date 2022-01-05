@@ -7,7 +7,7 @@ module Admin
     def index
       if params.key?(:cat)
         @category = Category.find(params[:cat])
-        @articles = @category.articles.order(:id)
+        @articles = policy_scope [:admin, @category.articles.order(:id)]
       elsif params.key?(:tag)
         @articles = policy_scope([:admin, Article]).tagged_with(params[:tag])
       else
