@@ -17,6 +17,7 @@ module Admin
     end
 
     def show
+      @review = @article.reviews.build
       authorize [:admin, @article]
     end
 
