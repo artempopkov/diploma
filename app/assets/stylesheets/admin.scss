@@ -48,10 +48,41 @@
 }
 
 .btn-back {
-  padding: .75rem .95rem;
+  padding: .70rem .95rem;
   font-size: .875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
+}
+
+.btn-comment {
+  padding: .4rem .95rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.2rem solid #ffc400;
+  background-color: #ffc400;
+  color: #f2f2f2;
+}
+
+.btn-comment:hover {
+  background-color: #e0ac00;
+  border: 0.2rem solid #e0ac00;
+}
+
+.btn-return {
+  padding: .4rem .95rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.2rem solid #0062cc;
+  background-color: #0062cc;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.btn-return:hover {
+  background-color: #0069d9;
+  border: 0.2rem solid #0069d9;
 }
 
 .btn-edit {
