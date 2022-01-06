@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_05_133341) do
+ActiveRecord::Schema.define(version: 2022_01_04_143116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,13 +88,6 @@ ActiveRecord::Schema.define(version: 2022_01_05_133341) do
     t.index ["reset_password_token"], name: "index_moderators_on_reset_password_token", unique: true
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.bigint "article_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_reviews_on_article_id"
-  end
-
   create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -141,6 +134,5 @@ ActiveRecord::Schema.define(version: 2022_01_05_133341) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "moderators"
-  add_foreign_key "reviews", "articles"
   add_foreign_key "taggings", "tags"
 end
