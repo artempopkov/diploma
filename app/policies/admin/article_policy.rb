@@ -32,7 +32,7 @@ module Admin
     end
 
     def destroy?
-      article.inactive? and moderator.correspondent?
+      article.inactive? and (moderator.correspondent? or moderator.admin?)
     end
 
     def send_for_review?

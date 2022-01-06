@@ -14,7 +14,7 @@
 </div>
 <div class="main_content sidebar_right pb-50">
   <div class="container">
-    <%= link_to 'New Article', new_admin_article_path, class: 'btn btn-create' %>
+    <%= create_new_article %>
     <div class="row row-cols-1 row-cols-md-3">
       <% @articles.each do |article| %>
         <div class="col mb-4">
