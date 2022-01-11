@@ -52,18 +52,21 @@
 }
 
 .btn-comment {
-  padding: .4rem .95rem;
+  padding: .63rem .95rem;
   font-size: .875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
-  border: 0.2rem solid #ffc400;
-  background-color: #ffc400;
-  color: #f2f2f2;
-}
+  border: 0.1rem solid #f78809;
+  background-color: #f78809;
+  color: #fff;
+  margin-top: 10px;
+  transition: all .2s ease-out 0s;
 
-.btn-comment:hover {
-  background-color: #e0ac00;
-  border: 0.2rem solid #e0ac00;
+  &:hover {
+    background-color: #fff;
+    border: 0.1rem solid #f78809;
+    color: #f78809;
+  }
 }
 
 .btn-return {
@@ -71,15 +74,16 @@
   font-size: .875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
-  border: 0.2rem solid #0062cc;
+  border: 0.1rem solid #0062cc;
   background-color: #0062cc;
   color: #fff;
   margin-top: 10px;
   transition: all .2s ease-out 0s;
 
   &:hover {
-    background-color: #0069d9;
-    border: 0.2rem solid #0069d9;
+    background-color: #fff;
+    border: 0.1rem solid #0069d9;
+    color: #0069d9;
   }
 }
 
