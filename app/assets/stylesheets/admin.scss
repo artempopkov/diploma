@@ -51,13 +51,6 @@
   color: orange;
 }
 
-.btn-back {
-  padding: .70rem .95rem;
-  font-size: .875rem;
-  line-height: 1.5;
-  border-radius: 0.2rem;
-}
-
 .btn-comment {
   padding: .4rem .95rem;
   font-size: .875rem;
@@ -82,11 +75,29 @@
   background-color: #0062cc;
   color: #fff;
   margin-top: 10px;
+  transition: all .2s ease-out 0s;
+
+  &:hover {
+    background-color: #0069d9;
+    border: 0.2rem solid #0069d9;
+  }
 }
 
-.btn-return:hover {
-  background-color: #0069d9;
-  border: 0.2rem solid #0069d9;
+.btn-back {
+  padding: .75rem .95rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  background-color: #6c757d;
+  color: #fff;
+  border-radius: 0.2rem;
+  transition: all .2s ease-out 0s;
+  border: 0.1rem solid #6c757d;
+
+  &:hover {
+    background-color: #fff;
+    color: #6c757d;
+    border: 0.1rem solid #6c757d;
+  }
 }
 
 .btn-edit {
@@ -94,6 +105,33 @@
   font-size: .875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
+  border: 0.1rem solid #f78809;
+  color: #fff;
+  background-color: #f78809;
+  transition: all .2s ease-out 0s;
+
+  &:hover {
+    background-color: #fff;
+    color: #f78809;
+    border: 0.1rem solid #f78809;
+  }
+}
+
+.send_for_review { 
+  padding: .75rem .95rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #22a834;
+  color: #fff;
+  background-color: #22a834;
+  transition: all .2s ease-out 0s;
+
+  &:hover {
+    background-color: #fff;
+    color: #22a834;
+    border: 0.1rem solid #22a834;
+  }
 }
 
 .btn-destroy {
@@ -101,7 +139,16 @@
   font-size: .875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
+  border: 0.1rem solid red;
   background-color: red;
+  color: #fff;
+  transition: all .2s ease-out 0s;
+
+  &:hover {
+    background-color: #fff;
+    color: red;
+    border: 0.1rem solid red;
+  }
 }
 
 .btn-create {
@@ -129,16 +176,19 @@
 }
 
 .btn-logout{
-  border: 1px solid #dc3545;
+  border: 0.1rem solid #dc3545;
   padding: .2em;
-  color: #dc3545;
-  border-radius: 5px;
-}
-
-.btn-logout:hover {
   color: #fff;
+  border-radius: 5px;
+
   background-color: #dc3545;
-  border-color: #dc3545;
+  transition: all .2s ease-out 0s;
+
+  &:hover {
+    background-color: #fff;
+    color: #dc3545;
+    border: 0.1rem solid #dc3545;
+  }
 }
 
 .btn-confirm{

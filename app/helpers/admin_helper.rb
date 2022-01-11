@@ -18,15 +18,15 @@ module AdminHelper
   end
 
   def destroy_article
-    link_to 'Destroy', [:admin, @article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' if user_correspondent_or_admin?
+    link_to 'Destroy', [:admin, @article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-destroy' if user_correspondent_or_admin?
   end
 
   def send_for_review
-    link_to 'Send for review', admin_send_for_review_path(@article), method: :patch, class: 'btn-confirm' if user_correspondent? && @article.changed_after_review?
+    link_to 'Send for review', admin_send_for_review_path(@article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'send_for_review' if user_correspondent? && @article.changed_after_review?
   end
 
   def edit_article
-    link_to 'Edit', edit_admin_article_path(@article), class: 'btn btn-edit' if user_correspondent?
+    link_to 'Edit', edit_admin_article_path(@article), class: 'btn-edit' if user_correspondent?
   end
 
   private

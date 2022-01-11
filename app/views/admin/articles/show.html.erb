@@ -2,7 +2,7 @@
 <div class="main_content sidebar_right pb-50 pt-50">
   <div class="container">
     <div class="mb-10">
-      <%= link_to 'Back', admin_articles_path, class: 'btn-secondary btn-back' %>
+      <%= link_to 'Back', admin_articles_path, class: 'btn-back' %>
       <% if @article.inactive? %>
         <%= edit_article %>
         <%= send_for_review %>
@@ -10,7 +10,7 @@
         <button id="open-comment-field" class="btn-comment">Comment</button>
       <% end %>
     </div>
-    <div class="divider-text-center mt-10 mb-30">
+    <div class="divider-text-center mt-20 mb-30">
     </div>
     <div class="row">
       <div class="col-lg-8 col-md-12 col-sm-12">
