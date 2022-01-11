@@ -28,7 +28,7 @@ module Admin
     end
 
     def update?
-      article.inactive? and moderator.correspondent?
+      article.inactive?
     end
 
     def destroy?

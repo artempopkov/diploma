@@ -18,6 +18,13 @@
           <%= render "admin/reviews/form", review: @review %>
           <div class="divider mb-15 mt-15"></div>
         </div>
+        <% if !@article.changed_after_review? %>
+        <div>
+          <h2 class="color-orange"> Commnet form reviewer</h2>
+          <%= @article.current_review.comment %>
+          <div class="divider-text-center mb-4 mt-3"></div>
+        </div>
+        <% end %>
         <div class="entry-header entry-header-1 mb-30">
           <a href="#"><span>Category: <%= @article.category.name %></span></a>
           <h1 class="post-title">
@@ -42,7 +49,7 @@
         </div>
       </div>
     </div>
-    <div class="divider-text-center mt-15 mb-30">
+    <div class="divider-text-center mt-15 mb-40">
     </div>
     <%= destroy_article %>
   </div>

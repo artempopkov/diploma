@@ -22,7 +22,7 @@ module AdminHelper
   end
 
   def send_for_review
-    link_to 'Send for review', admin_send_for_review_path(@article), method: :patch, class: 'btn-confirm' if user_correspondent?
+    link_to 'Send for review', admin_send_for_review_path(@article), method: :patch, class: 'btn-confirm' if user_correspondent? && @article.changed_after_review?
   end
 
   def edit_article

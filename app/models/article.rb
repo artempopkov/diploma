@@ -7,4 +7,12 @@ class Article < ApplicationRecord
   belongs_to :moderator
   has_many :reviews, dependent: :destroy
   validates :title, :description, :content, presence: true
+
+  def current_review
+    self.reviews.second_to_last
+  end
+
+  def changed_after_review?
+    self.updated_at > self.reviews.second_to_last.created_at + 3.seconds
+  end
 end
