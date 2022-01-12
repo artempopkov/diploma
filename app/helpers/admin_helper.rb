@@ -17,22 +17,34 @@ module AdminHelper
     link_to 'New Article', new_admin_article_path, class: 'btn btn-create' if user_correspondent?
   end
 
-  def destroy_article
-    link_to 'Destroy', [:admin, @article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-destroy' if user_correspondent_or_admin?
+  def destroy_article(article)
+    link_to 'Destroy', [:admin, article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-destroy' if user_correspondent_or_admin?
   end
 
-  def send_for_review
-    link_to 'Send for review', admin_send_for_review_path(@article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'send_for_review' if user_correspondent? && @article.changed_after_review?
+  def send_for_review(article)
+    link_to 'Send for review', admin_send_for_review_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'send_for_review' unless user_correspondent? && article.need_fixes?
   end
 
-  def edit_article
-    link_to 'Edit', edit_admin_article_path(@article), class: 'btn-edit' if user_correspondent?
+  def edit_article(article)
+    link_to 'Edit', edit_admin_article_path(article), class: 'btn-edit' if user_correspondent?
+  end
+
+  def render_review_form(review)
+    render "admin/reviews/form", review: review if user_editor?
+  end
+
+  def review_comment(article)
+    render "admin/reviews/comment", review: article.reviews.last if user_correspondent? && article.need_fixes?
   end
 
   private
 
   def user_admin?
     current_moderator.admin?
+  end
+
+  def user_editor?
+    current_moderator.editor?
   end
 
   def user_admin_or_editor?

@@ -9,10 +9,10 @@ class Article < ApplicationRecord
   validates :title, :description, :content, presence: true
 
   def current_review
-    self.reviews.second_to_last
+    reviews.last
   end
 
-  def changed_after_review?
-    self.updated_at > self.reviews.second_to_last.created_at + 3.seconds
+  def need_fixes?
+    true if reviews.count.positive? && updated_at < reviews.last.created_at + 3.seconds
   end
 end

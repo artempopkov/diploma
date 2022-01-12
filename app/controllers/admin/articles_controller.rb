@@ -17,7 +17,7 @@ module Admin
     end
 
     def show
-      @review = @article.reviews.build
+      @review = @article.reviews.build if current_moderator.editor?
       authorize [:admin, @article]
     end
 
