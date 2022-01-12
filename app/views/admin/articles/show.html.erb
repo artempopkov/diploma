@@ -6,7 +6,7 @@
       <% if @article.inactive? %>
         <%= edit_article(@article) %>
         <%= send_for_review(@article) %>
-      <% else %>
+      <% elsif current_moderator.editor? %>
         <button id="open-comment-field" class="btn-comment">Comment</button>
       <% end %>
     </div>

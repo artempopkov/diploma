@@ -137,6 +137,22 @@
     border: 0.1rem solid #22a834;
   }
 }
+.btn-create {
+  padding: .75rem .75rem;
+  font-size: .875rem;
+  color: #fff;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  background-color: #007bff;
+  border: 0.1rem solid #007bff;
+  margin-bottom: 20px;
+
+  &:hover {
+    background-color: #fff;
+    color: #007bff;
+    border: 0.1rem solid #007bff;
+  }
+}
 
 .btn-destroy {
   padding: .75rem .95rem;
@@ -153,16 +169,6 @@
     color: red;
     border: 0.1rem solid red;
   }
-}
-
-.btn-create {
-  padding: .75rem .75rem;
-  font-size: .875rem;
-  line-height: 1.5;
-  border-radius: 0.2rem;
-  background-color: #007bff;
-  border-color: #007bff;
-  margin-bottom: 20px;
 }
 
 .form-container {

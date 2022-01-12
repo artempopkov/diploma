@@ -14,7 +14,7 @@ module AdminHelper
   end
 
   def create_new_article
-    link_to 'New Article', new_admin_article_path, class: 'btn btn-create' if user_correspondent?
+    link_to 'New Article', new_admin_article_path, class: 'btn-create' if user_correspondent?
   end
 
   def destroy_article(article)

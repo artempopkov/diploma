@@ -8,7 +8,7 @@ module Admin
       @review = Review.new(review_params)
       if @review.save
         @review.article.update(status: :inactive)
-        redirect_to admin_articles_url, notice: "Review was successfully created."
+        redirect_to admin_articles_url, notice: 'Creation finish successfully.'
       else
         render :new, status: :unprocessable_entity
       end
