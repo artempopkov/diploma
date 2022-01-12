@@ -15,4 +15,8 @@ class Article < ApplicationRecord
   def need_fixes?
     true if reviews.count.positive? && updated_at < reviews.last.created_at + 3.seconds
   end
+
+  def not_published?
+    true unless published?
+  end
 end

@@ -1,6 +1,6 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :set_models, only: %i[show edit update destroy send_for_review]
+    before_action :set_models, only: %i[show edit update destroy send_for_review publish]
     before_action :tag_cloud
     after_action :verify_authorized
 
@@ -62,9 +62,14 @@ module Admin
 
     def send_for_review
       authorize [:admin, @article]
-      @article.status = 'active'
-      @article.save!
+      @article.update(status: :active)
       redirect_to [:admin, @article], notice: 'Article sent for review'
+    end
+
+    def publish
+      authorize [:admin, @article]
+      @article.update(status: :published)
+      redirect_to [:admin, @article], notice: 'Article published'
     end
 
     private

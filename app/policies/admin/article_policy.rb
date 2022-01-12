@@ -39,12 +39,16 @@ module Admin
       article.inactive? and moderator.correspondent?
     end
 
+    def publish?
+      article.active? and (moderator.admin? or moderator.editor?)
+    end
+
     class Scope < Scope
       def resolve
         if moderator.admin?
           scope.all
         elsif moderator.editor?
-          scope.where(status: :active)
+          scope.where(status: %i[active published])
         elsif moderator.correspondent?
           scope.where(moderator_id: moderator.id)
         else
