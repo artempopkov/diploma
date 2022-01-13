@@ -1,8 +1,9 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :set_models, only: %i[show edit update destroy send_for_review publish remove_avatar]
+    before_action :set_models, only: %i[show edit update destroy send_for_review publish remove_avatar mark_as_important]
     before_action :tag_cloud
     after_action :verify_authorized
+    respond_to :js
 
     def index
       if params.key?(:cat)
@@ -79,6 +80,12 @@ module Admin
       redirect_to [:admin, @article], notice: 'Article published'
     end
 
+    def mark_as_important
+      authorize [:admin, @article]
+      imp = params[:important] == 'mark'
+      @article.update(important: imp)
+    end
+
     private
 
     def set_models
@@ -86,7 +93,7 @@ module Admin
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, :tag_list, :status)
+      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, :tag_list, :status, :important)
     end
   end
 end

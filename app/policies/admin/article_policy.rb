@@ -47,6 +47,10 @@ module Admin
       edit?
     end
 
+    def mark_as_important?
+      moderator.editor? or moderator.admin?
+    end
+
     class Scope < Scope
       def resolve
         if moderator.admin?

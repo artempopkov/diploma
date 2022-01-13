@@ -19,4 +19,8 @@ class Article < ApplicationRecord
   def not_published?
     true unless published?
   end
+
+  def important?
+    important
+  end
 end
