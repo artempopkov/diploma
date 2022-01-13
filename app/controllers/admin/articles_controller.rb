@@ -1,6 +1,6 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :set_models, only: %i[show edit update destroy send_for_review publish]
+    before_action :set_models, only: %i[show edit update destroy send_for_review publish remove_avatar]
     before_action :tag_cloud
     after_action :verify_authorized
 
@@ -60,6 +60,13 @@ module Admin
       @tags = Article.tag_counts_on(:tags)
     end
 
+    def remove_avatar
+      authorize [:admin, @article]
+      @article.remove_avatar!
+      @article.save!
+      redirect_to edit_admin_article_path(@article)
+    end
+
     def send_for_review
       authorize [:admin, @article]
       @article.update(status: :active)
@@ -79,7 +86,7 @@ module Admin
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, :content, :avatar, :remove_avatar, :avatar_disable, :category_id, :tag_list, :status)
+      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, :tag_list, :status)
     end
   end
 end

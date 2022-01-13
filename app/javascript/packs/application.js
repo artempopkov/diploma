@@ -38,7 +38,17 @@ $(document).on('turbolinks:load', function () {
 });
 
 $(document).on('turbolinks:load', function () {
+    $('#customFile').change( function(e){
+        var geekss = e.target.files[0].name;
+        $('.custom-file-label').html(geekss);
+        console.log(geekss);
+    });
+});
+
+
+$(document).on('turbolinks:load', function () {
     $('#open-comment-field').on('click', function () {
         $('#review-comment').toggle("slow");
     });
 });
+

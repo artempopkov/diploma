@@ -43,6 +43,10 @@ module Admin
       article.active? and (moderator.admin? or moderator.editor?)
     end
 
+    def remove_avatar?
+      edit?
+    end
+
     class Scope < Scope
       def resolve
         if moderator.admin?
