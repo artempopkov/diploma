@@ -72,16 +72,6 @@ $(document).on('turbolinks:load', function () {
                         chooseFile.value = "";
                         fileNameLabel.innerHTML = "Choose image";
                     });
-                    // $('#remove-img').on('click', function (event) {
-                    //     event.preventDefault();
-                    //     $.ajax({
-                    //         success: function(){
-                    //             $('#img-preview').html('');
-                    //             let v = $('#input')[0].file[0];
-                    //             alert(v);
-                    //         }
-                    //     });
-                    // });
                 });
             }
         });
