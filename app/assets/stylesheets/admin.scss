@@ -83,23 +83,6 @@
   }
 }
 
-.btn-back {
-  padding: .75rem .95rem;
-  font-size: .875rem;
-  line-height: 1.5;
-  background-color: #6c757d;
-  color: #fff;
-  border-radius: 0.2rem;
-  transition: all .2s ease-out 0s;
-  border: 0.1rem solid #6c757d;
-
-  &:hover {
-    background-color: #fff;
-    color: #6c757d;
-    border: 0.1rem solid #6c757d;
-  }
-}
-
 .btn-edit {
   padding: .75rem .95rem;
   font-size: .875rem;
@@ -115,6 +98,15 @@
     color: #f78809;
     border: 0.1rem solid #f78809;
   }
+}
+
+.nav-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background-color: #f3f3f3 !important;
 }
 
 .btn-send_for_review {
@@ -181,6 +173,40 @@
     background-color: #fff;
     color: #0069d9;
     border: 0.1rem solid #0069d9;
+  }
+}
+
+.btn-mark {
+  padding: .75rem .95rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #0069d9;
+  background-color: #0069d9;
+  color: #fff;
+  transition: all .2s ease-out 0s;
+
+  &:hover {
+    background-color: #fff;
+    color: #0069d9;
+    border: 0.1rem solid #0069d9;
+  }
+}
+
+.btn-back {
+  padding: .75rem .95rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  background-color: #6c757d;
+  color: #fff;
+  border-radius: 0.2rem;
+  transition: all .2s ease-out 0s;
+  border: 0.1rem solid #6c757d;
+
+  &:hover {
+    background-color: #fff;
+    color: #6c757d;
+    border: 0.1rem solid #6c757d;
   }
 }
 

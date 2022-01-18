@@ -10,11 +10,11 @@
         <a class='btn-edit' id='open-comment-field'>Comment</a>
         <%= publish_article(@article) %>
         <% if @article.important? %>
-          <%= link_to admin_mark_as_important_path(@article, important: 'unmark'),  class: 'btn-ok', id: :unmark, method: :put, remote: :true do %>
+          <%= link_to admin_mark_as_important_path(@article, important: 'unmark'),  class: 'btn-mark', id: :unmark, method: :put, remote: :true do %>
             Unmark
           <% end %>
         <% else %>
-          <%= link_to admin_mark_as_important_path(@article, important: 'mark'),  class: 'btn-ok', id: :mark, method: :put, remote: :true do %>
+          <%= link_to admin_mark_as_important_path(@article, important: 'mark'),  class: 'btn-mark', id: :mark, method: :put, remote: :true do %>
             Mark
           <% end %>
         <% end %>
