@@ -8,6 +8,9 @@ class Article < ApplicationRecord
   has_many :reviews, dependent: :destroy
   validates :title, :description, :content, presence: true
 
+  scope :important, -> { where(important: true) }
+  scope :published, -> { where(status: :published) }
+
   def current_review
     reviews.last
   end

@@ -1,9 +1,8 @@
 
-<div class="main_content sidebar_right pb-50 mt-30">
+<div class="main_content sidebar_right pb-50 mt-50">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-12 col-sm-12">
-        <!--loop-list-->
         <% @articles.each do |article| %>
         <div class="loop-list loop-list-1">
           <article class="first-post mb-50 animate-conner">
@@ -254,18 +253,22 @@
         <div class="widget-area pl-30">
           <div class="sidebar-widget widget_alitheme_lastpost mb-50">
             <div class="widget-header position-relative mb-20 pb-10">
-              <h5 class="widget-title mb-10">Latest Posts</h5>
+              <h5 class="widget-title mb-10">Important Posts</h5>
               <div class="bt-1 border-color-1"></div>
             </div>
             <div class="post-block-list post-module-1">
               <ul class="list-post">
-                <% @last_three_articles.each do |article| %>
+                <% @three_important_articles.each do |article| %>
                   <li class="mb-30">
                     <div class="d-flex">
                       <div class="post-thumb d-flex mr-15 border-radius-5 img-hover-scale">
-                        <a href="single.html">
-                          <img src="http://via.placeholder.com/500x500" alt="">
-                        </a>
+                        <%= link_to article do %>
+                          <% if article.avatar.present? %>
+                            <img src="<%= article.avatar.side_bar_small.url %>" alt="...">
+                          <% else %>
+                            <img src="<%= asset_path('no-image.png') %>" alt="...">
+                          <% end %>
+                        <% end %>
                       </div>
 
                       <div class="post-content media-body">
@@ -286,23 +289,7 @@
               </ul>
             </div>
           </div>
-          <!--Widget categories-->
-          <div class="sidebar-widget widget_categories mb-50">
-            <div class="widget-header position-relative mb-20 pb-10">
-              <h5 class="widget-title mb-10">Categories</h5>
-              <div class="bt-1 border-color-1"></div>
-            </div>
-            <div class="post-block-list post-module-1 post-module-5">
-              <ul>
-                <li class="cat-item cat-item-2"><a href="category.html">Beauty</a> (3)</li>
-                <li class="cat-item cat-item-3"><a href="category.html">Book</a> (6)</li>
-                <li class="cat-item cat-item-4"><a href="category.html">Design</a> (4)</li>
-                <li class="cat-item cat-item-5"><a href="category.html">Fashion</a> (3)</li>
-                <li class="cat-item cat-item-6"><a href="category.html">Lifestyle</a> (6)</li>
-                <li class="cat-item cat-item-7"><a href="category.html">Travel</a> (2)</li>
-              </ul>
-            </div>
-          </div>
+
           <!--Widget latest posts style 2-->
           <div class="sidebar-widget widget_alitheme_lastpost mb-50">
             <div class="widget-header position-relative mb-20 pb-10">

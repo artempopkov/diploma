@@ -150,7 +150,21 @@
       <div class="container">
         <div class="row">
           <div class="col-6">
-
+            <div class="language d-inline-block font-small">
+              <div id="langMenuDropdow" class="dropdown-menu dropdown-menu-left" aria-labelledby="langMenu">
+                <a class="dropdown-item" href="#">English</a>
+                <a class="dropdown-item" href="#">Русский</a>
+              </div>
+              <a class="dropdown-toggle" href="#" role="button" id="langMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="ti-world mr-5"></i>
+                <span>EN</span>
+              </a>
+            </div>
+            <div id="datetime" class="d-inline-block">
+              <ul>
+                <li><span class="font-small"><i class="ti-calendar mr-5"></i><%= Time.now.strftime("%A, %B %-d, %Y") %></span></li>
+              </ul>
+            </div>
           </div>
           <div class="col-6 text-right">
             <div class="vline-space d-inline-block"></div>
@@ -232,10 +246,9 @@
                   <li class="menu-item-has-children">
                     <a href="category.html">Category</a>
                     <ul class="sub-menu">
-                      <li><a href="category.html">List</a></li>
-                      <li><a href="category-grid.html">Grid</a></li>
-                      <li><a href="category-metro.html">Metro</a></li>
-                      <li><a href="category-big.html">Big</a></li>
+                      <% Category.all.order(:id).each do |cat| %>
+                      <li><%= link_to cat.name, '#' %></li>
+                      <% end %>
                     </ul>
                   </li>
                   <li><a href="contact.html">Contact</a></li>

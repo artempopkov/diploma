@@ -12,6 +12,9 @@
       </div>
     <% end %>
 
+    <div class="text-center image-container mb-3" id='img-preview'>
+    </div>
+
     <div class="input-group">
       <span class="input-group-text">Title</span>
       <%= form.text_area :title, maxlength: "80", class: "title" %>
@@ -24,7 +27,7 @@
 
     <div class="custom-file mb-2">
       <%= form.file_field :avatar, class: 'custom-file-input', id: 'customFile' %>
-      <label class="custom-file-label" for="customFile">Choose file</label>
+      <label id="file-name-input" class="custom-file-label" for="customFile">Choose image</label>
     </div>
 
     <div class="mb-2">
