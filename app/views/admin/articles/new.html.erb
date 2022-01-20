@@ -12,10 +12,6 @@
       </div>
     <% end %>
 
-    <% if @article.avatar.url.present? %>
-      <%= image_tag @article.avatar.show.url %>
-    <% end %>
-
     <div class="input-group">
       <span class="input-group-text">Title</span>
       <%= form.text_area :title, maxlength: "80", class: "title" %>
