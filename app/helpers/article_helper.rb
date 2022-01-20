@@ -1,8 +1,8 @@
 module ArticleHelper
   def article_avatar_small_preview(article)
-    return article_admin_card_image(article.avatar.small_preview.url) if article.avatar.present?
+    return article_admin_card_image(asset_path('no-image.png')) if article.avatar.url.nil?
 
-    article_admin_card_image(asset_path('no-image.png'))
+    article_admin_card_image(article.avatar.small_preview.url)
   end
 
   def article_avatar(article)
@@ -11,7 +11,7 @@ module ArticleHelper
     image_tag(article.avatar.url, class: 'mb-3', alt: '...')
   end
 
-  def article_admin_card_image(image)
-    image_tag(image, class: 'card-img-top img-size', alt: '...')
+  def article_admin_card_image(image_url)
+    image_tag(image_url, class: 'card-img-top img-size', alt: '...')
   end
 end
