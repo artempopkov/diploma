@@ -6,7 +6,7 @@ module ArticleHelper
   end
 
   def article_avatar(article)
-    return if article.avatar.url.nil? || article.avatar_disable?
+    return if article.avatar_absent_or_disabled?
 
     image_tag(article.avatar.url, class: 'mb-3', alt: '...')
   end
