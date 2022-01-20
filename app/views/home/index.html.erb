@@ -46,7 +46,7 @@
                 <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url(http://via.placeholder.com/900x630)">
                   <%= link_to article do %>
                     <% if article.avatar.present? %>
-                      <img src="<%= article.avatar.url %>" alt="...">
+                      <img src="<%= article.avatar.big_preview.url %>" alt="...">
                     <% else %>
                       <img src="<%= asset_path('no-image.png') %>" alt="...">
                     <% end %>
