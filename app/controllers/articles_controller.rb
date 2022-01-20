@@ -2,10 +2,6 @@ class ArticlesController < ApplicationController
   before_action :set_models, only: %i[show]
   before_action :tag_cloud
 
-  def index
-    @articles = Article.all
-  end
-
   def show
   end
 

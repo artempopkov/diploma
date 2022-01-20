@@ -38,7 +38,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :big_preview do
-    process resize_to_fill: [330, 280]
+    process resize_to_fill: [900, 630]
   end
 
   # # Create different versions of your uploaded files:
