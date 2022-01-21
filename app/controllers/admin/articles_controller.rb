@@ -27,7 +27,7 @@ module Admin
 
     def update
       if @article.update(article_params)
-        redirect_to [:admin, @article], notice: 'Updating finish successfully'
+        redirect_to [:admin, @article], notice: 'Update finish successfully'
       else
         render :edit, status: :unprocessable_entity
       end
@@ -45,7 +45,7 @@ module Admin
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, :content)
+      params.require(:article).permit(:title, :description, :content, :avatar, :remove_avatar, :avatar_disable)
     end
   end
 end

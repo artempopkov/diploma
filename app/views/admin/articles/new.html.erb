@@ -11,6 +11,7 @@
         </ul>
       </div>
     <% end %>
+
     <div class="input-group">
       <span class="input-group-text">Title</span>
       <%= form.text_area :title, maxlength: "80", class: "title" %>
@@ -19,6 +20,13 @@
     <div class="input-group">
       <span class="input-group-text">Description</span>
       <%= form.text_area :description, maxlength: "115", class: "description" %>
+    </div>
+
+    <%= form.file_field :avatar, class: 'mb-2' %>
+
+    <div class="mb-2">
+      <%= form.check_box :avatar_disable, class: 'mr-2' %>
+      Disable Avatar
     </div>
 
     <div class="field">
