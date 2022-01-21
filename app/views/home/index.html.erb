@@ -112,7 +112,7 @@
                       <div class="post-thumb d-flex mr-15 border-radius-5 img-hover-scale">
                         <%= link_to article do %>
                           <% if article.avatar.present? %>
-                            <img src="<%= article.avatar.side_bar_small.url %>" alt="...">
+                            <img src="<%= article.avatar.small_preview.url %>" alt="...">
                           <% else %>
                             <img src="<%= asset_path('no-image.png') %>" alt="...">
                           <% end %>

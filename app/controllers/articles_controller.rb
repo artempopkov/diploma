@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :tag_cloud
 
   def show
+    @latests_articles = Article.latest_published.limit(5)
   end
 
   def tag_cloud

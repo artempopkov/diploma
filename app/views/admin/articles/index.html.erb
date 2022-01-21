@@ -20,7 +20,7 @@
         <div class="col mb-4">
           <div class="card h-100">
             <% if article.avatar.present? %>
-              <img src="<%= article.avatar.index_admin.url %>" class="card-img-top img-size" alt="...">
+              <img src="<%= article.avatar.small_preview.url %>" class="card-img-top img-size" alt="...">
             <% else %>
               <img src="<%= asset_path('no-image.png') %>" class="card-img-top img-size" alt="...">
             <% end %>

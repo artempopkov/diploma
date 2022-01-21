@@ -10,7 +10,7 @@ class Article < ApplicationRecord
 
   scope :important, -> { where(important: true) }
   scope :published, -> { where(status: :published) }
-
+  scope :latest_published, -> { where(status: :published).order(created_at: :desc) }
   def current_review
     reviews.last
   end
