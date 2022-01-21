@@ -1,6 +1,6 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :set_models, only: %i[show edit update destroy send_for_review publish remove_avatar mark_as_important]
+    before_action :load_models, only: %i[show edit update destroy send_for_review publish remove_avatar mark_as_important]
     before_action :tag_cloud
     after_action :verify_authorized
     respond_to :js
@@ -88,7 +88,7 @@ module Admin
 
     private
 
-    def set_models
+    def load_models
       @article ||= Article.find(params[:id])
     end
 

@@ -1,0 +1,11 @@
+$('.icon-heart-broken').on('ajax:success', function(){
+   $(this).parent().find('.likes-amount')
+       .html('<%= @article.get_likes.size %> likes');
+   $(this).closest('.icon-heart-broken').replaceWith('<%= like_heart(@article) %>');
+});
+
+$('.icon-heart').on('ajax:success', function(){
+    $(this).parent().find('.likes-amount')
+        .html('<%= @article.get_likes.size %> likes');
+    $(this).closest('.icon-heart').replaceWith('<%= like_heart(@article) %>');
+});

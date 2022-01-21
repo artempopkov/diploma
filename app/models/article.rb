@@ -2,6 +2,7 @@ class Article < ApplicationRecord
   has_rich_text :content
   mount_uploader :avatar, AvatarUploader
   acts_as_taggable_on :tags
+  acts_as_votable
   enum status: { inactive: 0, active: 1, published: 2, archived: 3 }
   belongs_to :category
   belongs_to :moderator

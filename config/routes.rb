@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   devise_for :moderators
   devise_for :users
-  resources :articles , only: [:show]
+  resources :articles , only: [:show] do
+    member do
+      put 'like', to: 'articles#like'
+    end
+  end
 
   namespace :admin do
     get '/', to: 'home#index'
