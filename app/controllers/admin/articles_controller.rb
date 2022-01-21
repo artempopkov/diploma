@@ -76,7 +76,7 @@ module Admin
 
     def publish
       authorize [:admin, @article]
-      @article.update(status: :published)
+      @article.update(status: :published, published_at: Time.zone.now)
       redirect_to [:admin, @article], notice: 'Article published'
     end
 

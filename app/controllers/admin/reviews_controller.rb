@@ -7,6 +7,7 @@ module Admin
     def create
       @review = Review.new(review_params)
       if @review.save
+        @review.article.update(edited: true) if @review.article.published?
         @review.article.update(status: :inactive)
         redirect_to admin_articles_url, notice: 'Creation finish successfully.'
       else
