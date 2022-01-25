@@ -20,12 +20,12 @@
       </div>
     <% end %>
 
-    <div class="input-group">
+    <div class="input-group mb-2">
       <span class="input-group-text">Title</span>
       <%= form.text_area :title, maxlength: "80", class: "title" %>
     </div>
 
-    <div class="input-group">
+    <div class="input-group mb-2">
       <span class="input-group-text">Description</span>
       <%= form.text_area :description, maxlength: "115", class: "description" %>
     </div>
@@ -33,7 +33,7 @@
     <%= form.file_field :avatar, class: 'mb-2' %>
 
     <div class="field">
-      <%= form.select :category_id, Category.all.pluck(:name, :id), class: 'mr-2' %>
+      <%= form.select :category_id, @categories.pluck(:name, :id), class: 'mr-2' %>
     </div>
 
     <div class="mb-2">

@@ -1,6 +1,6 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :set_models, only: %i[show edit update destroy]
+    before_action :load_models, only: %i[show edit update destroy]
 
     def index
       @categories = Category.order(:id)
@@ -42,7 +42,8 @@ module Admin
 
     private
 
-    def set_models
+    def load_models
+      @categories = Category.order(:id)
       @article = Article.find(params[:id])
     end
 
