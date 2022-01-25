@@ -3,12 +3,9 @@ module Admin
     before_action :set_models, only: %i[show edit update destroy]
 
     def index
-      if params.key?(:cat)
-        @category = Category.find(params[:cat])
-        @articles = @category.articles.order(:id)
-      else
-        @articles = Article.includes(:category).order(:id)
-      end
+      @categories = Category.order(:id)
+      @query = Article.ransack(params[:query])
+      @articles = @query.result.includes(:category)
     end
 
     def show
