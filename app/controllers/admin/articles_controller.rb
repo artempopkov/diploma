@@ -46,9 +46,8 @@ module Admin
     end
 
     def send_for_review
-      @article.status = 'active'
-      @article.save!
-      redirect_to [:admin, @article], notice: 'Article sent for review'
+      @article.active!
+      redirect_to admin_article_url(@article), notice: 'Article sent for review'
     end
 
     private
