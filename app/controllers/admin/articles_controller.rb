@@ -22,7 +22,7 @@ module Admin
     def create
       @article = Article.new(article_params)
       if @article.save
-        redirect_to [:admin, @article], notice: "Creation finish successfully"
+        redirect_to admin_article_url(@article), notice: "Creation finish successfully"
       else
         render :new, status: :unprocessable_entity
       end
@@ -30,7 +30,7 @@ module Admin
 
     def update
       if @article.update(article_params)
-        redirect_to [:admin, @article], notice: "Update finish successfully"
+        redirect_to admin_article_url(@article), notice: "Update finish successfully"
       else
         render :edit, status: :unprocessable_entity
       end
