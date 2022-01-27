@@ -35,6 +35,11 @@
     <div class="field">
       <%= form.rich_text_area :content %>
     </div>
+
+    <div class="field mt-2">
+      <%= form.text_field :tag_list, placeholder: 'Tags (sep by space)'%>
+    </div>
+
     <div class="mt-10">
       <%= form.submit 'OK', class: 'btn btn-primary w-25 mr-3' %>
       <%= link_to 'Cancel', admin_articles_path, class: 'btn btn-secondary w-25' %>
