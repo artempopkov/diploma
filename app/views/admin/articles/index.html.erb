@@ -31,12 +31,7 @@
       <% @articles.each do |article| %>
         <div class="col mb-4">
           <div class="card h-100">
-            <% if article.avatar.present? %>
-              <img src="<%= article.avatar.index_admin.url %>" class="card-img-top img-size" alt="...">
-            <% else %>
-              <img src="<%= asset_path('no-image.png') %>" class="card-img-top img-size" alt="...">
-            <% end %>
-
+            <%= article_avatar_small_preview(article) %>
             <%= link_to '', [:admin, article], class: 'img-link' %>
             <div class="card-body">
               <a href="#"><span>Category: <%= article.category.name %></span></a>
