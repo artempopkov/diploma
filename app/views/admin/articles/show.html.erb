@@ -22,10 +22,10 @@
             <span class="post-on has-dot">Status: <%= @article.status %></span>
           </div>
         </div>
-        <% if @article.avatar.present? && !@article.avatar_disable %>
-          <%= image_tag @article.avatar.url, class: 'mb-3' %>
-          <div class="divider mb-3"></div>
-        <% end %>
+
+        <%= article_avatar(@article)%>
+        <div class="divider mb-3"></div>
+        
         <%= @article.content %>
         <div class="entry-bottom mt-50 mb-30">
           <div class="tags">

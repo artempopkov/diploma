@@ -1,17 +1,12 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :set_models, only: %i[show edit update destroy send_for_review]
     before_action :tag_cloud
+    before_action :load_models, only: %i[show edit update destroy send_for_review]
+    before_action :load_categories, only: %i[index new edit]
 
     def index
-      if params.key?(:cat)
-        @category = Category.find(params[:cat])
-        @articles = @category.articles.order(:id)
-      elsif params.key?(:tag)
-        @articles = Article.tagged_with(params[:tag])
-      else
-        @articles = Article.order(:id)
-      end
+      @query = Article.ransack(params[:query])
+      @articles = @query.result.includes(:category)
     end
 
     def show
@@ -27,7 +22,7 @@ module Admin
     def create
       @article = Article.new(article_params)
       if @article.save
-        redirect_to [:admin, @article], notice: 'Creation finish successfully'
+        redirect_to admin_article_url(@article), notice: "Creation finish successfully"
       else
         render :new, status: :unprocessable_entity
       end
@@ -35,7 +30,7 @@ module Admin
 
     def update
       if @article.update(article_params)
-        redirect_to [:admin, @article], notice: 'Update finish successfully'
+        redirect_to admin_article_url(@article), notice: "Update finish successfully"
       else
         render :edit, status: :unprocessable_entity
       end
@@ -43,7 +38,7 @@ module Admin
 
     def destroy
       @article.destroy
-      redirect_to admin_articles_url, notice: 'Destruction finish successfully'
+      redirect_to admin_articles_url, notice: "Destruction finish successfully"
     end
 
     def tag_cloud
@@ -58,8 +53,12 @@ module Admin
 
     private
 
-    def set_models
+    def load_models
       @article ||= Article.find(params[:id])
+    end
+
+    def load_categories
+      @categories = Category.order(:id)
     end
 
     def article_params
