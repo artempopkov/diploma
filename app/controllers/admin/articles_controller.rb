@@ -4,7 +4,6 @@ module Admin
     before_action :load_categories, only: %i[index new edit]
 
     def index
-      @categories = Category.order(:id)
       @query = Article.ransack(params[:query])
       @articles = @query.result.includes(:category)
     end
