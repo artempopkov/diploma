@@ -1,9 +1,11 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :set_models, only: %i[show edit update destroy]
+    before_action :load_models, only: %i[show edit update destroy]
+    before_action :load_categories, only: %i[index new edit]
 
     def index
-      @articles = Article.all
+      @query = Article.ransack(params[:query])
+      @articles = @query.result.includes(:category)
     end
 
     def show
@@ -40,12 +42,16 @@ module Admin
 
     private
 
-    def set_models
+    def load_models
       @article = Article.find(params[:id])
     end
 
+    def load_categories
+      @categories = Category.order(:id)
+    end
+
     def article_params
-      params.require(:article).permit(:title, :description, :content, :avatar, :remove_avatar, :avatar_disable)
+      params.require(:article).permit(:title, :description, :content, :avatar, :remove_avatar, :avatar_disable, :category_id)
     end
   end
 end

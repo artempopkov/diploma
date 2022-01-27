@@ -1,10 +1,29 @@
 <p id="notice"><%= notice %></p>
 <div class="archive-header text-center">
   <div class="container">
-    <h2><span class="color2">Articles</span></h2>
-    <div class="bt-1 border-color-1 mt-30 mb-50"></div>
+    <h2><%= link_to 'Articles', admin_articles_url, class: 'color2' %></h2>
   </div>
 </div>
+<div class="container search-form mb-4">
+<%= search_form_for [:admin, @query] do |f| %>
+  <%= f.label :title_or_description_cont %>
+  <div class="input-group mb-2">
+    <%= f.search_field :title_or_description_cont, class: 'form-control'%>
+  </div>
+  <%= f.label :category_id_eq%>
+  <div class="input-group mb-2">
+    <%= f.select(:category_id_eq, @categories.pluck(:name, :id), { include_blank: true }, {class: "form-control" }) %>
+  </div>
+  
+  <div class="form-group">
+    <div class="float-right">
+      <%= link_to "Clear", request.path, class: 'clear' %>
+      <%= f.submit class: 'search' %>
+    </div>
+  </div>
+<% end %>
+</div>
+
 <div class="main_content sidebar_right pb-50">
   <div class="container">
     <%= link_to 'New Article', new_admin_article_path, class: 'btn btn-create' %>
@@ -15,9 +34,8 @@
             <%= article_avatar_small_preview(article) %>
             <%= link_to '', [:admin, article], class: 'img-link' %>
             <div class="card-body">
-              <!--<div class="entry-meta meta-0 font-small mb-15">
-                <a href="category.html"><span class="post-cat background2 ">Travel</span></a>
-              </div>-->
+              <a href="#"><span>Category: <%= article.category.name %></span></a>
+              <div class="bt-1 border-color-1 mb-1"></div>
               <h5 class="card-title"><%= link_to article.title, [:admin, article] %></h5>
               <p class="card-text"><%= article.description %></p>
               <!--              <p class="card-text"><small class="text-muted"><%#= article_creation_time(article) %></small></p>-->
