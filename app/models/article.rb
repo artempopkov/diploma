@@ -3,15 +3,21 @@ class Article < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   acts_as_taggable_on :tags
   acts_as_votable
+
   enum status: { inactive: 0, active: 1, published: 2, archived: 3 }
+
   belongs_to :category
   belongs_to :moderator
+
   has_many :reviews, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
   validates :title, :description, :content, presence: true
 
   scope :important, -> { where(important: true) }
   scope :published, -> { where(status: :published) }
   scope :latest_published, -> { where(status: :published).order(created_at: :desc) }
+  
   def current_review
     reviews.last
   end

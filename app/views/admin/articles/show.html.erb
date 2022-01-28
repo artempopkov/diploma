@@ -6,7 +6,9 @@
       <% if @article.inactive? %>
         <%= edit_article(@article) %>
         <%= send_for_review(@article) %>
-      <% elsif current_moderator.editor? %>
+      <% end %>
+      
+      <% if current_moderator.editor? %>
         <a class='btn-edit' id='open-comment-field'>Comment</a>
         <%= publish_article(@article) %>
         <% if @article.important? %>
@@ -19,6 +21,7 @@
           <% end %>
         <% end %>
       <% end %>
+    
     </div>
     <div class="divider-text-center mt-20 mb-30">
     </div>

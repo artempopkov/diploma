@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       put 'like', to: 'articles#like'
     end
+    resources :comments
   end
 
   namespace :admin do
