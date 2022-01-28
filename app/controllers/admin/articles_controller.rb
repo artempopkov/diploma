@@ -53,7 +53,7 @@ module Admin
     private
 
     def load_models
-      @article ||= Article.find(params[:id])
+      @article = Article.find(params[:id])
     end
 
     def load_categories
