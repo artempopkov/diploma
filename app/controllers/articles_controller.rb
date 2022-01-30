@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :load_models, only: %i[show like]
+  impressionist actions: [:show]
   before_action :tag_cloud
   after_action :verify_authorized
   respond_to :js
