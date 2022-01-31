@@ -31,10 +31,6 @@ module ArticleHelper
     end
   end
 
-  def r_comment(article)
-    render "comments/comments_fom_a", article: article
-  end
-
   def universal_time_format(time)
     time.strftime("%d %b %Y, %H:%M")
   end
