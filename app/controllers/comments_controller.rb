@@ -10,12 +10,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     authorize @comment
-
-    if @comment.save
-      redirect_to @comment.article, notice: "Comment was successfully created."
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @comment.save
   end
 
   def destroy

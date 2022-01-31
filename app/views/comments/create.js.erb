@@ -1,0 +1,2 @@
+$(".comments-area").append("<%= escape_javascript(render partial: 'comments/comment', locals: { comment: @comment }) %>");
+$("#comment-body").val("");
