@@ -1,2 +1,5 @@
-$(".comments-area").append("<%= escape_javascript(render partial: 'comments/comment', locals: { comment: @comment }) %>");
+let comment_counter_2 = $("#comment-count2")
+comment_counter_2.after("<%= escape_javascript(render partial: 'comments/comment', locals: { comment: @comment }) %>");
 $("#comment-body").val("");
+$("#comment-count1").html("<%= @comment.article.comments.count %> comments");
+comment_counter_2.html("<%= @comment.article.comments.count %> Comments");
