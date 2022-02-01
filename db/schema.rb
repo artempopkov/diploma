@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2022_01_30_130808) do
     t.string "title"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "updated_at"
     t.string "avatar"
     t.boolean "avatar_disable", default: false
     t.bigint "category_id"
