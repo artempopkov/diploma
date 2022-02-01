@@ -1,0 +1,19 @@
+<div class="comment-list">
+  <div class="single-comment justify-content-between d-flex">
+    <div class="user justify-content-between d-flex">
+      <div class="desc">
+        <p class="comment">
+          <%= @comment.body %>
+        </p>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex align-items-center">
+            <h5>
+              <%= @comment.user.name %>
+            </h5>
+            <p class="date"><%= universal_time_format(@comment.created_at) %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
