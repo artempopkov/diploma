@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :load_models, only: %i[ destroy ]
+  before_action :load_models, only: %i[destroy]
   after_action :verify_authorized
 
   def index
-    @comments = Comment.all
+    @comments = Comment.order('id DESC')
     authorize @comments
   end
 
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
 
-    redirect_to comments_url, notice: "Comment was successfully destroyed."
+    redirect_to comments_url, notice: 'Comment was successfully destroyed.'
   end
 
   private
