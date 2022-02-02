@@ -22,7 +22,7 @@ module AdminHelper
   end
 
   def send_for_review(article)
-    link_to 'Send for review', admin_send_for_review_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' unless user_correspondent? && article.need_fixes?
+    link_to 'Send for review', admin_article_send_for_review_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' unless user_correspondent? && article.need_fixes?
   end
 
   def edit_article(article)
@@ -30,7 +30,7 @@ module AdminHelper
   end
 
   def publish_article(article)
-    link_to 'Publish', admin_publish_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' if user_admin_or_editor? && article.not_published?
+    link_to 'Publish', admin_article_publish_article_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' if user_admin_or_editor? && article.not_published?
   end
 
   def render_review_form(review)

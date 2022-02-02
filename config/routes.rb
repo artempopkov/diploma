@@ -9,10 +9,12 @@ Rails.application.routes.draw do
     resources :users
     resources :moderators
     resources :categories
-    resources :articles
-    resources :reviews
-    patch 'send_for_review/:id', to: 'articles#send_for_review', as: 'send_for_review'
-    patch 'publish/:id', to: 'articles#publish', as: 'publish'
+    resources :articles do 
+      resources :reviews, only: [:new, :create]
+      patch 'send_for_review', to: 'article_reviews#send_article_for_review', as: 'send_for_review'
+      patch 'publish', to: 'article_reviews#publish_article', as: 'publish_article'
+    end
+    
     get 'tags/:tag', to: 'articles#tag', as: :tag
   end
 end

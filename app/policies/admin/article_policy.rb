@@ -35,11 +35,11 @@ module Admin
       article.inactive? and (moderator.correspondent? or moderator.admin?)
     end
 
-    def send_for_review?
+    def send_article_for_review?
       article.inactive? and moderator.correspondent?
     end
 
-    def publish?
+    def publish_article?
       article.active? and (moderator.admin? or moderator.editor?)
     end
 

@@ -60,18 +60,6 @@ module Admin
       @tags = Article.tag_counts_on(:tags)
     end
 
-    def send_for_review
-      authorize [:admin, @article]
-      @article.update(status: :active)
-      redirect_to [:admin, @article], notice: 'Article sent for review'
-    end
-
-    def publish
-      authorize [:admin, @article]
-      @article.update(status: :published)
-      redirect_to [:admin, @article], notice: 'Article published'
-    end
-
     private
 
     def set_models
