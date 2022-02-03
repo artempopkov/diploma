@@ -17,6 +17,20 @@
 @import "scss/style";
 @import "scss/widgets";
 
+.my-custom-select {
+  display: inline-block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: .375rem 1.75rem .375rem .75rem;
+  line-height: 1.5;
+  color: #495057;
+  vertical-align: middle;
+  background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center;
+  background-size: 8px 10px;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+}
+
 .form-container {
   padding: 1.5rem;
   margin-right: 0;
@@ -25,6 +39,11 @@
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
+
+.t-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
 .search-form {
   border: 1px solid #dee2e6;
@@ -137,8 +156,8 @@
 }
 
 .input-group{
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .title {

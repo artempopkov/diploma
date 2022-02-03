@@ -42,7 +42,7 @@ module Admin
     end
 
     def moderator_params
-      params.require(:moderator).permit(:email, :name, :password, :password_confirmation)
+      params.require(:moderator).permit(:email, :name, :password, :password_confirmation, :role)
     end
   end
 end
