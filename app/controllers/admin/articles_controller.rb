@@ -6,7 +6,7 @@ module Admin
     after_action :verify_authorized
 
     def index
-      @query = Article.ransack(params[:query])
+      @query = policy_scope([:admin, Article]).ransack(params[:query])
       @articles = @query.result.includes(:category)
       authorize [:admin, @articles]
     end
