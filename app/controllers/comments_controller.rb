@@ -1,27 +1,22 @@
 class CommentsController < ApplicationController
-  before_action :load_models, only: %i[ destroy ]
+  before_action :load_models, only: %i[destroy]
   after_action :verify_authorized
 
   def index
-    @comments = Comment.all
+    @comments = Comment.order('id DESC')
     authorize @comments
   end
 
   def create
     @comment = Comment.new(comment_params)
     authorize @comment
-
-    if @comment.save
-      redirect_to @comment.article, notice: "Comment was successfully created."
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @comment.save
   end
 
   def destroy
     @comment.destroy
 
-    redirect_to comments_url, notice: "Comment was successfully destroyed."
+    redirect_to comments_url, notice: 'Comment was successfully destroyed.'
   end
 
   private

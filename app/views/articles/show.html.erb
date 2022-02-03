@@ -20,165 +20,146 @@
           </div>
           <div class="bt-1 border-color-1 mt-30 mb-30"></div>
           <div class="entry-meta meta-1 font-small color-grey float-left mb-30">
-            <span class="hit-count"><i class="icon-comment mr-5"></i><span><%= @article.comments.count %>comments</span>
-              <span class="hit-count"><%= like_heart(@article) %><span class='likes-amount'><%= @article.get_likes.size %> likes</span></span>
+            <span class="hit-count"><i class="icon-comment mr-5"></i><span id="comment-count1"><%= @article.comments.count %>
+              comments
+            </span>
+              <span class="hit-count"><%= like_heart(@article) %>
+                <span class='likes-amount'><%= @article.get_likes.size %> likes</span>
+              </span>
               <span class="hit-count"><i class="icon-star mr-5"></i>8/10</span>
-            </div>
+            </span>
           </div>
-          <!--end entry header-->
-          <% if @article.avatar.present? && !@article.avatar_disable %>
-            <%= image_tag @article.avatar.url, class: 'mb-3' %>
-            <div class="divider mb-3"></div>
-          <% end %>
-          <div class="entry-main-content">
-            <%= @article.content %>
-          </div>
-          <div class="entry-bottom mt-50 mb-30">
-            <div class="tags">
-              <% @article.tags.each do |tag| %>
-                <%= link_to tag.name, '' %>
-              <% end %>
-            </div>
-          </div>
-          <div class="bt-1 border-color-1 mt-30 mb-30"></div>
-          <!--related posts-->
-          <div class="related-posts">
-            <h3 class="mb-30">Related posts</h3>
-            <div class="loop-list">
-              <article class="row mb-30">
-                <div class="col-md-4">
-                  <div class="post-thumb position-relative thumb-overlay">
-                    <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url(http://via.placeholder.com/900x630)">
-                      <a class="img-link" href="single.html"></a>
-                      <span class="top-right-icon background8"><i class="mdi mdi-flash-on"></i></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8 align-center-vertical">
-                  <div class="post-content">
-                    <div class="entry-meta meta-0 font-small mb-15">
-                      <a href="category.html"><span class="post-cat background2 color-white">Fashion</span></a></div>
-                    <h4 class="post-title">
-                      <a href="single.html">The World Caters to Average People and Mediocre Lifestyles</a>
-                    </h4>
-                    <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
-                      <span class="post-on"><i class="icon-marker-alt"></i>25 April 2020</span>
-                      <span class="time-reading"><i class="icon-timer"></i>10 mins read</span>
-                      <span class="hit-count"><i class="icon-bolt"></i> 159k Views</span>
-                    </div>
-                    <p class="font-medium">These people envy me for having a lifestyle they don’t have, but the truth is,
-                      sometimes I envy their lifestyle instead. Struggling to sell one multi-million dollar home
-                      currently.</p>
-                  </div>
-                </div>
-              </article>
-              <article class="row mb-30">
-                <div class="col-md-4">
-                  <div class="post-thumb position-relative thumb-overlay">
-                    <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url(http://via.placeholder.com/900x630)">
-                      <a class="img-link" href="single.html"></a>
-                      <span class="top-right-icon background5"><i class="mdi mdi-favorite"></i></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8 align-center-vertical">
-                  <div class="post-content">
-                    <div class="entry-meta meta-0 font-small mb-15">
-                      <a href="category.html"><span class="post-cat background3 color-white">Technology</span></a></div>
-                    <h4 class="post-title">
-                      <a href="single.html">Why Teamwork Really Makes The Dream Work</a>
-                    </h4>
-                    <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
-                      <span class="post-on"><i class="icon-marker-alt"></i>25 April 2020</span>
-                      <span class="time-reading"><i class="icon-timer"></i>10 mins read</span>
-                      <span class="hit-count"><i class="icon-bolt"></i> 159k Views</span>
-                    </div>
-                    <p class="font-medium">We live in a world where disruption and dynamism reign supreme and businesses
-                      must be ready to adapt to the many unpredictable changes that come with this.</p>
-                  </div>
-                </div>
-              </article>
-              <article class="row mb-30">
-                <div class="col-md-4">
-                  <div class="post-thumb position-relative thumb-overlay">
-                    <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url(http://via.placeholder.com/900x630)">
-                      <a class="img-link" href="single.html"></a>
-                      <span class="top-right-icon background2"><i class="mdi mdi-audiotrack"></i></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8 align-center-vertical">
-                  <div class="post-content">
-                    <div class="entry-meta meta-0 font-small mb-15">
-                      <a href="category.html"><span class="post-cat background1 color-white">Sport</span></a></div>
-                    <h4 class="post-title">
-                      <a href="single.html">9 Things I Love About Shaving My Head During Quarantine</a>
-                    </h4>
-                    <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
-                      <span class="post-on"><i class="icon-marker-alt"></i>25 April 2020</span>
-                      <span class="time-reading"><i class="icon-timer"></i>10 mins read</span>
-                      <span class="hit-count"><i class="icon-bolt"></i> 159k Views</span>
-                    </div>
-                    <p class="font-medium">At the Emmys, broadcast scripted shows created by people of color gained ground
-                      relative to those pitched by White show creators, while broadcast scripted shows.</p>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-          <!--Comments-->
-          <div class="comments-area">
-            <h3 class="mb-30"><%= @article.comments.count %> Comments </h3>
-            <% @article.comments.each do |comment| %>
-              <div class="comment-list">
-                <div class="single-comment justify-content-between d-flex">
-                  <div class="user justify-content-between d-flex">
-                    <div class="desc">
-                      <p class="comment">
-                        <%= comment.body %>
-                      </p>
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                          <h5>
-                            <%= comment.user.name %>
-                          </h5>
-                          <p class="date"><%= universal_time_format(comment.created_at) %></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-          <!--comment form-->
-          <div class="comment-form">
-            <% if current_user %>
-              <h3 class="mb-30">Leave a Reply</h3>
-              <%= render "comments/form" %>
+        </div>
+        <!--end entry header-->
+        <% if @article.avatar.present? && !@article.avatar_disable %>
+          <%= image_tag @article.avatar.url, class: 'mb-3' %>
+          <div class="divider mb-3"></div>
+        <% end %>
+        <div class="entry-main-content">
+          <%= @article.content %>
+        </div>
+        <div class="entry-bottom mt-50 mb-30">
+          <div class="tags">
+            <% @article.tags.each do |tag| %>
+              <%= link_to tag.name, '' %>
             <% end %>
           </div>
         </div>
-        <!--col-lg-8-->
-        <!--Right sidebar-->
-        <div class="col-lg-4 col-md-12 col-sm-12 primary-sidebar sticky-sidebar">
-          <div class="widget-area pl-30">
-            <!--Widget latest posts style 1-->
-            <div class="sidebar-widget widget_alitheme_lastpost mb-50">
-              <div class="widget-header position-relative mb-20 pb-10">
-                <h5 class="widget-title mb-10">Latest Posts</h5>
-                <div class="bt-1 border-color-1"></div>
+        <div class="bt-1 border-color-1 mt-30 mb-30"></div>
+        <!--related posts-->
+        <div class="related-posts">
+          <h3 class="mb-30">Related posts</h3>
+          <div class="loop-list">
+            <article class="row mb-30">
+              <div class="col-md-4">
+                <div class="post-thumb position-relative thumb-overlay">
+                  <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url(http://via.placeholder.com/900x630)">
+                    <a class="img-link" href="single.html"></a>
+                    <span class="top-right-icon background8"><i class="mdi mdi-flash-on"></i></span>
+                  </div>
+                </div>
               </div>
-              <div class="row">
-                <% @latests_articles.each do |article| %>
-                  <div class="col-md-6 col-sm-6 sm-grid-content mb-30">
-                    <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
-                      <%= link_to article do %>
-                        <% if article.avatar.present? %>
-                          <img src="<%= article.avatar.small_preview.url %>" alt="...">
-                        <% else %>
-                          <img src="<%= asset_path('no-image.png') %>" alt="...">
-                        <% end %>
+              <div class="col-md-8 align-center-vertical">
+                <div class="post-content">
+                  <div class="entry-meta meta-0 font-small mb-15">
+                    <a href="category.html"><span class="post-cat background2 color-white">Fashion</span></a></div>
+                  <h4 class="post-title">
+                    <a href="single.html">The World Caters to Average People and Mediocre Lifestyles</a>
+                  </h4>
+                  <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
+                    <span class="post-on"><i class="icon-marker-alt"></i>25 April 2020</span>
+                    <span class="time-reading"><i class="icon-timer"></i>10 mins read</span>
+                    <span class="hit-count"><i class="icon-bolt"></i> 159k Views</span>
+                  </div>
+                  <p class="font-medium">These people envy me for having a lifestyle they don’t have, but the truth is,
+                    sometimes I envy their lifestyle instead. Struggling to sell one multi-million dollar home
+                    currently.</p>
+                </div>
+              </div>
+            </article>
+            <article class="row mb-30">
+              <div class="col-md-4">
+                <div class="post-thumb position-relative thumb-overlay">
+                  <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url(http://via.placeholder.com/900x630)">
+                    <a class="img-link" href="single.html"></a>
+                    <span class="top-right-icon background5"><i class="mdi mdi-favorite"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8 align-center-vertical">
+                <div class="post-content">
+                  <div class="entry-meta meta-0 font-small mb-15">
+                    <a href="category.html"><span class="post-cat background3 color-white">Technology</span></a></div>
+                  <h4 class="post-title">
+                    <a href="single.html">Why Teamwork Really Makes The Dream Work</a>
+                  </h4>
+                  <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
+                    <span class="post-on"><i class="icon-marker-alt"></i>25 April 2020</span>
+                    <span class="time-reading"><i class="icon-timer"></i>10 mins read</span>
+                    <span class="hit-count"><i class="icon-bolt"></i> 159k Views</span>
+                  </div>
+                  <p class="font-medium">We live in a world where disruption and dynamism reign supreme and businesses
+                    must be ready to adapt to the many unpredictable changes that come with this.</p>
+                </div>
+              </div>
+            </article>
+            <article class="row mb-30">
+              <div class="col-md-4">
+                <div class="post-thumb position-relative thumb-overlay">
+                  <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url(http://via.placeholder.com/900x630)">
+                    <a class="img-link" href="single.html"></a>
+                    <span class="top-right-icon background2"><i class="mdi mdi-audiotrack"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8 align-center-vertical">
+                <div class="post-content">
+                  <div class="entry-meta meta-0 font-small mb-15">
+                    <a href="category.html"><span class="post-cat background1 color-white">Sport</span></a></div>
+                  <h4 class="post-title">
+                    <a href="single.html">9 Things I Love About Shaving My Head During Quarantine</a>
+                  </h4>
+                  <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
+                    <span class="post-on"><i class="icon-marker-alt"></i>25 April 2020</span>
+                    <span class="time-reading"><i class="icon-timer"></i>10 mins read</span>
+                    <span class="hit-count"><i class="icon-bolt"></i> 159k Views</span>
+                  </div>
+                  <p class="font-medium">At the Emmys, broadcast scripted shows created by people of color gained ground
+                    relative to those pitched by White show creators, while broadcast scripted shows.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <!--Comments-->
+        <div class="comments-area">
+          <h3 class="mb-30" id="comment-count2"><%= @article.comments.count %> Comments</h3>
+          <%= render "comments/comments" %>
+        </div>
+        <!--comment form-->
+        <div class="comment-form">
+          <%= comment_form(@article) %>
+        </div>
+      </div>
+      <!--col-lg-8-->
+      <!--Right sidebar-->
+      <div class="col-lg-4 col-md-12 col-sm-12 primary-sidebar sticky-sidebar">
+        <div class="widget-area pl-30">
+          <!--Widget latest posts style 1-->
+          <div class="sidebar-widget widget_alitheme_lastpost mb-50">
+            <div class="widget-header position-relative mb-20 pb-10">
+              <h5 class="widget-title mb-10">Latest Posts</h5>
+              <div class="bt-1 border-color-1"></div>
+            </div>
+            <div class="row">
+              <% @latests_articles.each do |article| %>
+                <div class="col-md-6 col-sm-6 sm-grid-content mb-30">
+                  <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
+                    <%= link_to article do %>
+                      <% if article.avatar.present? %>
+                        <img src="<%= article.avatar.small_preview.url %>" alt="...">
+                      <% else %>
+                        <img src="<%= asset_path('no-image.png') %>" alt="...">
                       <% end %>
                     </div>
                     <div class="post-content media-body">
@@ -188,8 +169,8 @@
                       </div>
                     </div>
                   </div>
-                <% end %>
-              </div>
+                </div>
+              <% end %>
             </div>
             <!--Widget latest posts style 2-->
             <div class="sidebar-widget widget_alitheme_lastpost mb-50">
@@ -227,7 +208,8 @@
             </div>
           </div>
         </div>
-        <!--End sidebar-->
       </div>
+      <!--End sidebar-->
     </div>
   </div>
+</div>
