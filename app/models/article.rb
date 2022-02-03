@@ -19,7 +19,7 @@ class Article < ApplicationRecord
   def not_published?
     true unless published?
   end
-  
+
   def avatar_absent_or_disabled?
     avatar.url.nil? || avatar_disable?
   end
