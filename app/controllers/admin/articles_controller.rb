@@ -1,18 +1,13 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :set_models, only: %i[show edit update destroy send_for_review publish]
+    before_action :load_models, only: %i[show edit update destroy]
+    before_action :load_categories, only: %i[index new edit]
     before_action :tag_cloud
     after_action :verify_authorized
 
     def index
-      if params.key?(:cat)
-        @category = Category.find(params[:cat])
-        @articles = policy_scope [:admin, @category.articles.order(:id)]
-      elsif params.key?(:tag)
-        @articles = policy_scope([:admin, Article]).tagged_with(params[:tag])
-      else
-        @articles = policy_scope([:admin, Article]).order(:id)
-      end
+      @query = policy_scope([:admin, Article]).ransack(params[:query])
+      @articles = @query.result.includes(:category)
       authorize [:admin, @articles]
     end
 
@@ -34,7 +29,7 @@ module Admin
       @article = current_moderator.articles.build(article_params)
       authorize [:admin, @article]
       if @article.save
-        redirect_to [:admin, @article], notice: 'Creation finish successfully'
+        redirect_to admin_article_url(@article), notice: "Creation finish successfully"
       else
         render :new, status: :unprocessable_entity
       end
@@ -44,7 +39,7 @@ module Admin
       @article = Article.find(params[:id])
       authorize [:admin, @article]
       if @article.update(article_params)
-        redirect_to [:admin, @article], notice: 'Update finish successfully'
+        redirect_to admin_article_url(@article), notice: "Update finish successfully"
       else
         render :edit, status: :unprocessable_entity
       end
@@ -53,7 +48,7 @@ module Admin
     def destroy
       authorize [:admin, @article]
       @article.destroy
-      redirect_to admin_articles_url, notice: 'Destruction finish successfully'
+      redirect_to admin_articles_url, notice: "Destruction finish successfully"
     end
 
     def tag_cloud
@@ -62,8 +57,12 @@ module Admin
 
     private
 
-    def set_models
-      @article ||= Article.find(params[:id])
+    def load_models
+      @article = Article.find(params[:id])
+    end
+
+    def load_categories
+      @categories = Category.order(:id)
     end
 
     def article_params

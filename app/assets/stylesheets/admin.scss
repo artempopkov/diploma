@@ -17,7 +17,6 @@
 @import "scss/style";
 @import "scss/widgets";
 
-
 .my-custom-select {
   display: inline-block;
   width: 100%;
@@ -60,6 +59,24 @@
   background-color: #f78809;
   color: #fff;
   margin-top: 10px;
+}
+
+.search-form {
+  border: 1px solid #dee2e6;
+  max-width: 1080px;
+  padding: 30px;
+}
+
+.clear {
+  margin-right: 0;
+  margin-left: auto;
+  padding: .4rem .60rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #0069d9;
+  background-color: #0069d9;
+  color: #fff;
   transition: all .2s ease-out 0s;
 
   &:hover {
@@ -78,12 +95,30 @@
   background-color: #0062cc;
   color: #fff;
   margin-top: 10px;
+
+  &:hover {
+    background-color: #fff;
+    color: #0069d9;
+    border: 0.1rem solid #0069d9;
+  }
+}
+
+.search {
+  margin-right: 0;
+  margin-left: auto;
+  padding: 0.275rem .30rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #0eb91c;
+  background-color: #0eb91c;
+  color: #fff;
   transition: all .2s ease-out 0s;
 
   &:hover {
     background-color: #fff;
-    border: 0.1rem solid #0069d9;
-    color: #0069d9;
+    color: #0eb91c;
+    border: 0.1rem solid #0eb91c;
   }
 }
 
