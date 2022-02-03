@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   def show
     authorize @article
     @latests_articles = Article.latest_published.limit(5)
+    @tranding_articles = Article.trending.limit(3)
   end
 
   def like
