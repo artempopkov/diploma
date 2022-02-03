@@ -7,4 +7,8 @@ class Article < ApplicationRecord
   belongs_to :moderator
   has_many :reviews, dependent: :destroy
   validates :title, :description, :content, presence: true
+
+  def avatar_absent_or_disabled?
+    avatar.url.nil? || avatar_disable?
+  end
 end
