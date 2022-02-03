@@ -3,7 +3,10 @@
   <div class="container">
     <div class="mb-10">
       <%= link_to 'Back', admin_articles_path, class: 'btn-secondary btn-back' %>
-      <%= link_to 'Edit', edit_admin_article_path(@article), class: 'btn btn-edit' %>
+      <% if @article.inactive? %>
+        <%= link_to 'Edit', edit_admin_article_path(@article), class: 'btn btn-edit' %>
+        <%= link_to 'Send for review', admin_send_for_review_path(@article), method: :patch, class: 'btn btn-confirm' %>
+      <% end %>
     </div>
     <div class="divider-text-center mt-10 mb-30">
     </div>
@@ -16,6 +19,7 @@
           </h1>
           <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
             <!--            <span class="post-on has-dot"><%#= article_creation_time(@article) %></span>-->
+            <span class="post-on has-dot">Status: <%= @article.status %></span>
           </div>
         </div>
 

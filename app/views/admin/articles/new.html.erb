@@ -28,6 +28,7 @@
       <%= form.check_box :avatar_disable, class: 'mr-2' %>
       Disable Avatar
     </div>
+
     <div class="field">
       <%= form.select :category_id, @categories.pluck(:name, :id), class: 'mr-2' %>
     </div>
