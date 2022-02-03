@@ -4,6 +4,7 @@ module Admin
 
     def index
       @categories = Category.page(current_page).order(:id)
+      authorize [:admin, @categories]
     end
 
     def show
@@ -11,6 +12,7 @@ module Admin
 
     def new
       @category = Category.new
+      authorize [:admin, @category]
     end
 
     def edit
@@ -18,7 +20,7 @@ module Admin
 
     def create
       @category = Category.new(category_params)
-
+      authorize [:admin, @category]
       if @category.save
         redirect_to admin_categories_url, notice: 'Creation finish successfully'
       else
@@ -27,6 +29,7 @@ module Admin
     end
 
     def update
+      authorize [:admin, @category]
       if @category.update(category_params)
         redirect_to admin_categories_url, notice: 'Updating finish successfully'
       else
@@ -35,6 +38,7 @@ module Admin
     end
 
     def destroy
+      authorize [:admin, @category]
       @category.destroy
       redirect_to admin_categories_url, notice: 'Destruction finish successfully'
     end

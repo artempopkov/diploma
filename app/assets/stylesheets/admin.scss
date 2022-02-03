@@ -44,6 +44,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
 
 .search-form {
   border: 1px solid #dee2e6;
@@ -185,3 +186,8 @@
 .css2 { font-size: 1.2em; }
 .css3 { font-size: 1.4em; }
 .css4 { font-size: 1.6em; }
+
+.hiden-div {
+  display:none;
+  visibility:inherit;
+}

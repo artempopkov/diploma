@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_04_115025) do
+ActiveRecord::Schema.define(version: 2022_01_04_143116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,7 +62,9 @@ ActiveRecord::Schema.define(version: 2022_01_04_115025) do
     t.boolean "avatar_disable", default: false
     t.bigint "category_id"
     t.integer "status", default: 0, null: false
+    t.bigint "moderator_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
+    t.index ["moderator_id"], name: "index_articles_on_moderator_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -131,5 +133,6 @@ ActiveRecord::Schema.define(version: 2022_01_04_115025) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "categories"
+  add_foreign_key "articles", "moderators"
   add_foreign_key "taggings", "tags"
 end

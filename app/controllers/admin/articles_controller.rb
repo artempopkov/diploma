@@ -1,26 +1,32 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :tag_cloud
     before_action :load_models, only: %i[show edit update destroy send_for_review]
     before_action :load_categories, only: %i[index new edit]
+    before_action :tag_cloud
+    after_action :verify_authorized
 
     def index
-      @query = Article.ransack(params[:query])
+      @query = policy_scope([:admin, Article]).ransack(params[:query])
       @articles = @query.result.includes(:category)
+      authorize [:admin, @articles]
     end
 
     def show
+      authorize [:admin, @article]
     end
 
     def new
       @article = Article.new
+      authorize [:admin, @article]
     end
 
     def edit
+      authorize [:admin, @article]
     end
 
     def create
-      @article = Article.new(article_params)
+      @article = current_moderator.articles.build(article_params)
+      authorize [:admin, @article]
       if @article.save
         redirect_to admin_article_url(@article), notice: "Creation finish successfully"
       else
@@ -29,6 +35,8 @@ module Admin
     end
 
     def update
+      @article = Article.find(params[:id])
+      authorize [:admin, @article]
       if @article.update(article_params)
         redirect_to admin_article_url(@article), notice: "Update finish successfully"
       else
@@ -37,6 +45,7 @@ module Admin
     end
 
     def destroy
+      authorize [:admin, @article]
       @article.destroy
       redirect_to admin_articles_url, notice: "Destruction finish successfully"
     end
@@ -46,6 +55,7 @@ module Admin
     end
 
     def send_for_review
+      authorize [:admin, @article]
       @article.active!
       redirect_to admin_article_url(@article), notice: 'Article sent for review'
     end

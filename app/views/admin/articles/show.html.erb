@@ -4,8 +4,8 @@
     <div class="mb-10">
       <%= link_to 'Back', admin_articles_path, class: 'btn-secondary btn-back' %>
       <% if @article.inactive? %>
-        <%= link_to 'Edit', edit_admin_article_path(@article), class: 'btn btn-edit' %>
-        <%= link_to 'Send for review', admin_send_for_review_path(@article), method: :patch, class: 'btn btn-confirm' %>
+        <%= edit_article %>
+        <%= send_for_review %>
       <% end %>
     </div>
     <div class="divider-text-center mt-10 mb-30">
@@ -38,6 +38,6 @@
     </div>
     <div class="divider-text-center mt-15 mb-30">
     </div>
-    <%= link_to 'Destroy', [:admin, @article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' %>
+    <%= destroy_article %>
   </div>
 </div>
