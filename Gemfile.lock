@@ -120,10 +120,16 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
-    minitest (5.15.0)
+    mini_portile2 (2.6.1)
+    minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.8)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     nokogiri (1.12.5-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     paper_trail (12.1.0)
@@ -176,6 +182,10 @@ GEM
       thor (~> 1.0)
     rainbow (3.0.0)
     rake (13.0.6)
+    ransack (2.5.0)
+      activerecord (>= 5.2.4)
+      activesupport (>= 5.2.4)
+      i18n
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -274,7 +284,9 @@ GEM
     zeitwerk (2.5.1)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   acts-as-taggable-on (~> 8.1.0)
@@ -296,6 +308,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
   rails-controller-testing (~> 1.0.5)
+  ransack (~> 2.5.0)
   rspec-rails (~> 5.0.0)
   rubocop (~> 1.23.0)
   rubocop-rails (~> 2.12.4)
