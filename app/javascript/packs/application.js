@@ -8,12 +8,30 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
-require("trix")
-require("@rails/actiontext")
+import $ from 'jquery';
+import 'select2/dist/js/select2';
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+require("trix");
+require("@rails/actiontext");
+
+Rails.start();
+Turbolinks.start();
+ActiveStorage.start();
+
+$(document).on("turbolinks:load", function () {
+  $('.js-multiple-select').each(function () {
+    const $this = $(this);
+
+    let opts = {
+      theme: 'classic',
+      width: '100%',
+      placeholder: $this.data('placeholder'),
+      allowClear: Boolean($this.data('allow-clear'))
+    }
+
+    $this.select2(opts);
+  });
+});
 
 $(document).on('turbolinks:load', function() {
     $('#preloader-active').delay(450).fadeOut('slow');
