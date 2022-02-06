@@ -19,6 +19,7 @@ Turbolinks.start();
 ActiveStorage.start();
 
 $(document).on("turbolinks:load", function () {
+  Turbolinks.clearCache();
   $('.js-multiple-select').each(function () {
     const $this = $(this);
 
@@ -32,6 +33,12 @@ $(document).on("turbolinks:load", function () {
     $this.select2(opts);
   });
 });
+
+$(document).on('turbolinks:before-cache', function(e) {
+    return $('.js-multiple-select').each(function() {
+      return $(this).select2('destroy');
+    });
+  });
 
 $(document).on('turbolinks:load', function() {
     $('#preloader-active').delay(450).fadeOut('slow');
