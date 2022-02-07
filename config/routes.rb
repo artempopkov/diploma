@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   devise_for :moderators
-  devise_for :users
+  devise_for :users, :controller => 'user_profiles'
 
+  resources :users
+    
   resources :articles , only: [:show] do
     resources :comments
     member do
