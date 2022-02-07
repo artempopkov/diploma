@@ -197,27 +197,23 @@
                     <div class="entry-meta meta-0 font-small mb-15">
                       <a href="category.html"><span class="post-cat background9 color-white"><%= article.category.name %></span></a>
                     </div>
-                    <div class="post-content">
-                      <div class="entry-meta meta-0 font-small mb-15">
-                        <a href="category.html"><span class="post-cat background9 color-white"><%= article.category.name %></span></a>
-                      </div>
-                      <h4 class="post-title">
-                        <%= link_to article.title, article %>
-                      </h4>
-                      <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
-                        <span class="post-on"><%= published_time(article) %></span>
-                        <span class="hit-count"><i class="icon-bolt"></i><%= article.impressions_count %> Views</span>
-                      </div>
+                    <h4 class="post-title">
+                      <%= link_to article.title, article %>
+                    </h4>
+                    <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
+                      <span class="post-on"><%= published_time(article) %></span>
+                      <span class="hit-count"><i class="icon-bolt"></i><%= article.impressions_count %> Views</span>
                     </div>
                   </div>
-                </article>
-              <% end %>
-            </div>
+                </div>
+              </article>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
-    <!--End sidebar-->
   </div>
+  <!--End sidebar-->
+</div>
 </div>
 </div>
