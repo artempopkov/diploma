@@ -23,6 +23,23 @@ $(document).on("turbolinks:load", function () {
 });
 
 $(document).on("turbolinks:load", function () {
+  if (/articles[/]search/.test(window.location.href)) {
+    $("body").toggleClass("open-search-form");
+    $(".search-close").show();
+    
+  }
+  if ($("#tag-search-input").val() == "") {
+    $("#title-search").addClass("active");
+    $("#title-search-input").show();
+    $("#tag-search-input").hide();
+  } else {
+    $("#tag-search").addClass("active");
+    $("#tag-search-input").show();
+    $("#title-search-input").hide();
+  }
+});
+
+$(document).on("turbolinks:load", function () {
   $(".search-close").hide();
   $("button.search-icon").on("click", function () {
     $(this).hide();
@@ -38,7 +55,6 @@ $(document).on("turbolinks:load", function () {
 });
 
 $(document).on("turbolinks:load", function () {
-  $("#tag-search-input").hide();
   $("#submit-search-button").hide();
   
   $("#title-search").on("click", function () {
@@ -46,11 +62,13 @@ $(document).on("turbolinks:load", function () {
     $("#tag-search").removeClass("active");
     $("#title-search-input").show();
     $("#tag-search-input").hide();
+    $("#tag-search-input").val("");
   });
   $("#tag-search").on("click", function () {
     $("#tag-search").addClass("active");
     $("#title-search").removeClass("active");
     $("#title-search-input").hide();
+    $("#title-search-input").val("");
     $("#tag-search-input").show();
   });
 });

@@ -160,16 +160,16 @@
         <div class="pt-10 pb-50 main-search-form-cover">
           <div class="row mb-20">
             <div class="col-12">
-              <%= search_form_for @query, url: search_articles_path, class: 'search-form position-relative',
+              <%= search_form_for Article.published.ransack(params[:query]), url: search_articles_path, class: 'search-form position-relative',
                         html: { method: :post } do |f| %>
                 <div class="search-form-icon"><i class="icon-search"></i></div>
                 <label>
-                  <%= f.text_field :title_or_description_cont, class:"search_field", id: 'title-search-input', placeholder: "Enter keywords for search...", value:"" %>
-                  <%= f.text_field :tags_name_cont, class:"search_field", id: 'tag-search-input', placeholder: "Enter keywords for search...", value:"" %>
+                  <%= f.text_field :title_or_description_cont, class:"search_field", id: 'title-search-input', placeholder: "Enter keywords for search..."  %>
+                  <%= f.text_field :tags_name_cont, class:"search_field", id: 'tag-search-input', placeholder: "Enter keywords for search..." %>
                 </label>
                 <div class="search-switch">
                   <ul class="list-inline">
-                    <li class="list-inline-item"><a class='active cursor-pointer' id='title-search'>Title</a></li>
+                    <li class="list-inline-item"><a class='cursor-pointer' id='title-search'>Title</a></li>
                     <li class="list-inline-item"><a class='cursor-pointer' id='tag-search'>Tag</a></li>
                   </ul>
                 </div>

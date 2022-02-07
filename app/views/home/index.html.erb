@@ -14,13 +14,7 @@
               <div class="col-xl-12">
                 <div class="single-wrap d-flex justify-content-center">
                   <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-start">
-                      <li class="page-item"><a class="page-link" href="#"><i class="flaticon-left"></i> </a></li>
-                      <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                      <li class="page-item"><a class="page-link" href="#">02</a></li>
-                      <li class="page-item"><a class="page-link" href="#">03</a></li>
-                      <li class="page-item"><a class="page-link" href="#"><i class="flaticon-right"></i> </a></li>
-                    </ul>
+                    <%= will_paginate @articles, class: 'pagination justify-content-start' %>
                   </nav>
                 </div>
               </div>
@@ -68,39 +62,39 @@
           </div>
           <!--Widget latest posts style 2-->
           <!--Widget latest posts style 2-->
-            <div class="sidebar-widget widget_alitheme_lastpost mb-50">
-              <div class="widget-header position-relative mb-20 pb-10">
-                <h5 class="widget-title mb-10">Trending Posts</h5>
-                <div class="bt-1 border-color-1"></div>
-              </div>
-              <div class="post-block-list">
-                <% @tranding_articles.each do |article| %>
-                  <article class="mb-30">
-                    <div class="post-thumb position-relative thumb-overlay img-hover-scale mb-30">
-                      <%= link_to article do %>
-                        <% if article.avatar.present? %>
-                          <img src="<%= article.avatar.big_preview.url %>" alt="...">
-                        <% else %>
-                          <img src="<%= asset_path('no-image.png') %>" alt="...">
-                        <% end %>
-                      <% end %>
-                    </div>
-                    <div class="post-content">
-                      <div class="entry-meta meta-0 font-small mb-15">
-                        <a href="category.html"><span class="post-cat background9 color-white"><%= article.category.name %></span></a>
-                      </div>
-                      <h4 class="post-title">
-                        <%= link_to article.title, article %>
-                      </h4>
-                      <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
-                        <span class="post-on"><%= published_time(article) %></span>
-                        <span class="hit-count"><i class="icon-bolt"></i><%= article.impressions_count %> Views</span>
-                      </div>
-                    </div>
-                  </article>
-                <% end %>
-              </div>
+          <div class="sidebar-widget widget_alitheme_lastpost mb-50">
+            <div class="widget-header position-relative mb-20 pb-10">
+              <h5 class="widget-title mb-10">Trending Posts</h5>
+              <div class="bt-1 border-color-1"></div>
             </div>
+            <div class="post-block-list">
+              <% @tranding_articles.each do |article| %>
+                <article class="mb-30">
+                  <div class="post-thumb position-relative thumb-overlay img-hover-scale mb-30">
+                    <%= link_to article do %>
+                      <% if article.avatar.present? %>
+                        <img src="<%= article.avatar.big_preview.url %>" alt="...">
+                      <% else %>
+                        <img src="<%= asset_path('no-image.png') %>" alt="...">
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <div class="post-content">
+                    <div class="entry-meta meta-0 font-small mb-15">
+                      <a href="category.html"><span class="post-cat background9 color-white"><%= article.category.name %></span></a>
+                    </div>
+                    <h4 class="post-title">
+                      <%= link_to article.title, article %>
+                    </h4>
+                    <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
+                      <span class="post-on"><%= published_time(article) %></span>
+                      <span class="hit-count"><i class="icon-bolt"></i><%= article.impressions_count %> Views</span>
+                    </div>
+                  </div>
+                </article>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
