@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @query = params[:q]
+    @query = params[:query]
     @results = Search.new(@query).results
   end
 end
