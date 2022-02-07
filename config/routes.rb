@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     member do
       put 'like', to: 'articles#like'
     end
+    collection do
+      match 'search' => 'home#search', via: [:get, :post], as: :search
+    end
   end
 
   namespace :admin do

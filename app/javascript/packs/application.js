@@ -38,6 +38,24 @@ $(document).on("turbolinks:load", function () {
 });
 
 $(document).on("turbolinks:load", function () {
+  $("#tag-search-input").hide();
+  $("#submit-search-button").hide();
+  
+  $("#title-search").on("click", function () {
+    $("#title-search").addClass("active");
+    $("#tag-search").removeClass("active");
+    $("#title-search-input").show();
+    $("#tag-search-input").hide();
+  });
+  $("#tag-search").on("click", function () {
+    $("#tag-search").addClass("active");
+    $("#title-search").removeClass("active");
+    $("#title-search-input").hide();
+    $("#tag-search-input").show();
+  });
+});
+
+$(document).on("turbolinks:load", function () {
   $("#customFile").change(function (e) {
     let file_name = e.target.files[0].name;
     $(".custom-file-label").html(file_name);

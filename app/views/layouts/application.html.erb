@@ -152,7 +152,7 @@
       </div>
     </div>
   </header>
-  <main class="position-relative background12">
+  <main class="position-relative">
     <!--Search Form-->
     <div class="main-search-form transition-02s">
     
@@ -160,18 +160,21 @@
         <div class="pt-10 pb-50 main-search-form-cover">
           <div class="row mb-20">
             <div class="col-12">
-              <form action="#" method="get" class="search-form position-relative">
+              <%= search_form_for @query, url: search_articles_path, class: 'search-form position-relative',
+                        html: { method: :post } do |f| %>
                 <div class="search-form-icon"><i class="icon-search"></i></div>
                 <label>
-                  <input type="text" class="search_field" placeholder="Enter keywords for search..." value="" name="s">
+                  <%= f.text_field :title_or_description_cont, class:"search_field", id: 'title-search-input', placeholder: "Enter keywords for search...", value:"" %>
+                  <%= f.text_field :tags_name_cont, class:"search_field", id: 'tag-search-input', placeholder: "Enter keywords for search...", value:"" %>
                 </label>
                 <div class="search-switch">
                   <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#" class="active">Articles</a></li>
-                    <li class="list-inline-item"><a href="#">Authors</a></li>
+                    <li class="list-inline-item"><a class='active cursor-pointer' id='title-search'>Title</a></li>
+                    <li class="list-inline-item"><a class='cursor-pointer' id='tag-search'>Tag</a></li>
                   </ul>
                 </div>
-              </form>
+                <%= f.submit id: 'submit-search-button' %>
+              <% end %>
             </div>
           </div>
         </div>
