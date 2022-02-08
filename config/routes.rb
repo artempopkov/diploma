@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   devise_for :moderators
-  devise_for :users, :controller => 'user_profiles'
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :users
     

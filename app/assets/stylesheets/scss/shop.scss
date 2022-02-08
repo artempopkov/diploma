@@ -36,13 +36,13 @@ $border_bottom_color_1: #FF324D;
 /*PAGE - CART*/
 /*Checkout page*/
 .shop-header {
-	background-image: url(../imgs/theme/shop-header-bg.jpg);
+	background-image: image-url("themes/shop-header-bg-2.jpg");
 	background-color: $background_color_1;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 .shop-header.header-bg2 {
-	background-image: url(../imgs/theme/shop-header-bg-2.jpg);
+	background-image: image-url("themes/shop-header-bg-2.jpg");
 }
 .range {
 	.list-group-item {
