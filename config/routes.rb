@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   devise_for :moderators
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  resources :users
+  resources :users, only: [:show]
+  get 'users', to: 'users#show'
     
   resources :articles , only: [:show] do
     resources :comments
