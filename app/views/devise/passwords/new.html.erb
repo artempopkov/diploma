@@ -1,27 +1,26 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name)) do |f| %>
-    <div class="main_content shop pb-238 mt-100 custom-mb-1">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-md-10">
-                    <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
-                        <div class="padding_eight_all bg-white">
-                            <div class="heading_s1">
-                                <h3 class="mb-30">Password recovery</h3>
-                            </div>
-                            <%= render "devise/shared/error_messages", resource: resource %>
-
-                            <form method="post">
-                                <div class="form-group">
-                                    <%= f.email_field :email, autocomplete: 'email', class: 'form-control', placeholder: 'Your Email' %>
-                                </div>
-                                <div class="form-group">
-                                    <%= f.submit  'Send recovery message', class: 'btn btn-fill-out btn-block' %>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+  <div class="main_content shop pb-238 mt-100 custom-mb-1">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-6 col-md-10">
+          <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
+            <div class="padding_eight_all bg-white">
+              <div class="heading_s1">
+                <h3 class="mb-30">Password recovery</h3>
+              </div>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <form method="post">
+                <div class="form-group">
+                  <%= f.email_field :email, autocomplete: 'email', class: 'form-control', placeholder: 'Your Email' %>
                 </div>
+                <div class="form-group">
+                  <%= f.submit  'Send recovery message', class: 'btn btn-fill-out btn-block' %>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 <% end %>
