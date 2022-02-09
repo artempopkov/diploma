@@ -1,42 +1,29 @@
 <h1>New Moderator</h1>
 <div class="form-container">
   <%= form_with(model: [:admin, @moderator], html: {class: 'w-50'}) do |form| %>
-    <% if @moderator.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@moderator.errors.count, "error") %> prohibited this @user from being saved:</h2>
-
-        <ul>
-          <% @moderator.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <%= form.label :name %>
     <div class="input-group">
-      <%= form.text_field :name, class: "form-control" %>
+      <%= form.text_field :name, class: "form-control #{field_validity_css_class(@moderator, :name)}" %>
+      <%= catched_errors(@moderator, :name) %>
     </div>
-
     <%= form.label :email %>
     <div class="input-group">
-      <%= form.text_field :email, class: "form-control" %>
+      <%= form.text_field :email, class: "form-control #{field_validity_css_class(@moderator, :email)}" %>
+      <%= catched_errors(@moderator, :email) %>
     </div>
-
     <%= form.label :role %>
     <div class="input-group">
       <%= form.select :role, Moderator.roles.keys, {}, class: "my-custom-select" %>
     </div>
-
     <%= form.label :password %>
     <div class="input-group">
-      <%= form.password_field :password, class: "form-control" %>
+      <%= form.password_field :password, class: "form-control #{field_validity_css_class(@moderator, :password)}" %>
+      <%= catched_errors(@moderator, :password) %>
     </div>
-
     <%= form.label :password_confirmation %>
     <div class="input-group">
-      <%= form.password_field :password_confirmation, class: "form-control" %>
+      <%= form.password_field :password_confirmation, class: "form-control #{field_validity_css_class(@moderator, :password_confirmation)}" %>
+      <%= catched_errors(@moderator, :password_confirmation) %>
     </div>
-
     <div>
       <%= form.submit 'OK', class: 'btn-ok mr-2' %>
       <%= link_to 'Cancel', admin_moderators_path, class: 'btn-cancel' %>

@@ -1,55 +1,38 @@
 <h1>Editing Article</h1>
 <div class="form-container">
   <%= form_with(model: [:admin, @article], remote: true) do |form| %>
-    <% if @article.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
-        <ul>
-          <% @article.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
     <div class="text-center image-container mb-3">
       <% if @article.avatar.url.present? %>
-          <%= image_tag @article.avatar.url %>
-          <%= link_to 'X', admin_remove_avatar_path(@article), method: :patch, class: 'btn-remove-img' %>
+        <%= image_tag @article.avatar.url %>
+        <%= link_to 'X', admin_remove_avatar_path(@article), method: :patch, class: 'btn-remove-img' %>
       <% end %>
     </div>
-
     <div class="input-group">
       <span class="input-group-text">Title</span>
-      <%= form.text_area :title, maxlength: "80", class: "title" %>
+      <%= form.text_area :title, maxlength: "80", class: "title #{field_validity_css_class(@article, :title)}" %>
+      <%= catched_errors(@article, :title) %>
     </div>
-
     <div class="input-group">
       <span class="input-group-text">Description</span>
-      <%= form.text_area :description, maxlength: "115", class: "description" %>
+      <%= form.text_area :description, maxlength: "115", class: "description #{field_validity_css_class(@article, :description)}" %>
+      <%= catched_errors(@article, :description) %>
     </div>
-
     <div class="custom-file mb-2">
       <%= form.file_field :avatar, class: 'custom-file-input', id: 'customFile' %>
       <label class="custom-file-label" for="customFile">Choose file</label>
     </div>
-
     <div class="mb-2">
       <%= form.check_box :avatar_disable, class: 'mr-2' %>
       Disable Avatar
     </div>
-
-
     <%= form.select :category_id, Category.all.pluck(:name, :id),{}, class: 'custom-select custom-select-lg mb-3' %>
-
     <div class="field mt-3">
-      <%= form.rich_text_area :content %>
+      <%= form.rich_text_area :content, class: "#{field_validity_css_class(@article, :content)}" %>
+      <%= catched_errors(@article, :content) %>
     </div>
-
     <div class="field mt-2">
       <%= form.text_field :tag_list, placeholder: 'Tags (sep by space)' %>
     </div>
-
     <div class="mt-10">
       <%= form.submit 'OK', class: 'btn-ok mr-2' %>
       <%= link_to 'Cancel', admin_articles_path, class: 'btn-cancel' %>

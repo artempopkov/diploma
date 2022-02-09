@@ -1,45 +1,29 @@
 <h1>New User</h1>
 <div class="form-container">
   <%= form_with(model: [:admin, @user], html: {class: 'w-50'}) do |form| %>
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
-
-        <ul>
-          <% @user.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
     <%= form.label :name %>
     <div class="input-group">
-      <%= form.text_field :name, class: "form-control" %>
+      <%= form.text_field :name, class: "form-control #{field_validity_css_class(@user, :name)}" %>
+      <%= catched_errors(@user, :name) %>
     </div>
-
     <%= form.label :email %>
     <div class="input-group">
-      <%= form.text_field :email, class: "form-control" %>
+      <%= form.text_field :email, class: "form-control #{field_validity_css_class(@user, :email)}" %>
+      <%= catched_errors(@user, :email) %>
     </div>
-
     <%= form.label :password %>
     <div class="input-group">
-      <%= form.password_field :password, class: "form-control" %>
+      <%= form.password_field :password, class: "form-control #{field_validity_css_class(@user, :password)}" %>
+      <%= catched_errors(@user, :password) %>
     </div>
-
     <%= form.label :password_confirmation %>
     <div class="input-group">
-      <%= form.password_field :password_confirmation, class: "form-control" %>
+      <%= form.password_field :password_confirmation, class: "form-control #{field_validity_css_class(@user, :password_confirmation)}" %>
+      <%= catched_errors(@user, :password_confirmation) %>
     </div>
-
     <div>
       <%= form.submit 'OK', class: 'btn-ok mr-2' %>
       <%= link_to 'Cancel', admin_users_path, class: 'btn-cancel' %>
     </div>
   <% end %>
 </div>
-
-
-
-
