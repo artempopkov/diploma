@@ -48,7 +48,7 @@ module Admin
         if moderator.admin?
           scope.all
         elsif moderator.editor?
-          scope.where(status: %i[prepared published])
+          scope.where(status: %i[prepared accepted published])
         elsif moderator.correspondent?
           scope.where(moderator_id: moderator.id)
         else

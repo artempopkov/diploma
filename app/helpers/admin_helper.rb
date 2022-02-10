@@ -33,8 +33,8 @@ module AdminHelper
     link_to 'Publish', admin_article_publish_article_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' if user_admin_or_editor? && article.not_published?
   end
 
-  def render_review_form(review)
-    render "admin/article_reviews/form", review: review if user_editor?
+  def render_review_form(review, review_statuses)
+    render "admin/article_reviews/form", review: review, review_statuses: review_statuses if user_editor?
   end
 
   def review_comment(review)

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :moderators
     resources :categories
     resources :articles do
-      resources :reviews, only: [:new, :create]
+      resources :article_reviews, only: [:new, :create], as: :reviews
       member do
         patch "prepare", to: "articles#prepare"
       end

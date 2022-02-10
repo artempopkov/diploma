@@ -13,6 +13,7 @@ module Admin
 
     def show
       @review = @article.reviews.build if current_moderator.editor?
+      @review_statuses = ArticleReview.statuses
       authorize [:admin, @article]
     end
 

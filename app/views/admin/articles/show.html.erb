@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col-lg-8 col-md-12 col-sm-12">
         <div id="review-comment" class="hiden-div">
-          <%= render_review_form(@review) %>
+          <%= render_review_form(@review, @review_statuses) %>
           <div class="divider mb-15 mt-15"></div>
         </div>
         <%= review_comment(@article.reviews.last) %>
