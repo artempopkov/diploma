@@ -16,17 +16,7 @@ module Admin
       end
     end
 
-    def send_article_for_review
-      authorize [:admin, @article]
-      @article.active!
-      redirect_to [:admin, @article], notice: 'Article sent for review'
-    end
-
-    def publish_article
-      authorize [:admin, @article]
-      @article.published!
-      redirect_to [:admin, @article], notice: 'Article published'
-    end
+   
   
     private
 
@@ -35,7 +25,7 @@ module Admin
     end
     
     def review_params
-      params.require(:review).permit(:article_id, :comment)
+      params.require(:review).permit(:article_id, :comment, :status)
     end
   end
 end

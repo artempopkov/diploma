@@ -28,15 +28,15 @@ module Admin
     end
 
     def update?
-      article.inactive?
+      article.created? or article.rejected? or article.prepared?
     end
 
     def destroy?
-      article.inactive? and (moderator.correspondent? or moderator.admin?)
+      (article.created? or article.rejected?) and (moderator.correspondent? or moderator.admin?)
     end
 
-    def send_article_for_review?
-      article.inactive? and moderator.correspondent?
+    def prepare?
+      (article.created? or article.rejected?) and moderator.correspondent?
     end
 
     def publish_article?
@@ -48,7 +48,7 @@ module Admin
         if moderator.admin?
           scope.all
         elsif moderator.editor?
-          scope.where(status: %i[active published])
+          scope.where(status: %i[prepared published])
         elsif moderator.correspondent?
           scope.where(moderator_id: moderator.id)
         else

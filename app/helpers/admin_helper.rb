@@ -21,12 +21,12 @@ module AdminHelper
     link_to 'Destroy', [:admin, article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-destroy' if user_correspondent_or_admin?
   end
 
-  def send_for_review(article)
-    link_to 'Send for review', admin_article_send_for_review_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' unless user_correspondent? && article.need_fixes?
-  end
-
   def edit_article(article)
     link_to 'Edit', edit_admin_article_path(article), class: 'btn-edit' if user_correspondent?
+  end
+
+  def prepare_article(article)
+    link_to 'Send for review',  prepare_admin_article_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' if user_correspondent? && (article.created? || article.rejected?)
   end
 
   def publish_article(article)
@@ -34,11 +34,11 @@ module AdminHelper
   end
 
   def render_review_form(review)
-    render "admin/reviews/form", review: review if user_editor?
+    render "admin/article_reviews/form", review: review if user_editor?
   end
 
-  def review_comment(article)
-    render "admin/reviews/comment", review: article.reviews.last if user_correspondent? && article.need_fixes?
+  def review_comment(review)
+    render "admin/article_reviews/comment", review: article.reviews.last if user_correspondent? && review
   end
 
   private

@@ -3,12 +3,15 @@
   <div class="container">
     <div class="mb-10">
       <%= link_to 'Back', admin_articles_path, class: 'btn-back' %>
-      <% if @article.inactive? %>
+      <% if %w[created prepared rejected].include?(@article.status) %>
         <%= edit_article(@article) %>
-        <%= send_for_review(@article) %>
-      <% elsif current_moderator.editor? %>
+      <% end %>
+      <% if %w[created rejected].include?(@article.status) %>
+        <%= prepare_article(@article) %>
+      <% end %>
+      <% if current_moderator.editor? %>
         <button id="open-comment-field" class="btn-comment">Comment</button>
-        <%= publish_article(@article) %>
+        <%# <%= publish_article(@article) %>
       <% end %>
     </div>
     <div class="divider-text-center mt-20 mb-30">
@@ -19,7 +22,7 @@
           <%= render_review_form(@review) %>
           <div class="divider mb-15 mt-15"></div>
         </div>
-        <%= review_comment(@article) %>
+        <%= review_comment(@article.reviews.last) %>
         <div class="entry-header entry-header-1 mb-30">
           <a href="#"><span>Category: <%= @article.category.name %></span></a>
           <h1 class="post-title">
@@ -30,10 +33,8 @@
             <span class="post-on has-dot">Status: <%= @article.status %></span>
           </div>
         </div>
-
         <%= article_avatar(@article)%>
         <div class="divider mb-3"></div>
-        
         <%= @article.content %>
         <div class="entry-bottom mt-50 mb-30">
           <div class="tags">
