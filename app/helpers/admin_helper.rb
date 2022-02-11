@@ -30,7 +30,7 @@ module AdminHelper
   end
 
   def publish_article(article)
-    link_to 'Publish', admin_article_publish_article_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' if user_admin_or_editor? && article.not_published?
+    link_to 'Publish', publish_admin_article_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' if user_admin_or_editor? && (article.accepted? || article.archived?) 
   end
 
   def render_review_form(review, review_statuses)

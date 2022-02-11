@@ -11,7 +11,7 @@
       <% end %>
       <% if current_moderator.editor? %>
         <button id="open-comment-field" class="btn-comment">Comment</button>
-        <%# <%= publish_article(@article) %>
+        <%= publish_article(@article) %>
       <% end %>
     </div>
     <div class="divider-text-center mt-20 mb-30">
@@ -45,12 +45,12 @@
       </div>
       <%# ---------------------------------------------------------------- %>
       <div class="col-lg-4 col-md-6 col-sm-6">
-        <h2 class="color-orange"> Reviews</h2>
+        <h2> Reviews </h2>
         <div id="article-reviews">
-          <%= render(@reviews) %>
+          <%= render "admin/article_reviews/article_review" %>
         </div>
         <div id="more-article-reviews" class="d-flex justify-content-center">
-          <%= link_to "Load more", admin_article_url(page: @reviews.next_page), remote: true %>
+          <%= link_to "Load more", admin_article_url(page: @reviews.next_page), remote: true if @reviews.next_page %>
         </div>
       </div>
     </div>

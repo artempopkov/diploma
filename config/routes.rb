@@ -12,9 +12,9 @@ Rails.application.routes.draw do
     resources :articles do
       resources :article_reviews, only: [:new, :create], as: :reviews
       member do
-        patch "prepare", to: "articles#prepare"
+        patch 'prepare', to: 'articles#prepare'
+        patch 'publish', to: 'articles#publish'
       end
-      # patch 'publish', to: 'article_reviews#publish_article', as: 'publish_article'
     end
 
     get "tags/:tag", to: "articles#tag", as: :tag

@@ -1,6 +1,6 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :load_models, only: %i[show edit update destroy prepare]
+    before_action :load_models, only: %i[show edit update destroy prepare publish]
     before_action :load_categories, only: %i[index new edit]
     before_action :tag_cloud
     after_action :verify_authorized
@@ -63,11 +63,11 @@ module Admin
       redirect_to [:admin, @article], notice: result.message
     end
 
-    # def publish_article
-    #   authorize [:admin, @article]
-    #   @article.published!
-    #   redirect_to [:admin, @article], notice: 'Article published'
-    # end
+    def publish
+      authorize [:admin, @article]
+      result = PublishArticle.call(article: @article)
+      redirect_to [:admin, @article], notice: result.message
+    end
 
     def tag_cloud
       @tags = Article.tag_counts_on(:tags)

@@ -39,8 +39,8 @@ module Admin
       (article.created? or article.rejected?) and moderator.correspondent?
     end
 
-    def publish_article?
-      article.active? and (moderator.admin? or moderator.editor?)
+    def publish?
+      (article.accepted? or article.archived) and (moderator.admin? or moderator.editor?)
     end
 
     class Scope < Scope
