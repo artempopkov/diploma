@@ -16,7 +16,7 @@
   </div>
 
   <div class="field">
-    <%= form.select :status, review_statuses %>
+    <%= form.select :status, review_statuses.keys.map { |status| [status.humanize, status] } %>
   </div>
 
   <div class="actions">

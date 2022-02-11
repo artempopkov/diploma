@@ -37,10 +37,6 @@ module AdminHelper
     render "admin/article_reviews/form", review: review, review_statuses: review_statuses if user_editor?
   end
 
-  def review_comment(review)
-    render "admin/article_reviews/comment", review: article.reviews.last if user_correspondent? && review
-  end
-
   private
 
   def user_admin?

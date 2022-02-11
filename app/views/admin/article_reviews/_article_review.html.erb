@@ -1,0 +1,7 @@
+<% @reviews.each do |review| %>
+  <div class='border-top mt-2'>
+    <h5 class="card-title mt-2">Status: <%= review.status.humanize %></h5>
+    <p class="card-text mb-2 "><%= review.comment %></p>
+  </div>
+<% end %>
+

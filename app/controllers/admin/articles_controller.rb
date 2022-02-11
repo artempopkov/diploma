@@ -12,9 +12,14 @@ module Admin
     end
 
     def show
+      @reviews = @article.reviews.page(current_page).order("id DESC")
       @review = @article.reviews.build if current_moderator.editor?
       @review_statuses = ArticleReview.statuses
       authorize [:admin, @article]
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     def new
