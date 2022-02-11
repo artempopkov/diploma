@@ -49,7 +49,7 @@
         <div id="article-reviews">
           <%= render "admin/article_reviews/article_review" %>
         </div>
-        <div id="more-article-reviews" class="d-flex justify-content-center">
+        <div id="more-article-reviews" class="d-flex justify-content-center mt-2">
           <%= link_to "Load more", admin_article_url(page: @reviews.next_page), remote: true if @reviews.next_page %>
         </div>
       </div>
