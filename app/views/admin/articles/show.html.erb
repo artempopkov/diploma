@@ -3,10 +3,13 @@
   <div class="container">
     <div class="mb-10">
       <%= link_to 'Back', admin_articles_path, class: 'btn-back' %>
-      <% if @article.inactive? %>
+      <% if %w[created prepared rejected].include?(@article.status) %>
         <%= edit_article(@article) %>
-        <%= send_for_review(@article) %>
-      <% elsif current_moderator.editor? %>
+      <% end %>
+      <% if %w[created rejected].include?(@article.status) %>
+        <%= prepare_article(@article) %>
+      <% end %>
+      <% if current_moderator.editor? %>
         <button id="open-comment-field" class="btn-comment">Comment</button>
         <%= publish_article(@article) %>
       <% end %>
@@ -16,10 +19,9 @@
     <div class="row">
       <div class="col-lg-8 col-md-12 col-sm-12">
         <div id="review-comment" class="hiden-div">
-          <%= render_review_form(@review) %>
+          <%= render_review_form(@review, @review_statuses) %>
           <div class="divider mb-15 mt-15"></div>
         </div>
-        <%= review_comment(@article) %>
         <div class="entry-header entry-header-1 mb-30">
           <a href="#"><span>Category: <%= @article.category.name %></span></a>
           <h1 class="post-title">
@@ -30,10 +32,8 @@
             <span class="post-on has-dot">Status: <%= @article.status %></span>
           </div>
         </div>
-        <% if @article.avatar.present? && !@article.avatar_disable %>
-          <%= image_tag @article.avatar.url, class: 'mb-3' %>
-          <div class="divider mb-3"></div>
-        <% end %>
+        <%= article_avatar(@article)%>
+        <div class="divider mb-3"></div>
         <%= @article.content %>
         <div class="entry-bottom mt-50 mb-30">
           <div class="tags">
@@ -41,6 +41,16 @@
               <%= link_to tag, admin_articles_url(tag: tag.name) %>
             <% end %>
           </div>
+        </div>
+      </div>
+      <%# ---------------------------------------------------------------- %>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <h2> Reviews </h2>
+        <div id="article-reviews">
+          <%= render "admin/article_reviews/article_review" %>
+        </div>
+        <div id="more-article-reviews" class="d-flex justify-content-center mt-2">
+          <%= link_to "Load more", admin_article_url(page: @reviews.next_page), remote: true if @reviews.next_page %>
         </div>
       </div>
     </div>

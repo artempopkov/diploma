@@ -19,12 +19,12 @@
       <% end %>
     </div>
 
-    <div class="input-group">
+    <div class="input-group mb-2">
       <span class="input-group-text">Title</span>
       <%= form.text_area :title, maxlength: "80", class: "title" %>
     </div>
 
-    <div class="input-group">
+    <div class="input-group mb-2">
       <span class="input-group-text">Description</span>
       <%= form.text_area :description, maxlength: "115", class: "description" %>
     </div>
@@ -39,6 +39,9 @@
       Disable Avatar
     </div>
 
+    <div class="field">
+      <%= form.select :category_id, @categories.pluck(:name, :id), class: 'mr-2' %>
+    </div>
 
     <%= form.select :category_id, Category.all.pluck(:name, :id),{}, class: 'custom-select custom-select-lg mb-3' %>
 
