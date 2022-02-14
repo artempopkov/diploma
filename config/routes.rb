@@ -17,7 +17,6 @@ Rails.application.routes.draw do
         patch 'publish', to: 'articles#publish'
       end
     end
-
     get "tags/:tag", to: "articles#tag", as: :tag
   end
 end
