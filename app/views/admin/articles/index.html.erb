@@ -9,22 +9,22 @@
 
   <%= f.label :title_or_description_cont %>
   <div class="mb-2">
-    <%= f.search_field :title_or_description_cont, class: 'form-control'%>
+    <%= f.search_field :title_or_description_cont, class: 'form-control search-form-el'%>
   </div>
 
-  <%= f.label :category_id_eq%>
+  <%= f.label 'Categories' %>
   <div class="mb-2">
-    <%= f.select(:category_id_eq, @categories.pluck(:name, :id), { include_blank: true }, {class: "form-control" }) %>
+    <%= f.collection_select :category_id_in, @categories, :id, :name, {}, multiple: true, class:'js-multiple-select w-100'%>
   </div>
 
-  <%= f.label :tag_name_eq%>
+  <%= f.label 'Tags' %>
   <div class="mb-2">
-    <%= f.select :tags_name_in, @tags, {include_blank: true} , class: "form-control" %>
+    <%= f.collection_select :tags_name_in, @tags, :name, :name, {}, multiple: true, class:'js-multiple-select w-100'%>
   </div>
   
-  <%= f.label :status_eq%>
+  <%= f.label 'Statuses' %>
   <div class="mb-2">
-    <%= f.select :status_in, @articles.statuses , {include_blank: true} , class: "form-control" %>
+    <%= f.collection_select :status_in, @articles.statuses, :second, :first, {}, multiple: true, class:'js-multiple-select w-100'%>
   </div>
 
   
