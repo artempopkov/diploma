@@ -10,7 +10,7 @@ module Admin
     private
 
     def article_reviews_params
-      params.require(:article_review).permit(:article_id, :comment, :status)
+      params.require(:article_review).permit(:article_id, :comment, :status, :moderator_id)
     end
   end
 end

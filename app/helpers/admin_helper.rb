@@ -18,7 +18,7 @@ module AdminHelper
   end
 
   def destroy_article(article)
-    link_to 'Destroy', [:admin, article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-destroy' if user_correspondent_or_admin?
+    link_to 'Destroy', [:admin, article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-destroy' if user_correspondent_or_admin? && (article.created? || article.rejected?)
   end
 
   def edit_article(article)
