@@ -8,14 +8,6 @@ class Article < ApplicationRecord
   has_many :reviews, dependent: :destroy, class_name: 'ArticleReview'
   validates :title, :description, :content, presence: true
 
-  def current_review
-    reviews.last
-  end
-
-  def not_published?
-    true unless published?
-  end
-
   def avatar_absent_or_disabled?
     avatar.url.nil? || avatar_disable?
   end
