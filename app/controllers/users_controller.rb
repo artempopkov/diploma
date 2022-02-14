@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[show]
   def show
     authorize @user
+    @viewed_articles = @user.viewed_articles
   end
 
   private
