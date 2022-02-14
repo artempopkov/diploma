@@ -19,11 +19,11 @@
         <div class="col-lg-3 col-md-4">
           <div class="dashboard-menu ">
             <ul class="nav flex-column" role="tablist">
-            <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link active" id="account-detail-tab" data-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="icon-id-badge mr-5"></i>Account details</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="dashboard-tab" data-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false"><i class="icon-panel mr-5"></i>Dashboard</a>
+                <a class="nav-link" id="dashboard-tab" data-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false"><i class="icon-heart mr-5"></i>Likes history</a>
               </li>
               <%# <li class="nav-item">
                 <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="icon-shopping-cart-full mr-5"></i>Orders</a>
@@ -31,7 +31,6 @@
               <li class="nav-item">
                 <a class="nav-link" id="address-tab" data-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="icon-location-pin mr-5"></i>My Address</a>
               </li> %>
-              
               <li class="nav-item">
                 <%= link_to(destroy_user_session_path, method: :delete, class: 'nav-link') do %>
                   <i class="icon-lock mr-5"></i>
@@ -52,10 +51,30 @@
             <div class="tab-pane fade" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
               <div class="card">
                 <div class="card-header">
-                  <h5 class="mb-0">Dashboard</h5>
+                  <h5 class="mb-0">Likes history</h5>
                 </div>
                 <div class="card-body">
-                  <p>From your account dashboard. you can easily check &amp; view your <a href="javascript:void(0);" onclick="$('#orders-tab').trigger('click')">recent orders</a>, manage your <a href="javascript:void(0);" onclick="$('#address-tab').trigger('click')">shipping and billing addresses</a> and <a href="javascript:void(0);" onclick="$('#account-detail-tab').trigger('click')">edit your password and account details.</a></p>
+                  <div class="table-responsive">
+                    <table id="table-id" class="table table-sort">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th data-sortable="true" >News</th>
+                          <th>Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @likes_history.each do |article, date|%>
+                          <tr>
+                            <td></td>
+                            <td><%= link_to article.title, article_path(article)%></td>
+                            <td><%= universal_time_format(date) %></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                     <%= will_paginate @likes_history, class: 'pagination justify-content-start' %>
+                  </div>
                 </div>
               </div>
             </div>

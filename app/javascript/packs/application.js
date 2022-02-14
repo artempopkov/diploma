@@ -8,12 +8,15 @@ import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "bootstrap";
+import tableSort from "table-sort-js/table-sort.js";
 require("trix");
 require("@rails/actiontext");
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+
+
 
 $(document).on("turbolinks:load", function () {
   $("#preloader-active").delay(450).fadeOut("slow");

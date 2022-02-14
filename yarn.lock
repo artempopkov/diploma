@@ -6181,6 +6181,11 @@ sort-keys@^1.0.0:
   dependencies:
     is-plain-obj "^1.0.0"
 
+sortablejs@^1.14.0:
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.14.0.tgz#6d2e17ccbdb25f464734df621d4f35d4ab35b3d8"
+  integrity sha512-pBXvQCs5/33fdN1/39pPL0NZF20LeRbLQ5jtnheIPN9JQAaufGjKdWduZn4U7wCtVuzKhmRkI0DFYHYRbB2H1w==
+
 source-list-map@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
@@ -6453,6 +6458,16 @@ svgo@^1.0.0:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+table-sort-js@^1.6.8:
+  version "1.6.8"
+  resolved "https://registry.yarnpkg.com/table-sort-js/-/table-sort-js-1.6.8.tgz#b4de57e54928b73b1e9c0555308fac33ab8b2141"
+  integrity sha512-TyHiLbbT+7AaEp1Xkfj0BToF97DCX1W3BI2lJjnrN6fXXomnqMh6zlc16PdkiWo0lpgjttj+6YScT6GBaIU9uQ==
+
+tablesort@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/tablesort/-/tablesort-5.3.0.tgz#899534f40f5395c1ec4d00f7b9d026c6e21ccc3f"
+  integrity sha512-WkfcZBHsp47gVH9CBHG0ZXopriG01IA87arGrchvIe868d4RiXVvoYPS1zMq9IdW05kBs5iGsqxTABqLyWonbg==
 
 tapable@^1.0.0, tapable@^1.1.3:
   version "1.1.3"

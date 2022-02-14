@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[show]
   def show
     authorize @user
-    @viewed_articles = @user.viewed_articles
+    
+    @likes_history = UserHistoryService.new(@user).likes_history.paginate(page: current_page)
   end
 
   private
