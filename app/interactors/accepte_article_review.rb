@@ -6,5 +6,7 @@ class AccepteArticleReview
       article_review = ArticleReview.create!(context.article_reviews_params)
       article_review.article.update!(status: "accepted")
     end
+  rescue ActiveRecord::RecordInvalid => exception
+    context.fail!(message: exception)
   end
 end

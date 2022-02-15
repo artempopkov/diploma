@@ -10,7 +10,7 @@
   </head>
   <body class="container">
     <% flash.each do |name, message| %>
-      <div id="flash_message" style="display: none" flash-type="<%= flash_type(name) %>">
+      <div class="flash_message" style="display: none" flash-type="<%= flash_type(name) %>">
         <%= message %>
       </div>
     <% end %>

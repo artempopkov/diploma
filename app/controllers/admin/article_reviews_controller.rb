@@ -11,6 +11,7 @@ module Admin
       if result.success?
         redirect_to admin_article_url(result.article_review.article), notice: "Article review was successfully #{params[:status]}."
       else
+        flash[:error] = result.message
         redirect_to admin_articles_url
       end
     end

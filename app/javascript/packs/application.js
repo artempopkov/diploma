@@ -10,7 +10,7 @@ import "channels";
 import "bootstrap";
 import $ from "jquery";
 import "select2/dist/js/select2";
-  import Noty from "noty/lib/noty.js"
+import Noty from "noty/lib/noty.js";
 
 require("trix");
 require("@rails/actiontext");
@@ -20,11 +20,16 @@ Turbolinks.start();
 ActiveStorage.start();
 
 $(document).on("turbolinks:load", function () {
-  new Noty({
-    type: $("#flash_message").attr("flash-type"),
-    theme: "bootstrap-v4",
-    text: $("#flash_message").text(),
-  }).show();
+  $(".flash_message").each(function () {
+    const $this = $(this);
+
+    new Noty({
+      type: $this.attr("flash-type"),
+      theme: "bootstrap-v4",
+      text: $this.text(),
+      timeout: 3000
+    }).show();
+  });
 });
 
 $(document).on("turbolinks:load", function () {
