@@ -17,6 +17,8 @@
 @import "scss/style";
 @import "scss/widgets";
 @import "select2/dist/css/select2";
+@import 'noty/lib/noty';
+@import 'noty/lib/themes/bootstrap-v4';
 
 .my-custom-select {
   display: inline-block;
@@ -286,7 +288,7 @@
 
 .rejected {
   color: #e22020;
- {
+}
    
 .select2-selection--multiple:before {
   content: "";

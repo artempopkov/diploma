@@ -35,7 +35,7 @@ module Admin
       @article = current_moderator.articles.build(article_params)
       authorize [:admin, @article]
       if @article.save
-        redirect_to admin_article_url(@article), notice: "Creation finish successfully"
+        redirect_to admin_article_url(@article), notice: "Create finish successfully"
       else
         render :new, status: :unprocessable_entity
       end
