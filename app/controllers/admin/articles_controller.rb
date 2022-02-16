@@ -65,7 +65,7 @@ module Admin
       if result.success?
         redirect_to edit_admin_article_path(@article), notice: 'Avatar removed successfully'
       else
-        redirect_to edit_admin_article_path(@article), error: result.message
+        redirect_to edit_admin_article_path(@article), alert: result.message
       end
     end
 
@@ -76,7 +76,7 @@ module Admin
       if result.success?
         redirect_to admin_article_url(@article), notice: 'Prepare finish successfully'
       else
-        redirect_to admin_articles_url, error: result.message
+        redirect_to admin_articles_url, alert: result.message
       end
     end
 
@@ -87,7 +87,7 @@ module Admin
       if result.success?
         redirect_to admin_article_url(@article), notice: 'Publish finish successfully'
       else
-        redirect_to admin_articles_url, error: result.message
+        redirect_to admin_articles_url, alert: result.message
       end
     end
 
