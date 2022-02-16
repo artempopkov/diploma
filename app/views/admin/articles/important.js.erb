@@ -1,0 +1,3 @@
+$('.mark-btn').on('ajax:success', function(){
+   $(this).replaceWith('<%= mark_as_important(@article) %>');
+});

@@ -37,12 +37,6 @@ module AdminHelper
     render "admin/article_reviews/form", review: review, review_statuses: review_statuses if user_editor?
   end
 
-  def flash_type(name)
-    return 'success' if name == 'notice'
-
-    'error'
-  end
-
   private
 
   def user_admin?

@@ -92,14 +92,19 @@ module Admin
       end
     end
 
-    def tag_cloud
-      @tags = Article.tag_counts_on(:tags)
+    def important
+      authorize [:admin, @article]
+      result = Articles::Important.call(article: @article, important: params[:important])
+
+      if result.success?
+        respond_to :js
+      else
+        redirect_to admin_article_url(@article), alert: result.message
+      end
     end
 
-    def mark_as_important
-      authorize [:admin, @article]
-      imp = params[:important] == 'mark'
-      @article.update(important: imp)
+    def tag_cloud
+      @tags = Article.tag_counts_on(:tags)
     end
 
     private

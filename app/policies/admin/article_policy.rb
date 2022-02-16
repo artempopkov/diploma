@@ -47,7 +47,7 @@ module Admin
       edit?
     end
 
-    def mark_as_important?
+    def important?
       moderator.editor? or moderator.admin?
     end
 
