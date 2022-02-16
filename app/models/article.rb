@@ -11,8 +11,4 @@ class Article < ApplicationRecord
   def avatar_absent_or_disabled?
     avatar.url.nil? || avatar_disable?
   end
-
-  def important?
-    important
-  end
 end
