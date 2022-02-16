@@ -4,8 +4,7 @@ module Articles
 
     def call
       begin
-        context.article.status = 'published'
-        context.article.save!
+        context.article.update!(status: 'published')
       rescue StandardError => exception
         context.fail!(message: exception.message)
       end
