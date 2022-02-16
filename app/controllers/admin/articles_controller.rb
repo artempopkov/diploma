@@ -16,6 +16,7 @@ module Admin
       @review = @article.reviews.build if current_moderator.editor?
       @review_statuses = ArticleReview.statuses
       authorize [:admin, @article]
+
       respond_to do |format|
         format.html
         format.js
@@ -35,7 +36,7 @@ module Admin
       @article = current_moderator.articles.build(article_params)
       authorize [:admin, @article]
       if @article.save
-        redirect_to admin_article_url(@article), notice: "Creation finish successfully"
+        redirect_to admin_article_url(@article), notice: 'Create finish successfully'
       else
         render :new, status: :unprocessable_entity
       end
@@ -45,7 +46,7 @@ module Admin
       @article = Article.find(params[:id])
       authorize [:admin, @article]
       if @article.update(article_params)
-        redirect_to admin_article_url(@article), notice: "Update finish successfully"
+        redirect_to admin_article_url(@article), notice: 'Update finish successfully'
       else
         render :edit, status: :unprocessable_entity
       end
@@ -54,7 +55,7 @@ module Admin
     def destroy
       authorize [:admin, @article]
       @article.destroy
-      redirect_to admin_articles_url, notice: "Destruction finish successfully"
+      redirect_to admin_articles_url, notice: 'Destroy finish successfully'
     end
 
     def remove_avatar
@@ -66,14 +67,26 @@ module Admin
 
     def prepare
       authorize [:admin, @article]
-      result = PrepareArticle.call(article: @article)
-      redirect_to [:admin, @article], notice: result.message
+
+      result = Articles::Prepare.call(article: @article)
+      if result.success?
+        redirect_to admin_article_url(@article), notice: 'Prepare finish successfully'
+      else
+        flash[:error] = result.message
+        redirect_to admin_articles_url
+      end
     end
 
     def publish
       authorize [:admin, @article]
-      result = PublishArticle.call(article: @article)
-      redirect_to [:admin, @article], notice: result.message
+
+      result = Articles::Publish.call(article: @article)
+      if result.success?
+        redirect_to admin_article_url(@article), notice: 'Publish finish successfully'
+      else
+        flash[:error] = result.message
+        redirect_to admin_articles_url
+      end
     end
 
     def tag_cloud

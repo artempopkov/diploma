@@ -17,6 +17,8 @@
 @import "scss/style";
 @import "scss/widgets";
 @import "select2/dist/css/select2";
+@import 'noty/lib/noty';
+@import 'noty/lib/themes/bootstrap-v4';
 
 .my-custom-select {
   display: inline-block;
