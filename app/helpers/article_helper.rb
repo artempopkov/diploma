@@ -14,4 +14,8 @@ module ArticleHelper
   def article_admin_card_image(image_url)
     image_tag(image_url, class: 'card-img-top img-size', alt: '...')
   end
+
+  def universal_time_format(time)
+    time.strftime("%d %b %Y, %H:%M")
+  end
 end

@@ -14,25 +14,43 @@ module AdminHelper
   end
 
   def create_new_article
-    link_to 'New Article', new_admin_article_path, class: 'btn btn-create' if user_correspondent?
+    link_to 'New Article', new_admin_article_path, class: 'btn-create' if user_correspondent?
   end
 
-  def destroy_article
-    link_to 'Destroy', [:admin, @article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' if user_correspondent_or_admin?
+  def destroy_article(article)
+    link_to 'Destroy', [:admin, article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-destroy' if user_correspondent_or_admin? && (article.created? || article.rejected?)
   end
 
-  def send_for_review
-    link_to 'Send for review', admin_send_for_review_path(@article), method: :patch, class: ' btn-confirm' if user_correspondent?
+  def edit_article(article)
+    link_to 'Edit', edit_admin_article_path(article), class: 'btn-edit' if user_correspondent?
   end
 
-  def edit_article
-    link_to 'Edit', edit_admin_article_path(@article), class: 'btn btn-edit' if user_correspondent?
+  def prepare_article(article)
+    link_to 'Send for review',  prepare_admin_article_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' if user_correspondent? && (article.created? || article.rejected?)
+  end
+
+  def publish_article(article)
+    link_to 'Publish', publish_admin_article_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' if user_admin_or_editor? && (article.accepted? || article.archived?) 
+  end
+
+  def render_review_form(review, review_statuses)
+    render "admin/article_reviews/form", review: review, review_statuses: review_statuses if user_editor?
+  end
+
+  def flash_type(name)
+    return 'success' if name == 'notice'
+
+    'error'
   end
 
   private
 
   def user_admin?
     current_moderator.admin?
+  end
+
+  def user_editor?
+    current_moderator.editor?
   end
 
   def user_admin_or_editor?

@@ -17,6 +17,8 @@
 @import "scss/style";
 @import "scss/widgets";
 @import "select2/dist/css/select2";
+@import 'noty/lib/noty';
+@import 'noty/lib/themes/bootstrap-v4';
 
 .my-custom-select {
   display: inline-block;
@@ -47,6 +49,21 @@
   text-overflow: ellipsis;
 }
 
+.color-orange {
+  color: orange;
+}
+
+.btn-comment {
+  padding: .63rem .95rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #f78809;
+  background-color: #f78809;
+  color: #fff;
+  margin-top: 10px;
+}
+
 .search-form {
   border: 1px solid #dee2e6;
   max-width: 1080px;
@@ -64,6 +81,23 @@
   background-color: #0069d9;
   color: #fff;
   transition: all .2s ease-out 0s;
+
+  &:hover {
+    background-color: #fff;
+    border: 0.1rem solid #f78809;
+    color: #f78809;
+  }
+}
+
+.btn-return {
+  padding: .4rem .95rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #0062cc;
+  background-color: #0062cc;
+  color: #fff;
+  margin-top: 10px;
 
   &:hover {
     background-color: #fff;
@@ -95,7 +129,17 @@
   padding: .75rem .95rem;
   font-size: .875rem;
   line-height: 1.5;
+  background-color: #6c757d;
+  color: #fff;
   border-radius: 0.2rem;
+  transition: all .2s ease-out 0s;
+  border: 0.1rem solid #6c757d;
+
+  &:hover {
+    background-color: #fff;
+    color: #6c757d;
+    border: 0.1rem solid #6c757d;
+  }
 }
 
 .btn-edit {
@@ -103,6 +147,49 @@
   font-size: .875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
+  border: 0.1rem solid #f78809;
+  color: #fff;
+  background-color: #f78809;
+  transition: all .2s ease-out 0s;
+
+  &:hover {
+    background-color: #fff;
+    color: #f78809;
+    border: 0.1rem solid #f78809;
+  }
+}
+
+.btn-send_for_review {
+  padding: .75rem .95rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #22a834;
+  color: #fff;
+  background-color: #22a834;
+  transition: all .2s ease-out 0s;
+
+  &:hover {
+    background-color: #fff;
+    color: #22a834;
+    border: 0.1rem solid #22a834;
+  }
+}
+.btn-create {
+  padding: .75rem .75rem;
+  font-size: .875rem;
+  color: #fff;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  background-color: #007bff;
+  border: 0.1rem solid #007bff;
+  margin-bottom: 20px;
+
+  &:hover {
+    background-color: #fff;
+    color: #007bff;
+    border: 0.1rem solid #007bff;
+  }
 }
 
 .btn-destroy {
@@ -110,17 +197,16 @@
   font-size: .875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
+  border: 0.1rem solid red;
   background-color: red;
-}
+  color: #fff;
+  transition: all .2s ease-out 0s;
 
-.btn-create {
-  padding: .75rem .75rem;
-  font-size: .875rem;
-  line-height: 1.5;
-  border-radius: 0.2rem;
-  background-color: #007bff;
-  border-color: #007bff;
-  margin-bottom: 20px;
+  &:hover {
+    background-color: #fff;
+    color: red;
+    border: 0.1rem solid red;
+  }
 }
 
 .form-container {
@@ -138,16 +224,19 @@
 }
 
 .btn-logout{
-  border: 1px solid #dc3545;
+  border: 0.1rem solid #dc3545;
   padding: .2em;
-  color: #dc3545;
-  border-radius: 5px;
-}
-
-.btn-logout:hover {
   color: #fff;
+  border-radius: 5px;
+
   background-color: #dc3545;
-  border-color: #dc3545;
+  transition: all .2s ease-out 0s;
+
+  &:hover {
+    background-color: #fff;
+    color: #dc3545;
+    border: 0.1rem solid #dc3545;
+  }
 }
 
 .btn-confirm{
@@ -193,6 +282,14 @@
   visibility:inherit;
 }
 
+.accepted { 
+  color: #1acf1a;
+}
+
+.rejected {
+  color: #e22020;
+}
+   
 .select2-selection--multiple:before {
   content: "";
   position: absolute;
