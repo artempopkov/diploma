@@ -16,7 +16,9 @@
 @import "bootstrap/scss/bootstrap";
 @import "scss/style";
 @import "scss/widgets";
-
+@import "select2/dist/css/select2";
+@import 'noty/lib/noty';
+@import 'noty/lib/themes/bootstrap-v4';
 
 .my-custom-select {
   display: inline-block;
@@ -65,6 +67,43 @@
   color: #fff;
 }
 
+
+.btn-comment {
+  padding: .63rem .95rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #f78809;
+  background-color: #f78809;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.search-form {
+  border: 1px solid #dee2e6;
+  max-width: 1080px;
+  padding: 30px;
+}
+
+.clear {
+  margin-right: 0;
+  margin-left: auto;
+  padding: .4rem .60rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #0069d9;
+  background-color: #0069d9;
+  color: #fff;
+  transition: all .2s ease-out 0s;
+
+  &:hover {
+    background-color: #fff;
+    border: 0.1rem solid #f78809;
+    color: #f78809;
+  }
+}
+
 .btn-return {
   padding: .4rem .95rem;
   font-size: .875rem;
@@ -74,12 +113,30 @@
   background-color: #0062cc;
   color: #fff;
   margin-top: 10px;
+
+  &:hover {
+    background-color: #fff;
+    color: #0069d9;
+    border: 0.1rem solid #0069d9;
+  }
+}
+
+.search {
+  margin-right: 0;
+  margin-left: auto;
+  padding: 0.275rem .30rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #0eb91c;
+  background-color: #0eb91c;
+  color: #fff;
   transition: all .2s ease-out 0s;
 
   &:hover {
     background-color: #fff;
-    border: 0.1rem solid #0069d9;
-    color: #0069d9;
+    color: #0eb91c;
+    border: 0.1rem solid #0eb91c;
   }
 }
 
@@ -287,4 +344,27 @@
     background: #fff;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
+}
+
+.accepted { 
+  color: #1acf1a;
+}
+
+.rejected {
+  color: #e22020;
+}
+   
+.select2-selection--multiple:before {
+  content: "";
+  position: absolute;
+  right: 7px;
+  top: 42%;
+  border-top: 5px solid #888;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+
+.search-form-el {
+  height: auto;
+  border: 1px solid #aaa;
 }
