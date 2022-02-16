@@ -60,9 +60,14 @@ module Admin
 
     def remove_avatar
       authorize [:admin, @article]
-      @article.remove_avatar!
-      @article.save!
-      redirect_to edit_admin_article_path(@article)
+
+      result = Articles::RemoveAvatar.call(article: @article)
+      if result.success?
+        redirect_to edit_admin_article_path(@article), notice: 'Avatar removed successfully'
+      else
+        flash[:error] = result.message
+        redirect_to edit_admin_article_path(@article)
+      end
     end
 
     def prepare
