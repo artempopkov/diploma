@@ -3,10 +3,9 @@ module Articles
     include Interactor
 
     def call
-        context.article.update!(status: 'published')
-      rescue StandardError => exception
-        context.fail!(message: exception.message)
-      end
+      context.article.update!(status: "published")
+    rescue StandardError => exception
+      context.fail!(message: exception.message)
     end
   end
 end
