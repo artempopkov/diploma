@@ -76,8 +76,16 @@ $(document).on("turbolinks:load", function () {
   });
 });
 
-$(document).on("turbolinks:load", function () {
-  $("#open-comment-field").on("click", function () {
-    $("#review-comment").toggle("slow");
-  });
+$(document).on('turbolinks:load', function () {
+    $('#customFile').change( function(e){
+        var file_name = e.target.files[0].name;
+        $('.custom-file-label').html(file_name);
+    });
+});
+
+
+$(document).on('turbolinks:load', function () {
+    $('#open-comment-field').on('click', function () {
+        $('#review-comment').toggle("slow");
+    });
 });

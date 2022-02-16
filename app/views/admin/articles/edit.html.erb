@@ -12,13 +12,12 @@
       </div>
     <% end %>
 
-    <% if @article.avatar.url.present? %>
-      <%= image_tag @article.avatar.url %>
-      <div>
-        Remove avatar
-        <%= form.check_box :remove_avatar %>
-      </div>
-    <% end %>
+    <div class="text-center image-container mb-3">
+      <% if @article.avatar.url.present? %>
+          <%= image_tag @article.avatar.url %>
+          <%= link_to 'X', admin_remove_avatar_path(@article), method: :patch, class: 'btn-remove-img' %>
+      <% end %>
+    </div>
 
     <div class="input-group mb-2">
       <span class="input-group-text">Title</span>
@@ -30,29 +29,29 @@
       <%= form.text_area :description, maxlength: "115", class: "description" %>
     </div>
 
-    <%= form.file_field :avatar, class: 'mb-2' %>
+    <div class="custom-file mb-2">
+      <%= form.file_field :avatar, class: 'custom-file-input', id: 'customFile' %>
+      <label class="custom-file-label" for="customFile">Choose file</label>
+    </div>
 
     <div class="mb-2">
       <%= form.check_box :avatar_disable, class: 'mr-2' %>
       Disable Avatar
     </div>
 
-    <div class="field">
-      <%= form.select :category_id, @categories.pluck(:name, :id), class: 'mr-2' %>
-    </div>
+    <%= form.select :category_id, @categories.pluck(:name, :id),{}, class: 'custom-select custom-select-lg mb-3' %>
 
-    <div class="field">
-      <%= form.label :content %>
+    <div class="field mt-3">
       <%= form.rich_text_area :content %>
     </div>
 
     <div class="field mt-2">
-      <%= form.text_field :tag_list, placeholder: 'Tags (sep by space)'%>
+      <%= form.text_field :tag_list, placeholder: 'Tags (sep by space)' %>
     </div>
 
     <div class="mt-10">
-      <%= form.submit 'OK', class: 'btn btn-primary w-25 mr-3' %>
-      <%= link_to 'Cancel', admin_articles_path, class: 'btn btn-secondary w-25' %>
+      <%= form.submit 'OK', class: 'btn-ok mr-2' %>
+      <%= link_to 'Cancel', admin_articles_path, class: 'btn-cancel' %>
     </div>
   <% end %>
 </div>

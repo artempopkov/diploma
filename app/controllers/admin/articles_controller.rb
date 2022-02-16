@@ -1,6 +1,6 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :load_models, only: %i[show edit update destroy prepare publish]
+    before_action :load_models, only: %i[show edit update destroy prepare publish remove_avatar]
     before_action :load_categories, only: %i[index new edit]
     before_action :tag_cloud
     after_action :verify_authorized
@@ -58,6 +58,17 @@ module Admin
       redirect_to admin_articles_url, notice: 'Destroy finish successfully'
     end
 
+    def remove_avatar
+      authorize [:admin, @article]
+
+      result = Articles::RemoveAvatar.call(article: @article)
+      if result.success?
+        redirect_to edit_admin_article_path(@article), notice: 'Avatar removed successfully'
+      else
+        redirect_to edit_admin_article_path(@article), alert: result.message
+      end
+    end
+
     def prepare
       authorize [:admin, @article]
 
@@ -65,8 +76,7 @@ module Admin
       if result.success?
         redirect_to admin_article_url(@article), notice: 'Prepare finish successfully'
       else
-        flash[:error] = result.message
-        redirect_to admin_articles_url
+        redirect_to admin_articles_url, alert: result.message
       end
     end
 
@@ -77,8 +87,7 @@ module Admin
       if result.success?
         redirect_to admin_article_url(@article), notice: 'Publish finish successfully'
       else
-        flash[:error] = result.message
-        redirect_to admin_articles_url
+        redirect_to admin_articles_url, alert: result.message
       end
     end
 
@@ -97,7 +106,7 @@ module Admin
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, :content, :avatar, :remove_avatar, :avatar_disable, :category_id, :tag_list, :status)
+      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, :tag_list, :status)
     end
   end
 end

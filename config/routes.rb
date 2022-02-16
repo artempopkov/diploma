@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :users
     resources :moderators
     resources :categories
+
     resources :articles do
       resources :article_reviews, only: [:new, :create], as: :reviews
       member do
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
         patch 'publish', to: 'articles#publish'
       end
     end
-
     get "tags/:tag", to: "articles#tag", as: :tag
   end
 end
