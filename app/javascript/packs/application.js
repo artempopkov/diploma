@@ -89,4 +89,3 @@ $(document).on('turbolinks:load', function () {
         $('#review-comment').toggle("slow");
     });
 });
-
