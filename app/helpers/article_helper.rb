@@ -1,11 +1,11 @@
 module ArticleHelper
-  def mark_as_important(article)
+  def toggle_important(article)
     if article.important?
-      link_to important_admin_article_path(article, important: false), class: 'btn-ok mark-btn', method: :patch, remote: :true do
+      link_to toggle_important_admin_article_path(article, important: false), class: 'btn-ok mark-btn', method: :patch, remote: :true do
         'Unmark'
       end
     else
-      link_to important_admin_article_path(article, important: true), class: 'btn-ok mark-btn', method: :patch, remote: :true do
+      link_to toggle_important_admin_article_path(article, important: true), class: 'btn-ok mark-btn', method: :patch, remote: :true do
         'Mark'
       end
     end

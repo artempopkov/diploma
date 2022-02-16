@@ -11,7 +11,7 @@
       <% if current_moderator.editor? %>
         <button id="open-comment-field" class="btn-comment">Comment</button>
         <%= publish_article(@article) %>
-        <%= mark_as_important(@article) %>
+        <%= toggle_important(@article) %>
       <% end %>
     </div>
     <div class="divider-text-center mt-20 mb-30">

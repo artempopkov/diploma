@@ -1,5 +1,5 @@
 module Articles
-  class Important
+  class ToggleImportant
     include Interactor
 
     def call

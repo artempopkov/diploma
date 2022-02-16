@@ -47,7 +47,7 @@ module Admin
       edit?
     end
 
-    def important?
+    def toggle_important?
       moderator.editor? or moderator.admin?
     end
 

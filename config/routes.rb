@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       member do
         patch 'prepare', to: 'articles#prepare'
         patch 'publish', to: 'articles#publish'
-        patch 'important', to: 'articles#important'
+        patch 'toggle_important', to: 'articles#toggle_important'
       end
     end
     get "tags/:tag", to: "articles#tag", as: :tag

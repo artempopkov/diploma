@@ -1,6 +1,6 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :load_models, only: %i[show edit update destroy prepare publish important remove_avatar]
+    before_action :load_models, only: %i[show edit update destroy prepare publish toggle_important remove_avatar]
     before_action :load_categories, only: %i[index new edit]
     before_action :tag_cloud
     after_action :verify_authorized
@@ -92,9 +92,9 @@ module Admin
       end
     end
 
-    def important
+    def toggle_important
       authorize [:admin, @article]
-      result = Articles::Important.call(article: @article, important: params[:important])
+      result = Articles::ToggleImportant.call(article: @article, important: params[:important])
 
       if result.success?
         respond_to :js
