@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_123033) do
+ActiveRecord::Schema.define(version: 2022_02_11_132021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 2022_01_28_123033) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "article_reviews", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "moderator_id"
+    t.index ["article_id"], name: "index_article_reviews_on_article_id"
+    t.index ["moderator_id"], name: "index_article_reviews_on_moderator_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -104,13 +114,6 @@ ActiveRecord::Schema.define(version: 2022_01_28_123033) do
     t.integer "role", default: 0, null: false
     t.index ["email"], name: "index_moderators_on_email", unique: true
     t.index ["reset_password_token"], name: "index_moderators_on_reset_password_token", unique: true
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.bigint "article_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_reviews_on_article_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -173,8 +176,9 @@ ActiveRecord::Schema.define(version: 2022_01_28_123033) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "article_reviews", "articles"
+  add_foreign_key "article_reviews", "moderators"
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "moderators"
-  add_foreign_key "reviews", "articles"
   add_foreign_key "taggings", "tags"
 end
