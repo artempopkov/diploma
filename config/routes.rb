@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :moderators
   devise_for :users
+  resources :articles , only: [:index, :show]
 
   namespace :admin do
     get "/", to: "home#index"
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
         patch 'prepare', to: 'articles#prepare'
         patch 'publish', to: 'articles#publish'
         patch 'toggle_important', to: 'articles#toggle_important'
+        patch 'remove_avatar', to: 'articles#remove_avatar'
       end
     end
     get "tags/:tag", to: "articles#tag", as: :tag

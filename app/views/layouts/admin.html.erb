@@ -34,11 +34,11 @@
             <%= link_to_categories %>
           </li>
         </ul>
-        <span class="navbar-text">
-          <%= link_to 'log out', destroy_moderator_session_path, method: :delete, class: 'btn-logout m-1' %>
-        </span>
+        <%= link_to 'log out', destroy_moderator_session_path, method: :delete, class: 'btn-logout m-1' %>
       </div>
     </nav>
+
     <%= yield %>
-  </body>
+  </div>
+</body>
 </html>

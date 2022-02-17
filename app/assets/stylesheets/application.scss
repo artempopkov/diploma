@@ -12,8 +12,6 @@ $ti-font-path: 'themify-icons-sass/themify-icons/fonts';
 @import 'scss/color';
 @import 'scss/responsive';
 
-
-
 .custom-mb-1 {
   margin-bottom: 0.1em;
 }
@@ -62,4 +60,57 @@ $ti-font-path: 'themify-icons-sass/themify-icons/fonts';
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
+}
+
+.custome-checkbox .form-check-label {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.custome-checkbox .form-check-label {
+  position: relative;
+  cursor: pointer;
+  color: #687188;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.custome-radio .form-check-input,
+.custome-checkbox .form-check-input {
+  display: none;
+}
+
+.custome-checkbox .form-check-label::before {
+  content: "";
+  border: 2px solid #ced4da;
+  height: 17px;
+  width: 17px;
+  margin: 0px 8px 0 0;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+.custome-checkbox .form-check-label span {
+  vertical-align: middle;
+}
+
+.custome-checkbox input[type="checkbox"]:checked+.form-check-label::after {
+  opacity: 1;
+}
+
+.custome-checkbox input[type="checkbox"]+.form-check-label::after {
+  content: "";
+  width: 11px;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  opacity: 0;
+  height: 6px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  -moz-transform: translateY(-65%) rotate(-45deg);
+  -webkit-transform: translateY(-65%) rotate(-45deg);
+  transform: translateY(-65%) rotate(-45deg);
 }

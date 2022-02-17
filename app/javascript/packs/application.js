@@ -83,9 +83,36 @@ $(document).on('turbolinks:load', function () {
     });
 });
 
-
 $(document).on('turbolinks:load', function () {
     $('#open-comment-field').on('click', function () {
         $('#review-comment').toggle("slow");
     });
 });
+
+$(document).on('turbolinks:load', function () {
+    const chooseFile = document.getElementById("customFile");
+    const imgPreview = document.getElementById("img-preview");
+    if (chooseFile) {
+        chooseFile.addEventListener("change", function () {
+            const files = chooseFile.files[0];
+            if (files) {
+                const fileReader = new FileReader();
+                fileReader.readAsDataURL(files);
+                fileReader.addEventListener("load", function () {
+                    imgPreview.style.display = "block";
+                    imgPreview.innerHTML = '<img src="' + this.result + '" /> <a href="" id="remove-img"> Remove image</a>';
+                    const removeImg = document.getElementById("remove-img");
+                    const fileNameLabel = document.getElementById("file-name-input");
+                    removeImg.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        imgPreview.style.display = "none";
+                        imgPreview.innerHTML = "";
+                        chooseFile.value = "";
+                        fileNameLabel.innerHTML = "Choose image";
+                    });
+                });
+            }
+        });
+    }
+});
+
