@@ -47,6 +47,10 @@ module Admin
       edit?
     end
 
+    def toggle_important?
+      moderator.editor? or moderator.admin?
+    end
+
     class Scope < Scope
       def resolve
         if moderator.admin?

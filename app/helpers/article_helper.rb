@@ -1,4 +1,16 @@
 module ArticleHelper
+  def toggle_important(article)
+    if article.important?
+      link_to toggle_important_admin_article_path(article, important: false), class: 'btn-ok mark-btn', method: :patch, remote: :true do
+        'Unmark'
+      end
+    else
+      link_to toggle_important_admin_article_path(article, important: true), class: 'btn-ok mark-btn', method: :patch, remote: :true do
+        'Mark'
+      end
+    end
+  end
+
   def article_avatar_small_preview(article)
     return article_admin_card_image(asset_path('no-image.png')) if article.avatar.url.nil?
 

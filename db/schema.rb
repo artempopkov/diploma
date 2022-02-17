@@ -67,12 +67,13 @@ ActiveRecord::Schema.define(version: 2022_02_11_132021) do
     t.string "title"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "updated_at"
     t.string "avatar"
     t.boolean "avatar_disable", default: false
     t.bigint "category_id"
     t.integer "status", default: 0, null: false
     t.bigint "moderator_id"
+    t.boolean "important"
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["moderator_id"], name: "index_articles_on_moderator_id"
   end

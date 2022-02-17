@@ -1,9 +1,10 @@
 module Admin
   class ArticlesController < AdminController
-    before_action :load_models, only: %i[show edit update destroy prepare publish remove_avatar]
+    before_action :load_models, only: %i[show edit update destroy prepare publish toggle_important remove_avatar]
     before_action :load_categories, only: %i[index new edit]
     before_action :tag_cloud
     after_action :verify_authorized
+    respond_to :js
 
     def index
       @query = policy_scope([:admin, Article]).ransack(params[:query])
@@ -91,6 +92,17 @@ module Admin
       end
     end
 
+    def toggle_important
+      authorize [:admin, @article]
+      result = Articles::ToggleImportant.call(article: @article, important: params[:important])
+
+      if result.success?
+        respond_to :js
+      else
+        redirect_to admin_article_url(@article), alert: result.message
+      end
+    end
+
     def tag_cloud
       @tags = Article.tag_counts_on(:tags)
     end
@@ -106,7 +118,7 @@ module Admin
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, :tag_list, :status)
+      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, :tag_list, :status, :important)
     end
   end
 end
