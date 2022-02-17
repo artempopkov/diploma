@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_models, only: %i[show]
+  before_action :load_models, only: %i[show]
   before_action :tag_cloud
 
   def show
@@ -12,8 +12,8 @@ class ArticlesController < ApplicationController
 
   private
 
-  def set_models
-    @article ||= Article.find(params[:id])
+  def load_models
+    @article = Article.find(params[:id])
   end
 
   def article_params
