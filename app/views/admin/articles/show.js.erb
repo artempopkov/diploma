@@ -1,0 +1,2 @@
+$("#article-reviews").append('<%= escape_javascript render "admin/article_reviews/article_review" %>');
+$("#more-article-reviews").html('<%= escape_javascript(link_to("Load more", admin_article_url(page: @reviews.next_page), remote: true)) if @reviews.next_page %>');
