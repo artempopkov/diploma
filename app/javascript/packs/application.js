@@ -112,11 +112,6 @@ $(document).on("turbolinks:load", function () {
   });
 });
 
-$(document).on("turbolinks:load", function () {
-  $("#customFile").change(function (e) {
-    let file_name = e.target.files[0].name;
-    $(".custom-file-label").html(file_name);
-  });
 $(document).on('turbolinks:load', function () {
     $('#customFile').change( function(e){
         var file_name = e.target.files[0].name;
