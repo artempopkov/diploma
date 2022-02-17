@@ -306,11 +306,8 @@ DEPENDENCIES
   factory_bot_rails (~> 6.2.0)
   faker (~> 2.19.0)
   image_processing (~> 1.2)
-<<<<<<< HEAD
   impressionist (~> 2.0.0)
-=======
   interactor (~> 3.1.2)
->>>>>>> feature-article-comments
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mini_magick (~> 4.11)
