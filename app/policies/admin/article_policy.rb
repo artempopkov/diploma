@@ -28,26 +28,26 @@ module Admin
     end
 
     def update?
-      article.inactive?
+      article.created? or article.rejected? or article.prepared?
     end
 
     def destroy?
-      article.inactive? and (moderator.correspondent? or moderator.admin?)
+      (article.created? or article.rejected?) and (moderator.correspondent? or moderator.admin?)
     end
 
-    def send_for_review?
-      article.inactive? and moderator.correspondent?
+    def prepare?
+      (article.created? or article.rejected?) and moderator.correspondent?
     end
 
     def publish?
-      article.active? and (moderator.admin? or moderator.editor?)
+      (article.accepted? or article.archived) and (moderator.admin? or moderator.editor?)
     end
 
     def remove_avatar?
       edit?
     end
 
-    def mark_as_important?
+    def toggle_important?
       moderator.editor? or moderator.admin?
     end
 
@@ -56,7 +56,7 @@ module Admin
         if moderator.admin?
           scope.all
         elsif moderator.editor?
-          scope.where(status: %i[active published])
+          scope.where(status: %i[prepared accepted published])
         elsif moderator.correspondent?
           scope.where(moderator_id: moderator.id)
         else

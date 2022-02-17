@@ -1,0 +1,3 @@
+$('.mark-btn').on('ajax:success', function(){
+   $(this).replaceWith('<%= toggle_important(@article) %>');
+});
