@@ -180,8 +180,38 @@
       </div>
     </div>
   </main>
+  <div class="position-relative">
+  <div class="pt-50 pb-50 mb-80">
+    <div class="container border border-3 rounded pt-20 bg archive-header shop-header header-bg2">
+      <div class="row align-items-center h-100 mr-20 ml-20">
+        <div class="col-md-6 mx-auto">
+          <h2><span class="color6"><%= @user.name %></span></h2>
+          <h5><span class="text-secondary"><%= @user.email %></span></h5>
+        </div>
+        <div class="col-md-6 text-md-right">
+          <%= link_to 'edit profile', edit_user_registration_path, class: 'edit-user-profile' %>
+        </div>
+      </div>
+      <div class="main_content shop pb-20">
+        <div class="container">
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="icon-bolt"></i> 20 viewed news</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="icon-heart"></i> 19 liked</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><i class="icon-comment"></i> 30 comments</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <%= yield %>
-  <footer id='footer'>
+  <footer class='fixed-bottom'>
     <div class="footer-bottom-area background11">
       <div class="container">
         <div class="footer-border pt-30 pb-30">

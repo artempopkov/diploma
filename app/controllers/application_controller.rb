@@ -28,11 +28,9 @@ class ApplicationController < ActionController::Base
   end
 
   def layout
-    if devise_controller? && devise_mapping.name == :moderator
-      "admin_devise"
-    else
-      "application"
-    end
+    return "admin_devise" if devise_controller? && devise_mapping.name == :moderator
+
+    "application"
   end
 
   def user_not_authorized
