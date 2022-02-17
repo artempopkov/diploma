@@ -9,6 +9,11 @@ class ArticlesController < ApplicationController
     authorize @article
     @latests_articles = Article.latest_published.limit(5)
     @tranding_articles = Article.trending.limit(3)
+    @comments = @article.comments.includes(:user).page(current_page).order(created_at: :desc)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def like

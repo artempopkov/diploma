@@ -1,9 +1,0 @@
-$('#unmark').on('ajax:success', function(){
-    $(this).closest('#unmark')
-        .replaceWith('<%= link_to admin_mark_as_important_path(@article, important: 'mark'),  class: 'btn-mark', id: :mark, method: :put, remote: :true do %>Mark<% end %>');
-});
-
-$('#mark').on('ajax:success', function(){
-    $(this).closest('#mark')
-        .replaceWith('<%= link_to admin_mark_as_important_path(@article, important: 'unmark'),  class: 'btn-mark', id: :unmark, method: :put, remote: :true do %>Unmark<% end %>');
-});
