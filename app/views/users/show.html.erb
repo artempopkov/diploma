@@ -1,9 +1,34 @@
+<div class="col-12">
+  <!--author box-->
+  <div class="author-bio mb-50">
+    <div class="author-image mb-30">
+      <a href="author.html"><img src="http://via.placeholder.com/223x223" alt="" class="avatar"></a>
+    </div>
+    <div class="author-info">
+      <h3><span class="vcard author"><span class="fn"><a href="author.html" title="Posts by Robert" rel="author">Robert</a></span></span>
+      </h3>
+      <h5>About author</h5>
+      <div class="author-description">You should write because you love the shape of stories and sentences and the creation of different words on a page. Graduating from a top accelerator or incubator can be as career-defining for a startup founder as an
+        elite university diploma.</div>
+      <a href="author.html" class="author-bio-link mb-15">View all posts</a>
+      <div class="author-social">
+        <ul class="author-social-icons">
+          <li class="author-social-link-facebook"><a href="#" target="_blank"><i class="ti-facebook"></i></a></li>
+          <li class="author-social-link-twitter"><a href="#" target="_blank"><i class="ti-twitter-alt"></i></a></li>
+          <li class="author-social-link-pinterest"><a href="#" target="_blank"><i class="ti-pinterest"></i></a></li>
+          <li class="author-social-link-instagram"><a href="#" target="_blank"><i class="ti-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 <main class="position-relative">
   <div class="archive-header shop-header header-bg2 pt-50 pb-50 mb-80">
     <div class="container">
       <div class="row align-items-center h-100">
         <div class="col-md-6 mx-auto">
-          <h2><span class="color6">My Account</span></h2>
+          <h2><span class="color6"><%= @user.name %></span></h2>
+          <h5><span class="text-secondary"><%= @user.email %></span></h5>
         </div>
         <div class="col-md-6 mx-auto text-center text-md-right">
           <div class="breadcrumb">
@@ -19,7 +44,7 @@
         <div class="col-lg-3 col-md-4">
           <div class="dashboard-menu ">
             <ul class="nav flex-column" role="tablist">
-            <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link active" id="account-detail-tab" data-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="icon-id-badge mr-5"></i>Account details</a>
               </li>
               <li class="nav-item">
@@ -31,7 +56,6 @@
               <li class="nav-item">
                 <a class="nav-link" id="address-tab" data-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="icon-location-pin mr-5"></i>My Address</a>
               </li> %>
-              
               <li class="nav-item">
                 <%= link_to(destroy_user_session_path, method: :delete, class: 'nav-link') do %>
                   <i class="icon-lock mr-5"></i>
