@@ -3,7 +3,8 @@
   <div class="row">
     <div class="col-12">
       <div class="form-group">
-        <%= form.text_area :body, class: "form-control w-100", id: "comment", cols: "30", rows: "9", placeholder: "Write Comment", id: 'comment-body' %>
+        <%= form.text_area :body, id: "comment", cols: "30", rows: "9", placeholder: "Write Comment", id: 'comment-body', class: "form-control w-100 #{field_validity_css_class(@article.comments.last, :body)}" %>
+        <%= catched_errors(@article.comments.last, :body) %>
       </div>
       <%= form.hidden_field :user_id, value: current_user.id, id: 'user-id' %>
       <%= form.hidden_field :article_id, id: 'article-id' %>

@@ -110,7 +110,11 @@
             </div>
           </div>
         </div>
-        <!--End logo-->
+        <!--En<% flash.each do |name, message| %>
+      <div class="flash_message" style="display: none" flash-type="<%= flash_type(name) %>">
+        <%= message %>
+      </div>
+    <% end %> logo-->
         <div class="header-bottom header-sticky background-white text-center">
           <div class="mobile_menu d-lg-none d-block"></div>
           <div class="container">
@@ -181,7 +185,39 @@
           </div>
         </div>
       </main>
-      <%= yield %>
+      <div class="position-relative">
+        <div class="pt-50 pb-50">
+          <div class="container border border-3 rounded pt-20 bg archive-header shop-header header-bg2">
+            <div class="row align-items-center h-100 mr-20 ml-20">
+              <div class="col-md-6 mx-auto">
+                <h2><span class="color6"><%= @user.name %></span></h2>
+                <h5><span class="text-secondary"><%= @user.email %></span></h5>
+              </div>
+              <div class="col-md-6 text-md-right">
+                <%= link_to 'edit profile', edit_user_registration_path, class: 'edit-user-profile' %>
+              </div>
+            </div>
+            <div class="main_content shop pb-20">
+              <div class="container">
+                <ul class="nav justify-content-center">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="icon-bolt"></i> 20 viewed news</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="icon-heart"></i> 19 liked</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"><i class="icon-comment"></i> 30 comments</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='yield-area' class="container mb-20">
+        <%= yield %>
+      </div>
       <footer id='footer'>
         <div class="footer-bottom-area background11">
           <div class="container">

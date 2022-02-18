@@ -10,7 +10,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     authorize @comment
-    @comment.save
+    if @comment.save
+      respond_to :js
+    else
+      redirect_to article_url(@comment.article), alert: 'Comment field cannot be blank'
+    end
   end
 
   def destroy

@@ -10,7 +10,7 @@
       <%= catched_errors(@article, :title) %>
     </div>
 
-    <div class="input-group">
+    <div class="input-group mb-2">
       <span class="input-group-text">Description</span>
       <%= form.text_area :description, maxlength: "115", class: "description #{field_validity_css_class(@article, :description)}" %>
       <%= catched_errors(@article, :description) %>
@@ -27,8 +27,7 @@
       Disable Avatar
     </div>
 
-
-    <%= form.select :category_id, Category.all.pluck(:name, :id),{}, class: 'custom-select custom-select-lg mb-3' %>
+    <%= form.select :category_id, @categories.pluck(:name, :id),{}, class: 'custom-select custom-select-lg mb-3' %>
 
     <div class="field mt-3">
       <%= form.rich_text_area :content, class: "#{field_validity_css_class(@article, :content)}" %>
@@ -36,7 +35,8 @@
     </div>
 
     <div class="field mt-2">
-      <%= form.text_field :tag_list, placeholder: 'Tags (sep by space)' %>
+      <%= form.text_field :tag_list, placeholder: 'Tags (sep by space)', class: "#{field_validity_css_class(@article, :tag_list)}" %>
+      <%= catched_errors(@article, :tag_list) %>
     </div>
 
     <div class="mt-10">

@@ -12,6 +12,8 @@ $ti-font-path: "themify-icons-sass/themify-icons/fonts";
 @import "scss/color";
 @import "scss/responsive";
 @import "scss/shop";
+@import 'noty/lib/noty';
+@import 'noty/lib/themes/bootstrap-v4';
 
 .custom-mb-1 {
   margin-bottom: 0.1em;
@@ -147,4 +149,10 @@ table tr td:first-child::before {
   content: counter(rowNumber);
   min-width: 1em;
   margin-right: 0.5em;
+}
+
+.edit-user-profile {
+  border: 1px solid #e0dede;
+  border-radius: 30px;
+  padding: 1px 15px;
 }

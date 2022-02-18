@@ -9,6 +9,10 @@ import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "bootstrap";
 import tableSort from "table-sort-js/table-sort.js";
+import $ from "jquery";
+import "select2/dist/js/select2";
+import Noty from "noty/lib/noty.js";
+
 require("trix");
 require("@rails/actiontext");
 
@@ -17,6 +21,51 @@ Turbolinks.start();
 ActiveStorage.start();
 
 
+
+$(document).on("turbolinks:load", function () {
+  $(".flash_message").each(function () {
+    const $this = $(this);
+
+    new Noty({
+      type: $this.attr("flash-type"),
+      theme: "bootstrap-v4",
+      text: $this.text(),
+      timeout: 3000,
+    }).show();
+  });
+});
+
+$(document).on("turbolinks:load", function () {
+  if ($("#yield-area").height() > 0)
+    $("#yield-area").addClass("border border-3 rounded");
+});
+
+$(document).on("turbolinks:load", function () {
+  if ($(document).height() <= $(window).height())
+    $("#footer").addClass("fixed-bottom");
+});
+
+$(document).on("turbolinks:load", function () {
+  Turbolinks.clearCache();
+  $(".js-multiple-select").each(function () {
+    const $this = $(this);
+
+    let opts = {
+      theme: "classic",
+      width: "100%",
+      placeholder: $this.data("placeholder"),
+      allowClear: Boolean($this.data("allow-clear")),
+    };
+
+    $this.select2(opts);
+  });
+});
+
+$(document).on("turbolinks:before-cache", function (e) {
+  return $(".js-multiple-select").each(function () {
+    return $(this).select2("destroy");
+  });
+});
 
 $(document).on("turbolinks:load", function () {
   $("#preloader-active").delay(450).fadeOut("slow");
@@ -29,7 +78,6 @@ $(document).on("turbolinks:load", function () {
   if (/articles[/]search/.test(window.location.href)) {
     $("body").toggleClass("open-search-form");
     $(".search-close").show();
-    
   }
   if ($("#tag-search-input").val() == "") {
     $("#title-search").addClass("active");
@@ -59,7 +107,7 @@ $(document).on("turbolinks:load", function () {
 
 $(document).on("turbolinks:load", function () {
   $("#submit-search-button").hide();
-  
+
   $("#title-search").on("click", function () {
     $("#title-search").addClass("active");
     $("#tag-search").removeClass("active");
@@ -78,7 +126,7 @@ $(document).on("turbolinks:load", function () {
 
 $(document).on("turbolinks:load", function () {
   $("#customFile").change(function (e) {
-    let file_name = e.target.files[0].name;
+    var file_name = e.target.files[0].name;
     $(".custom-file-label").html(file_name);
   });
 });

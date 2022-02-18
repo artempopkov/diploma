@@ -1,0 +1,14 @@
+<% @reviews.each do |review| %>
+  <div class='border-top mt-2'>
+    <div class="row mt-2">
+      <div class="col-md-8 text-center">
+        <span class="float-md-left"><%= universal_time_format(review.created_at) %></span>
+      </div>
+      <div class="col-md-4 text-center">
+        <span class="float-md-right <%= review.status %>"><%= review.status.humanize %></span>
+      </div>
+    </div>
+    <p class="card-text mb-3"><%= review.moderator.name %> <%= review.moderator.email %></p>
+    <%= review.comment %>
+  </div>
+<% end %>
