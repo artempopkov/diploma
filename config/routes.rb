@@ -29,6 +29,7 @@ Rails.application.routes.draw do
         patch 'prepare', to: 'articles#prepare'
         patch 'publish', to: 'articles#publish'
         patch 'toggle_important', to: 'articles#toggle_important'
+        patch 'remove_avatar', to: 'articles#remove_avatar'
       end
     end
     get "tags/:tag", to: "articles#tag", as: :tag
