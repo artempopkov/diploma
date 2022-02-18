@@ -12,6 +12,8 @@ $ti-font-path: "themify-icons-sass/themify-icons/fonts";
 @import "scss/color";
 @import "scss/responsive";
 @import "scss/shop";
+@import 'noty/lib/noty';
+@import 'noty/lib/themes/bootstrap-v4';
 
 .custom-mb-1 {
   margin-bottom: 0.1em;

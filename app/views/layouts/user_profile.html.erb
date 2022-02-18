@@ -9,6 +9,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <% flash.each do |name, message| %>
+      <div class="flash_message" style="display: none" flash-type="<%= flash_type(name) %>">
+        <%= message %>
+      </div>
+    <% end %>
     <div class="scroll-progress primary-bg"></div>
     <!-- Preloader Start -->
     <div id="preloader-active">
@@ -105,7 +110,11 @@
             </div>
           </div>
         </div>
-        <!--End logo-->
+        <!--En<% flash.each do |name, message| %>
+      <div class="flash_message" style="display: none" flash-type="<%= flash_type(name) %>">
+        <%= message %>
+      </div>
+    <% end %> logo-->
         <div class="header-bottom header-sticky background-white text-center">
           <div class="mobile_menu d-lg-none d-block"></div>
           <div class="container">
