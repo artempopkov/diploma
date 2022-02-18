@@ -8,7 +8,6 @@ import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "bootstrap";
-import tableSort from "table-sort-js/table-sort.js";
 import $ from "jquery";
 import "select2/dist/js/select2";
 import Noty from "noty/lib/noty.js";
@@ -19,7 +18,6 @@ require("@rails/actiontext");
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
-
 
 
 $(document).on("turbolinks:load", function () {

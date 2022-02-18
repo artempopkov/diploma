@@ -20,8 +20,6 @@ class UserHistoryService
     likes_history + views_history + comments_history
   end
 
-
-
   attr_reader :user
 
   def likes_history
