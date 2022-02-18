@@ -190,7 +190,7 @@
           <div class="container border border-3 rounded pt-20 bg archive-header shop-header header-bg2">
             <div class="row align-items-center h-100 mr-20 ml-20">
               <div class="col-md-6 mx-auto">
-                <h2><span class="color6"><%= @user.name %></span></h2>
+                <h2><span class="color6"><%= link_to @user.name, user_path(@user) %></span></h2>
                 <h5><span class="text-secondary"><%= @user.email %></span></h5>
               </div>
               <div class="col-md-6 text-md-right">
@@ -201,13 +201,13 @@
               <div class="container">
                 <ul class="nav justify-content-center">
                   <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="icon-bolt"></i> 20 viewed news</a>
+                    <a class="nav-link" href="#"><i class="icon-bolt"></i> <%= @views_amount %> viewed news</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="icon-heart"></i><%= @likes_amount%> liked</a>
+                    <a class="nav-link" href="#"><i class="icon-heart"></i> <%= @likes_amount %> liked news</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"><i class="icon-comment"></i> 30 comments</a>
+                    <a class="nav-link"><i class="icon-comment"></i> <%= @comments_amount %> comments</a>
                   </li>
                 </ul>
               </div>

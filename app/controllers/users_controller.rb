@@ -5,8 +5,6 @@ class UsersController < ApplicationController
 
   def show
     authorize @user
-    
-    @likes_amount = UserHistoryService.new(@user).likes_history.count
   end
 
   def likes_history
@@ -19,5 +17,9 @@ class UsersController < ApplicationController
 
   def load_models
     @user = current_user
+    user_history_service = UserHistoryService.new(@user)
+    @likes_amount = user_history_service.likes_amount
+    @views_amount = user_history_service.views_amount
+    @comments_amount = user_history_service.comments_amount
   end
 end
