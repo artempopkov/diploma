@@ -33,6 +33,11 @@ $(document).on("turbolinks:load", function () {
 });
 
 $(document).on("turbolinks:load", function () {
+  if ($("#yield-area").height() > 0)
+    $("#yield-area").addClass("border border-3 rounded");
+});
+
+$(document).on("turbolinks:load", function () {
   if ($(document).height() <= $(window).height())
     $("#footer").addClass("fixed-bottom");
 });
