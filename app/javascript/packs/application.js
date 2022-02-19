@@ -14,11 +14,16 @@ import Noty from "noty/lib/noty.js";
 
 require("trix");
 require("@rails/actiontext");
+require('datatables.net-bs4');
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
+
+$(document).on("turbolinks:load", function () {
+  $('#example').DataTable();
+});
 
 $(document).on("turbolinks:load", function () {
   $(".flash_message").each(function () {

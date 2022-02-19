@@ -13,6 +13,10 @@ module AdminHelper
     link_to 'Categories', admin_categories_path, class: 'nav-link' if user_admin_or_editor?
   end
 
+  def link_to_comments
+    link_to 'Comments', admin_comments_path, class: 'nav-link' if user_admin?
+  end
+
   def create_new_article
     link_to 'New Article', new_admin_article_path, class: 'btn-create' if user_correspondent?
   end
