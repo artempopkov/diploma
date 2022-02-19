@@ -10,7 +10,12 @@ class UsersController < ApplicationController
   private
 
   def load_models
-    @user = current_user
+    if params[:id].present?
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+    
     user_history_service = UserHistoryService.new(@user)
     @likes_amount = user_history_service.likes_amount
     @views_amount = user_history_service.views_amount
