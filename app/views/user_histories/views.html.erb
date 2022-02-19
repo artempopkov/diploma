@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="mb-0">Views History</h5>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Article</th>
+            <th>Time</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @views_history.each do |article, time|%>
+            <tr>
+              <td></td>
+              <td><%= article.title %></td>
+              <td><%= universal_time_format(time) %></td>
+              <td><%= link_to 'View', article_path(article), class: "btn btn-fill-out btn-small d-block" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="pagination-area pt-30 text-center bt-1 border-color-1">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="single-wrap d-flex justify-content-center">
+                <nav aria-label="Page navigation example">
+                  <%= will_paginate @views_history, class: 'pagination justify-content-start' %>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

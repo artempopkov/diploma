@@ -7,9 +7,9 @@ class UserHistoryService
     user.votes.count
   end
 
-  def likes_history
-    user.votes.each_with_object([]) do |vote, history|
-      history <<= [Article.find(vote.votable_id), vote.created_at]
+  def likes
+    user.votes.includes(:votable).each_with_object([]) do |vote, history|
+      history <<= [vote.votable, vote.created_at]
     end
   end
 
@@ -17,18 +17,19 @@ class UserHistoryService
     user.views.group(:impressionable_id).count.count
   end
 
-  def views_history
-    user.views.each_with_object([]) do |view, history|
-      history <<= [Article.find(view.impressionable_id), view.created_at]
+  def views
+    views = user.views.includes(:impressionable).each_with_object([]) do |view, history|
+      history <<= [view.impressionable, view.created_at]
     end
+    views.to_h.to_a
   end
 
   def comments_amount
     user.comments.count
   end
 
-  def comments_history
-    user.comments.each_with_object([]) do |comment, history|
+  def comments
+    user.comments.includes(:article).each_with_object([]) do |comment, history|
       history <<= [comment, comment.created_at]
     end
   end

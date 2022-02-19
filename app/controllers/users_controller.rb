@@ -7,12 +7,6 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  def likes_history
-    authorize @user
-    
-    @likes_history = UserHistoryService.new(@user).likes_history.paginate(page: current_page)
-  end
-
   private
 
   def load_models

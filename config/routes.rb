@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-      get "likes_history", to: "users#like_history"
+      get "likes_history", to: "user_histories#likes"
+      get "views_history", to: "user_histories#views"
+      get "comments_history", to: "user_histories#comments"
     end
   end
 

@@ -68,14 +68,6 @@
                         <i class="icon-pencil-alt"></i>
                         My Account
                       <% end %>
-                      <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                        <i class="icon-stats-up"></i>
-                        Your Dashboard
-                      <% end %>
-                      <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                        <i class="icon-heart"></i>
-                        Your Favorites
-                      <% end %>
                       <div class="dropdown-divider"></div>
                       <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
                         <i class="icon-share"></i>
@@ -201,13 +193,19 @@
               <div class="container">
                 <ul class="nav justify-content-center">
                   <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="icon-bolt"></i> <%= @views_amount %> viewed news</a>
+                    <%= link_to(views_history_user_path(@user), class: 'nav-link') do %>
+                      <i class="icon-bolt"></i> <%= @views_amount %> liked news
+                    <% end %>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="icon-heart"></i> <%= @likes_amount %> liked news</a>
+                    <%= link_to(likes_history_user_path(@user), class: 'nav-link') do %>
+                      <i class="icon-heart"></i> <%= @likes_amount %> liked news
+                    <% end %>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"><i class="icon-comment"></i> <%= @comments_amount %> comments</a>
+                    <%= link_to(comments_history_user_path(@user), class: 'nav-link') do %>
+                      <i class="icon-comment"></i> <%= @comments_amount %> comments
+                    <% end %>
                   </li>
                 </ul>
               </div>
@@ -215,7 +213,7 @@
           </div>
         </div>
       </div>
-      <div id='yield-area' class="container mb-20">
+      <div id='yield-area' class="container mb-20 p-20">
         <%= yield %>
       </div>
       <footer id='footer'>
