@@ -12,8 +12,9 @@ $ti-font-path: "themify-icons-sass/themify-icons/fonts";
 @import "scss/color";
 @import "scss/responsive";
 @import "scss/shop";
-@import 'noty/lib/noty';
-@import 'noty/lib/themes/bootstrap-v4';
+@import "noty/lib/noty";
+@import "noty/lib/themes/bootstrap-v4";
+@import "datatables.net-bs4/css/dataTables.bootstrap4";
 
 .custom-mb-1 {
   margin-bottom: 0.1em;

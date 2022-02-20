@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :users
     resources :moderators
     resources :categories
+    resources :comments, only: [:index, :destroy]
 
     resources :articles do
       resources :article_reviews, only: [:new, :create], as: :reviews
