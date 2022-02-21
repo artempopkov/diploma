@@ -1,8 +1,10 @@
-<%= content_tag :table, class: 'table table-ligth table-striped table-hover w-100', role: :datatable, data: { url: admin_comments_path(format: :json)} do %>
+<%= content_tag :table, id: 'comments-datatable', class: 'table table-ligth table-striped table-hover w-100', role: :datatable, data: { url: admin_comments_path(format: :json)} do %>
   <thead>
     <tr>
-      <th>Comment</th>
-			<th></th>
+      <th>id</th>
+			<th>comment</th>
+      <th>date</th>
+      <th>options</th>
     </tr>
   </thead>
   <tbody></tbody>

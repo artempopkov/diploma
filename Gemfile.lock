@@ -65,6 +65,8 @@ GEM
     acts_as_votable (0.13.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ajax-datatables-rails (1.3.1)
+      zeitwerk
     ast (2.4.2)
     bcrypt (3.1.16)
     bindex (0.8.1)
@@ -297,6 +299,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (~> 8.1.0)
   acts_as_votable (~> 0.13.2)
+  ajax-datatables-rails (~> 1.3.1)
   bootsnap (>= 1.4.4)
   byebug
   carrierwave (~> 2.0)

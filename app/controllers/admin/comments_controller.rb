@@ -5,7 +5,7 @@ module Admin
     def index
       respond_to do |format|
         format.html
-        format.json { render json: CommentsDatatable.new(view_context) }
+        format.json { render json: CommentsDatatable.new(params, view_context: view_context) }
       end
     end
 

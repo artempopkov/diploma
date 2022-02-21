@@ -22,13 +22,33 @@ Turbolinks.start();
 ActiveStorage.start();
 
 $(document).on('turbolinks:load', function(){
-  $("table[role='datatable']").each(function(){
-    $(this).DataTable({
-      processing: true,
-      serverSide: true,
-      ajax: $(this).data('url')
-    });
-  });  
+  // $("table[role='datatable']").each(function(){
+  //   $(this).DataTable({
+  //     processing: true,
+  //     serverSide: true,
+  //     ajax: $(this).data('url'),
+  //     "pagingType": "full_members",
+  //     "columns": [
+  //       { "data": "id" },
+  //       { "data": "comment" },
+  //       { "data": "date" }
+  //     ]
+  //   });
+  // });  
+  $('#comments-datatable').dataTable({
+    "processing": true,
+    "serverSide": true,
+    "ajax": {
+      "url": $("#comments-datatable").data('source')
+    },
+    "pagingType": "full_numbers",
+    "columns": [
+      { "data": "id" },
+      { "data": "comment" },
+      { "data": "date" },
+      {"data": "options", "orderable": false}
+    ]
+  });
 })
 
 $(document).on("turbolinks:load", function () {
