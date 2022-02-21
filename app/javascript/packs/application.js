@@ -21,31 +21,22 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-// turbolinks cache fix
-$(document).on('turbolinks:before-cache', function() {
-  var dataTable = $($.fn.dataTable.tables(true)).dataTable();
-  if (dataTable !== null) {
-    dataTable.destroy();
-    dataTable = null;
-  }
-});
-
-$(document).on('turbolinks:load', function(){
-  $('#comments-datatable').dataTable({
-    "processing": true,
-    "serverSide": true,
-    "ajax": {
-      "url": $("#comments-datatable").data('source')
+$(document).on("turbolinks:load", function () {
+  $("#comments-datatable").DataTable({
+    processing: true,
+    serverSide: true,
+    ajax: {
+      url: $("#comments-datatable").data("source"),
     },
-    "pagingType": "full_numbers",
-    "columns": [
-      { "data": "id" },
-      { "data": "comment" },
-      { "data": "date" },
-      {"data": "options", "orderable": false}
-    ]
+    pagingType: "full_numbers",
+    columns: [
+      { data: "id" },
+      { data: "comment" },
+      { data: "date" },
+      { data: "options", orderable: false },
+    ],
   });
-})
+});
 
 $(document).on("turbolinks:load", function () {
   $(".flash_message").each(function () {
