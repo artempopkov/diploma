@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload'%>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="container">
+  <body>
     <% flash.each do |name, message| %>
       <div class="flash_message" style="display: none" flash-type="<%= flash_type(name) %>">
         <%= message %>
@@ -40,8 +40,8 @@
         <%= link_to 'log out', destroy_moderator_session_path, method: :delete, class: 'btn-logout m-1' %>
       </div>
     </nav>
-
-    <%= yield %>
-  </div>
-</body>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
 </html>
