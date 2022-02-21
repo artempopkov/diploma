@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2022_02_11_132021) do
     t.string "title"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at"
+    t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"
     t.boolean "avatar_disable", default: false
     t.bigint "category_id"
@@ -76,6 +76,13 @@ ActiveRecord::Schema.define(version: 2022_02_11_132021) do
     t.boolean "important", default: false
     t.boolean "edited", default: false
     t.datetime "published_at"
+    t.integer "cached_votes_total", default: 0
+    t.integer "cached_votes_score", default: 0
+    t.integer "cached_votes_up", default: 0
+    t.integer "cached_votes_down", default: 0
+    t.integer "cached_weighted_score", default: 0
+    t.integer "cached_weighted_total", default: 0
+    t.float "cached_weighted_average", default: 0.0
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["moderator_id"], name: "index_articles_on_moderator_id"
   end
@@ -141,6 +148,22 @@ ActiveRecord::Schema.define(version: 2022_02_11_132021) do
     t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string "votable_type"
+    t.bigint "votable_id"
+    t.string "voter_type"
+    t.bigint "voter_id"
+    t.boolean "vote_flag"
+    t.string "vote_scope"
+    t.integer "vote_weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+    t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

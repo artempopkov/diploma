@@ -2,45 +2,45 @@
  *= require_self
  */
 
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 
-$ti-font-path: 'themify-icons-sass/themify-icons/fonts';
-@import 'themify-icons-sass/themify-icons/themify-icons';
+$ti-font-path: "themify-icons-sass/themify-icons/fonts";
+@import "themify-icons-sass/themify-icons/themify-icons";
 
-@import 'scss/style';
-@import 'scss/widgets';
-@import 'scss/color';
-@import 'scss/responsive';
+@import "scss/style";
+@import "scss/widgets";
+@import "scss/color";
+@import "scss/responsive";
 
 .custom-mb-1 {
   margin-bottom: 0.1em;
 }
 
 .btn-back {
-  padding: .75rem .95rem;
-  font-size: .875rem;
+  padding: 0.75rem 0.95rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
 
 .btn-edit {
-  padding: .75rem .95rem;
-  font-size: .875rem;
+  padding: 0.75rem 0.95rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
 
 .btn-destroy {
-  padding: .75rem .95rem;
-  font-size: .875rem;
+  padding: 0.75rem 0.95rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
   background-color: red;
 }
 
 .btn-create {
-  padding: .75rem .75rem;
-  font-size: .875rem;
+  padding: 0.75rem 0.75rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
   background-color: #007bff;
@@ -96,11 +96,11 @@ $ti-font-path: 'themify-icons-sass/themify-icons/fonts';
   vertical-align: middle;
 }
 
-.custome-checkbox input[type="checkbox"]:checked+.form-check-label::after {
+.custome-checkbox input[type="checkbox"]:checked + .form-check-label::after {
   opacity: 1;
 }
 
-.custome-checkbox input[type="checkbox"]+.form-check-label::after {
+.custome-checkbox input[type="checkbox"] + .form-check-label::after {
   content: "";
   width: 11px;
   position: absolute;
@@ -123,3 +123,9 @@ p {
   height: 69px;
 }
 
+.scale img {
+  transition: 1s;
+}
+.scale img:hover {
+  transform: scale(1.1);
+}
