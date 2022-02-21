@@ -263,13 +263,7 @@
               <% @latests_articles.each do |article| %>
                 <div class="col-md-6 col-sm-6 sm-grid-content mb-30">
                   <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
-                    <%= link_to article do %>
-                      <% if article.avatar.present? %>
-                        <img src="<%= article.avatar.small_preview.url %>" alt="...">
-                      <% else %>
-                        <img src="<%= asset_path('no-image.png') %>" alt="...">
-                      <% end %>
-                    <% end %>
+                    <%= article_avatar_small_preview_link(article) %>
                   </div>
                   <div class="post-content media-body">
                     <h6 class="post-title mb-10 text-limit-2-row">The litigants on the screen are not actors </h6>
