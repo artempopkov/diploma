@@ -21,20 +21,16 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
+// turbolinks cache fix
+$(document).on('turbolinks:before-cache', function() {
+  var dataTable = $($.fn.dataTable.tables(true)).DataTable();
+  if (dataTable !== null) {
+    dataTable.destroy();
+    dataTable = null;
+  }
+});
+
 $(document).on('turbolinks:load', function(){
-  // $("table[role='datatable']").each(function(){
-  //   $(this).DataTable({
-  //     processing: true,
-  //     serverSide: true,
-  //     ajax: $(this).data('url'),
-  //     "pagingType": "full_members",
-  //     "columns": [
-  //       { "data": "id" },
-  //       { "data": "comment" },
-  //       { "data": "date" }
-  //     ]
-  //   });
-  // });  
   $('#comments-datatable').dataTable({
     "processing": true,
     "serverSide": true,

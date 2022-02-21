@@ -398,6 +398,9 @@
 .td-right td:last-child {
   text-align: right;
 }
+.th-right th:last-child {
+  text-align: right;
+}
 
 table.dataTable thead .sorting {
   background-image: url("datatable/sort_both.png");
