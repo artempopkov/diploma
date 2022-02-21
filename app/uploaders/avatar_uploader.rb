@@ -29,7 +29,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
     resize_to_fill(width, height)
   end
 
-  version :index_admin do
+  version :small_preview do
     process resize_to_fill: [338, 237]
   end
 
@@ -37,8 +37,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [130, 130]
   end
 
-  version :preview do
-    process resize_to_fill: [320, 280]
+  version :big_preview do
+    process resize_to_fill: [900, 630]
   end
   
   version :small_preview do

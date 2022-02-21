@@ -212,9 +212,9 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <a href="index.html">
+            <%= link_to root_path do %>
               <%= image_tag 'logos/logo.png', class: 'logo-img d-inline' %>
-            </a>
+            <% end %>
           </div>
         </div>
       </div>
@@ -253,10 +253,11 @@
               </nav>
             </div>
             <!-- Search -->
-            <div class="search-button">
-              <button class="search-icon"><i class="icon-search"></i></button>
-              <span class="search-close float-right font-small"><i class="icon-close mr-5"></i>CLOSE</span>
+            <div class="search-button h-69">
+              <button class="search-icon h-69"><i class="icon-search"></i></button>
+              <span class="search-close float-right font-small">CLOSE</span>
             </div>
+
           </div>
         </div>
       </div>
