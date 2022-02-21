@@ -394,3 +394,36 @@
   height: auto;
   border: 1px solid #aaa;
 }
+
+.td-right td:last-child {
+  text-align: right;
+}
+
+table.dataTable thead .sorting {
+  background-image: url("datatable/sort_both.png");
+  background-repeat: no-repeat;
+}
+
+table.dataTable thead .sorting_asc  {
+  background-image: url("datatable/sort_asc.png") !important;
+  background-repeat: no-repeat;
+}
+
+table.dataTable thead .sorting_des  {
+  background-image: url("datatable/sort_desc.png") !important;
+  background-repeat: no-repeat;
+}
+
+table.dataTable thead .sorting_asc_disabled  {
+  background-image: url("datatable/sort_asc_disabled.png");
+  background-repeat: no-repeat;
+}
+
+table.dataTable thead .sorting_desc_disabled {
+  background-image: url("datatable/sort_desc_disabled.png");
+  background-repeat: no-repeat;
+}
+
+table.dataTable th {
+  padding-left: 20px;
+}
