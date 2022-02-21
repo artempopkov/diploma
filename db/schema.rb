@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 2022_02_11_132021) do
     t.integer "status", default: 0, null: false
     t.bigint "moderator_id"
     t.boolean "important", default: false
+    t.boolean "edited", default: false
+    t.datetime "published_at"
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["moderator_id"], name: "index_articles_on_moderator_id"
   end
