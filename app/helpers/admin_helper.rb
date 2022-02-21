@@ -8,7 +8,7 @@ module AdminHelper
   end
 
   def admin_article_avatar_small_preview(article)
-    return article_admin_card_image('no-image.png') if article.avatar.url.nil?
+    return article_admin_card_image('no-image.png') unless article.avatar.url
 
     admin_article_card_image(article.avatar.small_preview.url)
   end

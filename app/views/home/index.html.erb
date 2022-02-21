@@ -6,7 +6,7 @@
           <% @articles.first.tap do |article| %>
             <article class="first-post mb-50 animate-conner">
               <div class="post-thumb d-flex mb-30 border-radius-5 img-hover-scale animate-conner-box">
-                <%= article_avatar_link(article) %>
+                <%= link_to article_avatar_preview(article), article %>
               </div>
               <div class="post-content">
                 <div class="entry-meta meta-0 font-small mb-15">
@@ -36,7 +36,7 @@
               <div class="col-md-6">
                 <div class="post-thumb position-relative image-hover-scale mb-1">
                   <div class="img-hover-slide border-radius-5 position-relative">
-                    <%= article_avatar_big_preview_link(article)%>
+                    <%= link_to article_avatar_big_preview(article), article %>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@
                   <li class="mb-30">
                     <div class="d-flex">
                       <div class="post-thumb d-flex mr-15 border-radius-5 img-hover-scale">
-                        <%= article_avatar_small_preview_link(article) %>
+                        <%= link_to article_avatar_small_preview(article), article %>
                       </div>
                       <div class="post-content media-body">
                         <div class="entry-meta meta-0 font-small mb-10">

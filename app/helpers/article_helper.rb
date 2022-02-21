@@ -18,38 +18,26 @@ module ArticleHelper
     end
   end
 
-  def article_avatar_link(article)
-    link_to article do
-      article_avatar(article)
-    end
-  end
-
-  def article_avatar_big_preview_link(article)
-    link_to article, class: 'img-link' do
-      article_avatar_big_preview(article)
-    end
-  end
-
-  def article_avatar_small_preview_link(article)
-    link_to article do
-      article_avatar_small_preview(article)
-    end
-  end
-
   def article_avatar(article)
+    return if article.avatar_absent_or_disabled?
+
+    image_tag(article.avatar.url, alt: '...')
+  end
+
+  def article_avatar_preview(article)
     return image_tag('no-image.png', alt: '...') if article.avatar_absent_or_disabled?
 
     image_tag(article.avatar.url, alt: '...')
   end
 
   def article_avatar_big_preview(article)
-    return image_tag('no-image.png', alt: '...') if article.avatar_absent_or_disabled?
+    return image_tag('no-image.png', alt: '...') unless article.avatar.url
 
     image_tag(article.avatar.big_preview.url, alt: '...')
   end
 
   def article_avatar_small_preview(article)
-    return image_tag('no-image.png', alt: '...') if article.avatar_absent_or_disabled?
+    return image_tag('no-image.png', alt: '...') unless article.avatar.url
 
     image_tag(article.avatar.small_preview.url, alt: '...')
   end
