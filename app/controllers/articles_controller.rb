@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   respond_to :js
 
   def show
-    @latests_articles = Article.latest_published.limit(5)
+    @latests_articles = Article.latest_published.order(created_at: :desc).limit(5)
   end
 
   def like
@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
   private
 
   def load_models
-    @article ||= Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def article_params
