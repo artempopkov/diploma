@@ -23,7 +23,7 @@ ActiveStorage.start();
 
 // turbolinks cache fix
 $(document).on('turbolinks:before-cache', function() {
-  var dataTable = $($.fn.dataTable.tables(true)).DataTable();
+  var dataTable = $($.fn.dataTable.tables(true)).dataTable();
   if (dataTable !== null) {
     dataTable.destroy();
     dataTable = null;
