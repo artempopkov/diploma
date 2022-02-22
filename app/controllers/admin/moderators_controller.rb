@@ -17,6 +17,7 @@ module Admin
     end
 
     def edit
+      authorize [:admin, @moderator]
     end
 
     def create
