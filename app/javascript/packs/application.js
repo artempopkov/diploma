@@ -11,11 +11,15 @@ import "bootstrap";
 import $ from "jquery";
 import "select2/dist/js/select2";
 import Noty from "noty/lib/noty.js";
+import "datatables.net-buttons-dt";
+import "datatables.net-buttons-bs4";
 
 require("trix");
 require("@rails/actiontext");
 require("datatables.net");
 require("datatables.net-bs4");
+require("datatables.net-buttons-dt");
+require("datatables.net-buttons");
 
 Rails.start();
 Turbolinks.start();
@@ -23,12 +27,22 @@ ActiveStorage.start();
 
 $(document).on("turbolinks:load", function () {
   $("#comments-datatable").DataTable({
+    language: {
+      search: "",
+      searchPlaceholder: "Search...",
+      lengthMenu: "records per page _MENU_",
+    },
+    lengthMenu: [
+      [10, 25, 50, -1],
+      [10, 25, 50, "All"],
+    ],
+    dom: '<"top"fi>rt<"bottom"pbl>',
     processing: true,
     serverSide: true,
     ajax: {
       url: $("#comments-datatable").data("source"),
     },
-    pagingType: "full_numbers",
+    pagingType: "simple_numbers",
     columns: [
       { data: "id" },
       { data: "comment" },
@@ -40,12 +54,22 @@ $(document).on("turbolinks:load", function () {
 
 $(document).on("turbolinks:load", function () {
   $("#categories-datatable").DataTable({
+    language: {
+      search: "",
+      searchPlaceholder: "Search...",
+      lengthMenu: "records per page _MENU_",
+    },
+    lengthMenu: [
+      [10, 25, 50, -1],
+      [10, 25, 50, "All"],
+    ],
+    dom: '<"top"fi>rt<"bottom"pbl>',
     processing: true,
     serverSide: true,
     ajax: {
       url: $("#categories-datatable").data("source"),
     },
-    pagingType: "full_numbers",
+    pagingType: "simple_numbers",
     order: [[1, "asc"]],
     columns: [
       { data: "edit", orderable: false },
@@ -58,12 +82,22 @@ $(document).on("turbolinks:load", function () {
 
 $(document).on("turbolinks:load", function () {
   $("#users-datatable").DataTable({
+    language: {
+      search: "",
+      searchPlaceholder: "Search...",
+      lengthMenu: "records per page _MENU_",
+    },
+    lengthMenu: [
+      [10, 25, 50, -1],
+      [10, 25, 50, "All"],
+    ],
+    dom: '<"top"fi>rt<"bottom"pbl>',
     processing: true,
     serverSide: true,
     ajax: {
       url: $("#users-datatable").data("source"),
     },
-    pagingType: "full_numbers",
+    pagingType: "simple_numbers",
     order: [[1, "asc"]],
     columns: [
       { data: "edit", orderable: false },
@@ -77,12 +111,22 @@ $(document).on("turbolinks:load", function () {
 
 $(document).on("turbolinks:load", function () {
   $("#moderators-datatable").DataTable({
+    language: {
+      search: "",
+      searchPlaceholder: "Search...",
+      lengthMenu: "records per page _MENU_",
+    },
+    lengthMenu: [
+      [10, 25, 50, -1],
+      [10, 25, 50, "All"],
+    ],
+    dom: '<"top"fi>rt<"bottom"pbl>',
     processing: true,
     serverSide: true,
     ajax: {
       url: $("#moderators-datatable").data("source"),
     },
-    pagingType: "full_numbers",
+    pagingType: "simple_numbers",
     order: [[1, "asc"]],
     columns: [
       { data: "edit", orderable: false },

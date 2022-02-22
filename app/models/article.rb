@@ -11,7 +11,6 @@ class Article < ApplicationRecord
   belongs_to :moderator
   has_many :reviews, dependent: :destroy, class_name: 'ArticleReview'
   has_many :comments, dependent: :destroy
-  # has_many :impressions, class_name: 'Impression', foreign_key: 'impressionable_id', dependent: :destroy
   has_many :impressions, as: :impressionable, dependent: :destroy
 
   validates :title, :description, :content, presence: true

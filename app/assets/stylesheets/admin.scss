@@ -431,13 +431,17 @@ table.dataTable th {
   padding-left: 20px;
 }
 
-.dataTables_filter {
-  width: 50%;
+.dataTables_paginate {
   float: right;
   text-align: right;
 }
 
-.dataTables_paginate {
+.dataTables_info {
   float: right;
   text-align: right;
+}
+
+.dataTables_filter {
+  float: left;
+  text-align: left;
 }

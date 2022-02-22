@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   layout 'user_profile'
   before_action :load_models, only: %i[show likes_history]
-  before_action :authenticate_user!, only: %i[show likes_history]
+  # before_action :authenticate_user!, only: %i[sho]
 
   def show
     authorize @user

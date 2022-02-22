@@ -1,13 +1,13 @@
 class UserHistoriesController < ApplicationController
   layout 'user_profile'
   before_action :load_models, only: %i[likes comments views]
-  before_action :authenticate_user!, only: %i[show likes comments]
 
   def show
     authorize @user
   end
 
   def likes
+    
     @likes_history = UserHistoryService.new(@user).likes.paginate(page: current_page)
   end
 
