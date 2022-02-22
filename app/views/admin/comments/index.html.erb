@@ -1,8 +1,17 @@
+<div>
+  <div class="row" >
+    <div class="col">
+      <div class="d-flex justify-content-start">
+        <h1>Comments</h1>
+      </div>
+    </div>
+  </div>
+</div>
 <%= content_tag :table, id: 'comments-datatable', class: 'table table-ligth table-striped table-hover w-100', role: :datatable, data: { url: admin_comments_path(format: :json)} do %>
   <thead>
     <tr class="th-right">
       <th>id</th>
-			<th>comment</th>
+      <th>comment</th>
       <th>date</th>
       <th class="text-end">options</th>
     </tr>

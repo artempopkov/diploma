@@ -39,6 +39,24 @@ $(document).on("turbolinks:load", function () {
 });
 
 $(document).on("turbolinks:load", function () {
+  $("#categories-datatable").DataTable({
+    processing: true,
+    serverSide: true,
+    ajax: {
+      url: $("#categories-datatable").data("source"),
+    },
+    pagingType: "full_numbers",
+    order: [[1, "asc"]],
+    columns: [
+      { data: "edit", orderable: false },
+      { data: "id" },
+      { data: "name" },
+      { data: "destroy", orderable: false },
+    ],
+  });
+});
+
+$(document).on("turbolinks:load", function () {
   $(".flash_message").each(function () {
     const $this = $(this);
 
