@@ -1,39 +1,25 @@
-<p id="notice"><%= notice %></p>
-
 <div>
   <div class="row" >
     <div class="col">
-      <div class="d-flex justify-content-start"><h1>Moderators (<%= @moderators.count %>)</h1></div>
+      <div class="d-flex justify-content-start">
+        <h1>Moderators</h1>
+      </div>
     </div>
     <div class="col">
-      <div class="d-flex justify-content-end"><%= link_to 'New', new_admin_moderator_path, method: :get, class: "btn-ok" %></div>
+      <div class="d-flex justify-content-end pt-2"><%= link_to 'New', new_admin_moderator_path, method: :get, class: "btn-ok" %></div>
     </div>
   </div>
 </div>
-
-<table class="table table-ligth table-striped table-hover mt-2">
+<%= content_tag :table, id: 'moderators-datatable', class: 'table table-ligth table-striped table-hover w-100', role: :datatable, data: { url: admin_moderators_path(format: :json)} do %>
   <thead>
-  <tr class="d-flex">
-    <th class="col-1"></th>
-    <th class="col-1">ID</th>
-    <th class="col-2">Role</th>
-    <th class="col-4">Email</th>
-    <th class="col-3">Name</th>
-    <th class="col"></th>
-  </tr>
-  </thead>
-
-  <tbody class="w-100">
-  <% @moderators.each do | moderator | %>
-    <tr class="d-flex">
-      <td class="col-1"><%= link_to 'Edit', edit_admin_moderator_path(moderator), class: 'text-decoration-none' %></td>
-      <th class="col-1"> <%= moderator.id %></th>
-      <th class="col-2"><%= moderator.role %></th>
-      <td class="col-4 t-wrap"><%= moderator.email %></td>
-      <td class="col-3"><%= moderator.name %></td>
-      <td class="col"><%= link_to 'Destroy', [:admin, moderator], method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-decoration-none' %></td>
+    <tr class="th-right">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>email</th>
+      <th>role</th>
+      <th class="text-end"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
-<%= will_paginate @moderators %>
+  </thead>
+  <tbody class="td-right"></tbody>
+<% end %>

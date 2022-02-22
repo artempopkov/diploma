@@ -1,10 +1,14 @@
 module Admin
   class ModeratorsController < AdminController
     before_action :load_models, only: %i[edit update destroy]
+    after_action :verify_authorized
 
     def index
-      @moderators = policy_scope([:admin, Moderator]).page(current_page).order(:id)
-      authorize [:admin, @moderators]
+      authorize [:admin, User]
+      respond_to do |format|
+        format.html
+        format.json { render json: ModeratorsDatatable.new(params, view_context: view_context) }
+      end
     end
 
     def new

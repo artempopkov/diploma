@@ -1,10 +1,14 @@
 module Admin
   class UsersController < AdminController
     before_action :load_models, only: %i[edit update destroy]
+    after_action :verify_authorized
 
     def index
-      @users = User.page(current_page).order(:id)
-      authorize [:admin, @users]
+      authorize [:admin, User]
+      respond_to do |format|
+        format.html
+        format.json { render json: UsersDatatable.new(params, view_context: view_context) }
+      end
     end
 
     def new
@@ -13,6 +17,7 @@ module Admin
     end
 
     def edit
+      authorize [:admin, @user]
     end
 
     def create

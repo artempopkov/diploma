@@ -21,7 +21,7 @@
       <%= form.password_field :password_confirmation, class: "form-control #{field_validity_css_class(@user, :password_confirmation)}" %>
       <%= catched_errors(@user, :password_confirmation) %>
     </div>
-    <div>
+    <div data-turbolinks="false">
       <%= form.submit 'OK', class: 'btn-ok mr-2' %>
       <%= link_to 'Cancel', admin_users_path, class: 'btn-cancel' %>
     </div>
