@@ -21,14 +21,6 @@ module ArticleHelper
 
     render "shared/articles/medium_preview_card", article: article
   end
-
-  def comment_form(article)
-    return render "comments/form", article: article if current_user
-
-    content_tag(:div, class: "alert alert-danger") do
-      link_to "Please login to comment", new_user_session_path
-    end
-  end
   
   def toggle_important(article)
     if article.important?
