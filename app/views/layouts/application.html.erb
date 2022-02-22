@@ -185,7 +185,7 @@
                     Your Favorites
                   <% end %>
                   <div class="dropdown-divider"></div>
-                  <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+                  <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
                     <i class="icon-share"></i>
                     Logout
                   <% end %>

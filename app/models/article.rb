@@ -3,12 +3,13 @@ class Article < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   acts_as_taggable_on :tags
   acts_as_votable
-  
+
   enum status: { created: 0, prepared: 1, accepted: 2, rejected: 3, published: 4, archived: 5}
 
   belongs_to :category
   belongs_to :moderator
   has_many :reviews, dependent: :destroy, class_name: 'ArticleReview'
+  has_many :comments, dependent: :destroy
   validates :title, :description, :content, presence: true
 
   scope :important, -> { where(important: true) }

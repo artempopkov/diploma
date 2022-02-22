@@ -1,0 +1,2 @@
+$("#comments-area").append('<%= escape_javascript render "comments/comments", comments: @comments %>');
+$("#more-article-comments").html('<%= escape_javascript(link_to("Load more", admin_article_url(page: @comments.next_page), remote: true)) if @comments.next_page %>');

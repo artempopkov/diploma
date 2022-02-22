@@ -1,0 +1,15 @@
+<h3 class="mb-30">Leave a Reply</h3>
+<%= form_with(model: [@article, @article.comments.build], url: "/articles/#{@article.id}/comments", local: false) do |form| %>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <%= form.text_area :body, class: "form-control w-100", id: "comment", cols: "30", rows: "9", placeholder: "Write Comment", id: 'comment-body' %>
+      </div>
+      <%= form.hidden_field :user_id, value: current_user.id, id: 'user-id' %>
+      <%= form.hidden_field :article_id, id: 'article-id' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.submit 'Post Comment', class: 'button button-contactForm', id: 'submit-comment-creation' %>
+  </div>
+<% end %>

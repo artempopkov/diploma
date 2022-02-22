@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :moderators
   devise_for :users
+
   resources :articles , only: [:show] do
+    resources :comments
     member do
       put 'like', to: 'articles#like'
     end

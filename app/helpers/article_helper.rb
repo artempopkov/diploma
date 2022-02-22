@@ -21,7 +21,7 @@ module ArticleHelper
 
     render "shared/articles/medium_preview_card", article: article
   end
-
+  
   def toggle_important(article)
     if article.important?
       link_to toggle_important_admin_article_path(article, important: false), class: "btn-mark", method: :patch, remote: :true do

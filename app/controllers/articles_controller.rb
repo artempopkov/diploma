@@ -1,13 +1,21 @@
 class ArticlesController < ApplicationController
   before_action :load_models, only: %i[show like]
   before_action :tag_cloud
+  after_action :verify_authorized
   respond_to :js
 
   def show
+    authorize @article
     @latests_articles = Article.latest_published.order(created_at: :desc).limit(5)
+    @comments = @article.comments.includes(:user).page(current_page).order(created_at: :desc)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def like
+    authorize @article
     case params[:format]
     when 'like'
       @article.liked_by current_user
