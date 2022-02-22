@@ -430,3 +430,9 @@ table.dataTable thead .sorting_desc_disabled {
 table.dataTable th {
   padding-left: 20px;
 }
+
+.dataTables_filter {
+  width: 50%;
+  float: right;
+  text-align: right;
+}

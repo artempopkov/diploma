@@ -1,8 +1,10 @@
 module Admin
   class CommentsController < AdminController
     before_action :load_models, only: %i[destroy]
+    after_action :verify_authorized
 
     def index
+      authorize [:admin, Comment]
       respond_to do |format|
         format.html
         format.json { render json: CommentsDatatable.new(params, view_context: view_context) }
@@ -10,6 +12,7 @@ module Admin
     end
 
     def destroy
+      authorize [:admin, @comment]
       @comment.destroy
 
       redirect_to admin_comments_url, notice: "Comment was successfully destroyed."

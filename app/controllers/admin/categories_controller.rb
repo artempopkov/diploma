@@ -1,10 +1,14 @@
 module Admin
   class CategoriesController < AdminController
     before_action :load_models, only: %i[show edit update destroy]
+    after_action :verify_authorized
 
     def index
-      @categories = Category.page(current_page).order(:id)
-      authorize [:admin, @categories]
+      authorize [:admin, Category]
+      respond_to do |format|
+        format.html
+        format.json { render json: CategoriesDatatable.new(params, view_context: view_context) }
+      end
     end
 
     def show
