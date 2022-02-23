@@ -172,11 +172,18 @@ $(document).on("turbolinks:load", function () {
       width: "100%",
       placeholder: $this.data("placeholder"),
       allowClear: Boolean($this.data("allow-clear")),
+      templateResult: hideSelected,
     };
 
     $this.select2(opts);
   });
 });
+
+function hideSelected(value) {
+  if (value && !value.selected) {
+    return $('<span>' + value.text + '</span>');
+  }
+}
 
 $(document).on("turbolinks:before-cache", function (e) {
   return $(".js-multiple-select").each(function () {

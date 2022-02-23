@@ -68,13 +68,13 @@
                         <i class="icon-pencil-alt"></i>
                         My Account
                       <% end %>
-                      <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+                      <%= link_to user_email_subscriptions_path(current_user), class: 'dropdown-item' do %>
                         <i class="icon-stats-up"></i>
-                        Your Dashboard
+                        Email Subscription
                       <% end %>
-                      <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+                      <%= link_to new_user_email_subscription_path(current_user), class: 'dropdown-item' do %>
                         <i class="icon-heart"></i>
-                        Your Favorites
+                        Email Subscription
                       <% end %>
                       <div class="dropdown-divider"></div>
                       <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>

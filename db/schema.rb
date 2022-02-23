@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_11_132021) do
+ActiveRecord::Schema.define(version: 2022_02_23_083945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2022_02_11_132021) do
     t.string "title"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at"
+    t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"
     t.boolean "avatar_disable", default: false
     t.bigint "category_id"
@@ -101,6 +101,15 @@ ActiveRecord::Schema.define(version: 2022_02_11_132021) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "email_subscriptions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "subscriptionable_ids", default: [], array: true
+    t.string "subscriptionable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_email_subscriptions_on_user_id"
   end
 
   create_table "impressions", force: :cascade do |t|
@@ -207,5 +216,6 @@ ActiveRecord::Schema.define(version: 2022_02_11_132021) do
   add_foreign_key "article_reviews", "moderators"
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "moderators"
+  add_foreign_key "email_subscriptions", "users"
   add_foreign_key "taggings", "tags"
 end

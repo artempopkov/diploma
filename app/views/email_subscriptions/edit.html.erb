@@ -1,0 +1,17 @@
+<div id='yield-area' class="container mb-20 p-20">
+  <h1>Email Subscription</h1>
+  <%= form_with(model: [@user, @email_subscription], url: user_email_subscription_path(@user), html: { class: 'w-100' }) do |f| %>
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-md-10">
+          <label>Name</label>
+          <%= f.hidden_field :subscriptionable_type, value: @email_subscription.subscriptionable_type %>
+          <%= f.collection_select :subscriptionable_ids, @email_subscription.subscriptionable_type.constantize.all, :id, :name, {}, multiple: true, class:'js-multiple-select w-100'%>
+        </div>
+        <div class="col-md-12">
+          <%= f.submit 'Save', class: 'btn btn-fill-out' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

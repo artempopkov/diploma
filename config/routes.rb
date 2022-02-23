@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   resources :users do
+    resources :email_subscriptions, except: [:create, :destroy]
     member do
       get "likes_history", to: "user_histories#likes"
       get "views_history", to: "user_histories#views"
