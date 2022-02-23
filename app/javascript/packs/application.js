@@ -290,3 +290,7 @@ $(document).on("turbolinks:load", function () {
     });
   }
 });
+
+$(document).on("turbolinks:load", function () {
+  $(".top-bar").removeClass("d-none");
+});
