@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  root to: "home#index"
+  require 'sidekiq/web'
 
+  devise_scope :moderator do
+    authenticate :moderator, ->(moderator) { moderator.admin? } do
+      mount Sidekiq::Web => '/admin/sidekiq'
+    end
+  end
+
+  root to: "home#index"
+  
   devise_for :moderators
   devise_for :users, controllers: { registrations: "users/registrations" }
 

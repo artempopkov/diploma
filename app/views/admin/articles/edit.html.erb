@@ -33,7 +33,6 @@
     </div>
     <div class="field mt-2">
       <%= form.collection_select :tag_list, Tag.all, :name, :name, {}, multiple: true, class:'tag-select w-100' %>
-      <%# <%= form.text_field :tag_list, placeholder: 'Tags (sep by space)', class: "#{field_validity_css_class(@article, :tag_list)}" %> %>
       <%= catched_errors(@article, :tag_list) %>
     </div>
     <div class="mt-10">

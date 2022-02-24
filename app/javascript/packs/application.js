@@ -192,6 +192,7 @@ $(document).on("turbolinks:load", function () {
       templateResult: hideSelected,
       tags: true,
       tokenSeparators: [",", " "],
+      placeholder: "Select a state"
     };
 
     $this.select2(opts);

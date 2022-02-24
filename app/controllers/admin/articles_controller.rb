@@ -34,22 +34,21 @@ module Admin
     end
 
     def create
-      logger.debug article_params.inspect
-      # @article = current_moderator.articles.build(article_params)
+      @article = current_moderator.articles.build(article_params)
 
-      # article_params
-      # authorize [:admin, @article]
-      # if @article.save
-      #   redirect_to admin_article_url(@article), notice: 'Create finish successfully'
-      # else
-      #   render :new, status: :unprocessable_entity
-      # end
+      @article.tag_list = article_params[:tag_list].join(' ')
+      authorize [:admin, @article]
+      if @article.save
+        redirect_to admin_article_url(@article), notice: 'Create finish successfully'
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
 
     def update
       @article = Article.find(params[:id])
       authorize [:admin, @article]
-      
+
       @article.tag_list = article_params[:tag_list].join(' ')
       if @article.update(article_params)
         redirect_to admin_article_url(@article), notice: 'Update finish successfully'
