@@ -1,7 +1,7 @@
 class EmailSubscriptionsController < ApplicationController
-  before_action :load_models, only: %i[new edit create update]
-  before_action :load_user, only: %i[index new edit create update]
-  # before_action :authenticate_user!, only: %i[sho]
+  before_action :load_models, only: %i[edit update]
+  before_action :load_user, only: %i[index edit update]
+  before_action :authenticate_user!
 
   def index
     @email_subscriptions = @user.email_subscriptions.each_with_object({}) do |sub, hash|
@@ -9,25 +9,9 @@ class EmailSubscriptionsController < ApplicationController
     end
   end
 
-  def new
-    @email_subscription = @user.email_subscriptions.build()
-  end
-
   def edit
     # authorize @user
     @model = @email_subscription.subscriptionable_type
-  end
-
-  def create
-    @email_subscription = @user.email_subscriptions.new(email_subscription_params)
-    @email_subscription.subscriptionable_ids = @email_subscription.subscriptionable_ids.reject(&:blank?)
-   
-    if @email_subscription.save
-      logger.debug "Sub #{email_subscription_params.inspect}"
-    else
-      logger.debug "Sub #{@email_subscription.errors.full_messages}"
-      redirect_to root_path, alert: "aa -- #{@email_subscription.inspect}"
-    end
   end
 
   def update
