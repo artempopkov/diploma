@@ -32,6 +32,7 @@
       <%= catched_errors(@article, :content) %>
     </div>
     <div class="field mt-2">
+    <%# <%= form.collection_select :tag_list, Tags.all, :id, :name, {}, multiple: true, class:'tag-select w-100'%> %>
       <%= form.text_field :tag_list, placeholder: 'Tags (sep by space)', class: "#{field_validity_css_class(@article, :tag_list)}" %>
       <%= catched_errors(@article, :tag_list) %>
     </div>
