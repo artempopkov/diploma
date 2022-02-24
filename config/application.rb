@@ -32,7 +32,7 @@ module Ngnews
     # Configuration for the application, engines, and railties goes here.
     #
     # config.eager_load_paths << Rails.root.join("extras")
-
+    config.logger = Logger.new(STDOUT)
     config.generators do |g|
       g.system_tests = nil
       g.assets false

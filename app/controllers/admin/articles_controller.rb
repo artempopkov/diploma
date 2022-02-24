@@ -34,18 +34,23 @@ module Admin
     end
 
     def create
-      @article = current_moderator.articles.build(article_params)
-      authorize [:admin, @article]
-      if @article.save
-        redirect_to admin_article_url(@article), notice: 'Create finish successfully'
-      else
-        render :new, status: :unprocessable_entity
-      end
+      logger.debug article_params.inspect
+      # @article = current_moderator.articles.build(article_params)
+
+      # article_params
+      # authorize [:admin, @article]
+      # if @article.save
+      #   redirect_to admin_article_url(@article), notice: 'Create finish successfully'
+      # else
+      #   render :new, status: :unprocessable_entity
+      # end
     end
 
     def update
       @article = Article.find(params[:id])
       authorize [:admin, @article]
+      
+      @article.tag_list = article_params[:tag_list].join(' ')
       if @article.update(article_params)
         redirect_to admin_article_url(@article), notice: 'Update finish successfully'
       else
@@ -118,7 +123,7 @@ module Admin
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, :tag_list, :status, :important)
+      params.require(:article).permit(:title, :description, :content, :avatar, :avatar_disable, :category_id, {:tag_list => []}, :status, :important)
     end
   end
 end

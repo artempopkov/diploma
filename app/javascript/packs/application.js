@@ -210,6 +210,12 @@ $(document).on("turbolinks:before-cache", function (e) {
   });
 });
 
+$(document).on("turbolinks:before-cache", function (e) {
+  return $(".tag-select").each(function () {
+    return $(this).select2("destroy");
+  });
+});
+
 $(document).on("turbolinks:load", function () {
   $("#preloader-active").delay(450).fadeOut("slow");
   $("body").delay(450).css({
