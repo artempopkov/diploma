@@ -29,7 +29,7 @@
                                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                   <tr>
                                     <td style="padding-right: 0px;padding-left: 0px;" align="center">
-                                      <%= image_tag 'logos/logo'%>
+                                      <%= email_logo_tag 'logos/logo.png' %>
                                     </td>
                                   </tr>
                                 </table>
@@ -203,7 +203,7 @@
                                   <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                     <tr>
                                       <td style="padding-right: 0px;padding-left: 0px;" align="center">
-                                        <%= image_tag article.avatar.email.url, class: 'img_border'%>
+                                        <%= email_image_tag article.avatar.email.url, class: 'img_border'%>
                                       </td>
                                     </tr>
                                   </table>
@@ -272,11 +272,10 @@
                               style="overflow-wrap:break-word;word-break:break-word;padding:20px 20px 15px;font-family:'Raleway',sans-serif;"
                               align="left">
                                 <div align="center">
-                                  <a href="" target="_blank"
-                                  style="box-sizing: border-box;display: inline-block;font-family:'Raleway',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFF; background-color: #158de8; border-radius: 8px;-webkit-border-radius: 8px; -moz-border-radius: 8px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
                                     <span style="display:block;padding:10px 20px;line-height:120%;"><span
-                                      style="font-size: 18px; line-height: 21.6px;">View All Updates</span></span>
-                                  </a>
+                                      style="font-size: 18px; line-height: 21.6px;">
+                                      <%= link_to 'View All Updates', root_url, class: 'more'%></span></span>
+                                  
                                 </div>
                               </td>
                             </tr>

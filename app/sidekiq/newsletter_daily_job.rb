@@ -1,6 +1,6 @@
 require "sidekiq-scheduler"
 
-class NewsletterJob
+class NewsletterDailyJob
   include Sidekiq::Job
 
   def perform(*args)
@@ -17,7 +17,7 @@ class NewsletterJob
       articles = remove_duplicates(articles)
       articles.each do |email, article|
         NewsletterDate.create!(sent_at: Time.zone.now)
-        NewsletterMailer.with(articles: article).newsletter_email.deliver_now
+        NewsletterMailer.with(articles: article.sample(5), email: email).newsletter_email.deliver_later
       end
     end
   end

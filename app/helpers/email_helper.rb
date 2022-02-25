@@ -1,11 +1,12 @@
 module EmailHelper
+  def email_logo_tag(image, **options)
+    attachments[image] = File.read(Rails.root.join("app/assets/images/#{image}"))
+    image_tag attachments[image].url, **options
+  end
+
   def email_image_tag(image, **options)
-      attachments[image] = {
-          :data => File.read(asset_path(image)),
-          :mime_type => "image/png",
-          :encoding => "base64"
-      }
-      image_tag attachments[image].url, **options
+    attachments[image] = File.read(Rails.root.join("public#{image}"))
+    image_tag attachments[image].url, **options
   end
 
   def universal_time_format(time)
