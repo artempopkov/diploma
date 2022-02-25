@@ -1,11 +1,48 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    
   </head>
   <body>
-    <p>
-      You have successfully signed up to example.com,
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    <%= @articles.each do |article| %>
+      <article class="row mb-50">
+        <div class="col-md-6">
+          <div class="post-thumb position-relative image-hover-scale mb-1">
+            <div class="scale img-hover-slide border-radius-5 position-relative">
+              <%= link_to article, class: 'img-link' do %>
+                <% if article.avatar.present? %>
+                  <img src="<%= article.avatar.big_preview.url %>" alt="..." >
+                <% else %>
+                  <img src="<%= asset_path('no-image.png') %>" alt="...">
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 align-center-vertical">
+          <div class="post-content">
+            <div class="entry-meta meta-0 font-small mb-15">
+              <%= link_to '#' do %>
+                <span class="post-cat background1 color-white"><%= article.category.name %></span>
+              <% end %>
+            </div>
+            <h5 class="post-title">
+              <%= link_to article.title, article %>
+            </h5>
+            <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
+              <span class="post-on"><i class="ti-marker-alt"></i>
+                <% if article.edited? %>
+                  <%= "Edit: #{article.published_at.strftime("%d %b %Y, %H:%M")}" %>
+                <% else %>
+                  <%= article.published_at.strftime("%d %b %Y, %H:%M") %>
+                <% end %>
+              </span>
+              <span class="hit-count"><i class="ti-bolt"></i> 159k Views</span>
+            </div>
+            <p> <%= article.description %></p>
+          </div>
+        </div>
+      </article>
+    <% end %>
   </body>
 </html>

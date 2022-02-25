@@ -265,6 +265,9 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
+    sidekiq-cron (1.2.0)
+      fugit (~> 1.1)
+      sidekiq (>= 4.2.1)
     sidekiq-scheduler (3.1.1)
       e2mmap
       redis (>= 3, < 5)
@@ -351,6 +354,7 @@ DEPENDENCIES
   rubocop-rails (~> 2.12.4)
   sass-rails (>= 6)
   sidekiq (~> 6.4.1)
+  sidekiq-cron (~> 1.2.0)
   sidekiq-scheduler (~> 3.1.1)
   simplest_status (~> 1.0.0)
   spring

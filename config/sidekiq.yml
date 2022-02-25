@@ -4,7 +4,3 @@ production:
   :concurrency: 1
 :queues:
   - default
-:schedule:
-  hello_world:
-    cron: '*/1 * * * * *'   # Runs once per minute
-    class: EmailSubscriptionSendingJob

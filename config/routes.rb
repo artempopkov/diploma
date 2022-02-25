@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   require 'sidekiq/web'
+  require 'sidekiq/cron/web'
 
   devise_scope :moderator do
     authenticate :moderator, ->(moderator) { moderator.admin? } do

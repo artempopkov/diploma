@@ -49,6 +49,12 @@ module ArticleHelper
     article_admin_card_image(article.avatar.small_preview.url)
   end
 
+  def article_avatar_important_preview(article)
+    return image_tag('no-image.png', alt: "...") if article.avatar.url.nil?
+
+    image_tag(article.avatar.small_preview.url)
+  end
+
   def article_avatar(article)
     return if article.avatar_absent_or_disabled?
 

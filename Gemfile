@@ -29,6 +29,10 @@ gem 'webpacker', '~> 5.0'
 gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap4', '~> 0.2.2'
 gem 'sidekiq-scheduler', '~> 3.1.1'
+gem 'sidekiq-cron', '~> 1.2.0'
+
+
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot', '~> 6.2.0'
