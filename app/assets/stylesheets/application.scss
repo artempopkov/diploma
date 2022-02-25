@@ -158,3 +158,18 @@ table tr td:first-child::before {
   border-radius: 30px;
   padding: 1px 15px;
 }
+
+figure {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+figcaption {
+  align-self: flex-center;
+  text-align: center;
+  font-size: 15px;
+  font-style: italic;
+  color: #777;
+  /*adjust this to control how far it should be from egde*/
+}

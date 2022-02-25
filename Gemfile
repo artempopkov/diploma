@@ -30,7 +30,7 @@ gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap4', '~> 0.2.2'
 gem 'sidekiq-scheduler', '~> 3.1.1'
 gem 'sidekiq-cron', '~> 1.2.0'
-
+gem 'premailer-rails'
 
 
 group :development, :test do

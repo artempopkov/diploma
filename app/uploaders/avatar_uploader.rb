@@ -26,7 +26,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #
   process resize_to_fit: [900, 630]
   def scale(width, height)
-    resize_to_fill(width, height)
+    resize_to_fit(width, height)
   end
 
   version :small_preview do
@@ -40,9 +40,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   version :big_preview do
     process resize_to_fill: [900, 630]
   end
-  
-  version :small_preview do
-    process resize_to_fit: [338, 237]
+
+  version :email do
+    process resize_to_fill: [151, 132]
   end
 
   # # Create different versions of your uploaded files:

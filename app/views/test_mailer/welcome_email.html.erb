@@ -1,48 +1,328 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-    
   </head>
-  <body>
-    <%= @articles.each do |article| %>
-      <article class="row mb-50">
-        <div class="col-md-6">
-          <div class="post-thumb position-relative image-hover-scale mb-1">
-            <div class="scale img-hover-slide border-radius-5 position-relative">
-              <%= link_to article, class: 'img-link' do %>
-                <% if article.avatar.present? %>
-                  <img src="<%= article.avatar.big_preview.url %>" alt="..." >
-                <% else %>
-                  <img src="<%= asset_path('no-image.png') %>" alt="...">
-                <% end %>
-              <% end %>
+  <body class="clean-body u_body"
+  style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #ffffff;color: #000000">
+    <table
+    style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #ffffff;width:100%"
+    cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr style="vertical-align: top">
+          <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+            <div class="u-row-container" style="padding: 10px 10px 0px;background-color: rgba(255,255,255,0)">
+              <div class="u-row"
+              style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+                  <div class="u-col u-col-100"
+                  style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                    <div style="width: 100% !important;">
+                      <div
+                      style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                        <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0"
+                        cellspacing="0" width="100%" border="0">
+                          <tbody>
+                            <tr>
+                              <td
+                              style="overflow-wrap:break-word;word-break:break-word;padding:20px 20px 10px;font-family:'Raleway',sans-serif;"
+                              align="left">
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                  <tr>
+                                    <td style="padding-right: 0px;padding-left: 0px;" align="center">
+                                      <%= image_tag 'logos/logo'%>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-6 align-center-vertical">
-          <div class="post-content">
-            <div class="entry-meta meta-0 font-small mb-15">
-              <%= link_to '#' do %>
-                <span class="post-cat background1 color-white"><%= article.category.name %></span>
-              <% end %>
+            <div class="u-row-container" style="padding: 10px 10px 0px;background-color: rgba(255,255,255,0)">
+              <div class="u-row"
+              style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+                  <div class="u-col u-col-100"
+                  style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                    <div style="width: 100% !important;">
+                      <div
+                      style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                        <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0"
+                        cellspacing="0" width="100%" border="0">
+                          <tbody>
+                            <tr>
+                              <td
+                              style="overflow-wrap:break-word;word-break:break-word;padding:20px 20px 5px;font-family:'Raleway',sans-serif;"
+                              align="left">
+                                <div style="color: #636363; line-height: 130%; text-align: left; word-wrap: break-word;">
+                                  <p style="font-size: 14px; line-height: 130%;"><span
+                                    style="font-size: 18px; line-height: 23.4px;">TOP STORIES FOR YOU</span></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h5 class="post-title">
-              <%= link_to article.title, article %>
-            </h5>
-            <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
-              <span class="post-on"><i class="ti-marker-alt"></i>
-                <% if article.edited? %>
-                  <%= "Edit: #{article.published_at.strftime("%d %b %Y, %H:%M")}" %>
-                <% else %>
-                  <%= article.published_at.strftime("%d %b %Y, %H:%M") %>
-                <% end %>
-              </span>
-              <span class="hit-count"><i class="ti-bolt"></i> 159k Views</span>
+            <div class="u-row-container" style="padding: 0px 10px;background-color: rgba(255,255,255,0)">
+              <div class="u-row"
+              style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+                  <div class="u-col u-col-100"
+                  style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                    <div style="width: 100% !important;">
+                      <div
+                      style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                        <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0"
+                        cellspacing="0" width="100%" border="0">
+                          <tbody>
+                            <tr>
+                              <td
+                              style="overflow-wrap:break-word;word-break:break-word;padding:0px 20px 5px;font-family:'Raleway',sans-serif;"
+                              align="left">
+                                <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #CCC;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                                  <tbody>
+                                    <tr style="vertical-align: top">
+                                      <td
+                                      style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                                        <span>&#160;</span>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p> <%= article.description %></p>
-          </div>
-        </div>
-      </article>
-    <% end %>
-  </body>
-</html>
+            <% @articles.each do |article| %>
+              <div class="u-row-container" style="padding: 0px 10px;background-color: rgba(255,255,255,0)">
+                <div class="u-row"
+              style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                  <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+                    <div class="u-col u-col-100"
+                  style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                      <div style="width: 100% !important;">
+                        <div
+                      style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                          <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0"
+                        cellspacing="0" width="100%" border="0">
+                            <tbody>
+                              <tr>
+                                <td
+                              style="overflow-wrap:break-word;word-break:break-word;padding:15px 20px 5px;font-family:'Raleway',sans-serif;"
+                              align="left">
+                                  <div style="color: #303030; line-height: 140%; text-align: left; word-wrap: break-word;">
+                                    <p style="font-size: 14px; line-height: 140%;"><span
+                                    style="font-size: 20px; line-height: 28px;"><%= article.title %></span></p>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0"
+                        cellspacing="0" width="100%" border="0">
+                            <tbody>
+                              <tr>
+                                <td
+                              style="overflow-wrap:break-word;word-break:break-word;padding:5px 20px;font-family:'Raleway',sans-serif;"
+                              align="left">
+                                  <div style="color: #303030; line-height: 120%; text-align: left; word-wrap: break-word;">
+                                    <p style="line-height: 120%; font-size: 14px;"><span
+                                    style="font-size: 12px; line-height: 14.4px;">By <span
+                                      style="background-color: rgba(255, 255, 255, 0); line-height: 14.4px; font-size: 12px;"><%= published_time(article) %>
+                                          , <%= article.impressions_count %> Views </span><span
+                                      style="background-color: rgba(255, 255, 255, 0); line-height: 14.4px; font-size: 12px; color: #999999;"></span></span></p>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="u-row-container" style="padding: 0px 10px;background-color: rgba(255,255,255,0)">
+                <div class="u-row"
+              style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                  <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+                    <div class="u-col u-col-66p67"
+                  style="max-width: 320px;min-width: 400px;display: table-cell;vertical-align: top;">
+                      <div style="width: 100% !important;">
+                        <div
+                      style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                          <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0"
+                        cellspacing="0" width="100%" border="0">
+                            <tbody>
+                              <tr>
+                                <td
+                              style="overflow-wrap:break-word;word-break:break-word;padding:10px 20px 3px;font-family:'Raleway',sans-serif;"
+                              align="left">
+                                  <div style="color: #303030; line-height: 180%; text-align: left; word-wrap: break-word;">
+                                    <p style="font-size: 14px; line-height: 180%;"><%= article.description %></p>
+                                    <p style="font-size: 14px; line-height: 180%;"><strong><span
+                                      style="text-decoration: underline; font-size: 14px; line-height: 25.2px; color: #000000;">
+                                          <%= link_to 'READ MORE', article, class: 'color-black' %>&gt;&gt;</span></strong></p>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="u-col u-col-33p33"
+                  style="max-width: 320px;min-width: 200px;display: table-cell;vertical-align: top;">
+                      <div style="width: 100% !important;">
+                        <div
+                      style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                          <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0"
+                        cellspacing="0" width="100%" border="0">
+                            <tbody>
+                              <tr>
+                                <td
+                              style="overflow-wrap:break-word;word-break:break-word;padding:0px 10px;font-family:'Raleway',sans-serif;"
+                              align="left">
+                                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                      <td style="padding-right: 0px;padding-left: 0px;" align="center">
+                                        <%= image_tag article.avatar.email.url, class: 'img_border'%>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="u-row-container" style="padding: 0px 10px;background-color: rgba(255,255,255,0)">
+                <div class="u-row"
+              style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                  <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+                    <div class="u-col u-col-100"
+                  style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                      <div style="width: 100% !important;">
+                        <div
+                      style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                          <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0"
+                        cellspacing="0" width="100%" border="0">
+                            <tbody>
+                              <tr>
+                                <td
+                              style="overflow-wrap:break-word;word-break:break-word;padding:0px 20px;font-family:'Raleway',sans-serif;"
+                              align="left">
+                                  <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="30%"
+                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px dashed #CCC;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                                    <tbody>
+                                      <tr style="vertical-align: top">
+                                        <td
+                                      style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                                          <span>&#160;</span>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <div class="u-row-container" style="padding: 10px;background-color: rgba(255,255,255,0)">
+              <div class="u-row"
+              style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+                  <div class="u-col u-col-100"
+                  style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                    <div style="width: 100% !important;">
+                      <div
+                      style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                        <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0"
+                        cellspacing="0" width="100%" border="0">
+                          <tbody>
+                            <tr>
+                              <td
+                              style="overflow-wrap:break-word;word-break:break-word;padding:20px 20px 15px;font-family:'Raleway',sans-serif;"
+                              align="left">
+                                <div align="center">
+                                  <a href="" target="_blank"
+                                  style="box-sizing: border-box;display: inline-block;font-family:'Raleway',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFF; background-color: #158de8; border-radius: 8px;-webkit-border-radius: 8px; -moz-border-radius: 8px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
+                                    <span style="display:block;padding:10px 20px;line-height:120%;"><span
+                                      style="font-size: 18px; line-height: 21.6px;">View All Updates</span></span>
+                                  </a>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="u-row-container" style="padding: 30px;background-color: #f0f0f0">
+              <div class="u-row"
+              style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+                  <div class="u-col u-col-100"
+                  style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                    <div style="width: 100% !important;">
+                      <div
+                      style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                        <table style="font-family:'Raleway',sans-serif;" role="presentation" cellpadding="0"
+                        cellspacing="0" width="100%" border="0">
+                          <tbody>
+                            <tr>
+                              <td
+                              style="overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Raleway',sans-serif;"
+                              align="left">
+                                <div style="line-height: 120%; text-align: left; word-wrap: break-word;">
+                                  <div style="font-family: arial, helvetica, sans-serif;"><span
+                                    style="font-size: 12px; color: #999999; line-height: 14.4px;">You received this
+                                      email because you signed up for NGnews.<br />
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </body>
+  </html>
