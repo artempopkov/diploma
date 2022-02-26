@@ -1,7 +1,7 @@
 module ArticleHelper
   def published_time_label(article)
     utc_published_time = utc(article.published_at)
-    return 'Edit: #{utc_published_time}' if article.edited?
+    return "Edit: #{utc_published_time}" if article.edited?
 
     utc_published_time
   end
