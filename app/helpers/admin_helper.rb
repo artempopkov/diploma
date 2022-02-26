@@ -57,6 +57,14 @@ module AdminHelper
     render "admin/article_reviews/form", review: review, review_statuses: review_statuses if user_editor?
   end
 
+  def link_to_users_report
+    link_to 'Users report', admin_users_report_path(format: :xlsx), class: 'nav-link' if user_admin?
+  end
+
+  def link_to_correspondents_report
+    link_to 'Correspondents report', admin_correspondents_report_path(format: :xlsx), class: 'nav-link' if user_admin?
+  end
+
   private
 
   def user_admin?

@@ -1,0 +1,23 @@
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+  project_heading = style.add_style(b: true, sz: 14)
+  heading = style.add_style(b: true)
+  header = wb.styles.add_style({:bg_color => "00", :fg_color => "FF", :alignment => {:horizontal => :center, :vertical => :center, :wrap_text => true}, :border => { :style => :thin, :color => "000000" }})
+  border = wb.styles.add_style({:border => { :style => :thin, :color => "000000" }}) 
+
+  wb.add_worksheet(name: "Users report") do |sheet|
+    # Add a title row
+    sheet.add_row ["Users activity"], style: project_heading
+    # Add the date this was downloaded  
+    sheet.add_row ["Downloaded at", Time.zone.now.strftime("%b %-d, %Y")]
+    # Add a blank row
+    sheet.add_row []
+    # Create the header row
+    sheet.add_row ["Name", "Email", "Likes", "Views", "Comments"], :style => header
+    # Create entries for each item
+    @users_report.each do |user, activity|
+      sheet.add_row [user.name, user.email, activity[0], activity[1], activity[2]], :style => border
+    end
+  end
+end
