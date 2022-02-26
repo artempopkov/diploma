@@ -7,8 +7,8 @@ class ArticlesController < ApplicationController
 
   def show
     authorize @article
-    @latests_articles = Article.latest_published.limit(5)
     @tranding_articles = Article.trending.limit(3)
+    @latests_articles = Article.latest_published.order(created_at: :desc).limit(5)
     @comments = @article.comments.includes(:user).page(current_page).order(created_at: :desc)
     respond_to do |format|
       format.html
