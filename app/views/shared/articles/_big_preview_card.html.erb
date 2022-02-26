@@ -1,12 +1,6 @@
 <article class="first-post mb-50 animate-conner">
   <div class="post-thumb d-flex mb-30 border-radius-5 img-hover-scale animate-conner-box">
-    <%= link_to article do %>
-      <% if article.avatar.present? %>
-        <img src="<%= article.avatar.url %>" alt="...">
-      <% else %>
-        <img src="<%= asset_path('no-image.png') %>" alt="...">
-      <% end %>
-    <% end %>
+    <%= link_to article_avatar_preview(article), article %>
   </div>
   <div class="post-content">
     <div class="entry-meta meta-0 font-small mb-15">
@@ -23,7 +17,7 @@
           <%= article.moderator.name %>
         <% end %>
       </span>
-      <span class="post-on has-dot"><%= published_time(article) %></span>
+      <span class="post-on has-dot"><%= published_time_label(article) %></span>
     </div>
     <div class="post-excerpt mb-25">
       <p><%= article.description %></p>
