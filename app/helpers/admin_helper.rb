@@ -1,6 +1,22 @@
 module AdminHelper
   include ActsAsTaggableOn::TagsHelper
 
+  def admin_published_time_label(article)
+    return 'Not published yet' unless article.published_at
+
+    published_time_label(article)
+  end
+
+  def admin_article_avatar_small_preview(article)
+    return article_admin_card_image('no-image.png') unless article.avatar.url
+
+    admin_article_card_image(article.avatar.small_preview.url)
+  end
+
+  def admin_article_card_image(image_url)
+    image_tag(image_url, class: 'card-img-top img-size', alt: '...')
+  end
+
   def link_to_moderators
     link_to 'Moderators', admin_moderators_path, class: 'nav-link' if user_admin?
   end
