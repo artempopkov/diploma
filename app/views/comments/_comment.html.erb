@@ -3,14 +3,14 @@
     <div class="user justify-content-between d-flex">
       <div class="desc">
         <p class="comment">
-          <%= @comment.body %>
+          <%= comment.body %>
         </p>
         <div class="d-flex justify-content-between">
           <div class="d-flex align-items-center">
             <h5>
-              <%= @comment.user.name %>
+              <%= comment.user.name %>
             </h5>
-            <p class="date"><%= universal_time_format(@comment.created_at) %></p>
+            <p class="date"><%= utc(comment.created_at) %></p>
           </div>
         </div>
       </div>
