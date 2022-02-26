@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @comments = Comment.order('id DESC')
+    @comments = Comment.order(id: :desc)
     authorize @comments
   end
 
