@@ -1,10 +1,9 @@
 module ArticleHelper
-  def published_time(article)
-    return "Not published yet" unless article.published_at
+  def published_time_label(article)
+    utc_published_time = utc(article.published_at)
+    return "Edit: #{utc_published_time}" if article.edited?
 
-    return "Edit: #{universal_time_format(article.published_at)}" if article.edited?
-
-    universal_time_format(article.published_at)
+    utc_published_time
   end
 
   def like_heart(article)
@@ -22,14 +21,6 @@ module ArticleHelper
 
     render "shared/articles/medium_preview_card", article: article
   end
-
-  def comment_form(article)
-    return render "comments/form", article: article if current_user
-
-    content_tag(:div, class: "alert alert-danger") do
-      link_to "Please login to comment", new_user_session_path
-    end
-  end
   
   def toggle_important(article)
     if article.important?
@@ -43,23 +34,31 @@ module ArticleHelper
     end
   end
 
-  def article_avatar_small_preview(article)
-    return article_admin_card_image(asset_path("no-image.png")) if article.avatar.url.nil?
-
-    article_admin_card_image(article.avatar.small_preview.url)
-  end
-
   def article_avatar(article)
     return if article.avatar_absent_or_disabled?
 
-    image_tag(article.avatar.url, class: "mb-3", alt: "...")
+    image_tag(article.avatar.url, alt: '...')
   end
 
-  def article_admin_card_image(image_url)
-    image_tag(image_url, class: "card-img-top img-size", alt: "...")
+  def article_avatar_preview(article)
+    return image_tag('no-image.png', alt: '...') if article.avatar_absent_or_disabled?
+
+    image_tag(article.avatar.url, alt: '...')
   end
 
-  def universal_time_format(time)
-    time.strftime("%d %b %Y, %H:%M")
+  def article_avatar_big_preview(article)
+    return image_tag('no-image.png', alt: '...') unless article.avatar.url
+
+    image_tag(article.avatar.big_preview.url, alt: '...')
+  end
+
+  def article_avatar_small_preview(article)
+    return image_tag('no-image.png', alt: '...') unless article.avatar.url
+
+    image_tag(article.avatar.small_preview.url, alt: '...')
+  end
+
+  def utc(time)
+    time.strftime('%d %b %Y, %H:%M')
   end
 end
