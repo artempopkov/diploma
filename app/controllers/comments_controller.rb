@@ -16,13 +16,7 @@ class CommentsController < ApplicationController
       redirect_to article_url(@comment.article), alert: 'Comment field cannot be blank'
     end
   end
-
-  def destroy
-    @comment.destroy
-
-    redirect_to comments_url, notice: 'Comment was successfully destroyed.'
-  end
-
+  
   private
 
   def load_models

@@ -9,7 +9,7 @@
           <div class="d-flex justify-content-between">
             <div class="d-flex align-items-center">
               <h5>
-                <%= comment.user.name %>
+                <%= link_to comment.user.name, comment.user %>
               </h5>
               <p class="date"><%= utc(comment.created_at) %></p>
             </div>

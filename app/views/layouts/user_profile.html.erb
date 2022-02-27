@@ -40,14 +40,6 @@
             <div class="row">
               <div class="col-6">
                 <div class="language d-inline-block font-small">
-                  <div id="langMenuDropdow" class="dropdown-menu dropdown-menu-left" aria-labelledby="langMenu">
-                    <a class="dropdown-item" href="#">English</a>
-                    <a class="dropdown-item" href="#">Русский</a>
-                  </div>
-                  <a class="dropdown-toggle" href="#" role="button" id="langMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="ti-world mr-5"></i>
-                    <span>EN</span>
-                  </a>
                 </div>
                 <div id="datetime" class="d-inline-block">
                   <ul>
@@ -67,6 +59,10 @@
                       <%= link_to user_path(current_user), class: 'dropdown-item' do %>
                         <i class="icon-pencil-alt"></i>
                         My Account
+                      <% end %>
+                      <%= link_to user_email_subscriptions_path(current_user), class: 'dropdown-item' do %>
+                        <i class="icon-stats-up"></i>
+                        Email Subscription
                       <% end %>
                       <div class="dropdown-divider"></div>
                       <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
@@ -186,7 +182,9 @@
                 <h5><span class="text-secondary"><%= @user.email %></span></h5>
               </div>
               <div class="col-md-6 text-md-right">
-                <%= link_to 'edit profile', edit_user_registration_path, class: 'edit-user-profile' %>
+                <% if current_user == @user %>
+                  <%= link_to 'edit profile', edit_user_registration_path, class: 'edit-user-profile' %>
+                <% end %>
               </div>
             </div>
             <div class="main_content shop pb-20">

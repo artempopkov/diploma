@@ -10,12 +10,10 @@ class EmailSubscriptionsController < ApplicationController
   end
 
   def edit
-    # authorize @user
     @model = @email_subscription.subscriptionable_type
   end
 
   def update
-    # authorize @user
     @email_subscription.subscriptionable_ids = @email_subscription.subscriptionable_ids.reject(&:blank?)
 
     if @email_subscription.update(email_subscription_params)

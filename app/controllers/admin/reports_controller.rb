@@ -1,8 +1,10 @@
 module Admin
   class ReportsController < AdminController
+    after_action :verify_authorized
 
     def users_report
       @users_report = Reports::UsersDataService.new(User.all).users_report
+      authorize [:admin, :report], :users_report?
 
       respond_to do |format|
         format.xlsx {
@@ -15,7 +17,8 @@ module Admin
 
     def correspondents_report
       @correspondents_report = Reports::CorrespondentsDataService.new(Moderator.correspondent).correspondents_report
-      
+      authorize [:admin, :report], :correspondents_report?
+
       respond_to do |format|
         format.xlsx {
           response.headers[
@@ -27,7 +30,8 @@ module Admin
 
     def articles_report
       @articles_report = Reports::ArticlesDataService.new(Article.all).articles_report
-      
+      authorize [:admin, :report], :articles_report?
+
       respond_to do |format|
         format.xlsx {
           response.headers[

@@ -1,6 +1,5 @@
 module Admin
   class ArticleReviewsController < AdminController
-
     def create
       if article_reviews_params[:status] == 'accepted'
         result = ArticleReviews::Accept.call(article_reviews_params: article_reviews_params)
