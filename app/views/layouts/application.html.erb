@@ -39,7 +39,6 @@
           <div class="container">
             <div class="row">
               <div class="col-6">
-                
                 <div id="datetime" class="d-inline-block">
                   <ul>
                     <li><span class="font-small"><i class="ti-calendar mr-5"></i><%= Time.now.strftime("%A, %B %-d, %Y") %></span></li>
@@ -104,29 +103,29 @@
             <div class="row">
               <div class="col-12">
                 <div class="logo-tablet d-md-inline d-lg-none d-none">
-                  <a href="index.html">
-                    <%= image_tag 'logos/logo-tablet.png', class: 'logo-img d-inline' %>
-                  </a>
+                  <%= link_to root_path do %>
+                    <%= image_tag 'logos/logo.png', class: 'logo-img d-inline' %>
+                  <% end %>
                 </div>
                 <div class="logo-mobile d-inline d-md-none">
-                  <a href="index.html">
-                    <%= image_tag 'logos/logo-mobile.png', class: 'logo-img d-inline' %>
-                  </a>
+                  <%= link_to root_path do %>
+                    <%= image_tag 'logos/logo.png', class: 'logo-img d-inline' %>
+                  <% end %>
                 </div>
                 <!-- Main-menu -->
-                <div class="main-nav text-center d-none d-lg-block">
+                <div class="main-nav text-left d-none d-lg-block">
                   <nav>
                     <ul id="navigation" class="main-menu">
-                      <li><a href="about.html">About</a></li>
                       <li class="menu-item-has-children">
-                        <a href="category.html">Category</a>
+                        <a href="#">Category</a>
                         <ul class="sub-menu">
-                          <% Category.all.order(:id).each do |cat| %>
-                            <li><%= link_to cat.name, '#' %></li>
+                          <% Category.all.order(:id).each do |category| %>
+                            <li>
+                              <%= link_to category.name, search_articles_path(query: {category_id_eq: category.id}) %>
+                            </li>
                           <% end %>
                         </ul>
                       </li>
-                      <li><a href="contact.html">Contact</a></li>
                     </ul>
                   </nav>
                 </div>

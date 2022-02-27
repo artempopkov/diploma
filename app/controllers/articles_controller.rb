@@ -7,8 +7,9 @@ class ArticlesController < ApplicationController
 
   def show
     authorize @article
-    @tranding_articles = Article.trending.limit(3)
-    @latests_articles = Article.latest_published.order(created_at: :desc).limit(5)
+    @tranding_articles = Article.includes(:category).trending.limit(3)
+    @latests_articles = Article.includes(:category).latest_published.order(created_at: :desc).limit(5)
+    @related_articles = @article.related_articles
     @comments = @article.comments.includes(:user).page(current_page).order(created_at: :desc)
     respond_to do |format|
       format.html

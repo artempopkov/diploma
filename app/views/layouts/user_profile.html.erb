@@ -109,14 +109,14 @@
             <div class="row">
               <div class="col-12">
                 <div class="logo-tablet d-md-inline d-lg-none d-none">
-                  <a href="index.html">
-                    <%= image_tag 'logos/logo-tablet.png', class: 'logo-img d-inline' %>
-                  </a>
+                  <%= link_to root_path do %>
+                    <%= image_tag 'logos/logo.png', class: 'logo-img d-inline' %>
+                  <% end %>
                 </div>
                 <div class="logo-mobile d-inline d-md-none">
-                  <a href="index.html">
-                    <%= image_tag 'logos/logo-mobile.png', class: 'logo-img d-inline' %>
-                  </a>
+                  <%= link_to root_path do %>
+                    <%= image_tag 'logos/logo.png', class: 'logo-img d-inline' %>
+                  <% end %>
                 </div>
                 <!-- Main-menu -->
                 <div class="main-nav text-center d-none d-lg-block">
@@ -127,7 +127,7 @@
                         <a href="category.html">Category</a>
                         <ul class="sub-menu">
                           <% Category.all.order(:id).each do |cat| %>
-                            <li><%= link_to cat.name, '#' %></li>
+                            <%= link_to category.name, search_articles_path(query: {category_id_eq: category.id}) %>
                           <% end %>
                         </ul>
                       </li>

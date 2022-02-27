@@ -4,18 +4,16 @@
   </div>
   <div class="post-content">
     <div class="entry-meta meta-0 font-small mb-15">
-      <%= link_to '#' do %>
-        <span class="post-cat background1 color-white"><%= article.category.name %></span>
-      <% end %>
+      <span class="post-cat background1 color-white">
+        <%= link_to article.category.name, search_articles_path(query: {category_id_eq: article.category.id}), class: 'color-white' %>
+      </span>
     </div>
     <h3 class="post-title">
       <%= link_to article.title, article %>
     </h3>
     <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
       <span class="post-by">By
-        <%= link_to '#' do %>
-          <%= article.moderator.name %>
-        <% end %>
+        <%= article.moderator.name %>
       </span>
       <span class="post-on has-dot"><%= published_time_label(article) %></span>
     </div>
