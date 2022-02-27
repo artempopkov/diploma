@@ -65,6 +65,10 @@ module AdminHelper
     link_to 'Correspondents report', admin_correspondents_report_path(format: :xlsx), class: 'nav-link' if user_admin?
   end
 
+  def link_to_articles_report
+    link_to 'Articles report', admin_articles_report_path(format: :xlsx), class: 'nav-link' if user_admin?
+  end
+
   private
 
   def user_admin?

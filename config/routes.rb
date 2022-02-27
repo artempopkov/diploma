@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     get "/", to: "home#index"
     get "users_report", to: "reports#users_report"
     get "correspondents_report", to: "reports#correspondents_report"
+    get "articles_report", to: "reports#articles_report"
     resources :users
     resources :moderators
     resources :categories

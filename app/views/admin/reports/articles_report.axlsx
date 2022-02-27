@@ -7,22 +7,24 @@ wb.styles do |style|
   border = wb.styles.add_style({:border => { :style => :thin, :color => "000000" }}) 
   total = wb.styles.add_style({:b => true, :alignment => {:horizontal => :center, :vertical => :center, :wrap_text => true}, :border => { :style => :thin, :color => "000000" }})
   
-  wb.add_worksheet(name: "Correspondents report") do |sheet|
+  wb.add_worksheet(name: "Articles report") do |sheet|
     # Add a title row
-    sheet.add_row ["Correspondents report"], style: project_heading
+    sheet.add_row ["Articles report"], style: project_heading
     # Add the date this was downloaded  
     sheet.add_row ["Downloaded at", Time.zone.now.strftime("%b %-d, %Y")]
     # Add a blank row
     sheet.add_row []
     # Create the header row
-    sheet.add_row ["Name", "Email", "Articles amount","Likes", "Views", "Comments"], :style => header
+    sheet.add_row ["Article title", "Likes", "Views", "Comments"], :style => header
     # Create entries for each item
-    @correspondents_report.each do |data|
-      sheet.add_row [data.correspondent.name, data.correspondent.email, data.articles_count, data.likes, data.views, data.comments], :style => border
+    @articles_report.each do |data|
+      cureent_row = sheet.add_row [data.article.title, data.likes, data.views, data.comments, 'SHOW'], :style => border
+      sheet.add_hyperlink :location => article_url(data.article), :ref => cureent_row.cells.fifth, :tooltip => "View article"
+      
     end
-    sheet.add_row ['Total', '', @correspondents_report.inject(0) { |sum, x| sum + x.articles_count }, 
-                            @correspondents_report.inject(0) { |sum, x| sum + x.likes }, 
-                            @correspondents_report.inject(0) { |sum, x| sum + x.views },
-                            @correspondents_report.inject(0) { |sum, x| sum + x.comments }], :style => total
+    sheet.add_row ['Total', @articles_report.inject(0) { |sum, x| sum + x.likes }, 
+                                @articles_report.inject(0) { |sum, x| sum + x.views },
+                                @articles_report.inject(0) { |sum, x| sum + x.comments },
+                                @articles_report.size], :style => total
   end
 end
