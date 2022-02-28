@@ -10,7 +10,7 @@ class AdminController < ApplicationController
   private
 
   def user_not_authorized
-    flash[:notice] = 'You are not authorized to perform this action.'
+    flash[:notice] = 'У вас нет прав совершать это действие.'
     redirect_to(admin_path)
   end
 end

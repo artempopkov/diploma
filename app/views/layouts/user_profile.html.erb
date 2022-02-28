@@ -126,7 +126,7 @@
                       <li class="menu-item-has-children">
                         <a href="category.html">Category</a>
                         <ul class="sub-menu">
-                          <% Category.all.order(:id).each do |cat| %>
+                          <% Category.all.order(:id).each do |category| %>
                             <%= link_to category.name, search_articles_path(query: {category_id_eq: category.id}) %>
                           <% end %>
                         </ul>

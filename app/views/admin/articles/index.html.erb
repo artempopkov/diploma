@@ -23,7 +23,7 @@
   
   <%= f.label 'Statuses' %>
   <div class="mb-2">
-    <%= f.collection_select :status_in, @articles.statuses, :second, :first, {}, multiple: true, class:'js-multiple-select w-100'%>
+    <%= f.collection_select :status_in, @articles.translated_statuses, :second, :first, {}, multiple: true, class:'js-multiple-select w-100'%>
   </div>
 
   
@@ -47,7 +47,7 @@
             <%= link_to '', [:admin, article], class: 'img-link' %>
             <div class="card-body">
               <a href="#"><span>Category: <%= article.category.name %></span></a>
-              <p class="post-on has-dot">Status: <%= article.status %></p>
+              <p class="post-on has-dot">Status: <%= article.translated_status %></p>
               <p class="card-text"><small class="text-muted"><%= admin_published_time_label(article) %></small></p>
               <div class="bt-1 border-color-1 mb-1"></div>
               <h5 class="card-title"><%= link_to article.title, [:admin, article] %></h5>

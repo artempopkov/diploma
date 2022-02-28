@@ -13,6 +13,7 @@ import "select2/dist/js/select2";
 import Noty from "noty/lib/noty.js";
 import "datatables.net-buttons-dt";
 import "datatables.net-buttons-bs4";
+import d_ru from "./datatables_ru.json";
 
 require("trix");
 require("@rails/actiontext");
@@ -28,9 +29,32 @@ ActiveStorage.start();
 $(document).on("turbolinks:load", function () {
   $("#comments-datatable").DataTable({
     language: {
-      search: "",
-      searchPlaceholder: "Search...",
-      lengthMenu: "records per page _MENU_",
+      processing: "Подождите...",
+      search: "Поиск:",
+      lengthMenu: "Записей на странице _MENU_",
+      info: "Записи с _START_ до _END_ из _TOTAL_ записей",
+      infoEmpty: "Записи с 0 до 0 из 0 записей",
+      infoFiltered: "(отфильтровано из _MAX_ записей)",
+      loadingRecords: "Загрузка записей...",
+      zeroRecords: "Записи отсутствуют.",
+      emptyTable: "В таблице отсутствуют данные",
+      paginate: {
+        first: "Первая",
+        previous: "Предыдущая",
+        next: "Следующая",
+        last: "Последняя",
+      },
+      aria: {
+        sortAscending: ": активировать для сортировки столбца по возрастанию",
+        sortDescending: ": активировать для сортировки столбца по убыванию",
+      },
+      select: {
+        rows: {
+          _: "Выбрано записей: %d",
+          0: "Кликните по записи для выбора",
+          1: "Выбрана одна запись",
+        },
+      },
     },
     lengthMenu: [
       [10, 25, 50, -1],
@@ -55,9 +79,21 @@ $(document).on("turbolinks:load", function () {
 $(document).on("turbolinks:load", function () {
   $("#categories-datatable").DataTable({
     language: {
-      search: "",
-      searchPlaceholder: "Search...",
-      lengthMenu: "records per page _MENU_",
+      processing: "Подождите...",
+      search: "Поиск:",
+      lengthMenu: "Записей на странице _MENU_",
+      info: "Записи с _START_ до _END_ из _TOTAL_ записей",
+      infoEmpty: "Записи с 0 до 0 из 0 записей",
+      infoFiltered: "(отфильтровано из _MAX_ записей)",
+      loadingRecords: "Загрузка записей...",
+      zeroRecords: "Записи отсутствуют.",
+      emptyTable: "В таблице отсутствуют данные",
+      paginate: {
+        first: "Первая",
+        previous: "Предыдущая",
+        next: "Следующая",
+        last: "Последняя",
+      },
     },
     lengthMenu: [
       [10, 25, 50, -1],
@@ -83,9 +119,32 @@ $(document).on("turbolinks:load", function () {
 $(document).on("turbolinks:load", function () {
   $("#users-datatable").DataTable({
     language: {
-      search: "",
-      searchPlaceholder: "Search...",
-      lengthMenu: "records per page _MENU_",
+      processing: "Подождите...",
+      search: "Поиск:",
+      lengthMenu: "Записей на странице _MENU_",
+      info: "Записи с _START_ до _END_ из _TOTAL_ записей",
+      infoEmpty: "Записи с 0 до 0 из 0 записей",
+      infoFiltered: "(отфильтровано из _MAX_ записей)",
+      loadingRecords: "Загрузка записей...",
+      zeroRecords: "Записи отсутствуют.",
+      emptyTable: "В таблице отсутствуют данные",
+      paginate: {
+        first: "Первая",
+        previous: "Предыдущая",
+        next: "Следующая",
+        last: "Последняя",
+      },
+      aria: {
+        sortAscending: ": активировать для сортировки столбца по возрастанию",
+        sortDescending: ": активировать для сортировки столбца по убыванию",
+      },
+      select: {
+        rows: {
+          _: "Выбрано записей: %d",
+          0: "Кликните по записи для выбора",
+          1: "Выбрана одна запись",
+        },
+      },
     },
     lengthMenu: [
       [10, 25, 50, -1],
@@ -112,9 +171,32 @@ $(document).on("turbolinks:load", function () {
 $(document).on("turbolinks:load", function () {
   $("#moderators-datatable").DataTable({
     language: {
-      search: "",
-      searchPlaceholder: "Search...",
-      lengthMenu: "records per page _MENU_",
+      processing: "Подождите...",
+      search: "Поиск:",
+      lengthMenu: "Записей на странице _MENU_",
+      info: "Записи с _START_ до _END_ из _TOTAL_ записей",
+      infoEmpty: "Записи с 0 до 0 из 0 записей",
+      infoFiltered: "(отфильтровано из _MAX_ записей)",
+      loadingRecords: "Загрузка записей...",
+      zeroRecords: "Записи отсутствуют.",
+      emptyTable: "В таблице отсутствуют данные",
+      paginate: {
+        first: "Первая",
+        previous: "Предыдущая",
+        next: "Следующая",
+        last: "Последняя",
+      },
+      aria: {
+        sortAscending: ": активировать для сортировки столбца по возрастанию",
+        sortDescending: ": активировать для сортировки столбца по убыванию",
+      },
+      select: {
+        rows: {
+          _: "Выбрано записей: %d",
+          0: "Кликните по записи для выбора",
+          1: "Выбрана одна запись",
+        },
+      },
     },
     lengthMenu: [
       [10, 25, 50, -1],
@@ -192,7 +274,7 @@ $(document).on("turbolinks:load", function () {
       templateResult: hideSelected,
       tags: true,
       tokenSeparators: [",", " "],
-      placeholder: "Select a state"
+      placeholder: "Select a state",
     };
 
     $this.select2(opts);

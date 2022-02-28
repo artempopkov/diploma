@@ -27,7 +27,7 @@ module Admin
       @category = Category.new(category_params)
       authorize [:admin, @category]
       if @category.save
-        redirect_to admin_categories_url, notice: 'Creation finish successfully'
+        redirect_to admin_categories_url, notice: 'Категория успешно создана'
       else
         render :new, status: :unprocessable_entity
       end
@@ -36,7 +36,7 @@ module Admin
     def update
       authorize [:admin, @category]
       if @category.update(category_params)
-        redirect_to admin_categories_url, notice: 'Updating finish successfully'
+        redirect_to admin_categories_url, notice: 'Категория успешно обновлена'
       else
         render :edit, status: :unprocessable_entity
       end
@@ -46,7 +46,7 @@ module Admin
       authorize [:admin, @category]
       result = Categories::Destroy.call(category: @category)
       if result.success?
-        redirect_to admin_categories_url, notice: 'Destruction finish successfully'
+        redirect_to admin_categories_url, notice: 'Категория успешно удалена'
       else
         redirect_to admin_categories_url, alert: result.message
       end

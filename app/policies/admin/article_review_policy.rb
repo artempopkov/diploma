@@ -12,7 +12,7 @@ module Admin
     end
 
     def create?
-      moderator.editor? and !article_review.article.rejected? and !article_review.article.created?
+      moderator.editor? and !article_review.article.created?
     end
   end
 end

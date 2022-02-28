@@ -16,7 +16,8 @@
   </div>
 
   <div class="field">
-    <%= form.select :status, review_statuses.keys.map { |status| [status.humanize, status] }, {}, {class: "form-control"}  %>
+    <%= form.select :status, review_statuses.keys.map { |status| [enum_i18n(ArticleReview, ArticleReview.statuses, status), status] }, {}, {class: "form-control"}  %>
+    <%# <%= form.select :status, ArticleReview.statuses, {}, {class: "form-control"}  %> %>
   </div>
 
   <div class="actions">

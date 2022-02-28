@@ -2,23 +2,23 @@
   <div class="card-body">
     <div class="row">
      <div class="form-group col-md-6">
-        <label>Name <span class="required">*</span></label>
+        <label>Имя<span class="required">*</span></label>
         <%= f.text_field :name, autofocus: true, class: "form-control #{field_validity_css_class(resource, :name)}" %>
         <%= catched_errors(resource, :name) %>
       </div>
       <div class="form-group col-md-6">
-        <label>Email Address <span class="required">*</span></label>
+        <label>Электронная почта<span class="required">*</span></label>
         <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: "form-control #{field_validity_css_class(resource, :email)}" %>
         <%= catched_errors(resource, :email) %>
       </div>
       <div class="form-group col-md-12">
-        <label>New Password <span class="required"></span></label>
+        <label>Новый пароль<span class="required"></span></label>
         <%= f.password_field :password, autocomplete: 'new-password', class: "form-control #{field_validity_css_class(resource, :password)}" %>
         <%= catched_errors(resource, :password) %>
         <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
       </div>
       <div class="form-group col-md-12">
-        <label>Confirm Password <span class="required"></span></label>
+        <label>Подтверждение пароля<span class="required"></span></label>
         <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: "form-control #{field_validity_css_class(resource, :password_confirmation)}" %>
         <%= catched_errors(resource, :password_confirmation) %>
       </div>

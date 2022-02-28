@@ -24,7 +24,7 @@ module Admin
       @moderator = Moderator.new moderator_params
       authorize [:admin, @moderator]
       if @moderator.save
-        redirect_to admin_moderators_url, notice: 'Creation finish successfully'
+        redirect_to admin_moderators_url, notice: 'Администратор успешно создан'
       else
         render :new, status: :unprocessable_entity
       end
@@ -33,7 +33,7 @@ module Admin
     def update
       authorize [:admin, @moderator]
       if @moderator.update moderator_params
-        redirect_to admin_moderators_url, notice: 'Updating finish successfully'
+        redirect_to admin_moderators_url, notice: 'Администратор успешно обновлён'
       else
         render :edit, status: :unprocessable_entity
       end
@@ -42,7 +42,9 @@ module Admin
     def destroy
       authorize [:admin, @moderator]
       @moderator.destroy
-      redirect_to admin_moderators_url, notice: 'Destruction finish successfully'
+      redirect_to admin_moderators_url, notice: 'Администратор успешно удалён'
+    rescue StandardError => e
+      redirect_to admin_moderators_url, notice: 'Ошибка удаления'
     end
 
     private

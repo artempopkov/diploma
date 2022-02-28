@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+  include TranslateEnum
   has_rich_text :content
   mount_uploader :avatar, AvatarUploader
   acts_as_taggable_on :tags
@@ -6,7 +7,8 @@ class Article < ApplicationRecord
   is_impressionable :counter_cache => true, :column_name => :impressions_count, :unique => :session_hash
 
   enum status: { created: 0, prepared: 1, accepted: 2, rejected: 3, published: 4, archived: 5}
-
+  translate_enum :status
+  
   belongs_to :category
   belongs_to :moderator
   has_many :reviews, dependent: :destroy, class_name: 'ArticleReview'

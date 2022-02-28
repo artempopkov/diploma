@@ -28,11 +28,9 @@ module Ngnews
     config.asset_host = "http://127.0.0.1:3000"
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-    config.i18n.load_path += Dir[Rails.root.join("my", "locales", "*.{rb,yml}")]
-    config.i18n.default_locale = :de
+    config.i18n.default_locale = :ru
     # config.time_zone = "Central Time (US & Canada)"
     # Configuration for the application, engines, and railties goes here.
-    #
     # config.eager_load_paths << Rails.root.join("extras")
     config.active_job.queue_adapter = :sidekiq
     config.generators do |g|

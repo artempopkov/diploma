@@ -1,5 +1,7 @@
 module Admin
   class ArticleReviewsController < AdminController
+    after_action :verify_authorized
+    
     def create
       if article_reviews_params[:status] == 'accepted'
         result = ArticleReviews::Accept.call(article_reviews_params: article_reviews_params)
@@ -9,7 +11,7 @@ module Admin
       authorize [:admin, result.article_review]
       
       if result.success?
-        redirect_to admin_article_url(result.article_review.article), notice: "Article review was successfully #{article_reviews_params[:status]}."
+        redirect_to admin_article_url(result.article_review.article), notice: "Статья #{result.article_review.article.translated_status}"
       else
         flash[:error] = result.message
         redirect_to admin_articles_url

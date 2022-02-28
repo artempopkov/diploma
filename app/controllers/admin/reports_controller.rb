@@ -13,6 +13,8 @@ module Admin
           ] = "attachment; filename=users_report.xlsx"
         }
       end
+    rescue StandardError => e
+      redirect_to admin_url, notice: 'Ошибка создания отчёта'
     end
 
     def correspondents_report
@@ -26,6 +28,8 @@ module Admin
           ] = "attachment; filename=correspondents_report.xlsx"
         }
       end
+    rescue StandardError => e
+      redirect_to admin_url, notice: 'Ошибка создания отчёта'
     end
 
     def articles_report
@@ -39,6 +43,9 @@ module Admin
           ] = "attachment; filename=articles_report.xlsx"
         }
       end
+      
+    rescue StandardError => e
+      redirect_to admin_url, notice: 'Ошибка создания отчёта'
     end
   end
 end

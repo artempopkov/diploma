@@ -15,7 +15,9 @@ module Admin
       authorize [:admin, @comment]
       @comment.destroy
 
-      redirect_to admin_comments_url, notice: "Comment was successfully destroyed."
+      redirect_to admin_comments_url, notice: 'Комментарий успешно удалён'
+    rescue StandardError => e
+      redirect_to admin_moderators_url, notice: 'Ошибка удаления'
     end
 
     private

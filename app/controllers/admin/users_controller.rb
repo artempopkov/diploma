@@ -24,7 +24,7 @@ module Admin
       @user = User.new user_params
       authorize [:admin, @user]
       if @user.save
-        redirect_to admin_users_url, notice: 'Creation finish successfully'
+        redirect_to admin_users_url, notice: 'Пользователь успешно создан'
       else
         render :new, status: :unprocessable_entity
       end
@@ -33,7 +33,7 @@ module Admin
     def update
       authorize [:admin, @user]
       if @user.update user_params
-        redirect_to admin_users_url, notice: 'Updating finish successfully'
+        redirect_to admin_users_url, notice: 'Пользователь успешно обновлён'
       else
         render :edit, status: :unprocessable_entity
       end
@@ -42,7 +42,9 @@ module Admin
     def destroy
       authorize [:admin, @user]
       @user.destroy
-      redirect_to admin_users_url, notice: 'Destruction finish successfully'
+      redirect_to admin_users_url, notice: 'Пользователь успешно удалён'
+    rescue StandardError => e
+      redirect_to admin_url, notice: 'Ошибка создания удаления'
     end
 
     private

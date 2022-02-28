@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized
-    flash[:notice] = "You are not authorized to perform this action."
+    flash[:notice] = "У вас нет прав совершать это действие."
     redirect_to(new_user_session_path)
   end
 end
