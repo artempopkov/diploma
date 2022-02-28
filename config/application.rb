@@ -32,6 +32,14 @@ module Ngnews
     # config.time_zone = "Central Time (US & Canada)"
     # Configuration for the application, engines, and railties goes here.
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.to_prepare do
+    
+      # Or to configure mailer layout
+      Devise::Mailer.layout "mailer" # email.haml or email.erb
+      Devise::Mailer.helper EmailHelper
+    end
+
     config.active_job.queue_adapter = :sidekiq
     config.generators do |g|
       g.system_tests = nil

@@ -13,7 +13,7 @@ import "select2/dist/js/select2";
 import Noty from "noty/lib/noty.js";
 import "datatables.net-buttons-dt";
 import "datatables.net-buttons-bs4";
-import d_ru from "./datatables_ru.json";
+import * as Select2Ru from "select2/src/js/select2/i18n/ru";
 
 require("trix");
 require("@rails/actiontext");
@@ -255,6 +255,7 @@ $(document).on("turbolinks:load", function () {
       placeholder: $this.data("placeholder"),
       allowClear: Boolean($this.data("allow-clear")),
       templateResult: hideSelected,
+      language: Select2Ru
     };
 
     $this.select2(opts);
@@ -274,7 +275,8 @@ $(document).on("turbolinks:load", function () {
       templateResult: hideSelected,
       tags: true,
       tokenSeparators: [",", " "],
-      placeholder: "Select a state",
+      placeholder: "Выбеите тэги",
+      language: Select2Ru
     };
 
     $this.select2(opts);

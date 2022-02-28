@@ -6,24 +6,21 @@
           <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
             <div class="padding_eight_all bg-white">
               <div class="heading_s1">
-                <h3 class="mb-30">Password recovery</h3>
+                <h3 class="mb-30">Восстановление пароля</h3>
               </div>
               <%= f.hidden_field :reset_password_token %>
               <div class="form-group">
-                <%= f.label :password, t('.new_password') %>
+                <%= f.label 'Новый пароль' %>
                 <%= f.password_field :password, autofocus: true, class: "form-control #{field_validity_css_class(resource, :password)}" %>
                 <%= catched_errors(resource, :password) %>
-                <% if @minimum_password_length %>
-                  <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
-                <% end %>
               </div>
               <div class="form-group">
-                <%= f.label :password_confirmation, t('.confirm_new_password') %>
+                <%= f.label 'Подтверждение пароля' %>
                 <%= f.password_field :password_confirmation, autocomplete: 'off', class: "form-control #{field_validity_css_class(resource, :password_confirmation)}" %>
                 <%= catched_errors(resource, :password_confirmation) %>
               </div>
               <div class="form-group">
-                <%= f.submit t('.change_my_password'), class: 'btn btn-fill' %>
+                <%= f.submit 'Изменить пароль', class: 'btn btn-fill w-100' %>
               </div>
             </div>
           </div>

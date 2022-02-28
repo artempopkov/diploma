@@ -6,15 +6,15 @@
                     <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
                         <div class="padding_eight_all bg-white">
                             <div class="heading_s1">
-                                <h3 class="mb-30">Login</h3>
+                                <h3 class="mb-30">Вход</h3>
                             </div>
                             <%= render "devise/shared/error_messages", resource: resource %>
                             <form method="post">
                                 <div class="form-group">
-                                    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'Your Email' %>
+                                    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'Ваш Email' %>
                                 </div>
                                 <div class="form-group">
-                                  <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', placeholder: 'Password' %>
+                                  <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', placeholder: 'Пароль' %>
                                 </div>
                                 <div class="login_footer form-group">
                                     <% if devise_mapping.rememberable? %>
@@ -27,16 +27,16 @@
                                             </div>
                                         </div>
                                     <% end %>
-                                    <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'text-muted' %>
+                                    <%= link_to "Забыли пароль?", new_password_path(resource_name), class: 'text-muted' %>
                                 </div>
                                 <div class="form-group">
-                                    <%= f.submit  'Sign in', class: 'btn btn-fill-out btn-block' %>
+                                    <%= f.submit  'Войти', class: 'btn btn-fill-out btn-block' %>
                                 </div>
                             </form>
                             <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
                                 <div class="divider-text-center mt-15 mb-25"></div>
                                 <div class="text-muted text-center">
-                                    Don't Have an Account? <%= link_to "Sign up", new_registration_path(resource_name) %>
+                                    Нет аккаунта? <%= link_to "Зарегистрироваться", new_registration_path(resource_name) %>
                                 </div>
                             <% end %>
                         </div>

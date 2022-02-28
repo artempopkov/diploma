@@ -1,4 +1,7 @@
 ru:
+  email:
+    Category: "Категории"
+    Tag: "Тэги"
   activerecord:
     enums:
       article:
@@ -49,6 +52,7 @@ ru:
         password_confirmation: "Подтверждение пароля"
         current_password: "Текущий пароль"
         new_password: "Новый пароль"
+        remember_me: Запомнить меня
       moderator:
         name: "Имя"
         email: "Электронная почта"
@@ -56,6 +60,7 @@ ru:
         password_confirmation: "Подтверждение пароля"
         current_password: "Текущий пароль"
         new_password: "Новый пароль"
+        remember_me: Запомнить меня
         role_list:
           admin: "Администратор"
           moderator: "Модератор"

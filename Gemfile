@@ -42,6 +42,7 @@ gem 'rails-i18n'
 gem 'translate_enum'
 gem 'ransack-enum'
 gem 'russian'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

@@ -1,16 +1,16 @@
 <div class="position-relative mr-1 ml-1">
   <div class="pt-50 pb-50">
     <div class="container border border-3 rounded pt-20 bg archive-header shop-header header-bg2">
-      <h1>Email subscription</h1>
+      <h1>Email Подписка</h1>
       <div class="dropdown-divider"></div>
       <% @email_subscriptions.each_pair do |sub, names| %>
         <div class="row align-items-center h-100 mr-20 ml-20">
           <div class="col-md-6 mx-auto"> 
-            <h3><span class="color6"><%= sub.subscriptionable_type %></span></h3>
+            <h3><span class="color6"><%= t("email.#{sub.subscriptionable_type}") %></span></h3>
               <h5><span class="text-secondary"><%= names.join(", ") %></span></h5>
           </div> 
           <div class="col-md-6 text-md-right">
-            <%= link_to 'edit', edit_user_email_subscription_path(current_user, sub), class: 'edit-user-profile' %>
+            <%= link_to 'изменить', edit_user_email_subscription_path(current_user, sub), class: 'edit-user-profile' %>
           </div>
         </div>
       <% end %>

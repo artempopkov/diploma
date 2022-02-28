@@ -6,15 +6,15 @@
           <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
             <div class="padding_eight_all bg-white">
               <div class="heading_s1">
-                <h3 class="mb-30">Password recovery</h3>
+                <h3 class="mb-30">Восстановление пароля</h3>
               </div>
               <%= render "devise/shared/error_messages", resource: resource %>
               <form method="post">
                 <div class="form-group">
-                  <%= f.email_field :email, autocomplete: 'email', class: 'form-control', placeholder: 'Your Email' %>
+                  <%= f.email_field :email, autocomplete: 'email', class: 'form-control', placeholder: 'Ваш email' %>
                 </div>
                 <div class="form-group">
-                  <%= f.submit  'Send recovery message', class: 'btn btn-fill-out btn-block' %>
+                  <%= f.submit  'Отправить письмо на восстановление', class: 'btn btn-fill-out btn-block' %>
                 </div>
               </form>
             </div>

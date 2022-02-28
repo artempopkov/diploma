@@ -6,11 +6,11 @@
           <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
             <div class="padding_eight_all bg-white">
               <div class="heading_s1">
-                <h3 class="mb-30">Create an Account</h3>
+                <h3 class="mb-30">Регистрация</h3>
               </div>
               <form method="post">
                 <div class="form-group">
-                  <%= f.text_field :name, autofocus: true, placeholder: 'Name', class: "form-control #{field_validity_css_class(resource, :name)}" %>
+                  <%= f.text_field :name, autofocus: true, placeholder: 'Имя', class: "form-control #{field_validity_css_class(resource, :name)}" %>
                   <%= catched_errors(resource, :name) %>
                 </div>
                 <div class="form-group">
@@ -18,26 +18,23 @@
                   <%= catched_errors(resource, :email) %>
                 </div>
                 <div class="form-group">
-                  <%= f.password_field :password, autocomplete: 'current-password', placeholder: 'Password', class: "form-control #{field_validity_css_class(resource, :password)}" %>
+                  <%= f.password_field :password, autocomplete: 'current-password', placeholder: 'Пароль', class: "form-control #{field_validity_css_class(resource, :password)}" %>
                   <%= catched_errors(resource, :password) %>
-                  <% if @minimum_password_length %>
-                    <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
-                  <% end %>
                 </div>
                 <div class="form-group">
-                  <%= f.password_field :password_confirmation, autocomplete: 'current-password', placeholder: 'Confirm password', class: "form-control #{field_validity_css_class(resource, :password_confirmation)}" %>
+                  <%= f.password_field :password_confirmation, autocomplete: 'current-password', placeholder: 'Подтверждение пароля', class: "form-control #{field_validity_css_class(resource, :password_confirmation)}" %>
                   <%= catched_errors(resource, :password_confirmation) %>
                 </div>
                 <div class="form-group">
-                  <%= f.submit 'Sign Up', class: 'btn btn-fill-out btn-block' %>
+                  <%= f.submit 'Зарегистрироваться', class: 'btn btn-fill-out btn-block' %>
                 </div>
               </form>
               <div class="divider-text-center mt-15 mb-25">
-                <span> or</span>
+                <span>или</span>
               </div>
               <%- if controller_name != 'sessions' %>
-                <div class="text-muted text-center">Already have an account?
-                  <%= link_to 'Sign in now', new_session_path(resource_name) %>
+                <div class="text-muted text-center">Уже есть аккаунт?
+                  <%= link_to 'Войти сейчас', new_session_path(resource_name) %>
                 </div>
               <% end -%>
             </div>
