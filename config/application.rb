@@ -25,10 +25,11 @@ module Ngnews
     config.load_defaults 6.1
     config.time_zone = "Europe/Moscow"
     config.active_record.default_timezone = "Europe/Moscow"
-    config.asset_host = 'http://127.0.0.1:3000'
+    config.asset_host = "http://127.0.0.1:3000"
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-    #
+    config.i18n.load_path += Dir[Rails.root.join("my", "locales", "*.{rb,yml}")]
+    config.i18n.default_locale = :de
     # config.time_zone = "Central Time (US & Canada)"
     # Configuration for the application, engines, and railties goes here.
     #
