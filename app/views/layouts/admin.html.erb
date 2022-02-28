@@ -28,7 +28,7 @@
             <%= link_to_users %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Articles', admin_articles_path, class: 'nav-link' %>
+            <%= link_to 'Новости', admin_articles_path, class: 'nav-link' %>
           </li>
           <li class="nav-item" data-turbolinks="false">
             <%= link_to_categories %>
@@ -36,6 +36,7 @@
           <li class="nav-item" data-turbolinks="false">
             <%= link_to_comments %>
           </li>
+          <% if current_moderator.admin? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Отчёты
@@ -47,6 +48,7 @@
               <%= link_to_articles_report %>
             </div>
           </li>
+          <% end %>
         </ul>
         <%= link_to 'log out', destroy_moderator_session_path, method: :delete, class: 'btn-logout m-1' %>
       </div>

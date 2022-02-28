@@ -16,6 +16,16 @@ ru:
         statuses:
           accepted: "Принято"
           rejected: "Отклонено"
+      moderator:
+        '{"correspondent"=>0, "editor"=>1, "admin"=>2}s':
+          correspondent: "Корреспондент"
+          editor: "Редактор"
+          admin: "Администратор"
+        roles:
+          admin: "Администратор"
+          moderator: "Модератор"
+          correspondent: "Корреспондент"
+          editor: "Редактор"
     attributes:
       article:
         title: "Заголовок"
@@ -39,6 +49,18 @@ ru:
         password_confirmation: "Подтверждение пароля"
         current_password: "Текущий пароль"
         new_password: "Новый пароль"
+      moderator:
+        name: "Имя"
+        email: "Электронная почта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+        new_password: "Новый пароль"
+        role_list:
+          admin: "Администратор"
+          moderator: "Модератор"
+          correspondent: "Корреспондент"
+          editor: "Редактор"
     errors:
       messages:
         record_invalid: "Возникли ошибки: %{errors}"

@@ -1,6 +1,7 @@
-<h1>Editing Moderator</h1>
+<h1>Изменение администратора</h1>
 <div class="form-container">
   <%= form_with(model: [:admin, @moderator], html: {class: 'w-50'}) do |form| %>
+   <%= form.label 'Имя' %>
     <div class="input-group">
       <%= form.text_field :name, class: "form-control #{field_validity_css_class(@moderator, :name)}" %>
       <%= catched_errors(@moderator, :name) %>
@@ -10,13 +11,9 @@
       <%= form.text_field :email, class: "form-control #{field_validity_css_class(@moderator, :email)}" %>
       <%= catched_errors(@moderator, :email) %>
     </div>
-    <%= form.label :role %>
-    <div class="input-group">
-      <%= form.select :role, Moderator.roles.keys, {}, class: "my-custom-select" %>
-    </div>
     <div>
       <%= form.submit 'OK', class: 'btn-ok mr-2' %>
-      <%= link_to 'Cancel', admin_moderators_path, class: 'btn-cancel' %>
+      <%= link_to 'Отмена', admin_moderators_path, class: 'btn-cancel' %>
     </div>
   <% end %>
 </div>

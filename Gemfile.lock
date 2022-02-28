@@ -277,6 +277,8 @@ GEM
     rubyzip (2.3.2)
     rufus-scheduler (3.8.1)
       fugit (~> 1.1, >= 1.1.6)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -387,6 +389,7 @@ DEPENDENCIES
   rubocop (~> 1.23.0)
   rubocop-rails (~> 2.12.4)
   rubyzip (~> 2.3.2)
+  russian
   sass-rails (>= 6)
   sidekiq (~> 6.4.1)
   sidekiq-cron (~> 1.2.0)

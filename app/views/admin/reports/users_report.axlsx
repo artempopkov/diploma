@@ -7,20 +7,20 @@ wb.styles do |style|
   border = wb.styles.add_style({:border => { :style => :thin, :color => "000000" }}) 
  total = wb.styles.add_style({:b => true, :alignment => {:horizontal => :center, :vertical => :center, :wrap_text => true}, :border => { :style => :thin, :color => "000000" }})
 
-  wb.add_worksheet(name: "Users report") do |sheet|
+  wb.add_worksheet(name: "Отчёт об активновсти") do |sheet|
     # Add a title row
-    sheet.add_row ["Users activity"], style: project_heading
+    sheet.add_row ["Отчёт об активновсти пользователей"], style: project_heading
     # Add the date this was downloaded  
-    sheet.add_row ["Downloaded at", Time.zone.now.strftime("%b %-d, %Y")]
+    sheet.add_row ["Создан", Time.zone.now.strftime("%b %-d, %Y")]
     # Add a blank row
     sheet.add_row []
     # Create the header row
-    sheet.add_row ["Name", "Email", "Likes", "Views", "Comments"], :style => header
+    sheet.add_row ["Имя", "Email", "Лайки", "Просмотры", "Комментарии"], :style => header
     # Create entries for each item
     @users_report.each do |data|
       sheet.add_row [data.user.name, data.user.email, data.likes, data.views, data.comments], :style => border
     end
-    sheet.add_row ['Total','', @users_report.inject(0) { |sum, x| sum + x.likes }, 
+    sheet.add_row ['Итог','', @users_report.inject(0) { |sum, x| sum + x.likes }, 
                                @users_report.inject(0) { |sum, x| sum + x.views },
                                @users_report.inject(0) { |sum, x| sum + x.comments }], :style => total
   end

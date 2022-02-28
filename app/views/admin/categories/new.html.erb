@@ -1,7 +1,7 @@
 <h1>New Category</h1>
 <div class="form-container">
   <%= form_with(model: [:admin, @category], html: { class: 'w-50' }) do |form| %>
-    <%= form.label :name %>
+    <%= form.label 'Наименование' %>
     <div class="input-group">
       <%= form.text_field :name, class: "form-control mb-3 #{field_validity_css_class(@category, :name)}" %>
       <%= catched_errors(@category, :name) %>
@@ -9,7 +9,7 @@
 
     <div data-turbolinks="false">
       <%= form.submit 'OK', class: 'btn-ok mr-2' %>
-      <%= link_to 'Cancel', admin_categories_path, class: 'btn-cancel' %>
+      <%= link_to 'Отмена', admin_categories_path, class: 'btn-cancel' %>
     </div>
   <% end %>
 </div>

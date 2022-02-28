@@ -1,4 +1,4 @@
 $("#comment-count2").after("<%= escape_javascript(render partial: 'comments/comment', locals: {comment: @comment}) %>");
 $("#comment-body").val("");
-$("#comment-count1").html("<%= @comment.article.comments.count %> comments");
-$("#comment-count2").html("<%= @comment.article.comments.count %> Comments");
+$("#comment-count1").html("<%= @comment.article.comments.count %> <%= Russian.p(@comment.article.comments.count, "комментарий", "комментрия", "комметариев") %>");
+$("#comment-count2").html("<%= @comment.article.comments.count %> <%= Russian.p(@comment.article.comments.count, "комментарий", "комментрия", "комметариев") %>");

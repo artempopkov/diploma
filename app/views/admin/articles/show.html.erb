@@ -1,7 +1,7 @@
 <div class="main_content sidebar_right pb-50 pt-50">
   <div class="container">
     <div class="mb-10">
-      <%= link_to 'Back', admin_articles_path, class: 'btn-back' %>
+      <%= link_to 'Назад', admin_articles_path, class: 'btn-back' %>
       <% if %w[created prepared rejected].include?(@article.status) %>
         <%= edit_article(@article) %>
       <% end %>
@@ -9,7 +9,7 @@
         <%= prepare_article(@article) %>
       <% end %>
       <% if current_moderator.editor? %>
-        <button id="open-comment-field" class="btn-comment">Comment</button>
+        <button id="open-comment-field" class="btn-comment">Рецензия</button>
         <%= publish_article(@article) %>
         <%= toggle_important(@article) %>
       <% end %>
@@ -24,13 +24,13 @@
           <div class="divider mb-15 mt-15"></div>
         </div>
         <div class="entry-header entry-header-1 mb-30">
-          <a href="#"><span>Category: <%= @article.category.name %></span></a>
+          <a href="#"><span>Категория: <%= @article.category.name %></span></a>
           <h1 class="post-title text-break">
             <%= @article.title %>
           </h1>
           <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
             <span class="post-on has-dot"><%= admin_published_time_label(@article) %></span>
-            <span class="post-on has-dot">Status: <%= @article.translated_status %></span>
+            <span class="post-on has-dot">Статус: <%= @article.translated_status %></span>
           </div>
         </div>
         <%= article_avatar(@article)%>
@@ -46,12 +46,12 @@
       </div>
       <%# ---------------------------------------------------------------- %>
       <div class="col-lg-4 col-md-6 col-sm-6">
-        <h2> Reviews </h2>
+        <h2> Рецензии </h2>
         <div id="article-reviews">
           <%= render "admin/article_reviews/article_review" %>
         </div>
         <div id="more-article-reviews" class="d-flex justify-content-center mt-2">
-          <%= link_to "Load more", admin_article_url(page: @reviews.next_page), remote: true if @reviews.next_page %>
+          <%= link_to "Загрузить ещё", admin_article_url(page: @reviews.next_page), remote: true if @reviews.next_page %>
         </div>
       </div>
     </div>

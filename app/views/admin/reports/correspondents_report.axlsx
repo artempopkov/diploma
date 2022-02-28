@@ -7,20 +7,20 @@ wb.styles do |style|
   border = wb.styles.add_style({:border => { :style => :thin, :color => "000000" }}) 
   total = wb.styles.add_style({:b => true, :alignment => {:horizontal => :center, :vertical => :center, :wrap_text => true}, :border => { :style => :thin, :color => "000000" }})
   
-  wb.add_worksheet(name: "Correspondents report") do |sheet|
+  wb.add_worksheet(name: "Отчёт о корреспондентах") do |sheet|
     # Add a title row
-    sheet.add_row ["Correspondents report"], style: project_heading
+    sheet.add_row ["Отчёт о корреспондентах"], style: project_heading
     # Add the date this was downloaded  
-    sheet.add_row ["Downloaded at", Time.zone.now.strftime("%b %-d, %Y")]
+    sheet.add_row ["Создан", Time.zone.now.strftime("%b %-d, %Y")]
     # Add a blank row
     sheet.add_row []
     # Create the header row
-    sheet.add_row ["Name", "Email", "Articles amount","Likes", "Views", "Comments"], :style => header
+    sheet.add_row ["Имя", "Email", "Кол-во новостей", "Лайки", "Просмотры", "Комментарии"], :style => header
     # Create entries for each item
     @correspondents_report.each do |data|
       sheet.add_row [data.correspondent.name, data.correspondent.email, data.articles_count, data.likes, data.views, data.comments], :style => border
     end
-    sheet.add_row ['Total', '', @correspondents_report.inject(0) { |sum, x| sum + x.articles_count }, 
+    sheet.add_row ['Итог', '', @correspondents_report.inject(0) { |sum, x| sum + x.articles_count }, 
                             @correspondents_report.inject(0) { |sum, x| sum + x.likes }, 
                             @correspondents_report.inject(0) { |sum, x| sum + x.views },
                             @correspondents_report.inject(0) { |sum, x| sum + x.comments }], :style => total

@@ -10,6 +10,7 @@ module Admin
       @query = policy_scope([:admin, Article]).ransack(params[:query])
       @articles = @query.result.includes(:category)
       authorize [:admin, @articles]
+      @articles = @articles.uniq { |p| p.id }
     end
 
     def show

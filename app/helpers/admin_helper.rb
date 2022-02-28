@@ -18,7 +18,7 @@ module AdminHelper
   end
 
   def link_to_moderators
-    link_to 'Админы', admin_moderators_path, class: 'nav-link' if user_admin?
+    link_to 'Администраторы', admin_moderators_path, class: 'nav-link' if user_admin?
   end
 
   def link_to_users
@@ -34,7 +34,7 @@ module AdminHelper
   end
 
   def create_new_article
-    link_to 'Новая статья', new_admin_article_path, class: 'btn-create' if user_correspondent?
+    link_to 'Создать новость', new_admin_article_path, class: 'btn-create' if user_correspondent?
   end
 
   def destroy_article(article)

@@ -26,7 +26,7 @@ class ModeratorsDatatable < AjaxDatatablesRails::ActiveRecord
         id: record.id,
         name: record.name,
         email: record.email,
-        role: record.role,
+        role: record.translated_role,
         destroy: link_to('Destroy', [:admin, record], method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none text-right')
       }
     end
