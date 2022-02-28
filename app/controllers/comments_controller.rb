@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to :js
     else
-      redirect_to article_url(@comment.article), alert: 'Comment field cannot be blank'
+      redirect_to article_url(@comment.article), alert: 'Поле комментария не может быть пустым'
     end
   end
   

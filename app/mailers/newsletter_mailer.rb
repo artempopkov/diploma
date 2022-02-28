@@ -3,6 +3,6 @@ class NewsletterMailer < ApplicationMailer
 
   def newsletter_email
     @articles = params[:articles]
-    mail(to: params[:email], subject: 'Newsletter')
+    mail(to: params[:email], subject: 'Emails подписка')
   end
 end

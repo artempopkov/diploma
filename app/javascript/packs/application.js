@@ -383,7 +383,7 @@ $(document).on("turbolinks:load", function () {
           imgPreview.innerHTML =
             '<img src="' +
             this.result +
-            '" /> <a href="" id="remove-img"> Remove image</a>';
+            '" /> <a href="" id="remove-img">Удалить изображение</a>';
           const removeImg = document.getElementById("remove-img");
           const fileNameLabel = document.getElementById("file-name-input");
           removeImg.addEventListener("click", function (event) {
@@ -391,7 +391,7 @@ $(document).on("turbolinks:load", function () {
             imgPreview.style.display = "none";
             imgPreview.innerHTML = "";
             chooseFile.value = "";
-            fileNameLabel.innerHTML = "Choose image";
+            fileNameLabel.innerHTML = "Выберите изображение";
           });
         });
       }

@@ -9,16 +9,16 @@ module EmailHelper
     image_tag attachments[image].url, **options
   end
 
-  def universal_time_format(time)
-    time.strftime("%d %b %Y, %H:%M")
+
+  def published_time_label(article)
+    utc_published_time = utc(article.published_at)
+    return "Изменена: #{utc_published_time}" if article.edited?
+
+    utc_published_time
   end
 
-  def published_time(article)
-    return "Not published yet" unless article.published_at
-
-    return "Edit: #{universal_time_format(article.published_at)}" if article.edited?
-
-    universal_time_format(article.published_at)
+  def utc(time)
+    time.strftime("%d %b %Y, %H:%M")
   end
 
   def article_avatar_small_preview(article)

@@ -1,14 +1,4 @@
 <%= form_with(model: [:admin, @article, review], url: admin_article_reviews_path(@article)) do |form| %>
-  <% if review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
-      <ul>
-        <% review.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <%= form.hidden_field :article_id %>
   <%= form.hidden_field :moderator_id, value: current_moderator.id %>
   <div class="field mb-2">
@@ -17,10 +7,9 @@
 
   <div class="field">
     <%= form.select :status, review_statuses.keys.map { |status| [enum_i18n(ArticleReview, ArticleReview.statuses, status), status] }, {}, {class: "form-control"}  %>
-    <%# <%= form.select :status, ArticleReview.statuses, {}, {class: "form-control"}  %> %>
   </div>
 
   <div class="actions">
-    <%= form.submit 'Submit', class: 'btn-return' %>
+    <%= form.submit 'Отправить', class: 'btn-return' %>
   </div>
 <% end %>

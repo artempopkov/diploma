@@ -17,9 +17,9 @@ class EmailSubscriptionsController < ApplicationController
     @email_subscription.subscriptionable_ids = @email_subscription.subscriptionable_ids.reject(&:blank?)
 
     if @email_subscription.update(email_subscription_params)
-      redirect_to user_email_subscriptions_path, notice: "Update email subscriptions successfully"
+      redirect_to user_email_subscriptions_path, notice: "Email подписка успешно обновлена"
     else
-      redirect_to user_email_subscriptions_path, notice: "Update email subscriptions failed"
+      redirect_to user_email_subscriptions_path, alert: "Ошибка обновления email подписки"
     end
   end
 

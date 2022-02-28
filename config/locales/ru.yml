@@ -20,6 +20,7 @@ ru:
       article:
         title: "Заголовок"
         content: "Содержимое"
+        description: "Описание"
         status_list:
           created: "Создана"
           prepared: "Подготовлена"

@@ -445,3 +445,7 @@ table.dataTable th {
   float: left;
   text-align: left;
 }
+
+.custom-file-input ~ .custom-file-label::after {
+  content: "Выбрать";
+}

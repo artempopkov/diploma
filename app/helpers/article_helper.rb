@@ -1,7 +1,7 @@
 module ArticleHelper
   def published_time_label(article)
     utc_published_time = utc(article.published_at)
-    return "Edit: #{utc_published_time}" if article.edited?
+    return "Изменена: #{utc_published_time}" if article.edited?
 
     utc_published_time
   end
@@ -25,11 +25,11 @@ module ArticleHelper
   def toggle_important(article)
     if article.important?
       link_to toggle_important_admin_article_path(article, important: false), class: "btn-mark", method: :patch, remote: :true do
-        "Unmark"
+        "Убрать из важных"
       end
     else
       link_to toggle_important_admin_article_path(article, important: true), class: "btn-mark", method: :patch, remote: :true do
-        "Mark"
+        "Добавить в важные"
       end
     end
   end
