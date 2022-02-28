@@ -50,32 +50,32 @@
                 <div class="user-account d-inline-block font-small">
                   <a class="dropdown-toggle" href="#" role="button" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="icon-user"></i>
-                    <span>Account</span>
+                    <span>Аккаунт</span>
                   </a>
                   <div id="userMenuDropdow" class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
                     <% if user_signed_in? %>
                       <%= link_to user_path(current_user), class: 'dropdown-item' do %>
                         <i class="icon-pencil-alt"></i>
-                        My Account
+                        Мой профиль
                       <% end %>
                       <%= link_to user_email_subscriptions_path(current_user), class: 'dropdown-item' do %>
                         <i class="icon-stats-up"></i>
-                        Email Subscription
+                        Email подписка
                       <% end %>
                       <div class="dropdown-divider"></div>
                       <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
                         <i class="icon-share"></i>
-                        Logout
+                        Выйти
                       <% end %>
                     <% else %>
                       <%= link_to new_user_session_path, class: 'dropdown-item' do %>
                         <i class="icon-shift-right-alt"></i>
-                        Sign in
+                        Войти
                       <% end %>
                       <div class="dropdown-divider"></div>
                       <%= link_to new_user_registration_path, class: 'dropdown-item' do %>
                         <i class="icon-shift-right"></i>
-                        Sign up
+                        Зарегистрироваться
                       <% end %>
                     <% end %>
                   </div>
@@ -117,7 +117,7 @@
                   <nav>
                     <ul id="navigation" class="main-menu">
                       <li class="menu-item-has-children">
-                        <a href="#">Category</a>
+                        <a href="#">Категории</a>
                         <ul class="sub-menu">
                           <% Category.all.order(:id).each do |category| %>
                             <li>
@@ -132,7 +132,7 @@
                 <!-- Search -->
                 <div class="search-button h-69">
                   <button class="search-icon h-69"><i class="icon-search"></i></button>
-                  <span class="search-close float-right font-small">CLOSE</span>
+                  <span class="search-close float-right font-small">Закрыть</span>
                 </div>
               </div>
             </div>
@@ -150,13 +150,13 @@
                         html: { method: :post } do |f| %>
                     <div class="search-form-icon"><i class="icon-search"></i></div>
                     <label>
-                      <%= f.text_field :title_or_description_cont, class:"search_field", id: 'title-search-input', placeholder: "Enter keywords for search..."  %>
-                      <%= f.text_field :tags_name_cont, class:"search_field", id: 'tag-search-input', placeholder: "Enter keywords for search..." %>
+                      <%= f.text_field :title_or_description_cont, class:"search_field", id: 'title-search-input', placeholder: "Введите ключевое слово для поиска..." %>
+                      <%= f.text_field :tags_name_cont, class:"search_field", id: 'tag-search-input', placeholder: "Введите ключевое слово для поиска..." %>
                     </label>
                     <div class="search-switch">
                       <ul class="list-inline">
-                        <li class="list-inline-item"><a class='cursor-pointer' id='title-search'>Title</a></li>
-                        <li class="list-inline-item"><a class='cursor-pointer' id='tag-search'>Tag</a></li>
+                        <li class="list-inline-item"><a class='cursor-pointer' id='title-search'>Заголовок</a></li>
+                        <li class="list-inline-item"><a class='cursor-pointer' id='tag-search'>Тэг</a></li>
                       </ul>
                     </div>
                     <%= f.submit id: 'submit-search-button' %>
@@ -181,9 +181,7 @@
                 <div class="col-lg-6">
                   <div class="footer-menu float-lg-right mt-lg-0 mt-3">
                     <ul class="font-medium">
-                      <li><a href="#">Terms of use</a></li>
-                      <li><a href="#">Privacy Policy</a></li>
-                      <li><a href="#">Contact</a></li>
+                      <li><%= mail_to "artem.popkov.blr@gmail.com", "Contact" %></li>
                     </ul>
                   </div>
                 </div>

@@ -18,7 +18,7 @@
       </h5>
       <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
         <span class="post-on"><i class="ti-marker-alt"></i><%= published_time_label(article) %></span>
-        <span class="hit-count"><i class="ti-bolt"></i><%= article.impressions_count %> Views</span>
+        <span class="hit-count"><i class="ti-bolt"></i><%= article.impressions_count %> <%=Russian.p(article.impressions_count, "просмотр", "просмотра", "просмотров")%></span>
       </div>
       <p> <%= article.description %></p>
     </div>

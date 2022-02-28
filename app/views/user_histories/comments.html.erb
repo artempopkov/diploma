@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <h5 class="mb-0">Comments History</h5>
+    <h5 class="mb-0">Оставленные Комментарии</h5>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -8,8 +8,8 @@
         <thead>
           <tr>
             <th></th>
-            <th>Comment</th>
-            <th>Time</th>
+            <th>Комментарий</th>
+            <th>Дата</th>
             <th></th>
           </tr>
         </thead>
@@ -19,7 +19,7 @@
               <td></td>
               <td><%= comment.body %></td>
               <td><%= utc(time) %></td>
-              <td><%= link_to 'View', article_path(comment.article), class: "btn btn-fill-out btn-small d-block" %></td>
+              <td><%= link_to 'Открыть', article_path(comment.article), class: "btn btn-fill-out btn-small d-block" if article.published? %></td>
             </tr>
           <% end %>
         </tbody>

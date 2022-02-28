@@ -12,10 +12,8 @@
       <%= link_to article.title, article %>
     </h3>
     <div class="entry-meta meta-1 font-small color-grey mt-15 mb-15">
-      <span class="post-by">By
-        <%= article.moderator.name %>
-      </span>
       <span class="post-on has-dot"><%= published_time_label(article) %></span>
+      <span class="hit-count"><i class="ti-bolt"></i><%= article.impressions_count %> <%=Russian.p(article.impressions_count, "просмотр", "просмотра", "просмотров")%></span>
     </div>
     <div class="post-excerpt mb-25">
       <p><%= article.description %></p>
