@@ -8,9 +8,8 @@ module Admin
 
     def index
       @query = policy_scope([:admin, Article]).ransack(params[:query])
-      @articles = @query.result.includes(:category)
+      @articles = @query.result(distinct: true).includes(:category).order(id: :desc).page(current_page)
       authorize [:admin, @articles]
-      @articles = @articles.uniq { |p| p.id }
     end
 
     def show

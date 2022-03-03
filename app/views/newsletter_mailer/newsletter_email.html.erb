@@ -61,7 +61,7 @@
                               align="left">
                                 <div style="color: #636363; line-height: 130%; text-align: left; word-wrap: break-word;">
                                   <p style="font-size: 14px; line-height: 130%;"><span
-                                    style="font-size: 18px; line-height: 23.4px;">TOP STORIES FOR YOU</span></p>
+                                    style="font-size: 18px; line-height: 23.4px;">Лучшее новости для Вас</span></p>
                                 </div>
                               </td>
                             </tr>
@@ -146,7 +146,7 @@
                                     <p style="line-height: 120%; font-size: 14px;"><span
                                     style="font-size: 12px; line-height: 14.4px;">By <span
                                       style="background-color: rgba(255, 255, 255, 0); line-height: 14.4px; font-size: 12px;"><%= published_time_label(article) %>
-                                          , <%= article.impressions_count %> Views </span><span
+                                          , <%= article.impressions_count %> <%= Russian.p(article.impressions_count, "просмотр", "просмотра", "просмотров")%> </span><span
                                       style="background-color: rgba(255, 255, 255, 0); line-height: 14.4px; font-size: 12px; color: #999999;"></span></span></p>
                                   </div>
                                 </td>
@@ -179,7 +179,7 @@
                                     <p style="font-size: 14px; line-height: 180%;"><%= article.description %></p>
                                     <p style="font-size: 14px; line-height: 180%;"><strong><span
                                       style="text-decoration: underline; font-size: 14px; line-height: 25.2px; color: #000000;">
-                                          <%= link_to 'READ MORE', article, class: 'color-black' %>&gt;&gt;</span></strong></p>
+                                          <%= link_to 'ЧИТАТЬ', article, class: 'color-black' %>&gt;&gt;</span></strong></p>
                                   </div>
                                 </td>
                               </tr>
@@ -274,7 +274,7 @@
                                 <div align="center">
                                     <span style="display:block;padding:10px 20px;line-height:120%;"><span
                                       style="font-size: 18px; line-height: 21.6px;">
-                                      <%= link_to 'View All Updates', root_url, class: 'more'%></span></span>
+                                      <%= link_to 'Просмотреть Все Обновления', root_url, class: 'more'%></span></span>
                                   
                                 </div>
                               </td>
@@ -305,8 +305,7 @@
                               align="left">
                                 <div style="line-height: 120%; text-align: left; word-wrap: break-word;">
                                   <div style="font-family: arial, helvetica, sans-serif;"><span
-                                    style="font-size: 12px; color: #999999; line-height: 14.4px;">You received this
-                                      email because you signed up for NGnews.<br />
+                                    style="font-size: 12px; color: #999999; line-height: 14.4px;">Вы получили это письмо так как офрмили рассылку на NGnews.<br />
                                     </div>
                                   </div>
                                 </td>

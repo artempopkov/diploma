@@ -18,7 +18,7 @@ module EmailHelper
   end
 
   def utc(time)
-    time.strftime("%d %b %Y, %H:%M")
+    I18n.l(time, format: "%d %b %Y, %H:%M", locale: :'ru')
   end
 
   def article_avatar_small_preview(article)

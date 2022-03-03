@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   root to: "home#index"
-  
+  get '/users/', to: 'home#index'
   devise_for :moderators
   devise_for :users, controllers: { registrations: "users/registrations" }
 
