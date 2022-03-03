@@ -28,7 +28,7 @@ class Article < ApplicationRecord
 
   def related_articles
     by_category = Article.published.where(category_id: category_id).where.not(id: id)
-    by_category = Article.published.tagged_with(tag_list, any: true).where.not(id: id)
-    (by_category + by_category).sample(3)
+    by_tag = Article.published.tagged_with(tag_list, any: true).where.not(id: id)
+    (by_category + by_tag).sample(3)
   end
 end
