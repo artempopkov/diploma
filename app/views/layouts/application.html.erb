@@ -41,7 +41,9 @@
               <div class="col-6">
                 <div id="datetime" class="d-inline-block">
                   <ul>
-                    <li><span class="font-small"><i class="ti-calendar mr-5"></i><%= Time.now.strftime("%A, %B %-d, %Y") %></span></li>
+                    <li><span class="font-small"><i class="ti-calendar mr-5"></i>
+                    <%= I18n.l(DateTime.now, format: "%A, %-d %B, %Y", locale: :'ru') %>
+                    </span></li>
                   </ul>
                 </div>
               </div>

@@ -30,6 +30,8 @@ ru:
           correspondent: "Корреспондент"
           editor: "Редактор"
     attributes:
+      category:
+        name: "Наименование"
       article:
         title: "Заголовок"
         content: "Содержимое"

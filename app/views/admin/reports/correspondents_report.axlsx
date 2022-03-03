@@ -11,7 +11,7 @@ wb.styles do |style|
     # Add a title row
     sheet.add_row ["Отчёт о корреспондентах"], style: project_heading
     # Add the date this was downloaded  
-    sheet.add_row ["Создан", Time.zone.now.strftime("%b %-d, %Y")]
+    sheet.add_row ["Создан", I18n.l(DateTime.now, format: "%A, %-d %B, %Y", locale: :'ru')]
     # Add a blank row
     sheet.add_row []
     # Create the header row
