@@ -35,9 +35,6 @@ gem 'will_paginate-bootstrap4', '~> 0.2.2'
 gem 'axlsx_rails', '~> 0.6.1'
 gem 'rubyzip', '~> 2.3.2'
 
-gem 'sidekiq-scheduler', '~> 3.1.1'
-gem 'sidekiq-cron', '~> 1.2.0'
-gem 'premailer-rails'
 gem 'rails-i18n'
 gem 'translate_enum'
 gem 'ransack-enum'
@@ -57,7 +54,7 @@ end
 group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
-  gem 'spring'
+  gem 'spring', '~> 3.1.1'
   gem 'web-console', '>= 4.1.0'
 end
 
