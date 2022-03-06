@@ -70,22 +70,23 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
+  config.action_mailer.raise_delivery_errors = false
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.action_mailer.default_url_options = { :host => '127.0.0.1:3000' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    port: 587,
-    address: "smtp.gmail.com",
-    user_name: "artem891lol@gmail.com",
-    password: "pkmkxmzmowboniqd",
-    authentication: :plain,
-    enable_starttls_auto: true,
-  }
+  # config.action_mailer.default_url_options = { :host => '127.0.0.1:3000' }
+  # config.action_mailer.delivery_method = :smtp
+  
+  # config.action_mailer.smtp_settings = {
+  #   port: 587,
+  #   address: "smtp.gmail.com",
+  #   user_name: "artem891lol@gmail.com",
+  #   password: "pkmkxmzmowboniqd",
+  #   authentication: :plain,
+  #   enable_starttls_auto: true,
+  # }
 
   config.active_job.queue_adapter = :sidekiq
 end

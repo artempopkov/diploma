@@ -21,11 +21,11 @@ class UsersDatatable < AjaxDatatablesRails::ActiveRecord
   def data
     records.map do |record|
       {
-        edit: link_to('Edit', edit_admin_user_path(record), class: 'text-decoration-none'),
+        edit: link_to('Изменить', edit_admin_user_path(record), class: 'text-decoration-none'),
         id: record.id,
         name: record.name,
         email: record.email,
-        destroy: link_to('Destroy', [:admin, record], method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none text-right')
+        destroy: link_to('Удалить', [:admin, record], method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none text-right')
       }
     end
   end
