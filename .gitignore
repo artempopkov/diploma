@@ -8,13 +8,7 @@
 !/tmp/pids/.keep
 /storage/*
 !/storage/.keep
-/public/assets
 .byebug_history
-/config/master.key
-/config/database.yml
-/public/uploads
-/public/packs
-/public/packs-test
 /node_modules
 /yarn-error.log
 yarn-debug.log*
@@ -25,8 +19,6 @@ yarn-debug.log*
 **/.DS_Store
 
 /vendor
-/public/packs
-/public/packs-test
 /node_modules
 /yarn-error.log
 yarn-debug.log*

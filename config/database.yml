@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: ngnews_development
+  username: app
+  password: 12345
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: ngnews_test
+  username: app
+  password: 12345
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: ngnews_production
+  username: app
+  password: 12345
