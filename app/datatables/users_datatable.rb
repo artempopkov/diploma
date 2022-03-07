@@ -25,7 +25,7 @@ class UsersDatatable < AjaxDatatablesRails::ActiveRecord
         id: record.id,
         name: record.name,
         email: record.email,
-        destroy: link_to('Удалить', [:admin, record], method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none text-right')
+        destroy: link_to('Удалить', [:admin, record], method: :delete, data: { confirm: "Вы уверены?" }, class: 'text-decoration-none text-right')
       }
     end
   end

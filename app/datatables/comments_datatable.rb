@@ -23,7 +23,7 @@ class CommentsDatatable < AjaxDatatablesRails::ActiveRecord
         id: record.id,
         comment: record.body,
         date: record.created_at.strftime("%d %b %Y, %H:%M"),
-        options: link_to('Destroy', [:admin, record], method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none text-right')
+        options: link_to('Destroy', [:admin, record], method: :delete, data: { confirm: "Вы уверены?" }, class: 'text-decoration-none text-right')
       }
     end
   end

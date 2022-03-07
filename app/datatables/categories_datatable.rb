@@ -23,7 +23,7 @@ class CategoriesDatatable < AjaxDatatablesRails::ActiveRecord
         edit: link_to('Изменить', edit_admin_category_path(record), class: 'text-decoration-none'),
         id: record.id,
         name: record.name,
-        destroy: link_to('Удалить', [:admin, record], method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none text-right')
+        destroy: link_to('Удалить', [:admin, record], method: :delete, data: { confirm: "Вы уверены?" }, class: 'text-decoration-none text-right')
       }
     end
   end

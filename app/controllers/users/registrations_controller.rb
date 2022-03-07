@@ -43,4 +43,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @views_amount = user_history_service.views_amount
     @comments_amount = user_history_service.comments_amount
   end
+
+  def after_inactive_sign_up_path_for(resource)
+    new_user_session_path
+  end
+
+  def after_sign_up_path_for(resource)
+    new_user_session_path
+  end
 end
