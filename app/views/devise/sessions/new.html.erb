@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="main_content shop pb-100 mt-100 mb-100 custom-mb-1">
+    <div class="main_content shop pb-100 mt-20 custom-mb-1">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-md-10">
@@ -33,6 +33,7 @@
                                     <%= f.submit  'Войти', class: 'btn btn-fill-out btn-block' %>
                                 </div>
                             </form>
+                            <%= link_to "Не получили письмо подтверждения?", new_user_confirmation_path(resource_name), class: 'text-muted' %>
                             <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
                                 <div class="divider-text-center mt-15 mb-25"></div>
                                 <div class="text-muted text-center">
