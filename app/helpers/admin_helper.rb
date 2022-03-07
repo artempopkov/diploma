@@ -38,7 +38,7 @@ module AdminHelper
   end
 
   def destroy_article(article)
-    link_to 'Удалить', [:admin, article], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-destroy' if user_correspondent_or_admin? && (article.created? || article.rejected?)
+    link_to 'Удалить', [:admin, article], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn-destroy' if user_correspondent_or_admin? && (article.created? || article.rejected?)
   end
 
   def edit_article(article)
@@ -46,11 +46,11 @@ module AdminHelper
   end
 
   def prepare_article(article)
-    link_to 'Отправить на проверку',  prepare_admin_article_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' if user_correspondent? && (article.created? || article.rejected?)
+    link_to 'Отправить на проверку',  prepare_admin_article_path(article), method: :patch, data: { confirm: 'Вы уверены?' }, class: 'btn-send_for_review' if user_correspondent? && (article.created? || article.rejected?)
   end
 
   def publish_article(article)
-    link_to 'Опубликовать', publish_admin_article_path(article), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn-send_for_review' if user_admin_or_editor? && (article.accepted? || article.archived?) 
+    link_to 'Опубликовать', publish_admin_article_path(article), method: :patch, data: { confirm: 'Вы уверены?' }, class: 'btn-send_for_review' if user_admin_or_editor? && (article.accepted? || article.archived?) 
   end
 
   def render_review_form(review, review_statuses)
