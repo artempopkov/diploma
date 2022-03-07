@@ -32,8 +32,8 @@ Rails.application.configure do
   config.assets.compile = true
   config.assets.digest = true
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.asset_host = 'https://ngnews-diploma.herokuapp.com'
-  config.action_controller.asset_host = 'https://ngnews-diploma.herokuapp.com'
+  config.asset_host = ENV['APPLICATION_HOST']
+  config.action_controller.asset_host = ENV['APPLICATION_HOST']
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
