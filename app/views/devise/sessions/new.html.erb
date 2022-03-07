@@ -34,7 +34,7 @@
                                 </div>
                             </form>
                             <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-                                <%= link_to "Не получили письмо подтверждения?", new_user_confirmation_path(resource_name), class: 'text-muted' %>
+                                <%= link_to "Не получили письмо подтверждения?", new_user_confirmation_path, class: 'text-muted' %>
                                 <div class="divider-text-center mt-15 mb-25"></div>
                                 <div class="text-muted text-center">
                                     Нет аккаунта? <%= link_to "Зарегистрироваться", new_registration_path(resource_name) %>
