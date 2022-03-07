@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :validatable
+  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :validatable, :confirmable
   validates :name, presence: true, length: { maximum: 20 }
   after_create :create_email_subscription
 
