@@ -21,7 +21,7 @@ wb.styles do |style|
       sheet.add_row [data.user.name, data.user.email, data.likes, data.views, data.comments], :style => border
     end
     sheet.add_row ['Итог','', @users_report.inject(0) { |sum, x| sum + x.likes }, 
-                               @users_report.inject(0) { |sum, x| sum + x.views },
-                               @users_report.inject(0) { |sum, x| sum + x.comments }], :style => total
+                              @users_report.inject(0) { |sum, x| sum + x.views },
+                              @users_report.inject(0) { |sum, x| sum + x.comments }], :style => total
   end
 end

@@ -18,13 +18,16 @@ wb.styles do |style|
     sheet.add_row ["Заголовок", "Лайки", "Просмотры", "Комментарии"], :style => header
     # Create entries for each item
     @articles_report.each do |data|
-      cureent_row = sheet.add_row [data.article.title, data.likes, data.views, data.comments, 'ОТКРЫТЬ'], :style => border
-      sheet.add_hyperlink :location => article_url(data.article), :ref => cureent_row.cells.fifth, :tooltip => "View article"
-      
+      if data.article.published?
+        cureent_row = sheet.add_row [data.article.title, data.likes, data.views, data.comments, 'ОТКРЫТЬ'], :style => border
+        sheet.add_hyperlink :location => article_url(data.article), :ref => cureent_row.cells.fifth, :tooltip => "View article"
+      else
+        cureent_row = sheet.add_row [data.article.title, data.likes, data.views, data.comments, ''], :style => border
+      end
     end
     sheet.add_row ['Итого', @articles_report.inject(0) { |sum, x| sum + x.likes }, 
-                                @articles_report.inject(0) { |sum, x| sum + x.views },
-                                @articles_report.inject(0) { |sum, x| sum + x.comments },
-                                @articles_report.size], :style => total
+                            @articles_report.inject(0) { |sum, x| sum + x.views },
+                            @articles_report.inject(0) { |sum, x| sum + x.comments },
+                            @articles_report.size], :style => total
   end
 end
