@@ -56,7 +56,11 @@
                 <div class="user-account d-inline-block font-small">
                   <a class="dropdown-toggle" href="#" role="button" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="icon-user"></i>
-                    <span>Аккаунт</span>
+                    <% if user_signed_in? %>
+                      <%= current_user.email %>
+                    <% else %>
+                      <span>Аккаунт</span>
+                    <% end %>
                   </a>
                   <div id="userMenuDropdow" class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
                     <% if user_signed_in? %>
