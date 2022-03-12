@@ -10,7 +10,7 @@ module Categories
         context.category.destroy!
       end
     rescue StandardError => exception
-      context.fail!(message: exception.message)
+      context.fail!(message: 'Ошибка удаления')
     end
   end
 end

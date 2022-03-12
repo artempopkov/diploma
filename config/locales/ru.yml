@@ -11,7 +11,7 @@ ru:
           accepted: "Принята"
           rejected: "Отклонена"
           published: "Опубликована"
-          archived: "Заархивирована"
+          archived: "Зархивирована"
       article_review:
         '{"accepted"=>0, "rejected"=>1}s':
           accepted: "Принята"

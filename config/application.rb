@@ -34,7 +34,7 @@ module Ngnews
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.to_prepare do
-    
+
       # Or to configure mailer layout
       Devise::Mailer.layout "mailer" # email.haml or email.erb
       Devise::Mailer.helper EmailHelper
