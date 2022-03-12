@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :articles, only: [:show] do
+  resources :articles, only: [:show],   constraints: ShowArticlesConstraint.new do
     resources :comments
     member do
       put "like", to: "articles#like"
