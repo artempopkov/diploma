@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     end
   end
 
+  match '/404', to: 'errors#not_found', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
+  
   root to: "home#index"
   get '/users/', to: 'home#index'
   devise_for :moderators

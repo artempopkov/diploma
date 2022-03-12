@@ -32,6 +32,7 @@ module Ngnews
     # config.time_zone = "Central Time (US & Canada)"
     # Configuration for the application, engines, and railties goes here.
     # config.eager_load_paths << Rails.root.join("extras")
+    config.exceptions_app = self.routes
 
     config.to_prepare do
 
