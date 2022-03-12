@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ngnews</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <main class="position-relative">
+      <!--Search Form-->
+      <div class="main-search-form transition-02s">
+        <div class="container">
+          <div class="pt-50 pb-50 main-search-form-cover">
+            <div class="row mb-20">
+              <div class="col-12">
+              </div>
+            </div>
+            <div class="row">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--main content-->
+      <div class="main_content sidebar_right mt-100 mb-100">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 d-lg-block d-none"><img src="assets/imgs/theme/fogg-page-not-found.png" alt=""></div>
+            <div class="col-lg-6 col-md-12">
+              <h1 class="mb-30">404</h1>
+              <form action="#" method="get" class="search-form d-lg-flex open-search mb-30">
+                <i class="icon-search"></i>
+                <input class="form-control" name="name" id="name" type="text" placeholder="Search...">
+              </form>
+              <p class="">Простите, но страница которую вы искали не существует</p>
+            </p>
+            <div class="form-group">
+              <%= link_to 'Домашняя страница', root_path, class: 'button button-contactForm mt-30'>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
