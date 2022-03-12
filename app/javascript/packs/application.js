@@ -414,3 +414,12 @@ $(document).on("turbolinks:load", function() {
 $(document).on("turbolinks:load", function() {
     $(".top-bar").removeClass("d-none");
 });
+
+$(document).on("turbolinks:load", function() {
+    $(".search_field").on("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("submit-search-button").click();
+        }
+    });
+});
