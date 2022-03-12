@@ -44,6 +44,7 @@ gem 'russian'
 gem 'rack-cors'
 gem 'aws-sdk', '~> 2'
 gem 'figaro'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
