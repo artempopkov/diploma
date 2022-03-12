@@ -135,7 +135,7 @@
                         <ul class="sub-menu">
                           <% Category.all.order(:id).each do |category| %>
                             <li>
-                              <%= link_to category.name, search_articles_path(query: {category_id_eq: category.id}) %>
+                              <%= link_to category.name, search_path(query: {category_id_eq: category.id}) %>
                             </li>
                           <% end %>
                         </ul>
@@ -160,7 +160,7 @@
             <div class="pt-10 pb-50 main-search-form-cover">
               <div class="row mb-20">
                 <div class="col-12">
-                  <%= search_form_for Article.published.ransack(params[:query]), url: search_articles_path, class: 'search-form position-relative',
+                  <%= search_form_for Article.published.ransack(params[:query]), url: search_path, class: 'search-form position-relative',
                         html: { method: :post } do |f| %>
                     <div class="search-form-icon"><i class="icon-search"></i></div>
                     <label>

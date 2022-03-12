@@ -10,7 +10,7 @@
     <div class="post-content">
       <div class="entry-meta meta-0 font-small mb-15">
         <span class="post-cat background1 color-white">
-          <%= link_to article.category.name, search_articles_path(query: {category_id_eq: article.category.id}), class: 'color-white' %>
+          <%= link_to article.category.name, search_path(query: {category_id_eq: article.category.id}), class: 'color-white' %>
         </span>
       </div>
       <h5 class="post-title">

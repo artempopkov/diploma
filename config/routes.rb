@@ -25,15 +25,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :articles, only: [:show],   constraints: ShowArticlesConstraint.new do
+  resources :articles, only: [:show], constraints: ShowArticlesConstraint.new do
     resources :comments
     member do
       put "like", to: "articles#like"
     end
-    collection do
-      match "search" => "home#search", via: [:get, :post], as: :search
-    end
   end
+
+  match "search" => "home#search", via: [:get, :post], as: :search
 
   namespace :admin do
     get "/", to: "home#index"
