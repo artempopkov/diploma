@@ -42,6 +42,8 @@ gem 'translate_enum'
 gem 'ransack-enum'
 gem 'russian'
 gem 'rack-cors'
+gem 'aws-sdk', '~> 2'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
