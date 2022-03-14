@@ -315,7 +315,7 @@ $(document).on("turbolinks:load", function() {
 });
 
 $(document).on("turbolinks:load", function() {
-    if (/articles[/]search/.test(window.location.href)) {
+    if (/search/.test(window.location.href)) {
         $("body").toggleClass("open-search-form");
         $(".search-close").show();
     }
