@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_111136) do
     t.string "name", null: false
     t.text "body"
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
+    t.integer "record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
@@ -208,9 +208,9 @@ ActiveRecord::Schema.define(version: 2022_03_07_111136) do
 
   create_table "votes", force: :cascade do |t|
     t.string "votable_type"
-    t.bigint "votable_id"
+    t.integer "votable_id"
     t.string "voter_type"
-    t.bigint "voter_id"
+    t.integer "voter_id"
     t.boolean "vote_flag"
     t.string "vote_scope"
     t.integer "vote_weight"
