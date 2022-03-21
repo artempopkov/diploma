@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: ngnews_development
+  database: diploma_development
   username: app
   password: 12345
 
@@ -10,7 +10,7 @@ test:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: ngnews_test
+  database: diploma_test
   username: app
   password: 12345
 

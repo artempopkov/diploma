@@ -1,10 +1,20 @@
 <div class="main_content sidebar_right pb-50 mt-50">
   <div class="container">
+    <% if params[:query].present? %>
+      <% if params[:query][:category_id_eq].present? %>
+        <h2 class="mb-3">Категория: <%= Category.find(params[:query][:category_id_eq]).name %></h2>
+      <% end %>
+    <% end %>
     <div class="row">
       <div class="col-lg-8 col-md-12 col-sm-12">
         <div class="loop-list loop-list-1">
           <% @articles.each_with_index do |article, index| %>
             <%= render_article_preview(article, index) %>
+          <% end %>
+          <% if @articles.empty? %>
+            <div class="alert alert-warning">
+              Нет ни одной статьи
+            </div>
           <% end %>
         </div>
         <!--pagination-->
@@ -40,7 +50,7 @@
                       <div class="post-content media-body">
                         <div class="entry-meta meta-0 font-small mb-10">
                           <span class="post-in background5 color-white font-small">
-                          <%= link_to article.category.name,  search_path(query: {category_id_eq: article.category.id}), class: 'color-white' %>
+                            <%= link_to article.category.name,  search_path(query: {category_id_eq: article.category.id}), class: 'color-white' %>
                           </span>
                         </div>
                         <h6 class="post-title mb-10 text-limit-2-row"><%= link_to article.title, article %></h6>
@@ -68,7 +78,7 @@
                   <div class="post-content">
                     <div class="entry-meta meta-0 font-small mb-15">
                       <span class="post-cat background9 color-white">
-                      <%= link_to article.category.name, search_path(query: {category_id_eq: article.category.id}), class: 'color-white' %>
+                        <%= link_to article.category.name, search_path(query: {category_id_eq: article.category.id}), class: 'color-white' %>
                       </span>
                     </div>
                     <h4 class="post-title">
