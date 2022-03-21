@@ -2,7 +2,8 @@
   <div class="container">
     <% if params[:query].present? %>
       <% if params[:query][:category_id_eq].present? %>
-        <h2 class="mb-3">Категория: <%= Category.find(params[:query][:category_id_eq]).name %></h2>
+        <%= link_to "Категория: #{Category.find(params[:query][:category_id_eq]).name}", root_path, class: 'h2'%>
+        <p></p>
       <% end %>
     <% end %>
     <div class="row">
