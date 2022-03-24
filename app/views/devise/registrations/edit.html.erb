@@ -11,17 +11,6 @@
         <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: "form-control #{field_validity_css_class(resource, :email)}" %>
         <%= catched_errors(resource, :email) %>
       </div>
-      <div class="form-group col-md-12">
-        <label>Новый пароль<span class="required"></span></label>
-        <%= f.password_field :password, autocomplete: 'new-password', class: "form-control #{field_validity_css_class(resource, :password)}" %>
-        <%= catched_errors(resource, :password) %>
-        <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
-      </div>
-      <div class="form-group col-md-12">
-        <label>Подтверждение пароля<span class="required"></span></label>
-        <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: "form-control #{field_validity_css_class(resource, :password_confirmation)}" %>
-        <%= catched_errors(resource, :password_confirmation) %>
-      </div>
       <div class="col-md-12">
         <%= f.submit 'Сохранить', class: 'btn btn-fill-out' %>
         <%= link_to 'Отменить мой аккаунт', registration_path(resource_name), data: { confirm: 'Вы уверены?' }, method: :delete, class: 'float-right btn btn-fill-out' %>
