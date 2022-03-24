@@ -39,7 +39,7 @@ module Admin
       @article.tag_list = article_params[:tag_list].join(' ')
       authorize [:admin, @article]
       if @article.save
-        redirect_to admin_article_url(@article), notice: 'Новсть успешно создана'
+        redirect_to admin_article_url(@article), notice: 'Новость успешно создана'
       else
         render :new, status: :unprocessable_entity
       end
