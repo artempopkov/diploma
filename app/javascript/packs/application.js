@@ -281,7 +281,7 @@ $(document).on("turbolinks:load", function() {
             templateResult: hideSelected,
             tags: true,
             tokenSeparators: [",", " "],
-            placeholder: "Выбеите тэги",
+            placeholder: "Выберите тэги",
             language: Select2Ru,
         };
 

@@ -11,7 +11,7 @@ module Admin
       authorize [:admin, result.article_review]
       
       if result.success?
-        redirect_to admin_article_url(result.article_review.article), notice: "Статья #{result.article_review.article.translated_status}"
+        redirect_to admin_article_url(result.article_review.article), notice: "Новость #{result.article_review.article.translated_status}"
       else
         flash[:error] = result.message
         redirect_to admin_articles_url

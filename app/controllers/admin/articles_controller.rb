@@ -39,7 +39,7 @@ module Admin
       @article.tag_list = article_params[:tag_list].join(' ')
       authorize [:admin, @article]
       if @article.save
-        redirect_to admin_article_url(@article), notice: 'Статья успешно создана'
+        redirect_to admin_article_url(@article), notice: 'Новость успешно создана'
       else
         render :new, status: :unprocessable_entity
       end
@@ -51,7 +51,7 @@ module Admin
 
       @article.tag_list = article_params[:tag_list].join(' ')
       if @article.update(article_params)
-        redirect_to admin_article_url(@article), notice: 'Статья успешно обновлена'
+        redirect_to admin_article_url(@article), notice: 'Новость успешно обновлена'
       else
         render :edit, status: :unprocessable_entity
       end
@@ -60,7 +60,7 @@ module Admin
     def destroy
       authorize [:admin, @article]
       @article.destroy
-      redirect_to admin_articles_url, notice: 'Статья успешно удалена'
+      redirect_to admin_articles_url, notice: 'Новость успешно удалена'
     rescue StandardError => e
       redirect_to admin_moderators_url, notice: 'Ошибка удаления'
     end
@@ -81,7 +81,7 @@ module Admin
 
       result = Articles::Prepare.call(article: @article)
       if result.success?
-        redirect_to admin_article_url(@article), notice: 'Статья подготовленная для проверки'
+        redirect_to admin_article_url(@article), notice: 'Новость подготовленная для проверки'
       else
         redirect_to admin_articles_url, alert: result.message
       end
@@ -92,7 +92,7 @@ module Admin
 
       result = Articles::Publish.call(article: @article)
       if result.success?
-        redirect_to admin_article_url(@article), notice: 'Статья опубликована'
+        redirect_to admin_article_url(@article), notice: 'Новость опубликована'
       else
         redirect_to admin_articles_url, alert: result.message
       end
