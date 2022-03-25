@@ -9,15 +9,15 @@ class UserHistoriesController < ApplicationController
 
   def likes
     
-    @likes_history = UserHistoryService.new(@user).likes.paginate(page: current_page)
+    @likes_history = UserHistoryService.new(@user).likes.sort_by { |e| e[1] }.reverse.paginate(page: current_page)
   end
 
   def comments
-    @comments_history = UserHistoryService.new(@user).comments.paginate(page: current_page)
+    @comments_history = UserHistoryService.new(@user).comments.sort_by { |e| e[1] }.reverse.paginate(page: current_page)
   end
 
   def views
-    @views_history = UserHistoryService.new(@user).views.paginate(page: current_page)
+    @views_history = UserHistoryService.new(@user).views.sort_by { |e| e[1] }.reverse.paginate(page: current_page)
   end
   
   private
